@@ -234,7 +234,7 @@ updateOne=(acc)=>{
     <div>
         <Button onClick={this.modalAccountOpen}>Yeni Birim Oluştur</Button>
 
-          <div>{this.state.listtype?"Hedefler":"Birimler"}<Switch
+          <div>{this.state.listtype?"Birimlere Göre Listelendi":"Hedeflere Göre Listelendi"}<Switch
           onChange={this.handleChangeSwitch}
           name="checkedA"
           inputProps={{ 'aria-label': 'secondary checkbox' }}

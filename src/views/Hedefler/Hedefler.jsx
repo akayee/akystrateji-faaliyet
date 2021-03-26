@@ -26,6 +26,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
 import LinearProgress from "@material-ui/core/LinearProgress";
+import { Col, Row } from "react-bootstrap";
 
 const API_URL = 'http://localhost:63544/api/hesaplar';
 const dataAdress='Hesaplar';
@@ -73,12 +74,29 @@ class Hedefler extends React.Component {
       user:currentUser(),
       HesapEkleme:null,
       columns: [
-        { title: 'Adı', field: 'Adi' },
+        { title: 'Amaç Adı', field: 'Adi' },
+        { title: 'Hedef Adı', field: 'hedefAdi' },
         { title: 'Birim', field: 'Birim' },
         {
           title: 'Üst Birim',
           field: 'ustBirimId',
           lookup: { 0: 'Fen İşleri', 1: 'Emlak İstimlak',2:'Çevre Koruma',3:'Zabıta',4:'Bilgi İşlem' },
+        }
+      ],
+      personelcolumns: [
+        { title: 'Adı', field: 'Adi' },
+        { title: 'Kadro', field: 'kadro' },
+        { title: 'Birim', field: 'Birim' },
+        {
+          title: 'Üst Birim',
+          field: 'ustBirimId',
+          lookup: { 0: 'Fen İşleri', 1: 'Emlak İstimlak',2:'Çevre Koruma',3:'Zabıta',4:'Bilgi İşlem' },
+        },
+        {
+          title:'İşe Giriş Tarihi',field:'girisTarihi'
+        },
+        {
+          title:'Cinsiyet',field:'cinsiyet'
         }
       ],
       data: [],
@@ -191,7 +209,7 @@ updateOne=(acc)=>{
     const isEmirleri=[{birimid:'1',isturu:'Yeni Yol Asfalt Dökümü',parametre:'m²',hedef:'50000'},
     {birimid:'1',isturu:'Yama İşlemleri',parametre:'m²',hedef:'10000'},
     {birimid:'1',isturu:'Yeni Yol Temel Yapımı',parametre:'m²',hedef:'50000'},
-    {birimid:'4',isturu:'Yeni Birim İnşaatı',parametre:'m²',hedef:'10000'},
+    {birimid:'4',isturu:'Üstgeçit İnşaatı',parametre:'m²',hedef:'10000'},
     {birimid:'8',isturu:'Yeni Alt Yapı Çalışması',parametre:'m²',hedef:'20000'},
     {birimid:'6',isturu:'Tahliye İşlemi',parametre:'Adet',hedef:'200'},
     {birimid:'7',isturu:'Kaldırım Yenilemesi',parametre:'m²',hedef:'12000'},
@@ -200,8 +218,8 @@ updateOne=(acc)=>{
     {birimid:'0',isturu:'Tabela Tamirat',parametre:'Adet',hedef:'8000'},
     {birimid:'0',isturu:'Numaratah Montajı',parametre:'Adet',hedef:'20000'},]
     const accounts=[      
-    {Adi:'Asfalt Dökümü',id:'1',Birim:'Yol Asfalt',hedef:'70',ustBirimId:'0'},    
-    {Adi:'Yeni Birim İnşaatı',id:'4',Birim:'İnşaat Yapım',hedef:'78',ustBirimId:'0'},
+    {Adi:'Toplu taşıma odaklı, güvenli, hızlı, konforlu, çevre dostu, kentin ekonomik ve sosyal gelişimine uyumlu, teknolojik yeniliklere açık, engelsiz ve sürdürülebilir modern ulaşım sağlamak.',hedefAdi:'Ulaşım yapısını güçlendirmek',id:'1',Birim:'Yol Asfalt',hedef:'70',ustBirimId:'0'},    
+    {Adi:'Toplu taşıma odaklı, güvenli, hızlı, konforlu, çevre dostu, kentin ekonomik ve sosyal gelişimine uyumlu, teknolojik yeniliklere açık, engelsiz ve sürdürülebilir modern ulaşım sağlamak.',hedefAdi:'Ulaşım yapısını güçlendirmek',id:'4',Birim:'İnşaat Yapım',hedef:'78',ustBirimId:'0'},
     {Adi:'Mamak Altyapı Çalışması',id:'8',Birim:'Sinyalizasyon ve Altyapı',hedef:'78',ustBirimId:'0'}, 
     {Adi:'Mamak Tahliye İşlemleri',id:'6',Birim:'Tahliye ve Yıkım',hedef:'79',ustBirimId:'0'},
     {Adi:'Keçiören Dutluk Kaldırım Çalışması',id:'7',Birim:'Kaldırım Yapım ve Bakım Onarım',hedef:'80',ustBirimId:'0'}, 
@@ -230,7 +248,18 @@ updateOne=(acc)=>{
     {Adi:'İnternet İhalesi',id:'27',Birim:'İletişim',hedef:'85',ustBirimId:'4'},
     {Adi:'Yazılım İhalesi',id:'28',Birim:'Proje İhale ve İdari İşler',hedef:'89',ustBirimId:'4'},
     {Adi:'Yazılım Geliştirme ve Bakım',id:'29',Birim:'Yazılım ve Yönetim',hedef:'99',ustBirimId:'4'},];
-    const hesapTuru=['Cash','Bank','POS','Credit Card','Cheque','Multiple Owner'];
+    const personeller=[      
+      {Adi:'Ahmet YILMAZ',kadro:'Şirket',id:'1',Birim:'Yol Asfalt',cinsiyet:'Erkek',ustBirimId:'0',girisTarihi:'10/10/2019',gorevi:'Ofis Mühendisi'},    
+      {Adi:'Kemal Ecevit',id:'4',Birim:'İnşaat Yapım',kadro:'Memur',ustBirimId:'0',cinsiyet:'Erkek',girisTarihi:'10/05/1995',gorevi:'Şube Müdürü'},];
+    const donanimlar=[      
+      {Adi:'Masaüstü Bilgisayar',Adet:15},    
+      {Adi:'Yazıcı',Adet:10},];
+    const yazilimlar=[      
+      {Adi:'Araç Takip Sistemi'},    
+      {Adi:'İhbarname Takip Sistemi'},];
+    const araclar=[      
+      {Adi:'Renault Megane 2011',Cinsi:'Binek',SahiplikTuru:'Resmi'},    
+      {Adi:'Ford Transit',Cinsi:'Pickup',SahiplikTuru:'Kiralık'},];
     const acoounttye=[
     {Adi:'Fen İşleri',id:'0',hedef:'80'},
     {Adi:'Emlak İstimlak',id:'1',hedef:'70'},
@@ -240,12 +269,12 @@ updateOne=(acc)=>{
     const columns=['Adi','Birimi','Ust Birimi']
     return (
     <div>
-        <Button onClick={this.modalAccountOpen}>Yeni Hedef Oluştur</Button>
+        <Button onClick={this.modalAccountOpen}>Yeni Stratejik Amaç Oluştur</Button>
         <GridContainer>
         <Grid item xs={12} >
           <Card>
           <MaterialTable
-          title="Stratejik Hedefler Listesi"
+          title="Stratejik Amaç Listesi"
           columns={this.state.columns}
           data={accounts}
           actions={[            
@@ -270,6 +299,11 @@ updateOne=(acc)=>{
             return (
               <div style={{width:"100%", marginLeft:"5rem"}} >
                 <GridContainer alignItems='center' justify='center'>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <Button variant="outlined" color="primary">Yeni Stratejik Hedef Ekle</Button>
+                    <Button variant="outlined" color="secondary">Yeni Performans Ekle</Button>
+                    <Button variant="outlined">Yeni İş Türü Ekle</Button>
+                  </GridItem>
                   <GridItem xs={4} sm={4} md={4}>
                     <b>İş Türü</b>
                   </GridItem>
@@ -277,8 +311,9 @@ updateOne=(acc)=>{
                     <b>Parametre</b>
                   </GridItem>
                   <GridItem xs={4} sm={4} md={4}>
-                    <b>Stratejik Hedef</b>
+                    <b>Hedef</b>
                   </GridItem>
+                  
                 
                 </GridContainer>
                 
@@ -306,6 +341,168 @@ updateOne=(acc)=>{
           
           
         </GridContainer>
+
+        <Button >Yeni Personel Ekle</Button>
+        <GridContainer>
+        <Grid item xs={12} >
+          <Card>
+          <MaterialTable
+          title="Personel Listesi"
+          columns={this.state.personelcolumns}
+          data={personeller}
+          actions={[            
+            {
+              icon: 'delete',
+              tooltip: 'Sil',
+              onClick: (event, rowData) => {
+            }
+            },
+            {
+                icon: 'edit',
+                tooltip: 'Düzenle',
+                onClick: (event, rowData) => {
+              }
+              }
+          ]} 
+          options={{
+            actionsColumnIndex: -1
+          }}
+
+          detailPanel={rowData => {
+            return (
+              <div style={{width:"100%", marginLeft:"5rem"}} >
+                <GridContainer alignItems='center' justify='center'>
+                  <GridItem xs={4} sm={4} md={4}>
+                    <b>İşe Giriş Tarihi</b>
+                  </GridItem>
+                  <GridItem xs={4} sm={4} md={4}>
+                    <b>Unvan</b>
+                  </GridItem>
+                </GridContainer>
+                
+                  <GridContainer alignItems='center' justify='center'>
+                  <GridItem xs={4} sm={4} md={4}>
+                    {rowData.girisTarihi}
+                  </GridItem>
+                  <GridItem xs={4} sm={4} md={4}>
+                    {rowData.gorevi}
+                  </GridItem>
+                  </GridContainer>
+                
+                
+              </div>
+            )
+          }}
+          
+        />
+          
+         
+          </Card>
+          </Grid>
+          
+          
+        </GridContainer>
+        <Grid container justify="center" spacing={3}> 
+          <Grid item xs={4} >       
+          <Button >Yeni Donanım Ekle</Button>
+          <Card  >
+            <CardHeader>
+              <b>Donanımlar</b>
+            </CardHeader>
+            <CardBody>
+                {donanimlar.map((donanim,index)=><Grid  container justify="center" spacing={3}>
+                  
+                  <Grid item xs={6}>{donanim.Adi}</Grid> <Grid item xs={6}>{donanim.Adet}</Grid> 
+              
+                  </Grid>)}
+            </CardBody>
+          </Card>
+          </Grid>
+
+          <Grid item xs={4} >       
+          <Button >Yeni Yazılım Ekle</Button>
+          <Card  >
+            <CardHeader>
+              <b>Yazılımlar</b>
+            </CardHeader>
+            <CardBody>
+                {yazilimlar.map((yazilim,index)=><div>
+                  
+                   {index+1 }-{yazilim.Adi} 
+                
+                </div>)}
+            </CardBody>
+          </Card>
+          </Grid>
+          <Grid item xs={4} >       
+          <Button >Yeni Araç Ekle</Button>
+          <Card  >
+            <CardHeader>
+             <b>Araç Listesi</b> 
+            </CardHeader>
+            <CardBody>
+            <Grid  container justify="center" spacing={3}>
+            <Grid item xs={4}><b>Adi</b></Grid> <Grid item xs={4}><b>Cinsi</b></Grid> <Grid item xs={4}><b>Sahiplenme Türü </b></Grid>
+            </Grid>
+                {araclar.map((arac,index)=><Grid  container justify="center" spacing={3}>
+                  
+                    <Grid item xs={4}>{arac.Adi}</Grid> <Grid item xs={4}>{arac.Cinsi}</Grid> <Grid item xs={4}>{arac.SahiplikTuru} </Grid>
+                
+                    </Grid>)}
+            </CardBody>
+          </Card>
+          </Grid>
+        </Grid>
+        <Grid container justify="center" spacing={3}> 
+          <Grid item xs={12} >       
+          <Card  >
+            <CardHeader>
+              <b>Teşkilat Şeması</b>
+            </CardHeader>
+            <CardBody>
+            </CardBody>
+          </Card>
+          </Grid>
+          <Grid item xs={4} >       
+          <Button >Fiziksel Yapı Ekle</Button>
+          <Card  >
+            <CardHeader>
+             <b>Yapı Listesi</b> 
+            </CardHeader>
+            <CardBody>
+            <Grid  container justify="center" spacing={3}>
+            <Grid item xs={4}><b>Adi</b></Grid> <Grid item xs={4}><b>Konum</b></Grid> <Grid item xs={4}><b>m²</b></Grid>
+            </Grid>
+            </CardBody>
+          </Card>
+          </Grid>
+          <Grid item xs={4} >       
+          <Button >Yetki ve Görev Tanımı Ekle</Button>
+          <Card  >
+            <CardHeader>
+             <b>Yetkiler ve Görev Tanımları</b> 
+            </CardHeader>
+            <CardBody>
+            <Grid  container justify="center" spacing={3}>
+            <Grid item xs={4}><b>Adi</b></Grid> <Grid item xs={4}><b>Kanun</b></Grid> 
+            </Grid>
+            </CardBody>
+          </Card>
+          </Grid>
+          <Grid item xs={4} >       
+          <Button >Mevzuat Ekle</Button>
+          <Card  >
+            <CardHeader>
+             <b>İlgili Mevzuatlar</b> 
+            </CardHeader>
+            <CardBody>
+            <Grid  container justify="center" spacing={3}>
+            <Grid item xs={4}><b>Yönetmelik</b></Grid> <Grid item xs={4}><b>Tanım</b></Grid> 
+            </Grid>
+            </CardBody>
+          </Card>
+          </Grid>
+        </Grid>
         
       <Dialog open={this.state.modalAccountShow} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Yeni Stratejik Hedef Oluştur</DialogTitle>

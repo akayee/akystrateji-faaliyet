@@ -63,7 +63,7 @@ const dashboardRoutes = [
   },
   {
     path:"/birimler",
-    name:"Birimler",
+    name:"Faaliyet Raporu",
     icon:GroupIcon,
     component: Birimler,
     layout: "/admin"
@@ -71,7 +71,7 @@ const dashboardRoutes = [
   },
   {
     path:"/hedefler",
-    name:"Hedefler",
+    name:"Birimim",
     icon:AssessmentIcon,
     component: Hedefler,
     layout: "/admin"
