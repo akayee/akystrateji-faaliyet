@@ -1,0 +1,5635 @@
+{
+    "Sayfa1": [
+        {
+            "date": "1/2/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI KARA ALİ YAZLIK",
+            "Ilce": "GÖLBAŞI",
+            "Kapi Numarasi Montaji": "50"
+        },
+        {
+            "date": "1/2/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT MUSTAFA KEMAL",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "118"
+        },
+        {
+            "date": "1/2/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "1/2/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/2/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Tespit": "178"
+        },
+        {
+            "date": "1/2/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/2/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Çalışma İçeriği": "TESPİT"
+        },
+        {
+            "date": "1/2/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "1/3/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI KARA ALİ YAZLIK",
+            "Ilce": "GÖLBAŞI",
+            "Kapi Numarasi Montaji": "50"
+        },
+        {
+            "date": "1/3/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT MUSTAFA KEMAL",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "75"
+        },
+        {
+            "date": "1/3/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Yeni Direk": "2"
+        },
+        {
+            "date": "1/3/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/3/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "1/3/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/3/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "25"
+        },
+        {
+            "date": "1/3/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "50",
+            "Tek Taraflı Tabela Yapımı": "15"
+        },
+        {
+            "date": "1/4/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI KARA ALİ YAZLIK",
+            "Ilce": "GÖLBAŞI",
+            "Kapi Numarasi Montaji": "50"
+        },
+        {
+            "date": "1/4/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT MUSTAFA KEMAL",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "75"
+        },
+        {
+            "date": "1/4/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Yeni Direk": "2"
+        },
+        {
+            "date": "1/4/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/4/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "1/4/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/4/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "25"
+        },
+        {
+            "date": "1/4/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "50",
+            "Tek Taraflı Tabela Yapımı": "15"
+        },
+        {
+            "date": "1/6/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK YENİ BAYINDIR",
+            "Ilce": "MAMAK",
+            "Çalışma İçeriği": "KEŞİF"
+        },
+        {
+            "date": "1/6/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT MUSTAFA KEMAL",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "2",
+            "Kapi Numarasi Montaji": "92"
+        },
+        {
+            "date": "1/6/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Numarataj Bilgi Stikırı Montaj": "1",
+            "Tespit": "1"
+        },
+        {
+            "date": "1/6/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "7"
+        },
+        {
+            "date": "1/6/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "5"
+        },
+        {
+            "date": "1/6/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "8",
+            "Tabela Tamirat": "3"
+        },
+        {
+            "date": "1/6/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "20"
+        },
+        {
+            "date": "1/6/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "32",
+            "Tek Taraflı Tabela Yapımı": "5"
+        },
+        {
+            "date": "1/7/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK YENİ BAYINDIR",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "65"
+        },
+        {
+            "date": "1/7/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT MUSTAFA KEMAL",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "110"
+        },
+        {
+            "date": "1/7/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Mevcut Direk Tamirati": "5",
+            "Tespit": "3"
+        },
+        {
+            "date": "1/7/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "1/7/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "7"
+        },
+        {
+            "date": "1/7/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "22",
+            "Mevcut Direk Tamirati": "16"
+        },
+        {
+            "date": "1/7/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "18"
+        },
+        {
+            "date": "1/7/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "66"
+        },
+        {
+            "date": "1/8/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK YENİ BAYINDIR",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "72"
+        },
+        {
+            "date": "1/8/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "43"
+        },
+        {
+            "date": "1/8/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "5",
+            "Tespit": "1"
+        },
+        {
+            "date": "1/8/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/8/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "8"
+        },
+        {
+            "date": "1/8/20",
+            "EkipNo": "6",
+            "Mahalle": "ALTINDAĞ ULUBEY",
+            "Ilce": "ALTINDAĞ"
+        },
+        {
+            "date": "1/8/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "1/8/20",
+            "EkipNo": "ATÖLYELER",
+            "Tek Taraflı Tabela Yapımı": "93"
+        },
+        {
+            "date": "1/9/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK YENİ BAYINDIR",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "4"
+        },
+        {
+            "date": "1/9/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "84"
+        },
+        {
+            "date": "1/9/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "8",
+            "Mevcut Direk Tamirati": "4",
+            "Tespit": "1"
+        },
+        {
+            "date": "1/9/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "1/9/20",
+            "EkipNo": "5",
+            "Mahalle": "YENİMAHALLE SUSUZ",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "48"
+        },
+        {
+            "date": "1/9/20",
+            "EkipNo": "6",
+            "Mahalle": "ALTINDAĞ ULUBEY",
+            "Ilce": "ALTINDAĞ",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "1/9/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "40"
+        },
+        {
+            "date": "1/9/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "70"
+        },
+        {
+            "date": "1/10/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK YENİ BAYINDIR",
+            "Ilce": "MAMAK",
+            "Tespit": "40"
+        },
+        {
+            "date": "1/10/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "70"
+        },
+        {
+            "date": "1/10/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "6",
+            "Mevcut Direk Tamirati": "4"
+        },
+        {
+            "date": "1/10/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "1/10/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Tabela Montaj": "35"
+        },
+        {
+            "date": "1/10/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Çalışma İçeriği": "KEŞİF"
+        },
+        {
+            "date": "1/10/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "38"
+        },
+        {
+            "date": "1/10/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "67",
+            "Tek Taraflı Tabela Yapımı": "2"
+        },
+        {
+            "date": "1/13/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "42"
+        },
+        {
+            "date": "1/13/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "74"
+        },
+        {
+            "date": "1/13/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "6",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "2"
+        },
+        {
+            "date": "1/13/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/13/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Tabela Montaj": "34",
+            "Mevcut Direk Tamirati": "1",
+            "Tabela Tamirat": "2"
+        },
+        {
+            "date": "1/13/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/13/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "28"
+        },
+        {
+            "date": "1/13/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "89",
+            "Kapi Numarasi Üretimi": "179"
+        },
+        {
+            "date": "1/14/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "180"
+        },
+        {
+            "date": "1/14/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "63"
+        },
+        {
+            "date": "1/14/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "1"
+        },
+        {
+            "date": "1/14/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "1/14/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Tabela Montaj": "35"
+        },
+        {
+            "date": "1/14/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/14/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "38"
+        },
+        {
+            "date": "1/14/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "57",
+            "Tek Taraflı Tabela Yapımı": "6"
+        },
+        {
+            "date": "1/15/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "90"
+        },
+        {
+            "date": "1/15/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "60"
+        },
+        {
+            "date": "1/15/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "7",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "1"
+        },
+        {
+            "date": "1/15/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "7"
+        },
+        {
+            "date": "1/15/20",
+            "EkipNo": "5",
+            "Mahalle": "POLATLI ESENTEPE",
+            "Ilce": "POLATLI",
+            "Tabela Montaj": "37"
+        },
+        {
+            "date": "1/15/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/15/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "35"
+        },
+        {
+            "date": "1/15/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "42"
+        },
+        {
+            "date": "1/16/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "100"
+        },
+        {
+            "date": "1/16/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "61"
+        },
+        {
+            "date": "1/16/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "8",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "1"
+        },
+        {
+            "date": "1/16/20",
+            "EkipNo": "4",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI",
+            "Çalışma İçeriği": "KEŞİF"
+        },
+        {
+            "date": "1/16/20",
+            "EkipNo": "5",
+            "Mahalle": "ELMADAĞ HASANOĞLAN",
+            "Ilce": "ELMADAĞ",
+            "Tespit": "26"
+        },
+        {
+            "date": "1/16/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "6"
+        },
+        {
+            "date": "1/16/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "37"
+        },
+        {
+            "date": "1/16/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "45"
+        },
+        {
+            "date": "1/17/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "130"
+        },
+        {
+            "date": "1/17/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "67"
+        },
+        {
+            "date": "1/17/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "1/17/20",
+            "EkipNo": "4",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI",
+            "Mevcut Direk Tamirati": "11"
+        },
+        {
+            "date": "1/17/20",
+            "EkipNo": "5",
+            "Mahalle": "NALLIHAN SARIYAR",
+            "Ilce": "NALLIHAN"
+        },
+        {
+            "date": "1/17/20",
+            "EkipNo": "6",
+            "Mahalle": "ETİMESGUT YUKARI YURTÇU",
+            "Ilce": "ETİMESGUT",
+            "Tabela Montaj": "57",
+            "Tabela Tamirat": "22"
+        },
+        {
+            "date": "1/17/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "40"
+        },
+        {
+            "date": "1/17/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "77"
+        },
+        {
+            "date": "1/18/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "90"
+        },
+        {
+            "date": "1/18/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN"
+        },
+        {
+            "date": "1/18/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "1/18/20",
+            "EkipNo": "4",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI",
+            "Mevcut Direk Tamirati": "7"
+        },
+        {
+            "date": "1/18/20",
+            "EkipNo": "5",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Yeni Direk": "4",
+            "Tabela Tamirat": "3"
+        },
+        {
+            "date": "1/18/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK AKDERE",
+            "Ilce": "MAMAK",
+            "Tabela Montaj": "41"
+        },
+        {
+            "date": "1/18/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA ALACAATLI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "20"
+        },
+        {
+            "date": "1/18/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "51"
+        },
+        {
+            "date": "1/20/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "90"
+        },
+        {
+            "date": "1/20/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "40"
+        },
+        {
+            "date": "1/20/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "1/20/20",
+            "EkipNo": "4",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI",
+            "Mevcut Direk Tamirati": "13"
+        },
+        {
+            "date": "1/20/20",
+            "EkipNo": "5",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE"
+        },
+        {
+            "date": "1/20/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK",
+            "Tabela Montaj": "51"
+        },
+        {
+            "date": "1/20/20",
+            "EkipNo": "7",
+            "Mahalle": "YENİMAHALLE ALACAATLI",
+            "Ilce": "YENİMAHALLE",
+            "Direk Boyama": "27"
+        },
+        {
+            "date": "1/20/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "33",
+            "Tek Taraflı Tabela Yapımı": "39"
+        },
+        {
+            "date": "1/21/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "120"
+        },
+        {
+            "date": "1/21/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "28"
+        },
+        {
+            "date": "1/21/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "1"
+        },
+        {
+            "date": "1/21/20",
+            "EkipNo": "4",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI"
+        },
+        {
+            "date": "1/21/20",
+            "EkipNo": "5",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "1/21/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK",
+            "Tabela Montaj": "57"
+        },
+        {
+            "date": "1/21/20",
+            "EkipNo": "7",
+            "Mahalle": "YENİMAHALLE ALACAATLI",
+            "Ilce": "YENİMAHALLE",
+            "Direk Boyama": "26"
+        },
+        {
+            "date": "1/21/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "74",
+            "Tek Taraflı Tabela Yapımı": "2"
+        },
+        {
+            "date": "1/22/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Çalışma İçeriği": "CENAZE"
+        },
+        {
+            "date": "1/22/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Çalışma İçeriği": "CENAZE"
+        },
+        {
+            "date": "1/22/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Çalışma İçeriği": "CENAZE"
+        },
+        {
+            "date": "1/22/20",
+            "EkipNo": "4",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI",
+            "Çalışma İçeriği": "CENAZE"
+        },
+        {
+            "date": "1/22/20",
+            "EkipNo": "5",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Çalışma İçeriği": "CENAZE"
+        },
+        {
+            "date": "1/22/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK",
+            "Çalışma İçeriği": "CENAZE"
+        },
+        {
+            "date": "1/22/20",
+            "EkipNo": "7",
+            "Mahalle": "YENİMAHALLE ALACAATLI",
+            "Ilce": "YENİMAHALLE",
+            "Çalışma İçeriği": "CENAZE"
+        },
+        {
+            "date": "1/22/20",
+            "EkipNo": "ATÖLYELER",
+            "Çalışma İçeriği": "CENAZE"
+        },
+        {
+            "date": "1/23/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "85"
+        },
+        {
+            "date": "1/23/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "39"
+        },
+        {
+            "date": "1/23/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "6",
+            "Tabela Tamirat": "1",
+            "Numarataj Bilgi Stikırı Montaj": "1"
+        },
+        {
+            "date": "1/23/20",
+            "EkipNo": "4",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI"
+        },
+        {
+            "date": "1/23/20",
+            "EkipNo": "5",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Yeni Direk": "9",
+            "Mevcut Direk Tamirati": "2"
+        },
+        {
+            "date": "1/23/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK",
+            "Tabela Montaj": "14",
+            "Tabela Tamirat": "7"
+        },
+        {
+            "date": "1/23/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA ALACAATLI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "25"
+        },
+        {
+            "date": "1/23/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "64",
+            "Kapi Numarasi Üretimi": "4",
+            "Direk Boyama/Sticker": "48"
+        },
+        {
+            "date": "1/24/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK YENİ BAYINDIR",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "91"
+        },
+        {
+            "date": "1/24/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "40"
+        },
+        {
+            "date": "1/24/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "3",
+            "Mevcut Direk Tamirati": "1",
+            "Tabela Tamirat": "1",
+            "Tespit": "3"
+        },
+        {
+            "date": "1/24/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "5"
+        },
+        {
+            "date": "1/24/20",
+            "EkipNo": "5",
+            "Mahalle": "ALTINDAĞ ULUBEY",
+            "Ilce": "ALTINDAĞ",
+            "Tabela Montaj": "53",
+            "Tabela Tamirat": "17"
+        },
+        {
+            "date": "1/24/20",
+            "EkipNo": "6",
+            "Mahalle": "MAMAK TÜRKÖZÜ",
+            "Ilce": "MAMAK"
+        },
+        {
+            "date": "1/24/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA ALACAATLI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "27"
+        },
+        {
+            "date": "1/24/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "27",
+            "Kapi Numarasi Üretimi": "226"
+        },
+        {
+            "date": "1/27/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "60",
+            "Kapi Numarasi Montaji": "60"
+        },
+        {
+            "date": "1/27/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "51"
+        },
+        {
+            "date": "1/27/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "4",
+            "Tespit": "4"
+        },
+        {
+            "date": "1/27/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "1/27/20",
+            "EkipNo": "5",
+            "Mahalle": "ALTINDAĞ ULUBEY",
+            "Ilce": "ALTINDAĞ",
+            "Tabela Montaj": "28"
+        },
+        {
+            "date": "1/27/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI KARA ALİ YAZLIK",
+            "Ilce": "GÖLBAŞI",
+            "Tespit": "182"
+        },
+        {
+            "date": "1/27/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA ALACAATLI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "31"
+        },
+        {
+            "date": "1/27/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "66",
+            "Tek Taraflı Tabela Yapımı": "4",
+            "Kapi Numarasi Üretimi": "37"
+        },
+        {
+            "date": "1/28/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "43"
+        },
+        {
+            "date": "1/28/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "46"
+        },
+        {
+            "date": "1/28/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "5",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "1"
+        },
+        {
+            "date": "1/28/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tespit": "119"
+        },
+        {
+            "date": "1/28/20",
+            "EkipNo": "5",
+            "Mahalle": "GÖLBAŞI BAHÇELİEVLER",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "36"
+        },
+        {
+            "date": "1/28/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI KARA ALİ YAZLIK",
+            "Ilce": "GÖLBAŞI"
+        },
+        {
+            "date": "1/28/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA ALACAATLI",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "1/28/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "56",
+            "Tek Taraflı Tabela Yapımı": "28"
+        },
+        {
+            "date": "1/29/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "110"
+        },
+        {
+            "date": "1/29/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "53",
+            "Tespit": "103"
+        },
+        {
+            "date": "1/29/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Mevcut Direk Tamirati": "5",
+            "Tespit": "1"
+        },
+        {
+            "date": "1/29/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "1/29/20",
+            "EkipNo": "5",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Tabela Montaj": "53"
+        },
+        {
+            "date": "1/29/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI KARA ALİ YAZLIK",
+            "Ilce": "GÖLBAŞI",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "1/29/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA ALACAATLI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "42"
+        },
+        {
+            "date": "1/29/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "42",
+            "Tek Taraflı Tabela Yapımı": "32"
+        },
+        {
+            "date": "1/30/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "120"
+        },
+        {
+            "date": "1/30/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "60",
+            "Tespit": "100"
+        },
+        {
+            "date": "1/30/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "14",
+            "Mevcut Direk Tamirati": "2"
+        },
+        {
+            "date": "1/30/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tespit": "307"
+        },
+        {
+            "date": "1/30/20",
+            "EkipNo": "5",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Tabela Montaj": "52"
+        },
+        {
+            "date": "1/30/20",
+            "EkipNo": "6",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Mevcut Direk Tamirati": "13"
+        },
+        {
+            "date": "1/30/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA ALACAATLI",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "34"
+        },
+        {
+            "date": "1/30/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "43",
+            "Tek Taraflı Tabela Yapımı": "45"
+        },
+        {
+            "date": "1/31/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE"
+        },
+        {
+            "date": "1/31/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "110"
+        },
+        {
+            "date": "1/31/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "1/31/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "1/31/20",
+            "EkipNo": "5",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Tabela Montaj": "32"
+        },
+        {
+            "date": "1/31/20",
+            "EkipNo": "6",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Mevcut Direk Tamirati": "12"
+        },
+        {
+            "date": "1/31/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA ALACAATLI",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "36"
+        },
+        {
+            "date": "1/31/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "49",
+            "Tek Taraflı Tabela Yapımı": "77"
+        },
+        {
+            "date": "2/1/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "100"
+        },
+        {
+            "date": "2/1/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "60"
+        },
+        {
+            "date": "2/1/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "2"
+        },
+        {
+            "date": "2/1/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "7"
+        },
+        {
+            "date": "2/1/20",
+            "EkipNo": "5",
+            "Mahalle": "ALTINDAĞ ULUBEY",
+            "Ilce": "ALTINDAĞ",
+            "Tabela Montaj": "23"
+        },
+        {
+            "date": "2/1/20",
+            "EkipNo": "6",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "35"
+        },
+        {
+            "date": "2/1/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA ALACAATLI",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "2/1/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "158"
+        },
+        {
+            "date": "2/3/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK FAHRİ KORUTÜRK",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "120"
+        },
+        {
+            "date": "2/3/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "51"
+        },
+        {
+            "date": "2/3/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "4",
+            "Tespit": "1"
+        },
+        {
+            "date": "2/3/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "2/3/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT BALLIKUYUMCU",
+            "Ilce": "ETİMESGUT",
+            "Tespit": "94"
+        },
+        {
+            "date": "2/3/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Mevcut Direk Tamirati": "13"
+        },
+        {
+            "date": "2/3/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "37"
+        },
+        {
+            "date": "2/3/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "2/4/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE YEŞİLEVLER",
+            "Ilce": "YENİMAHALLE",
+            "Kapi Numarasi Montaji": "130"
+        },
+        {
+            "date": "2/4/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT FEVZİ ÇAKMAK",
+            "Ilce": "SİNCAN"
+        },
+        {
+            "date": "2/4/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "4"
+        },
+        {
+            "date": "2/4/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tespit": "91"
+        },
+        {
+            "date": "2/4/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "34"
+        },
+        {
+            "date": "2/4/20",
+            "EkipNo": "6",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "4",
+            "Mevcut Direk Tamirati": "6"
+        },
+        {
+            "date": "2/4/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "37"
+        },
+        {
+            "date": "2/4/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "28",
+            "Tek Taraflı Tabela Yapımı": "64",
+            "Kapi Numarasi Üretimi": "160"
+        },
+        {
+            "date": "2/5/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK İVEDİKKÖY",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "132"
+        },
+        {
+            "date": "2/5/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "51",
+            "Kapi Numarasi Montaji": "1"
+        },
+        {
+            "date": "2/5/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "2"
+        },
+        {
+            "date": "2/5/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "7"
+        },
+        {
+            "date": "2/5/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "54"
+        },
+        {
+            "date": "2/5/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Tespit": "201"
+        },
+        {
+            "date": "2/5/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "40",
+            "Direk Boyama": "5"
+        },
+        {
+            "date": "2/5/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "60",
+            "Tek Taraflı Tabela Yapımı": "34",
+            "Kapi Numarasi Üretimi": "138"
+        },
+        {
+            "date": "2/6/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK İVEDİKKÖY",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "80"
+        },
+        {
+            "date": "2/6/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "45"
+        },
+        {
+            "date": "2/6/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Tespit": "1"
+        },
+        {
+            "date": "2/6/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "7",
+            "Mevcut Direk Tamirati": "2"
+        },
+        {
+            "date": "2/6/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "2/6/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "6",
+            "Tespit": "201"
+        },
+        {
+            "date": "2/6/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "27"
+        },
+        {
+            "date": "2/6/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "6",
+            "Tek Taraflı Tabela Yapımı": "89",
+            "Kapi Numarasi Üretimi": "140"
+        },
+        {
+            "date": "2/7/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK İVEDİKKÖY",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "130"
+        },
+        {
+            "date": "2/7/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "54"
+        },
+        {
+            "date": "2/7/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "6",
+            "Mevcut Direk Tamirati": "4",
+            "Tabela Tamirat": "10",
+            "Tespit": "1"
+        },
+        {
+            "date": "2/7/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "2",
+            "Yeni Direk": "8",
+            "Mevcut Direk Tamirati": "1"
+        },
+        {
+            "date": "2/7/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "54"
+        },
+        {
+            "date": "2/7/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "2/7/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "41"
+        },
+        {
+            "date": "2/7/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "68",
+            "Tek Taraflı Tabela Yapımı": "29",
+            "Kapi Numarasi Üretimi": "150"
+        },
+        {
+            "date": "2/10/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK İVEDİKKÖY",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "150"
+        },
+        {
+            "date": "2/10/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "70"
+        },
+        {
+            "date": "2/10/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "2"
+        },
+        {
+            "date": "2/10/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "7"
+        },
+        {
+            "date": "2/10/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KORU",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "55"
+        },
+        {
+            "date": "2/10/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "2/10/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "47",
+            "Direk Boyama": "5"
+        },
+        {
+            "date": "2/10/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "21",
+            "Tek Taraflı Tabela Yapımı": "104",
+            "Kapi Numarasi Üretimi": "150"
+        },
+        {
+            "date": "2/11/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Kapi Numarasi Montaji": "90"
+        },
+        {
+            "date": "2/11/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "44"
+        },
+        {
+            "date": "2/11/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Mevcut Direk Tamirati": "6"
+        },
+        {
+            "date": "2/11/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN"
+        },
+        {
+            "date": "2/11/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "49"
+        },
+        {
+            "date": "2/11/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "5"
+        },
+        {
+            "date": "2/11/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "45",
+            "Direk Boyama": "3"
+        },
+        {
+            "date": "2/11/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "2/12/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Kapi Numarasi Montaji": "70"
+        },
+        {
+            "date": "2/12/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "47"
+        },
+        {
+            "date": "2/12/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "2"
+        },
+        {
+            "date": "2/12/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "8",
+            "Yeni Direk": "3"
+        },
+        {
+            "date": "2/12/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KORU",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "36"
+        },
+        {
+            "date": "2/12/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ"
+        },
+        {
+            "date": "2/12/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "2/12/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "23",
+            "Kapi Numarasi Üretimi": "150"
+        },
+        {
+            "date": "2/13/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Kapi Numarasi Montaji": "130"
+        },
+        {
+            "date": "2/13/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "65"
+        },
+        {
+            "date": "2/13/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Mevcut Direk Tamirati": "8",
+            "Tespit": "2"
+        },
+        {
+            "date": "2/13/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "2/13/20",
+            "EkipNo": "5",
+            "Mahalle": "MAMAK PLEVNE",
+            "Ilce": "MAMAK",
+            "Tabela Montaj": "36",
+            "Tabela Tamirat": "4"
+        },
+        {
+            "date": "2/13/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "2/13/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "43",
+            "Direk Boyama": "5"
+        },
+        {
+            "date": "2/13/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "75",
+            "Tek Taraflı Tabela Yapımı": "2",
+            "Kapi Numarasi Üretimi": "142"
+        },
+        {
+            "date": "2/14/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Kapi Numarasi Montaji": "80"
+        },
+        {
+            "date": "2/14/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "64"
+        },
+        {
+            "date": "2/14/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "10",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "4",
+            "Tespit": "4"
+        },
+        {
+            "date": "2/14/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "2/14/20",
+            "EkipNo": "5",
+            "Mahalle": "MECLİS KARARLARI",
+            "Ilce": "MECLİS KARARLARI",
+            "Yeni Direk": "1",
+            "Tespit": "28"
+        },
+        {
+            "date": "2/14/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "7"
+        },
+        {
+            "date": "2/14/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "47",
+            "Direk Boyama": "5"
+        },
+        {
+            "date": "2/14/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "89",
+            "Tek Taraflı Tabela Yapımı": "5"
+        },
+        {
+            "date": "2/15/20",
+            "EkipNo": "1",
+            "Mahalle": "YENİMAHALLE İVEDİKKÖY",
+            "Ilce": "YENİMAHALLE",
+            "Kapi Numarasi Montaji": "70"
+        },
+        {
+            "date": "2/15/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "47"
+        },
+        {
+            "date": "2/15/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "2/15/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "6"
+        },
+        {
+            "date": "2/15/20",
+            "EkipNo": "5",
+            "Mahalle": "MECLİS KARARLARI",
+            "Ilce": "MECLİS KARARLARI",
+            "Tabela Montaj": "26",
+            "Yeni Direk": "3",
+            "Tabela Tamirat": "29"
+        },
+        {
+            "date": "2/15/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "35",
+            "Mevcut Direk Tamirati": "30"
+        },
+        {
+            "date": "2/15/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA YAŞAMKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "20",
+            "Direk Boyama": "5"
+        },
+        {
+            "date": "2/15/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "19",
+            "Tek Taraflı Tabela Yapımı": "4",
+            "Kapi Numarasi Üretimi": "64"
+        },
+        {
+            "date": "2/17/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI GÖKÇEHÖYÜK",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "2",
+            "Numarataj Yazim": "3",
+            "Kapi Numarasi Montaji": "3"
+        },
+        {
+            "date": "2/17/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "64"
+        },
+        {
+            "date": "2/17/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "9",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "4",
+            "Tabela Tamirat": "8",
+            "Tespit": "5"
+        },
+        {
+            "date": "2/17/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "2/17/20",
+            "EkipNo": "5",
+            "Mahalle": "MECLİS KARARLARI",
+            "Ilce": "MECLİS KARARLARI",
+            "Yeni Direk": "6",
+            "Tespit": "140"
+        },
+        {
+            "date": "2/17/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "48",
+            "Mevcut Direk Tamirati": "37"
+        },
+        {
+            "date": "2/17/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "31",
+            "Tek Taraflı Tabela Yapımı": "112",
+            "Kapi Numarasi Üretimi": "140"
+        },
+        {
+            "date": "2/18/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI GÖKÇEHÖYÜK",
+            "Ilce": "GÖLBAŞI",
+            "Numarataj Yazim": "25"
+        },
+        {
+            "date": "2/18/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "74"
+        },
+        {
+            "date": "2/18/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "10",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "5",
+            "Tabela Tamirat": "1",
+            "Tespit": "4"
+        },
+        {
+            "date": "2/18/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "2/18/20",
+            "EkipNo": "5",
+            "Mahalle": "MAMAK ÇAĞLAYAN",
+            "Ilce": "MAMAK",
+            "Yeni Direk": "8",
+            "Tabela Tamirat": "2",
+            "Tespit": "24"
+        },
+        {
+            "date": "2/18/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "53",
+            "Mevcut Direk Tamirati": "50"
+        },
+        {
+            "date": "2/18/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "55",
+            "Tek Taraflı Tabela Yapımı": "26",
+            "Kapi Numarasi Üretimi": "150"
+        },
+        {
+            "date": "2/19/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI GÖKÇEHÖYÜK",
+            "Ilce": "GÖLBAŞI",
+            "Numarataj Yazim": "55"
+        },
+        {
+            "date": "2/19/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "54"
+        },
+        {
+            "date": "2/19/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "13",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "3",
+            "Tabela Tamirat": "6",
+            "Tespit": "4"
+        },
+        {
+            "date": "2/19/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "2/19/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KORU",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "30",
+            "Direk Boyama": "36",
+            "Tabela Tamirat": "25"
+        },
+        {
+            "date": "2/19/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "48",
+            "Mevcut Direk Tamirati": "45"
+        },
+        {
+            "date": "2/19/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "4",
+            "Tek Taraflı Tabela Yapımı": "134",
+            "Kapi Numarasi Üretimi": "148"
+        },
+        {
+            "date": "2/20/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Tespit": "60"
+        },
+        {
+            "date": "2/20/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Numarataj Yazim": "84"
+        },
+        {
+            "date": "2/20/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "13",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "4"
+        },
+        {
+            "date": "2/20/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "2/20/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KORU",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "54",
+            "Tabela Tamirat": "30"
+        },
+        {
+            "date": "2/20/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ"
+        },
+        {
+            "date": "2/20/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "71",
+            "Tek Taraflı Tabela Yapımı": "7",
+            "Kapi Numarasi Üretimi": "130"
+        },
+        {
+            "date": "2/21/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK TIP FAKÜLTESİ",
+            "Ilce": "MAMAK",
+            "Tespit": "70"
+        },
+        {
+            "date": "2/21/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "25"
+        },
+        {
+            "date": "2/21/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "12",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "4"
+        },
+        {
+            "date": "2/21/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "6"
+        },
+        {
+            "date": "2/21/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "26"
+        },
+        {
+            "date": "2/21/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ KURTULUŞ",
+            "Ilce": "ELMADAĞ"
+        },
+        {
+            "date": "2/21/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "60",
+            "Tek Taraflı Tabela Yapımı": "40",
+            "Kapi Numarasi Üretimi": "135"
+        },
+        {
+            "date": "2/24/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA 100.YIL",
+            "Ilce": "ÇANKAYA",
+            "Tespit": "80"
+        },
+        {
+            "date": "2/24/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "64"
+        },
+        {
+            "date": "2/24/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "9",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "5"
+        },
+        {
+            "date": "2/24/20",
+            "EkipNo": "4",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "2/24/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "57",
+            "Tabela Tamirat": "42"
+        },
+        {
+            "date": "2/24/20",
+            "EkipNo": "6",
+            "Mahalle": "GÜDÜL Ilce MERKEZİ",
+            "Ilce": "GÜDÜL",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "9"
+        },
+        {
+            "date": "2/24/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "131"
+        },
+        {
+            "date": "2/25/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA 100.YIL",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "2/25/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK HARMAN",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "42"
+        },
+        {
+            "date": "2/25/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Tabela Tamirat": "6",
+            "Tespit": "2"
+        },
+        {
+            "date": "2/25/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "2/25/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "54",
+            "Tabela Tamirat": "40"
+        },
+        {
+            "date": "2/25/20",
+            "EkipNo": "6",
+            "Mahalle": "GÜDÜL Ilce MERKEZİ",
+            "Ilce": "GÜDÜL",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "9"
+        },
+        {
+            "date": "2/25/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "2/26/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA 100.YIL",
+            "Ilce": "ÇANKAYA",
+            "Numarataj Yazim": "90"
+        },
+        {
+            "date": "2/26/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "85"
+        },
+        {
+            "date": "2/26/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "5",
+            "Tespit": "3"
+        },
+        {
+            "date": "2/26/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "2/26/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Mevcut Direk Tamirati": "51",
+            "Tabela Tamirat": "17"
+        },
+        {
+            "date": "2/26/20",
+            "EkipNo": "6",
+            "Mahalle": "GÜDÜL Ilce MERKEZİ",
+            "Ilce": "GÜDÜL",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "9"
+        },
+        {
+            "date": "2/26/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "46"
+        },
+        {
+            "date": "2/27/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA 100.YIL",
+            "Ilce": "ÇANKAYA",
+            "Numarataj Yazim": "87"
+        },
+        {
+            "date": "2/27/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "90"
+        },
+        {
+            "date": "2/27/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "8",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "4",
+            "Tabela Tamirat": "5",
+            "Tespit": "1"
+        },
+        {
+            "date": "2/27/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "2/27/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "54",
+            "Tabela Tamirat": "22"
+        },
+        {
+            "date": "2/27/20",
+            "EkipNo": "6",
+            "Mahalle": "GÜDÜL Ilce MERKEZİ",
+            "Ilce": "GÜDÜL",
+            "Mevcut Direk Tamirati": "9"
+        },
+        {
+            "date": "2/27/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "2/28/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA 100.YIL",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "2/28/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "70"
+        },
+        {
+            "date": "2/28/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "3",
+            "Tabela Tamirat": "1",
+            "Tespit": "2"
+        },
+        {
+            "date": "2/28/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "2/28/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KONUTKENT",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "28",
+            "Tabela Tamirat": "21"
+        },
+        {
+            "date": "2/28/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "48",
+            "Tabela Tamirat": "21"
+        },
+        {
+            "date": "2/28/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "66"
+        },
+        {
+            "date": "2/29/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI GÖKÇEHÖYÜK",
+            "Ilce": "GÖLBAŞI",
+            "Kapi Numarasi Montaji": "110"
+        },
+        {
+            "date": "2/29/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "53"
+        },
+        {
+            "date": "2/29/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "1",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "2"
+        },
+        {
+            "date": "2/29/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "6"
+        },
+        {
+            "date": "2/29/20",
+            "EkipNo": "5",
+            "Mahalle": "MAMAK ÇAĞLAYAN",
+            "Ilce": "MAMAK",
+            "Tabela Montaj": "22",
+            "Tabela Tamirat": "8"
+        },
+        {
+            "date": "2/29/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "40",
+            "Tabela Tamirat": "21"
+        },
+        {
+            "date": "2/29/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "18",
+            "Tek Taraflı Tabela Yapımı": "2"
+        },
+        {
+            "date": "3/2/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI TATLIKUYU",
+            "Ilce": "POLATLI"
+        },
+        {
+            "date": "3/2/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "97"
+        },
+        {
+            "date": "3/2/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "8",
+            "Mevcut Direk Tamirati": "3"
+        },
+        {
+            "date": "3/2/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "3/2/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "22",
+            "Tabela Tamirat": "8",
+            "Tespit": "181"
+        },
+        {
+            "date": "3/2/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "48",
+            "Tabela Tamirat": "36"
+        },
+        {
+            "date": "3/2/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "50"
+        },
+        {
+            "date": "3/3/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI SARIKAYA",
+            "Ilce": "POLATLI",
+            "Direk Boyama": "16"
+        },
+        {
+            "date": "3/3/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "55"
+        },
+        {
+            "date": "3/3/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "10",
+            "Tespit": "1"
+        },
+        {
+            "date": "3/3/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "3/3/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "12",
+            "Tabela Tamirat": "1"
+        },
+        {
+            "date": "3/3/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "25"
+        },
+        {
+            "date": "3/3/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "79",
+            "Tek Taraflı Tabela Yapımı": "28"
+        },
+        {
+            "date": "3/4/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI KARAHAMZALI",
+            "Ilce": "POLATLI",
+            "Tespit": "70"
+        },
+        {
+            "date": "3/4/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "92"
+        },
+        {
+            "date": "3/4/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "7",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "3",
+            "Tabela Tamirat": "6",
+            "Tespit": "3"
+        },
+        {
+            "date": "3/4/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "3/4/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "3/4/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "48"
+        },
+        {
+            "date": "3/4/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "83",
+            "Tek Taraflı Tabela Yapımı": "1",
+            "Kapi Numarasi Üretimi": "9"
+        },
+        {
+            "date": "3/5/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI KARAHAMZALI",
+            "Ilce": "POLATLI",
+            "Tespit": "60"
+        },
+        {
+            "date": "3/5/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "86"
+        },
+        {
+            "date": "3/5/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "3",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "5",
+            "Tespit": "3"
+        },
+        {
+            "date": "3/5/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "5",
+            "Mevcut Direk Tamirati": "5"
+        },
+        {
+            "date": "3/5/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "3/5/20",
+            "EkipNo": "6",
+            "Mahalle": "ELMADAĞ YENİMAHALLE",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "48"
+        },
+        {
+            "date": "3/5/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "78",
+            "Tek Taraflı Tabela Yapımı": "5",
+            "Kapi Numarasi Üretimi": "130"
+        },
+        {
+            "date": "3/6/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI YENİMEHMET",
+            "Ilce": "POLATLI",
+            "Tespit": "30"
+        },
+        {
+            "date": "3/6/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "81"
+        },
+        {
+            "date": "3/6/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "9",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "4"
+        },
+        {
+            "date": "3/6/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "3/6/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "11",
+            "Tabela Tamirat": "9"
+        },
+        {
+            "date": "3/6/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI KARA ALİ YAZLIK",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "47"
+        },
+        {
+            "date": "3/6/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "44",
+            "Tek Taraflı Tabela Yapımı": "4",
+            "Kapi Numarasi Üretimi": "131"
+        },
+        {
+            "date": "3/9/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI BASRI",
+            "Ilce": "POLATLI",
+            "Tespit": "70"
+        },
+        {
+            "date": "3/9/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "86"
+        },
+        {
+            "date": "3/9/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "7",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "2"
+        },
+        {
+            "date": "3/9/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "9",
+            "Mevcut Direk Tamirati": "1"
+        },
+        {
+            "date": "3/9/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "8",
+            "Tabela Tamirat": "7"
+        },
+        {
+            "date": "3/9/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI KARA ALİ YAZLIK",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "35"
+        },
+        {
+            "date": "3/9/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI KARAPINAR",
+            "Ilce": "POLATLI",
+            "Tespit": "142"
+        },
+        {
+            "date": "3/9/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "84",
+            "Tek Taraflı Tabela Yapımı": "4",
+            "Kapi Numarasi Üretimi": "134"
+        },
+        {
+            "date": "3/10/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI BASRI",
+            "Ilce": "POLATLI"
+        },
+        {
+            "date": "3/10/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "75"
+        },
+        {
+            "date": "3/10/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "10",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "3"
+        },
+        {
+            "date": "3/10/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "3/10/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "2",
+            "Tabela Tamirat": "5"
+        },
+        {
+            "date": "3/10/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI KARA ALİ YAZLIK",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "47",
+            "Tabela Tamirat": "20"
+        },
+        {
+            "date": "3/10/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI KARGALI",
+            "Ilce": "POLATLI",
+            "Tespit": "82"
+        },
+        {
+            "date": "3/10/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "19",
+            "Kapi Numarasi Üretimi": "70"
+        },
+        {
+            "date": "3/11/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI BASRI",
+            "Ilce": "POLATLI",
+            "Tespit": "60"
+        },
+        {
+            "date": "3/11/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "110"
+        },
+        {
+            "date": "3/11/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "6",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "1"
+        },
+        {
+            "date": "3/11/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "3/11/20",
+            "EkipNo": "5",
+            "Mahalle": "İNÖNÜ BULVARI",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "34",
+            "Yeni Direk": "8"
+        },
+        {
+            "date": "3/11/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "50",
+            "Yeni Direk": "8"
+        },
+        {
+            "date": "3/11/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI BEYCEĞİZ",
+            "Ilce": "POLATLI",
+            "Tespit": "104"
+        },
+        {
+            "date": "3/11/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "9",
+            "Tek Taraflı Tabela Yapımı": "2",
+            "Kapi Numarasi Üretimi": "165"
+        },
+        {
+            "date": "3/12/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI BASRI",
+            "Ilce": "POLATLI",
+            "Tespit": "50"
+        },
+        {
+            "date": "3/12/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "85"
+        },
+        {
+            "date": "3/12/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "6",
+            "Yeni Direk": "4",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "2"
+        },
+        {
+            "date": "3/12/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "3/12/20",
+            "EkipNo": "5",
+            "Mahalle": "GÖLBAŞI GÖKÇEHÖYÜK",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "62",
+            "Tabela Tamirat": "50"
+        },
+        {
+            "date": "3/12/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "43",
+            "Tabela Tamirat": "2"
+        },
+        {
+            "date": "3/12/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI ÇEKİRDEKSİZ",
+            "Ilce": "POLATLI",
+            "Tespit": "72"
+        },
+        {
+            "date": "3/12/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "9",
+            "Tek Taraflı Tabela Yapımı": "2",
+            "Kapi Numarasi Üretimi": "300"
+        },
+        {
+            "date": "3/13/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI GEDİKLİ",
+            "Ilce": "POLATLI",
+            "Tespit": "40"
+        },
+        {
+            "date": "3/13/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK HARMAN",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "42"
+        },
+        {
+            "date": "3/13/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "6",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "2"
+        },
+        {
+            "date": "3/13/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "3/13/20",
+            "EkipNo": "5",
+            "Mahalle": "GÖLBAŞI GÖKÇEHÖYÜK",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "64"
+        },
+        {
+            "date": "3/13/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI OĞULBEY",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "27"
+        },
+        {
+            "date": "3/13/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI KUŞÇU",
+            "Ilce": "POLATLI",
+            "Tespit": "96"
+        },
+        {
+            "date": "3/13/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "42",
+            "Kapi Numarasi Üretimi": "189"
+        },
+        {
+            "date": "3/14/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI YENİDOĞAN",
+            "Ilce": "POLATLI",
+            "Tespit": "40"
+        },
+        {
+            "date": "3/14/20",
+            "EkipNo": "2",
+            "Mahalle": "POLATLI OLUKPINAR",
+            "Ilce": "POLATLI",
+            "Tespit": "22"
+        },
+        {
+            "date": "3/14/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "2"
+        },
+        {
+            "date": "3/14/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Tabela Montaj": "10",
+            "Yeni Direk": "5",
+            "Mevcut Direk Tamirati": "1"
+        },
+        {
+            "date": "3/14/20",
+            "EkipNo": "5",
+            "Mahalle": "GÖLBAŞI GÖKÇEHÖYÜK",
+            "Ilce": "GÖLBAŞI",
+            "Yeni Direk": "36"
+        },
+        {
+            "date": "3/14/20",
+            "EkipNo": "6",
+            "Mahalle": "GÖLBAŞI EMİRLER",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "62",
+            "Tabela Tamirat": "62"
+        },
+        {
+            "date": "3/14/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI KUŞÇU",
+            "Ilce": "POLATLI",
+            "Tespit": "84"
+        },
+        {
+            "date": "3/14/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "5",
+            "Kapi Numarasi Üretimi": "100"
+        },
+        {
+            "date": "3/16/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI KAYABAŞI",
+            "Ilce": "POLATLI",
+            "Tespit": "60"
+        },
+        {
+            "date": "3/16/20",
+            "EkipNo": "2",
+            "Mahalle": "POLATLI MACUN",
+            "Ilce": "POLATLI",
+            "Tespit": "90"
+        },
+        {
+            "date": "3/16/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "9",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "3"
+        },
+        {
+            "date": "3/16/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "3/16/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "62"
+        },
+        {
+            "date": "3/16/20",
+            "EkipNo": "6",
+            "Mahalle": "YENİMAHALLE SERHATLAR",
+            "Ilce": "YENİMAHALLE",
+            "Yeni Direk": "45"
+        },
+        {
+            "date": "3/16/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI KUŞÇU",
+            "Ilce": "POLATLI",
+            "Tespit": "90"
+        },
+        {
+            "date": "3/16/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "2",
+            "Tek Taraflı Tabela Yapımı": "1",
+            "Kapi Numarasi Üretimi": "150"
+        },
+        {
+            "date": "3/17/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI YASSIHÖYÜK",
+            "Ilce": "POLATLI",
+            "Tespit": "44"
+        },
+        {
+            "date": "3/17/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK HARMAN",
+            "Ilce": "POLATLI",
+            "Numarataj Yazim": "40"
+        },
+        {
+            "date": "3/17/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "10",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "1"
+        },
+        {
+            "date": "3/17/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "9",
+            "Mevcut Direk Tamirati": "1"
+        },
+        {
+            "date": "3/17/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "64"
+        },
+        {
+            "date": "3/17/20",
+            "EkipNo": "6",
+            "Mahalle": "YENİMAHALLE SERHATLAR",
+            "Ilce": "YENİMAHALLE",
+            "Yeni Direk": "11",
+            "Tabela Tamirat": "1"
+        },
+        {
+            "date": "3/17/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "7",
+            "Tek Taraflı Tabela Yapımı": "2",
+            "Kapi Numarasi Üretimi": "256"
+        },
+        {
+            "date": "3/18/20",
+            "EkipNo": "1",
+            "Mahalle": "POLATLI ÜÇPINAR",
+            "Ilce": "POLATLI",
+            "Tespit": "35"
+        },
+        {
+            "date": "3/18/20",
+            "EkipNo": "2",
+            "Mahalle": "YENİMAHALLE SERHATLAR",
+            "Ilce": "YENİMAHALLE",
+            "Numarataj Yazim": "23"
+        },
+        {
+            "date": "3/18/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "3/18/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Tespit": "60"
+        },
+        {
+            "date": "3/18/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "66"
+        },
+        {
+            "date": "3/18/20",
+            "EkipNo": "6",
+            "Mahalle": "YENİMAHALLE SERHATLAR",
+            "Ilce": "YENİMAHALLE",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "3/18/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "3/19/20",
+            "EkipNo": "1",
+            "Mahalle": "KAHRAMANKAZAN YASSIÖREN",
+            "Ilce": "KAHRAMANKAZAN"
+        },
+        {
+            "date": "3/19/20",
+            "EkipNo": "2",
+            "Mahalle": "YENİMAHALLE SERHATLAR",
+            "Ilce": "YENİMAHALLE"
+        },
+        {
+            "date": "3/19/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "1",
+            "Tespit": "3"
+        },
+        {
+            "date": "3/19/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI"
+        },
+        {
+            "date": "3/19/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "3/19/20",
+            "EkipNo": "6",
+            "Mahalle": "YENİMAHALLE SERHATLAR",
+            "Ilce": "YENİMAHALLE"
+        },
+        {
+            "date": "3/19/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "3/20/20",
+            "EkipNo": "1",
+            "Mahalle": "KAHRAMANKAZAN YASSIÖREN",
+            "Ilce": "KAHRAMANKAZAN",
+            "Numarataj Yazim": "35"
+        },
+        {
+            "date": "3/20/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN MARAŞAL ÇAKMAK",
+            "Ilce": "SİNCAN",
+            "Numarataj Yazim": "33",
+            "Kapi Numarasi Montaji": "33"
+        },
+        {
+            "date": "3/20/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "10",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "1"
+        },
+        {
+            "date": "3/20/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "3/20/20",
+            "EkipNo": "5",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "61",
+            "Tabela Tamirat": "20"
+        },
+        {
+            "date": "3/20/20",
+            "EkipNo": "6",
+            "Mahalle": "YENİMAHALLE SERHATLAR",
+            "Ilce": "YENİMAHALLE",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "3/20/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "97",
+            "Tek Taraflı Tabela Yapımı": "6",
+            "Kapi Numarasi Üretimi": "175"
+        },
+        {
+            "date": "3/23/20",
+            "EkipNo": "1",
+            "Mahalle": "ALTINDAĞ AYDINLIKEVLER",
+            "Ilce": "ALTINDAĞ",
+            "Tespit": "300"
+        },
+        {
+            "date": "3/23/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "2",
+            "Numarataj Yazim": "3"
+        },
+        {
+            "date": "3/23/20",
+            "EkipNo": "3",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "54",
+            "Tabela Tamirat": "28"
+        },
+        {
+            "date": "3/23/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "5",
+            "Tek Taraflı Tabela Yapımı": "1"
+        },
+        {
+            "date": "3/24/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK ŞİRİNTEPE",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "64"
+        },
+        {
+            "date": "3/24/20",
+            "EkipNo": "2",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "3",
+            "Numarataj Yazim": "12"
+        },
+        {
+            "date": "3/24/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE SERHATLAR",
+            "Ilce": "YENİMAHALLE",
+            "Yeni Direk": "5"
+        },
+        {
+            "date": "3/24/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "3",
+            "Tek Taraflı Tabela Yapımı": "2"
+        },
+        {
+            "date": "3/25/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Kapi Numarasi Montaji": "100"
+        },
+        {
+            "date": "3/25/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "3/25/20",
+            "EkipNo": "3",
+            "Mahalle": "ÇANKAYA KIZILAY",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "36"
+        },
+        {
+            "date": "3/25/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "3/26/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK ŞİRİNTEPE",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "63"
+        },
+        {
+            "date": "3/26/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "12"
+        },
+        {
+            "date": "3/26/20",
+            "EkipNo": "3",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN"
+        },
+        {
+            "date": "3/26/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "201"
+        },
+        {
+            "date": "3/27/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Kapi Numarasi Montaji": "90"
+        },
+        {
+            "date": "3/27/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "3/27/20",
+            "EkipNo": "3",
+            "Mahalle": "ESKİŞEHİR YOLU",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "38",
+            "Tabela Tamirat": "8"
+        },
+        {
+            "date": "3/27/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "4/3/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK ŞİRİNTEPE",
+            "Ilce": "MAMAK",
+            "Numarataj Yazim": "25"
+        },
+        {
+            "date": "4/3/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL"
+        },
+        {
+            "date": "4/3/20",
+            "EkipNo": "3",
+            "Mahalle": "SİNCAN YENİKENT MENDERES",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "8"
+        },
+        {
+            "date": "4/3/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "5",
+            "Kapi Numarasi Üretimi": "83"
+        },
+        {
+            "date": "4/6/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Kapi Numarasi Montaji": "85"
+        },
+        {
+            "date": "4/6/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "5",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "1"
+        },
+        {
+            "date": "4/6/20",
+            "EkipNo": "3",
+            "Mahalle": "GÖLBAŞI SEĞMENLER",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "52"
+        },
+        {
+            "date": "4/6/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "5",
+            "Kapi Numarasi Üretimi": "83"
+        },
+        {
+            "date": "4/7/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "42"
+        },
+        {
+            "date": "4/7/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "50"
+        },
+        {
+            "date": "4/7/20",
+            "EkipNo": "3",
+            "Mahalle": "SİNCAN YENİKENT MENDERES",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "8",
+            "Tabela Tamirat": "2"
+        },
+        {
+            "date": "4/7/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "43"
+        },
+        {
+            "date": "4/8/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Kapi Numarasi Montaji": "100"
+        },
+        {
+            "date": "4/8/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "22"
+        },
+        {
+            "date": "4/8/20",
+            "EkipNo": "3",
+            "Mahalle": "MUHTELİF MECLİS KARARLARI",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "5",
+            "Tabela Tamirat": "3"
+        },
+        {
+            "date": "4/8/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "4/9/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "57"
+        },
+        {
+            "date": "4/9/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "50"
+        },
+        {
+            "date": "4/9/20",
+            "EkipNo": "3",
+            "Mahalle": "SİNCAN YENİKENT MENDERES",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "4/9/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "68",
+            "Tek Taraflı Tabela Yapımı": "9"
+        },
+        {
+            "date": "4/10/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Kapi Numarasi Montaji": "78"
+        },
+        {
+            "date": "4/10/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "2"
+        },
+        {
+            "date": "4/10/20",
+            "EkipNo": "3",
+            "Mahalle": "KAHRAMANKAZAN YASSIÖREN",
+            "Ilce": "KAHRAMANKAZAN",
+            "Yeni Direk": "6",
+            "Tespit": "11"
+        },
+        {
+            "date": "4/10/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "4/13/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "51"
+        },
+        {
+            "date": "4/13/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "50"
+        },
+        {
+            "date": "4/13/20",
+            "EkipNo": "3",
+            "Mahalle": "SİNCAN YENİKENT MENDERES",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "7",
+            "Tabela Tamirat": "1"
+        },
+        {
+            "date": "4/13/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "4/14/20",
+            "EkipNo": "1",
+            "Mahalle": "ALTINDAĞ AYDINLIKEVLER",
+            "Ilce": "ALTINDAĞ",
+            "Kapi Numarasi Montaji": "98"
+        },
+        {
+            "date": "4/14/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "1"
+        },
+        {
+            "date": "4/14/20",
+            "EkipNo": "3",
+            "Mahalle": "GÖLBAŞI TULUMTAŞ",
+            "Ilce": "GÖLBAŞI",
+            "Tabela Montaj": "49"
+        },
+        {
+            "date": "4/14/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "28",
+            "Tek Taraflı Tabela Yapımı": "1"
+        },
+        {
+            "date": "4/15/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "54"
+        },
+        {
+            "date": "4/15/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "61"
+        },
+        {
+            "date": "4/15/20",
+            "EkipNo": "3",
+            "Mahalle": "SİNCAN YENİKENT MENDERES",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "4",
+            "Tabela Tamirat": "5"
+        },
+        {
+            "date": "4/15/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "25"
+        },
+        {
+            "date": "4/16/20",
+            "EkipNo": "1",
+            "Mahalle": "ALTINDAĞ AYDINLIKEVLER",
+            "Ilce": "ALTINDAĞ",
+            "Kapi Numarasi Montaji": "93"
+        },
+        {
+            "date": "4/16/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "1",
+            "Yeni Direk": "2",
+            "Direk Boyama": "2",
+            "Tespit": "3"
+        },
+        {
+            "date": "4/16/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "46"
+        },
+        {
+            "date": "4/16/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "98",
+            "Kelepçe Hazırlama": "22"
+        },
+        {
+            "date": "4/17/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "62"
+        },
+        {
+            "date": "4/17/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "55"
+        },
+        {
+            "date": "4/17/20",
+            "EkipNo": "3",
+            "Mahalle": "SİNCAN YENİKENT MENDERES",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "40"
+        },
+        {
+            "date": "4/17/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "2",
+            "Tek Taraflı Tabela Yapımı": "2",
+            "Kapi Numarasi Üretimi": "197"
+        },
+        {
+            "date": "4/20/20",
+            "EkipNo": "1",
+            "Mahalle": "ALTINDAĞ AYDINLIKEVLER",
+            "Ilce": "ALTINDAĞ",
+            "Kapi Numarasi Montaji": "78"
+        },
+        {
+            "date": "4/20/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Tespit": "3"
+        },
+        {
+            "date": "4/20/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "44"
+        },
+        {
+            "date": "4/20/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "119"
+        },
+        {
+            "date": "4/21/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "63"
+        },
+        {
+            "date": "4/21/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "54"
+        },
+        {
+            "date": "4/21/20",
+            "EkipNo": "3",
+            "Mahalle": "SİNCAN YENİKENT MENDERES",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "46"
+        },
+        {
+            "date": "4/21/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "4/22/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Kapi Numarasi Montaji": "75"
+        },
+        {
+            "date": "4/22/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "5",
+            "Yeni Direk": "1",
+            "Tespit": "3"
+        },
+        {
+            "date": "4/22/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "42"
+        },
+        {
+            "date": "4/22/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "2"
+        },
+        {
+            "date": "4/27/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "66"
+        },
+        {
+            "date": "4/27/20",
+            "EkipNo": "2",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "45"
+        },
+        {
+            "date": "4/27/20",
+            "EkipNo": "3",
+            "Mahalle": "SİNCAN YENİKENT MENDERES",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "36"
+        },
+        {
+            "date": "4/27/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "5"
+        },
+        {
+            "date": "4/28/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK AKDERE",
+            "Ilce": "MAMAK",
+            "Çalışma İçeriği": "KEŞİF"
+        },
+        {
+            "date": "4/28/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "3",
+            "Mevcut Direk Tamirati": "2"
+        },
+        {
+            "date": "4/28/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "49"
+        },
+        {
+            "date": "4/28/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "4/29/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "71"
+        },
+        {
+            "date": "4/29/20",
+            "EkipNo": "2",
+            "Mahalle": "ELMADAĞ YENİCE",
+            "Ilce": "ELMADAĞ",
+            "Çalışma İçeriği": "KEŞİF"
+        },
+        {
+            "date": "4/29/20",
+            "EkipNo": "3",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "4"
+        },
+        {
+            "date": "4/29/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "235"
+        },
+        {
+            "date": "4/30/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK AKDERE",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "81"
+        },
+        {
+            "date": "4/30/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "3",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "1"
+        },
+        {
+            "date": "4/30/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "38"
+        },
+        {
+            "date": "4/30/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "153"
+        },
+        {
+            "date": "5/4/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK AKDERE",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "115"
+        },
+        {
+            "date": "5/4/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "2"
+        },
+        {
+            "date": "5/4/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "38"
+        },
+        {
+            "date": "5/4/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "76"
+        },
+        {
+            "date": "5/5/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "78"
+        },
+        {
+            "date": "5/5/20",
+            "EkipNo": "2",
+            "Mahalle": "ELMADAĞ YENİCE",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "5",
+            "Mevcut Direk Tamirati": "5"
+        },
+        {
+            "date": "5/5/20",
+            "EkipNo": "3",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "5/5/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "10",
+            "Tek Taraflı Tabela Yapımı": "6"
+        },
+        {
+            "date": "5/6/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK AKDERE",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "105"
+        },
+        {
+            "date": "5/6/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "8",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "1"
+        },
+        {
+            "date": "5/6/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "42"
+        },
+        {
+            "date": "5/6/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "5/7/20",
+            "EkipNo": "1",
+            "Mahalle": "SİNCAN MALIKÖY",
+            "Ilce": "SİNCAN",
+            "Kapi Numarasi Montaji": "45"
+        },
+        {
+            "date": "5/7/20",
+            "EkipNo": "2",
+            "Mahalle": "ELMADAĞ YENİCE",
+            "Ilce": "ELMADAĞ",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "6"
+        },
+        {
+            "date": "5/7/20",
+            "EkipNo": "3",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "5"
+        },
+        {
+            "date": "5/7/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "5/8/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK AKDERE",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "100"
+        },
+        {
+            "date": "5/8/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "8",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "2"
+        },
+        {
+            "date": "5/8/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "41"
+        },
+        {
+            "date": "5/8/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "1",
+            "Tek Taraflı Tabela Yapımı": "24",
+            "Kapi Numarasi Üretimi": "14"
+        },
+        {
+            "date": "5/12/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇUBUK YAVUZ SELİM",
+            "Ilce": "ÇUBUK",
+            "Numarataj Yazim": "8"
+        },
+        {
+            "date": "5/12/20",
+            "EkipNo": "2",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "4",
+            "Mevcut Direk Tamirati": "5"
+        },
+        {
+            "date": "5/12/20",
+            "EkipNo": "3",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "5/12/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "1",
+            "Tek Taraflı Tabela Yapımı": "81"
+        },
+        {
+            "date": "5/8/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK PEYAMİ SAFA",
+            "Ilce": "MAMAK",
+            "Çalışma İçeriği": "KEŞİF"
+        },
+        {
+            "date": "5/8/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "9",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "4",
+            "Tespit": "1"
+        },
+        {
+            "date": "5/8/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE YAKACIK",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "22"
+        },
+        {
+            "date": "5/8/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "30"
+        },
+        {
+            "date": "5/13/20",
+            "EkipNo": "1",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Kapi Numarasi Montaji": "2"
+        },
+        {
+            "date": "5/13/20",
+            "EkipNo": "2",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "9",
+            "Mevcut Direk Tamirati": "2"
+        },
+        {
+            "date": "5/13/20",
+            "EkipNo": "3",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "5/13/20",
+            "EkipNo": "ATÖLYELER"
+        },
+        {
+            "date": "5/15/20",
+            "EkipNo": "1",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Numarataj Yazim": "14"
+        },
+        {
+            "date": "5/15/20",
+            "EkipNo": "2",
+            "Mahalle": "AKYURT GÜZELHİSAR",
+            "Ilce": "AKYURT",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "9"
+        },
+        {
+            "date": "5/15/20",
+            "EkipNo": "3",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "5/15/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "2",
+            "Tek Taraflı Tabela Yapımı": "3"
+        },
+        {
+            "date": "5/14/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK PEYAMİ SAFA",
+            "Ilce": "MAMAK",
+            "Çalışma İçeriği": "KEŞİF"
+        },
+        {
+            "date": "5/14/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "2"
+        },
+        {
+            "date": "5/14/20",
+            "EkipNo": "3",
+            "Mahalle": "ALTINDAĞ KUZEY ANKARA BARAJ",
+            "Ilce": "ALTINDAĞ",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "5/14/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "80"
+        },
+        {
+            "date": "5/20/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK DEREBOYU",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "77"
+        },
+        {
+            "date": "5/20/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "4"
+        },
+        {
+            "date": "5/20/20",
+            "EkipNo": "3",
+            "Mahalle": "ALTINDAĞ KUZEY ANKARA BARAJ",
+            "Ilce": "ALTINDAĞ",
+            "Yeni Direk": "8",
+            "Tabela Tamirat": "1"
+        },
+        {
+            "date": "5/20/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "92"
+        },
+        {
+            "date": "5/21/20",
+            "EkipNo": "1",
+            "Mahalle": "ETİMESGUT İSTASYON",
+            "Ilce": "ETİMESGUT"
+        },
+        {
+            "date": "5/21/20",
+            "EkipNo": "2",
+            "Mahalle": "KAHRAMANKAZAN SARAY",
+            "Ilce": "KAHRAMANKAZAN",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "8"
+        },
+        {
+            "date": "5/21/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE SERHATLAR",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "23"
+        },
+        {
+            "date": "5/21/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "15",
+            "Tek Taraflı Tabela Yapımı": "20",
+            "Kapi Numarasi Üretimi": "192"
+        },
+        {
+            "date": "5/22/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK DEREBOYU",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "90"
+        },
+        {
+            "date": "5/22/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "3",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "2"
+        },
+        {
+            "date": "5/22/20",
+            "EkipNo": "3",
+            "Mahalle": "ALTINDAĞ KUZEY ANKARA BARAJ",
+            "Ilce": "ALTINDAĞ",
+            "Yeni Direk": "7",
+            "Mevcut Direk Tamirati": "2"
+        },
+        {
+            "date": "5/22/20",
+            "EkipNo": "ATÖLYELER",
+            "Kapi Numarasi Üretimi": "72"
+        },
+        {
+            "date": "5/27/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK DEREBOYU",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "90"
+        },
+        {
+            "date": "5/27/20",
+            "EkipNo": "2",
+            "Mahalle": "ETİMESGUT İSTASYON",
+            "Ilce": "ETİMESGUT",
+            "Tespit": "177"
+        },
+        {
+            "date": "5/27/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "15",
+            "Yeni Direk": "2",
+            "Tespit": "1"
+        },
+        {
+            "date": "5/27/20",
+            "EkipNo": "2",
+            "Mahalle": "KAHRAMANKAZAN SARAY",
+            "Ilce": "KAHRAMANKAZAN",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "9"
+        },
+        {
+            "date": "5/27/20",
+            "EkipNo": "2",
+            "Mahalle": "MUHTELİF MECLİS KARARLARI",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "55"
+        },
+        {
+            "date": "5/27/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE SERHAT",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "48"
+        },
+        {
+            "date": "5/27/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "38",
+            "Tek Taraflı Tabela Yapımı": "10",
+            "Kapi Numarasi Üretimi": "176"
+        },
+        {
+            "date": "5/28/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK DEREBOYU",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "130"
+        },
+        {
+            "date": "5/28/20",
+            "EkipNo": "2",
+            "Mahalle": "ETİMESGUT İSTASYON",
+            "Ilce": "ETİMESGUT",
+            "Numarataj Yazim": "2",
+            "Tespit": "84"
+        },
+        {
+            "date": "5/28/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "8",
+            "Yeni Direk": "4",
+            "Mevcut Direk Tamirati": "2",
+            "Tabela Tamirat": "2",
+            "Tespit": "4"
+        },
+        {
+            "date": "5/28/20",
+            "EkipNo": "2",
+            "Mahalle": "KAHRAMANKAZAN SARAY",
+            "Ilce": "KAHRAMANKAZAN",
+            "Mevcut Direk Tamirati": "9"
+        },
+        {
+            "date": "5/28/20",
+            "EkipNo": "2",
+            "Mahalle": "MUHTELİF MECLİS KARARLARI",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "34"
+        },
+        {
+            "date": "5/28/20",
+            "EkipNo": "3",
+            "Mahalle": "YENİMAHALLE SERHAT",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "20"
+        },
+        {
+            "date": "5/28/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "40",
+            "Tek Taraflı Tabela Yapımı": "1",
+            "Kapi Numarasi Üretimi": "142"
+        },
+        {
+            "date": "5/29/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK GENERAL ZEKİ DOĞAN",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "110"
+        },
+        {
+            "date": "5/29/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK HARMAN",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "40"
+        },
+        {
+            "date": "5/29/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "2"
+        },
+        {
+            "date": "5/29/20",
+            "EkipNo": "2",
+            "Mahalle": "KAHRAMANKAZAN SARIYAR",
+            "Ilce": "KAHRAMANKAZAN",
+            "Tabela Montaj": "25"
+        },
+        {
+            "date": "5/29/20",
+            "EkipNo": "2",
+            "Mahalle": "ETİMESGUT BALLIKUYUMCU",
+            "Ilce": "ETİMESGUT",
+            "Tespit": "32"
+        },
+        {
+            "date": "5/29/20",
+            "EkipNo": "3",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "41",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "12"
+        },
+        {
+            "date": "5/29/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "59",
+            "Tek Taraflı Tabela Yapımı": "15",
+            "Kapi Numarasi Üretimi": "107"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "1",
+            "Mahalle": "MAMAK GENERAL ZEKİ DOĞAN",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "110"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK HARMAN",
+            "Ilce": "MAMAK",
+            "Kapi Numarasi Montaji": "40"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "2"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "4",
+            "Mahalle": "KAHRAMANKAZAN SARIYAR",
+            "Ilce": "KAHRAMANKAZAN",
+            "Tabela Montaj": "25"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT BALLIKUYUMCU",
+            "Ilce": "ETİMESGUT",
+            "Tespit": "32"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "6",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "41",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "12"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "59",
+            "Tek Taraflı Tabela Yapımı": "15",
+            "Kapi Numarasi Üretimi": "107"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Kapi Numarasi Montaji": "77"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "2",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "4",
+            "Kapi Numarasi Montaji": "22"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "3",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "2"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "4",
+            "Mahalle": "NALLIHAN ÇAYIR HAN",
+            "Ilce": "NALLIHAN",
+            "Tabela Montaj": "41"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "5",
+            "Mahalle": "AKYURT GÜZELHİSAR",
+            "Ilce": "AKYURT",
+            "Tespit": "66"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "6",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "57"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA BEYTEPE",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "39"
+        },
+        {
+            "date": "6/1/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "52",
+            "Tek Taraflı Tabela Yapımı": "6",
+            "Kapi Numarasi Üretimi": "45"
+        },
+        {
+            "date": "6/2/20",
+            "EkipNo": "1",
+            "Mahalle": "ÇANKAYA İŞÇİ BLOKLARI",
+            "Ilce": "ÇANKAYA",
+            "Kapi Numarasi Montaji": "55"
+        },
+        {
+            "date": "6/2/20",
+            "EkipNo": "2",
+            "Mahalle": "ETİMESGUT İSTASYON",
+            "Ilce": "ETİMESGUT",
+            "Numarataj Yazim": "70",
+            "Tespit": "20"
+        },
+        {
+            "date": "6/2/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "13",
+            "Mevcut Direk Tamirati": "4",
+            "Tespit": "4"
+        },
+        {
+            "date": "6/2/20",
+            "EkipNo": "4",
+            "Mahalle": "YENİMAHALLE YUKARI YAHYALAR",
+            "Ilce": "YENİMAHALLE",
+            "Tabela Montaj": "20",
+            "Tabela Tamirat": "12"
+        },
+        {
+            "date": "6/2/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT ŞEHİTALİ",
+            "Ilce": "ETİMESGUT",
+            "Tespit": "58"
+        },
+        {
+            "date": "6/2/20",
+            "EkipNo": "6",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "57",
+            "Tespit": "110"
+        },
+        {
+            "date": "6/2/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA BEYTEPE",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "38"
+        },
+        {
+            "date": "6/2/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "93",
+            "Tek Taraflı Tabela Yapımı": "1",
+            "Kapi Numarasi Üretimi": "154"
+        },
+        {
+            "date": "6/3/20",
+            "EkipNo": "1",
+            "Mahalle": "KAHRAMANKAZAN YASSIÖREN",
+            "Ilce": "KAHRAMANKAZAN",
+            "Kapi Numarasi Montaji": "32"
+        },
+        {
+            "date": "6/3/20",
+            "EkipNo": "2",
+            "Mahalle": "ETİMESGUT İSTASYON",
+            "Ilce": "ETİMESGUT",
+            "Numarataj Yazim": "70",
+            "Tespit": "40"
+        },
+        {
+            "date": "6/3/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "8",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "2"
+        },
+        {
+            "date": "6/3/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "6/3/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT ŞEHİTALİ",
+            "Ilce": "ETİMESGUT",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "6/3/20",
+            "EkipNo": "6",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Tabela Montaj": "57",
+            "Tespit": "110"
+        },
+        {
+            "date": "6/3/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA BEYTEPE",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "27"
+        },
+        {
+            "date": "6/3/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "70",
+            "Tek Taraflı Tabela Yapımı": "8",
+            "Kapi Numarasi Üretimi": "0"
+        },
+        {
+            "date": "6/4/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI İNCEK",
+            "Ilce": "GÖLBAŞI",
+            "Mevcut Direk Tamirati": "32"
+        },
+        {
+            "date": "6/4/20",
+            "EkipNo": "2",
+            "Mahalle": "ETİMESGUT İSTASYON",
+            "Ilce": "ETİMESGUT",
+            "Tespit": "30"
+        },
+        {
+            "date": "6/4/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "5",
+            "Yeni Direk": "3",
+            "Mevcut Direk Tamirati": "2",
+            "Tespit": "3"
+        },
+        {
+            "date": "6/4/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "6/4/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT ŞEHİTALİ",
+            "Ilce": "ETİMESGUT",
+            "Yeni Direk": "9"
+        },
+        {
+            "date": "6/4/20",
+            "EkipNo": "6",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "10",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "110"
+        },
+        {
+            "date": "6/4/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "36"
+        },
+        {
+            "date": "6/4/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "96",
+            "Tek Taraflı Tabela Yapımı": "3",
+            "Kapi Numarasi Üretimi": "0"
+        },
+        {
+            "date": "6/5/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI İNCEK",
+            "Ilce": "GÖLBAŞI"
+        },
+        {
+            "date": "6/5/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Kapi Numarasi Montaji": "77"
+        },
+        {
+            "date": "6/5/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "10",
+            "Tespit": "4"
+        },
+        {
+            "date": "6/5/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "6/5/20",
+            "EkipNo": "5",
+            "Mahalle": "ALTINDAĞ BARAJ",
+            "Ilce": "ALTINDAĞ",
+            "Tabela Montaj": "57"
+        },
+        {
+            "date": "6/5/20",
+            "EkipNo": "6",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "10",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "110"
+        },
+        {
+            "date": "6/5/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "37"
+        },
+        {
+            "date": "6/5/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "115",
+            "Tek Taraflı Tabela Yapımı": "0",
+            "Kapi Numarasi Üretimi": "0"
+        },
+        {
+            "date": "6/6/20",
+            "EkipNo": "1",
+            "Mahalle": "ETİMESGUT ŞEHİTALİ",
+            "Ilce": "ETİMESGUT",
+            "Numarataj Yazim": "109"
+        },
+        {
+            "date": "6/6/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Kapi Numarasi Montaji": "102"
+        },
+        {
+            "date": "6/6/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "8",
+            "Yeni Direk": "1",
+            "Mevcut Direk Tamirati": "4",
+            "Tespit": "1"
+        },
+        {
+            "date": "6/6/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "7"
+        },
+        {
+            "date": "6/6/20",
+            "EkipNo": "5",
+            "Mahalle": "GÖLBAŞI SELAMETLİ",
+            "Ilce": "GÖLBAŞI"
+        },
+        {
+            "date": "6/6/20",
+            "EkipNo": "6",
+            "Mahalle": "SİNCAN YENİKENT",
+            "Ilce": "SİNCAN",
+            "Yeni Direk": "5",
+            "Mevcut Direk Tamirati": "6"
+        },
+        {
+            "date": "6/6/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "41"
+        },
+        {
+            "date": "6/6/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "77",
+            "Tek Taraflı Tabela Yapımı": "2",
+            "Kapi Numarasi Üretimi": "75"
+        },
+        {
+            "date": "6/9/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI KARAOĞLAN",
+            "Ilce": "GÖLBAŞI",
+            "Kapi Numarasi Montaji": "3"
+        },
+        {
+            "date": "6/9/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Kapi Numarasi Montaji": "88"
+        },
+        {
+            "date": "6/9/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "5",
+            "Tespit": "1"
+        },
+        {
+            "date": "6/9/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "9",
+            "Mevcut Direk Tamirati": "3"
+        },
+        {
+            "date": "6/9/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT BALLIKUYUMCU",
+            "Ilce": "ETİMESGUT",
+            "Tabela Montaj": "52"
+        },
+        {
+            "date": "6/9/20",
+            "EkipNo": "6",
+            "Mahalle": "ETİMESGUT TURKUAZ",
+            "Ilce": "ETİMESGUT",
+            "Tespit": "38"
+        },
+        {
+            "date": "6/9/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "42"
+        },
+        {
+            "date": "6/9/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "106",
+            "Tek Taraflı Tabela Yapımı": "36",
+            "Kapi Numarasi Üretimi": "112"
+        },
+        {
+            "date": "6/10/20",
+            "EkipNo": "1",
+            "Mahalle": "GÖLBAŞI İNCEK",
+            "Ilce": "GÖLBAŞI",
+            "Kapi Numarasi Montaji": "73"
+        },
+        {
+            "date": "6/10/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Kapi Numarasi Montaji": "93"
+        },
+        {
+            "date": "6/10/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Mevcut Direk Tamirati": "2",
+            "Tabela Tamirat": "4",
+            "Tespit": "1"
+        },
+        {
+            "date": "6/10/20",
+            "EkipNo": "4",
+            "Mahalle": "POLATLI ŞEHİTLİK",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "5",
+            "Mevcut Direk Tamirati": "4"
+        },
+        {
+            "date": "6/10/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT BALLIKUYUMCU",
+            "Ilce": "ETİMESGUT",
+            "Tabela Montaj": "44"
+        },
+        {
+            "date": "6/10/20",
+            "EkipNo": "6",
+            "Mahalle": "ETİMESGUT TURKUAZ",
+            "Ilce": "ETİMESGUT",
+            "Tabela Montaj": "12",
+            "Tespit": "38"
+        },
+        {
+            "date": "6/10/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "42"
+        },
+        {
+            "date": "6/10/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "78",
+            "Tek Taraflı Tabela Yapımı": "0",
+            "Kapi Numarasi Üretimi": "0"
+        },
+        {
+            "date": "6/11/20",
+            "EkipNo": "1",
+            "Mahalle": "ETİMESGUT TURKUAZ",
+            "Ilce": "ETİMESGUT",
+            "Numarataj Yazim": "84"
+        },
+        {
+            "date": "6/11/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Kapi Numarasi Montaji": "85"
+        },
+        {
+            "date": "6/11/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "6",
+            "Mevcut Direk Tamirati": "1",
+            "Tabela Tamirat": "12",
+            "Tespit": "2"
+        },
+        {
+            "date": "6/11/20",
+            "EkipNo": "4",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "57",
+            "Tabela Tamirat": "40"
+        },
+        {
+            "date": "6/11/20",
+            "EkipNo": "5",
+            "Mahalle": "GÖLBAŞI KARAOĞLAN",
+            "Ilce": "GÖLBAŞI",
+            "Tespit": "100"
+        },
+        {
+            "date": "6/11/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI ZAFER",
+            "Ilce": "POLATLI",
+            "Tespit": "240"
+        },
+        {
+            "date": "6/11/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "23"
+        },
+        {
+            "date": "6/11/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "93",
+            "Tek Taraflı Tabela Yapımı": "0",
+            "Kapi Numarasi Üretimi": "0"
+        },
+        {
+            "date": "6/12/20",
+            "EkipNo": "1",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Mevcut Direk Tamirati": "4"
+        },
+        {
+            "date": "6/12/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Kapi Numarasi Montaji": "77"
+        },
+        {
+            "date": "6/12/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Mevcut Direk Tamirati": "4",
+            "Tespit": "1"
+        },
+        {
+            "date": "6/12/20",
+            "EkipNo": "4",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Tabela Montaj": "56",
+            "Tabela Tamirat": "35"
+        },
+        {
+            "date": "6/12/20",
+            "EkipNo": "5",
+            "Mahalle": "GÖLBAŞI KARAOĞLAN",
+            "Ilce": "GÖLBAŞI",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "6/12/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI ZAFER",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "6/12/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "39"
+        },
+        {
+            "date": "6/12/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "90",
+            "Tek Taraflı Tabela Yapımı": "0",
+            "Kapi Numarasi Üretimi": "84"
+        },
+        {
+            "date": "6/13/20",
+            "EkipNo": "1",
+            "Mevcut Direk Tamirati": "4"
+        },
+        {
+            "date": "6/13/20",
+            "EkipNo": "2",
+            "Mahalle": "KEÇİÖREN YÜKSELTEPE",
+            "Ilce": "KEÇİÖREN",
+            "Kapi Numarasi Montaji": "68"
+        },
+        {
+            "date": "6/13/20",
+            "EkipNo": "3"
+        },
+        {
+            "date": "6/13/20",
+            "EkipNo": "4",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Mevcut Direk Tamirati": "10"
+        },
+        {
+            "date": "6/13/20",
+            "EkipNo": "5"
+        },
+        {
+            "date": "6/13/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI ZAFER",
+            "Ilce": "POLATLI"
+        },
+        {
+            "date": "6/13/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA",
+            "Direk Boyama": "30"
+        },
+        {
+            "date": "6/13/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "45",
+            "Tek Taraflı Tabela Yapımı": "3",
+            "Kapi Numarasi Üretimi": "0"
+        },
+        {
+            "date": "6/15/20",
+            "EkipNo": "1",
+            "Mahalle": "ALTINDAĞ DOĞANTEPE",
+            "Ilce": "ALTINDAĞ"
+        },
+        {
+            "date": "6/15/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK ŞİRİNTEPE",
+            "Ilce": "MAMAK"
+        },
+        {
+            "date": "6/15/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "7",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "1"
+        },
+        {
+            "date": "6/15/20",
+            "EkipNo": "4",
+            "Mahalle": "ELMADAĞ YENİCE",
+            "Ilce": "ELMADAĞ",
+            "Tabela Montaj": "40",
+            "Tabela Tamirat": "20"
+        },
+        {
+            "date": "6/15/20",
+            "EkipNo": "5",
+            "Mahalle": "GÖLBAŞI KARAOĞLAN",
+            "Ilce": "GÖLBAŞI",
+            "Yeni Direk": "12"
+        },
+        {
+            "date": "6/15/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI ZAFER",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "6/15/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "6/15/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "79",
+            "Tek Taraflı Tabela Yapımı": "0",
+            "Kapi Numarasi Üretimi": "0"
+        },
+        {
+            "date": "6/16/20",
+            "EkipNo": "1",
+            "Mahalle": "ALTINDAĞ DOĞANTEPE",
+            "Ilce": "ALTINDAĞ"
+        },
+        {
+            "date": "6/16/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK ŞİRİNTEPE",
+            "Ilce": "MAMAK"
+        },
+        {
+            "date": "6/16/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Yeni Direk": "2",
+            "Tabela Tamirat": "4"
+        },
+        {
+            "date": "6/16/20",
+            "EkipNo": "4",
+            "Mahalle": "KAHRAMANKAZAN SARAY",
+            "Ilce": "KAHRAMANKAZAN",
+            "Tabela Montaj": "54",
+            "Tabela Tamirat": "44"
+        },
+        {
+            "date": "6/16/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT YUKARI YURTÇU",
+            "Ilce": "ETİMESGUT",
+            "Tespit": "47"
+        },
+        {
+            "date": "6/16/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI ZAFER",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "6/16/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "6/16/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "106",
+            "Tek Taraflı Tabela Yapımı": "0",
+            "Kapi Numarasi Üretimi": "0"
+        },
+        {
+            "date": "6/17/20",
+            "EkipNo": "1",
+            "Mahalle": "ALTINDAĞ DOĞANTEPE",
+            "Ilce": "ALTINDAĞ"
+        },
+        {
+            "date": "6/17/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK ŞİRİNTEPE",
+            "Ilce": "MAMAK"
+        },
+        {
+            "date": "6/17/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Yeni Direk": "2",
+            "Tespit": "2"
+        },
+        {
+            "date": "6/17/20",
+            "EkipNo": "4",
+            "Mahalle": "KAHRAMANKAZAN SARAY",
+            "Ilce": "KAHRAMANKAZAN",
+            "Tabela Montaj": "54",
+            "Tabela Tamirat": "46"
+        },
+        {
+            "date": "6/17/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT ŞEHİTALİ",
+            "Ilce": "ETİMESGUT",
+            "Tabela Montaj": "46"
+        },
+        {
+            "date": "6/17/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI ZAFER",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "6/17/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "6/17/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "111",
+            "Tek Taraflı Tabela Yapımı": "0",
+            "Kapi Numarasi Üretimi": "9"
+        },
+        {
+            "date": "6/18/20",
+            "EkipNo": "1",
+            "Mahalle": "ALTINDAĞ DOĞANTEPE",
+            "Ilce": "ALTINDAĞ"
+        },
+        {
+            "date": "6/18/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK ŞİRİNTEPE",
+            "Ilce": "MAMAK"
+        },
+        {
+            "date": "6/18/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "2",
+            "Yeni Direk": "2",
+            "Mevcut Direk Tamirati": "3",
+            "Tespit": "2"
+        },
+        {
+            "date": "6/18/20",
+            "EkipNo": "4",
+            "Mahalle": "KAHRAMANKAZAN SARAY",
+            "Ilce": "KAHRAMANKAZAN",
+            "Tabela Montaj": "52",
+            "Tabela Tamirat": "48"
+        },
+        {
+            "date": "6/18/20",
+            "EkipNo": "5",
+            "Mahalle": "AKYURT GÜZELHİSAR",
+            "Ilce": "AKYURT",
+            "Tabela Montaj": "34"
+        },
+        {
+            "date": "6/18/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI ZAFER",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "10"
+        },
+        {
+            "date": "6/18/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "6/18/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "0",
+            "Tek Taraflı Tabela Yapımı": "212",
+            "Kapi Numarasi Üretimi": "9"
+        },
+        {
+            "date": "6/19/20",
+            "EkipNo": "1",
+            "Mahalle": "ALTINDAĞ DOĞANTEPE",
+            "Ilce": "ALTINDAĞ"
+        },
+        {
+            "date": "6/19/20",
+            "EkipNo": "2",
+            "Mahalle": "MAMAK ŞİRİNTEPE",
+            "Ilce": "MAMAK"
+        },
+        {
+            "date": "6/19/20",
+            "EkipNo": "3",
+            "Mahalle": "MAVİMASA",
+            "Ilce": "GENEL",
+            "Tabela Montaj": "6",
+            "Mevcut Direk Tamirati": "1",
+            "Tespit": "3"
+        },
+        {
+            "date": "6/19/20",
+            "EkipNo": "4",
+            "Mahalle": "KAHRAMANKAZAN SARAY",
+            "Ilce": "KAHRAMANKAZAN",
+            "Tabela Montaj": "33",
+            "Tabela Tamirat": "27"
+        },
+        {
+            "date": "6/19/20",
+            "EkipNo": "5",
+            "Mahalle": "ETİMESGUT TURKUAZ",
+            "Ilce": "ETİMESGUT",
+            "Tabela Montaj": "52",
+            "Tabela Tamirat": "47"
+        },
+        {
+            "date": "6/19/20",
+            "EkipNo": "6",
+            "Mahalle": "POLATLI ZAFER",
+            "Ilce": "POLATLI",
+            "Yeni Direk": "11"
+        },
+        {
+            "date": "6/19/20",
+            "EkipNo": "7",
+            "Mahalle": "ÇANKAYA PROF AHMET TANER KIŞLALI",
+            "Ilce": "ÇANKAYA"
+        },
+        {
+            "date": "6/19/20",
+            "EkipNo": "ATÖLYELER",
+            "Çift Taraflı Tabela Yapımı": "89",
+            "Tek Taraflı Tabela Yapımı": "56",
+            "Kapi Numarasi Üretimi": "49"
+        }
+    ],
+    "Sayfa2": [
+        {
+            "2020": "date",
+            "undefined": "Toplam İş Adedi"
+        },
+        {
+            "2020": "OCAK",
+            "undefined": "8127"
+        },
+        {
+            "2020": "2019 ORTALAMA"
+        },
+        {
+            "2020": "1 AY",
+            "undefined": "15647"
+        }
+    ]
+}
