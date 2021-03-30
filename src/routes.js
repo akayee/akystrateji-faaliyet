@@ -15,6 +15,7 @@ import Birimler from "./views/Birimler/Birimler";
 import Hedefler from "./views/Hedefler/Hedefler";
 import Raporlar from "./views/Raporlar/Raporlar";
 import Ayarlar from "./views/Ayarlar/Ayarlar";
+import Stratejiler from "./views/Stratejier/Stratejiler";
 
 
 const dashboardRoutes = [
@@ -63,9 +64,17 @@ const dashboardRoutes = [
   },
   {
     path:"/birimler",
-    name:"Faaliyet Raporu",
+    name:"Strateji Raporu Birimler",
     icon:GroupIcon,
     component: Birimler,
+    layout: "/admin"
+
+  },
+  {
+    path:"/strateji",
+    name:"Strateji Raporu",
+    icon:GroupIcon,
+    component: Stratejiler,
     layout: "/admin"
 
   },
