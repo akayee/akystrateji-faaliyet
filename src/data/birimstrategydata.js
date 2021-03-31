@@ -315,13 +315,8 @@ const BIRIMSTRATEGYDATA = [
                         id: 1,
                         path: '1/0/1',
                         adi: 'İşyerlerinin denetimi artırmak ve olası iş kazalarını önlemek',
-                        hedefGerceklesmeOrani: 99,
-                        performanslar: [{
-                            id: 0,
-                            path: '1/0/1/0',
-                            adi: 'Gelen şikayetleri değerlendirmek ve denetim sayısını artırmak',
-                            gerceklesmeOrani: 22,
-                            isler: [{
+                        gerceklesmeOrani: 99,
+                        isler: [{
                                     id: 0,
                                     birimId: 25,
                                     adi: 'GSM işyerleri denetim sayısı',
@@ -400,14 +395,9 @@ const BIRIMSTRATEGYDATA = [
                                     aciklama: null
                                 }
                             ]
-                        }]
+                       
                     },
                     {
-                        id: 2,
-                        path: '1/0/2',
-                        adi: 'İzinsiz satış yapan ve duygu istismarlığı yapan kişiler ile mücadele etmek',
-                        hedefGerceklesmeOrani: 99,
-                        performanslar: [{
                             id: 0,
                             path: '1/0/2/0',
                             adi: 'Gelen şikayetleri değerlendirmek, görüntü kirliliğini önlemek ve kaldırım işgallerini engellemek',
@@ -443,7 +433,7 @@ const BIRIMSTRATEGYDATA = [
                                     aciklama: null
                                 }
                             ]
-                        }]
+                       
                     }
                     
                 ]
@@ -456,13 +446,13 @@ const BIRIMSTRATEGYDATA = [
         hedefler: [
             {
                 id: 0,
-                path: '1/0',
+                path: '1/1',
                 adi: 'Yeşil alanları arttırarak kişi başına düşen yeşil alan miktarını artırmayı sağlamak',
                 hedefGerceklesmeOrani: 55,
                 performanslar: [
                     {
                         id: 0,
-                        path: '1/0/0',
+                        path: '1/1/0',
                         adi: ' Yeşil alanları artırarak kişi başına düşen yeşil alan miktarını artırmak',
                         gerceklesmeOrani: 85,
                         isler: [
@@ -532,7 +522,7 @@ const BIRIMSTRATEGYDATA = [
                     },
                     {
                         id: 1,
-                        path: '1/0/1',
+                        path: '1/1/1',
                         adi: 'Bilinçli ve bilimsel mücadele yöntemleriyle çevre ve toplum sağlığının korunmasını sağlamak',
                         hedefGerceklesmeOrani: 55,
                         performanslar: [{
@@ -580,7 +570,7 @@ const BIRIMSTRATEGYDATA = [
             },
             {
                 id: 1,
-                path: '1/1',
+                path: '1/2',
                 adi: 'Görsel zenginliğin oluşturulması amacıyla ağaç, fidan, çalı kullanmak ve mevsimlik çiçek uygulamaları ile de şehrin estetiğini artırmayı sağlamak',
                 hedefGerceklesmeOrani: 12,
 

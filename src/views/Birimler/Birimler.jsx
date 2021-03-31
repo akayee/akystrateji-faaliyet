@@ -47,16 +47,10 @@ class Birimler extends React.Component {
     this.state = {
       modalShow: false,
       modalAccountShow: false,
-      detailData: [],
       hedefexpanded: false,
       performansexpanded: false,
-      Tanim: '',
-      accounts: [],
-      HesapTuru: '',
       user: currentUser(),
-      HesapEkleme: null,
-      listtype: false,
-      changedData: []
+      data:BIRIMSTRATEGYDATA
     };
   }
 
@@ -107,7 +101,7 @@ class Birimler extends React.Component {
 
         <GridContainer>
 
-          {BIRIMSTRATEGYDATA.map((i, index) =>
+          {this.state.data.map((i, index) =>
 
             <GridItem xs={12} sm={12} md={12}>
               <Card>
@@ -129,7 +123,7 @@ class Birimler extends React.Component {
 
 
                   </GridContainer>
-                  {//hedeflistelenecek altına birimlere göre listeleme yapılacak
+                  {
                     i.hedefler.map((item) =>
                       <Accordion expanded={this.state.hedefexpanded === item.path} onChange={this.handleChangeHedef(item.path)}>
                         <AccordionSummary
