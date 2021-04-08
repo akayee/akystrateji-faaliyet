@@ -131,11 +131,11 @@ class Birimler extends React.Component {
                           aria-controls="panel1bh-content"
                           id="panel1bh-header"
                         >
-                          <Grid xs={5}>H{item.id + 1} : <Link to={{
+                          <Grid xs={6}>H{item.id + 1} : <Link to={{
                             pathname: "/admin/numarataj",
                             state: { detailData: item }
                           }}><div >{item.adi}</div ></Link></Grid>
-                          <Grid xs={5}> <LinearProg gerceklesmeOrani={item.hedefGerceklesmeOrani} /></Grid>
+                          <Grid xs={6}> <LinearProg gerceklesmeOrani={item.hedefGerceklesmeOrani} /> </Grid>
                         </AccordionSummary>
                         <AccordionDetails>
                           <div style={{ width: '%100' }}>
@@ -146,7 +146,7 @@ class Birimler extends React.Component {
                                             id="panel1bh-header"
                                         >
                                             <Grid xs={6}>P{performans.id + 1} : {performans.adi}</Grid>
-                                            <Grid xs={6}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} /></Grid>
+                                            <Grid xs={6}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} /> </Grid>
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <Grid container>
@@ -165,7 +165,7 @@ class Birimler extends React.Component {
                                                     <Grid item xs={2}>{is.hedef} </Grid>
                                                     <Grid item xs={2}>{is.gerceklesme} </Grid>
                                                     <Grid item xs={4}>{is.aciklama} </Grid>
-                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} /> </Grid>
+                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} /></Grid>
                                                     
                                                 </Grid>)}
                                                 <Grid container><h4><b>Faaliyetler</b></h4></Grid>

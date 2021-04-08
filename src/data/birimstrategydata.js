@@ -521,11 +521,6 @@ const BIRIMSTRATEGYDATA = [
 
                     },
                     {
-                        id: 1,
-                        path: '1/1/1',
-                        adi: 'Bilinçli ve bilimsel mücadele yöntemleriyle çevre ve toplum sağlığının korunmasını sağlamak',
-                        hedefGerceklesmeOrani: 55,
-                        performanslar: [{
                             id: 0,
                             path: '1/0/1/0',
                             adi: 'Çevre kirliliğinin önlenmesi çevre ve toplum sağlığının korunması amacını sağlamak',
@@ -564,7 +559,7 @@ const BIRIMSTRATEGYDATA = [
                                     aciklama: 'Vektörle mücadele hizmetinde kullanılan biyosidal ürünler, 696 sayılı KHK gereği doğrudan hizmet alımı içerisinde gerçekleştirilmiştir.'
                                 }
                             ]
-                        }]
+                      
                     }
                 ]
             },
