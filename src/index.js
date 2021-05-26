@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {createStore,combineReducers} from 'redux';
+import {Provider} from 'react-redux';
 import { createBrowserHistory } from "history";
 import { HashRouter as Router, Route , Switch, Redirect } from "react-router-dom";
 
@@ -9,18 +11,25 @@ import Admin from "layouts/Admin.jsx";
 import "assets/css/material-dashboard-react.css?v=1.6.0";
 import Register from "./views/Register/Register";
 
+import birimlerReducer from '../store/reducers/birimler'
+
 const hist = createBrowserHistory();
 localStorage.setItem('FirmId','1');
+const rootReducer =combineReducers({
+  birimler:birimlerReducer
+});
+const store = createStore(rootReducer)
 ReactDOM.render(
-  
-    <Router history={hist}>
-      <Switch>
-        <Route path="/admin"  component={Admin} />
-        <Route path="/register"  component={Register} />
-        
-        <Redirect from="/"  to="/admin/numarataj/" />
-      </Switch>
-    </Router>
+  <Provider store= {store}>
+      <Router history={hist}>
+        <Switch>
+          <Route path="/admin"  component={Admin} />
+          <Route path="/register"  component={Register} />
+          
+          <Redirect from="/"  to="/admin/numarataj/" />
+        </Switch>
+      </Router>
+    </Provider>
   ,
   document.getElementById("root")
 );
