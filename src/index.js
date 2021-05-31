@@ -11,7 +11,7 @@ import Admin from "layouts/Admin.jsx";
 import "assets/css/material-dashboard-react.css?v=1.6.0";
 import Register from "./views/Register/Register";
 
-import birimlerReducer from '../store/reducers/birimler'
+import birimlerReducer from './store/reducers/birimler'
 
 const hist = createBrowserHistory();
 localStorage.setItem('FirmId','1');

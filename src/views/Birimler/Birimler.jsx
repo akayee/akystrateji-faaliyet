@@ -16,12 +16,21 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { currentUser, addData, auth, takeData, updateData, deleteData, moneyTransfer, addPaymentData } from '../../firebase/auth';
 import LinearProg from '../../components/LinearProg/LinearProg';
+import { connect} from 'react-redux'
 
 import BIRIMSTRATEGYDATA from "../../data/birimstrategydata";
 import BIRIMLER from "../../data/birimler";
+import birimler from "../../store/reducers/birimler";
 
 const API_URL = 'http://localhost:63544/api/hesaplar';
 const dataAdress = 'Hesaplar';
+
+const mapStateToProps = state => {
+  return{
+    birimlerim: state.birimler
+  }
+  
+};
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -53,7 +62,7 @@ class Birimler extends React.Component {
       data:BIRIMSTRATEGYDATA
     };
   }
-
+  
   modalClose = () => this.setState({ modalShow: false });
   modalOpen = () => this.setState({ modalShow: !this.state.modalShow });
   paymentOpen = () => this.setState({ paymentShow: !this.state.paymentShow });
@@ -91,16 +100,16 @@ class Birimler extends React.Component {
       );
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
-
+    
 
     //DİZAYN CLASSLARININ PROPDAN ALINMA İŞLEMİ
     const { classes } = this.props;
-
+    const birimlerim= this.props.birimlerim
+    
     return (
       <div>
-
         <GridContainer>
-
+          {console.log(birimlerim)}
           {this.state.data.map((i, index) =>
 
             <GridItem xs={12} sm={12} md={12}>
@@ -216,4 +225,4 @@ Birimler.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Birimler);
+export default connect(mapStateToProps)(withStyles(styles)(Birimler));

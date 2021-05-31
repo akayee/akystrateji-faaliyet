@@ -1,9 +1,10 @@
 import {ADD_TO_BIRIM,REMOVE_FROM_BIRIM} from '../actions/birimler';
 import BirimItem from '../../models/birim-item';
+import BIRIMLER from '../../data/birimler';
 
 
 const initialState= {
-    birimler:{}
+    birimler:BIRIMLER
 };
 
 export default (state=initialState,action)=>{
@@ -30,5 +31,7 @@ export default (state=initialState,action)=>{
                 ...state,
                 birimler:updatedBirimItem
             }
+        default:
+            return state;
     }
 }
