@@ -16,7 +16,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { currentUser, addData, auth, takeData, updateData, deleteData, moneyTransfer, addPaymentData } from '../../firebase/auth';
 import LinearProg from '../../components/LinearProg/LinearProg';
-import { connect} from 'react-redux'
+import { connect} from 'react-redux';
 
 import BIRIMSTRATEGYDATA from "../../data/birimstrategydata";
 import BIRIMLER from "../../data/birimler";
@@ -104,7 +104,7 @@ class Birimler extends React.Component {
 
     //DİZAYN CLASSLARININ PROPDAN ALINMA İŞLEMİ
     const { classes } = this.props;
-    const birimlerim= this.props.birimlerim
+    const birimlerim= this.props.birimlerim.birimler
     
     return (
       <div>

@@ -5,10 +5,17 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {  Grid } from '@material-ui/core';
-import LinearProgress from "@material-ui/core/LinearProgress";
 import BIRIMLER from '../../data/birimler';
 import LinearProg from '../../components/LinearProg/LinearProg';
+import { FullscreenExit } from '@material-ui/icons';
+import { connect} from 'react-redux';
 
+
+const mapStateToProps = state => {
+    return{
+      birimlerim: state.birimler
+    }
+}
 class Stratejiler extends React.Component {
 
     constructor(...args) {
@@ -31,9 +38,10 @@ class Stratejiler extends React.Component {
     };
     render() {
 
+        const birimlerim= this.props.birimlerim.birimler
 
         return <div>
-
+            {console.log(birimlerim)}
             {this.state.data.map((strateji, index) => <Accordion expanded={this.state.expanded === strateji.path} onChange={this.handleChange(strateji.path)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -52,7 +60,7 @@ class Stratejiler extends React.Component {
                             >
                                 <Grid xs={5}>H{hedef.id + 1} : {hedef.adi}</Grid>
                                 <Grid xs={5}><LinearProg gerceklesmeOrani={hedef.hedefGerceklesmeOrani} /></Grid>
-                                <Grid xs={2}>{BIRIMLER[hedef.birimId].Adi}</Grid>
+                                <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[hedef.birimId].Adi}</Grid>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div style={{ width: '%100' }}>
@@ -64,7 +72,7 @@ class Stratejiler extends React.Component {
                                         >
                                             <Grid xs={5}>P{performans.id + 1} : {performans.adi}</Grid>
                                             <Grid xs={5}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} /></Grid>
-                                            <Grid xs={2}>{BIRIMLER[performans.birimId].Adi}</Grid>
+                                            <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[performans.birimId].Adi}</Grid>
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <Grid container>
@@ -118,4 +126,4 @@ class Stratejiler extends React.Component {
         </div>
     }
 }
-export default Stratejiler;
+export default connect(mapStateToProps)(Stratejiler);

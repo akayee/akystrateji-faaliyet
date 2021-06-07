@@ -8,8 +8,27 @@ const LinearProg = props => {
     const options = {
         labels:["Faaliyet","Maaliyet"]
     }
+    var options1 = {
+        plotOptions: {
+          radialBar: {
+            dataLabels: {
+              total: {
+                show: true,
+                label: 'TOPLAM',
+                formatter: function (w) {
+                    return w.globals.seriesTotals.reduce((a, b) => {
+                      return a + b
+                    }, 0) + '%'
+                  }
+              }
+            }
+          }
+        },
+        labels: ['1.', '2.','3.']
+      };
 
 const series = [props.gerceklesmeOrani, props.gerceklesmeOrani > 100 ? 0 : 100 - props.gerceklesmeOrani]
+const parts=[15,20,15]
 
 
 return <Grid container >
@@ -20,7 +39,9 @@ return <Grid container >
     </Grid> */}
     <Grid item xs={12} style={{display:"flex", justifyContent:"flex-end"}} >
         {/* <LinearProgress variant="determinate" color={props.gerceklesmeOrani<70?'secondary':'primary'} value={props.gerceklesmeOrani>100?100:props.gerceklesmeOrani} /> */}
+        <Chart options={options1} series={parts} type="radialBar" width={175} />
         <Chart options={options} series={series} type="donut" width={200} />
+        
     </Grid>
 
 </Grid>

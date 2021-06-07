@@ -35,7 +35,18 @@ import BIRIMLER from "../../data/birimler";
 import PerformansEkle from "../../components/Birimislemleri/PerformansEkle";
 import YeniIsEkle from "../../components/Birimislemleri/YeniIsEkle";
 import YeniFaaliyetEkle from "../../components/Birimislemleri/YeniFaaliyetEkle";
+import Swal from 'sweetalert2';
 
+import { connect} from 'react-redux';
+
+
+
+const mapStateToProps = state => {
+  return{
+    birimlerim: state.birimler
+  }
+  
+};
 const personeller = [
   { Adi: 'Ahmet YILMAZ', kadro: 'Şirket', id: '1', Birim: 'Yol Asfalt', cinsiyet: 'Erkek', ustBirimId: '0', girisTarihi: '10/10/2019', gorevi: 'Ofis Mühendisi' },
   { Adi: 'Kemal Ecevit', id: '4', Birim: 'İnşaat Yapım', kadro: 'Memur', ustBirimId: '0', cinsiyet: 'Erkek', girisTarihi: '10/05/1995', gorevi: 'Şube Müdürü' },];
@@ -75,6 +86,8 @@ const styles = {
     textDecoration: "none"
   }
 };
+
+
 //component/task table yapısı kullanılarak oradaki icon buttonlarla icon eklenecek
 class Hedefler extends React.Component {
   constructor(...args) {
@@ -115,12 +128,15 @@ class Hedefler extends React.Component {
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
 
-
+    
+    const birimlerim= this.props.birimlerim.birimler
     return (
       <div>
         {/* Stratejik amaç ekleme popupı */}
         
+        {console.log(birimlerim)}
         <GridContainer>
+
           <Grid item xs={4} >
             <AmacEkle classes={this.props.classes} birimler={acoounttye} />
           </Grid>
@@ -169,9 +185,16 @@ class Hedefler extends React.Component {
                             id="panel1bh-header"
                           >
                             <Grid xs={5}>H{item.id + 1} : <div >{item.adi}</div ></Grid>
-                            <Grid xs={5}> <LinearProg gerceklesmeOrani={item.hedefGerceklesmeOrani} /></Grid>
-                            <Grid item xs={2} style={{ textAlign: 'right' }}>
-                              <IconButton>
+                            <Grid item xs={7} style={{ textAlign: 'right' }}>
+                              <IconButton onClick={e=>{
+                                e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
+                                Swal.fire({
+                                  title: 'Error!',
+                                  text: 'Do you want to continue',
+                                  icon: 'error',
+                                  confirmButtonText: 'Cool'
+                                })
+                              }}>
                                 <DeleteIcon />
                               </IconButton>
 
@@ -194,8 +217,7 @@ class Hedefler extends React.Component {
                                   id="panel1bh-header"
                                 >
                                   <Grid xs={5}>P{performans.id + 1} : {performans.adi}</Grid>
-                                  <Grid xs={5}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} /></Grid>
-                                  <Grid item xs={2} style={{ textAlign: 'right' }}>
+                                  <Grid item xs={7} style={{ textAlign: 'right' }}>
                                     <IconButton>
                                       <DeleteIcon />
                                     </IconButton>
@@ -224,7 +246,6 @@ class Hedefler extends React.Component {
                                       <Grid item xs={2}>{is.hedef} </Grid>
                                       <Grid item xs={2}>{is.gerceklesme} </Grid>
                                       <Grid item xs={4}>{is.aciklama} </Grid>
-                                      <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} /> </Grid>
 
                                     </Grid>)}
                                     <Grid container><h4><b>Faaliyetler</b></h4></Grid>
@@ -242,7 +263,6 @@ class Hedefler extends React.Component {
                                       <Grid item xs={2}>{is.hedef} </Grid>
                                       <Grid item xs={2}>{is.gerceklesme} </Grid>
                                       <Grid item xs={4}>{is.aciklama} </Grid>
-                                      <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} /> </Grid>
                                     </Grid>)}
                                   </Grid>
                                 </AccordionDetails>
@@ -302,4 +322,4 @@ Hedefler.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Hedefler);
+export default connect(mapStateToProps)(withStyles(styles)(Hedefler));
