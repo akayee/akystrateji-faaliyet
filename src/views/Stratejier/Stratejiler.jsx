@@ -41,7 +41,6 @@ class Stratejiler extends React.Component {
         const birimlerim= this.props.birimlerim.birimler
 
         return <div>
-            {console.log(birimlerim)}
             {this.state.data.map((strateji, index) => <Accordion expanded={this.state.expanded === strateji.path} onChange={this.handleChange(strateji.path)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -58,7 +57,7 @@ class Stratejiler extends React.Component {
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                             >
-                                <Grid xs={5}>H{hedef.id + 1} : {hedef.adi}</Grid>
+                                <Grid xs={5}>S{strateji.id + 1}H{hedef.id + 1} : {hedef.adi}</Grid>
                                 <Grid xs={5}><LinearProg gerceklesmeOrani={hedef.hedefGerceklesmeOrani} /></Grid>
                                 <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[hedef.birimId].Adi}</Grid>
                             </AccordionSummary>
@@ -70,7 +69,7 @@ class Stratejiler extends React.Component {
                                             aria-controls="panel1bh-content"
                                             id="panel1bh-header"
                                         >
-                                            <Grid xs={5}>P{performans.id + 1} : {performans.adi}</Grid>
+                                            <Grid xs={5}>S{strateji.id + 1}H{hedef.id + 1}P{performans.id + 1} : {performans.adi}</Grid>
                                             <Grid xs={5}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} /></Grid>
                                             <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[performans.birimId].Adi}</Grid>
                                         </AccordionSummary>

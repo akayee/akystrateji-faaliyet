@@ -11,12 +11,14 @@ import Admin from "layouts/Admin.jsx";
 import "assets/css/material-dashboard-react.css?v=1.6.0";
 import Register from "./views/Register/Register";
 
-import birimlerReducer from './store/reducers/birimler'
+import birimlerReducer from './store/reducers/birimler';
+import amaclarReducer from './store/reducers/amaclar';
 
 const hist = createBrowserHistory();
 localStorage.setItem('FirmId','1');
 const rootReducer =combineReducers({
-  birimler:birimlerReducer
+  birimler:birimlerReducer,
+  amaclar:amaclarReducer
 });
 const store = createStore(rootReducer)
 ReactDOM.render(

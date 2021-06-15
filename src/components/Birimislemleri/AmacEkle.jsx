@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import {connect} from 'react-redux';
+
 import { Button } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -14,7 +16,18 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
+import { addToAmaclar } from '../../store/actions/amaclar';
 
+const mapDispatchToProps =  {
+        addToAmaclar
+   
+   };
+
+const mapStateToProps = state => {
+    return{
+      amaclar: state.amaclar
+    }
+}
 class AmacEkle extends React.Component {
     constructor(...args){
         super(...args);
@@ -26,7 +39,6 @@ class AmacEkle extends React.Component {
     }
     handleChange= (e)=>{
         let val = e.target.value;
-        console.log(this.state.amacDetay)
         this.setState({amacDetay:{...this.state.amacDetay,[e.target.name]:val}})
 
     }
@@ -40,6 +52,11 @@ class AmacEkle extends React.Component {
         this.setState({
             modalopen:!this.state.modalopen
         })
+    }
+
+    handleSubmit =(e)=>{
+        const {addToAmaclar}=this.props;
+        addToAmaclar(this.state.amacDetay);
     }
     render() {
         const { classes } = this.props;
@@ -90,7 +107,7 @@ class AmacEkle extends React.Component {
                     <Button onClick={this.modalAccountOpen}>
                         İptal
                     </Button>
-                    <Button >
+                    <Button onClick={this.handleSubmit} >
                         Ekle
                     </Button>
                 </DialogActions>
@@ -100,4 +117,4 @@ class AmacEkle extends React.Component {
 
 }
 
-export default AmacEkle
+export default connect(mapStateToProps,mapDispatchToProps)(AmacEkle)
