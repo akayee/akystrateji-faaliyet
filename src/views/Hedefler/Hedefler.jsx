@@ -189,10 +189,21 @@ class Hedefler extends React.Component {
                               <IconButton onClick={e=>{
                                 e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
                                 Swal.fire({
-                                  title: 'Error!',
-                                  text: 'Do you want to continue',
-                                  icon: 'error',
-                                  confirmButtonText: 'Cool'
+                                  title: 'Emin Misin?',
+                                  text: "Bu işlemi geri döndüremeyebilirsin!",
+                                  icon: 'warning',
+                                  showCancelButton: true,
+                                  confirmButtonColor: '#3085d6',
+                                  cancelButtonColor: '#d33',
+                                  confirmButtonText: 'Evet, Sil!'
+                                }).then((result) => {
+                                  if (result.isConfirmed) {
+                                    Swal.fire(
+                                      'Silindi!',
+                                      'İlgili veri silindi.',
+                                      'success'
+                                    )
+                                  }
                                 })
                               }}>
                                 <DeleteIcon />

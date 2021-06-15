@@ -17,6 +17,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 import { addToAmaclar } from '../../store/actions/amaclar';
+import Swal from 'sweetalert2';
 
 const mapDispatchToProps =  {
         addToAmaclar
@@ -57,6 +58,18 @@ class AmacEkle extends React.Component {
     handleSubmit =(e)=>{
         const {addToAmaclar}=this.props;
         addToAmaclar(this.state.amacDetay);
+        this.setState({
+            modalopen:!this.state.modalopen,
+            amacDetay:[],
+            Birim:[]
+        })
+        Swal.fire({
+            title: 'Kayıt Başarılı!',
+            position: 'top-end',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
     render() {
         const { classes } = this.props;
