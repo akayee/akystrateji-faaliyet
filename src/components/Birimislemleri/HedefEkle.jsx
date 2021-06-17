@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import {connect} from 'react-redux';
+import { addToHedefler } from '../../store/actions/hedefler';
+
 import { Button } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -15,6 +18,21 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 
+
+import Swal from 'sweetalert2';
+
+
+
+const mapDispatchToProps =  {
+    addToHedefler
+
+};
+
+const mapStateToProps = state => {
+    return{
+    hedefler: state.hedefler
+    }
+}
 class HedefEkle extends React.Component {
     constructor(...args){
         super(...args);
@@ -26,7 +44,6 @@ class HedefEkle extends React.Component {
     }
     handleChange= (e)=>{
         let val = e.target.value;
-        console.log(this.state.amacDetay)
         this.setState({amacDetay:{...this.state.amacDetay,[e.target.name]:val}})
 
     }
@@ -40,6 +57,23 @@ class HedefEkle extends React.Component {
         this.setState({
             modalopen:!this.state.modalopen
         })
+    }
+    handleSubmit =(e)=>{
+        
+        const {addToHedefler}=this.props;
+        addToHedefler(this.state.amacDetay,this.props.amacId);
+        this.setState({
+            modalopen:!this.state.modalopen,
+            amacDetay:[],
+            Birim:[]
+        })
+        Swal.fire({
+            title: 'Kayıt Başarılı!',
+            position: 'top-end',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
     render() {
         const { classes } = this.props;
@@ -90,7 +124,7 @@ class HedefEkle extends React.Component {
                     <Button onClick={this.modalAccountOpen}>
                         İptal
                     </Button>
-                    <Button >
+                    <Button onClick={this.handleSubmit} >
                         Ekle
                     </Button>
                 </DialogActions>
@@ -100,4 +134,4 @@ class HedefEkle extends React.Component {
 
 }
 
-export default HedefEkle
+export default connect(mapStateToProps,mapDispatchToProps)(HedefEkle)

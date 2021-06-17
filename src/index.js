@@ -13,12 +13,16 @@ import Register from "./views/Register/Register";
 
 import birimlerReducer from './store/reducers/birimler';
 import amaclarReducer from './store/reducers/amaclar';
+import hedeflerReducer from './store/reducers/hedefler';
+import performanslarReducer from './store/reducers/performanslar';
 
 const hist = createBrowserHistory();
 localStorage.setItem('FirmId','1');
 const rootReducer =combineReducers({
   birimler:birimlerReducer,
-  amaclar:amaclarReducer
+  amaclar:amaclarReducer,
+  hedefler:hedeflerReducer,
+  performanslar:performanslarReducer
 });
 const store = createStore(rootReducer)
 ReactDOM.render(

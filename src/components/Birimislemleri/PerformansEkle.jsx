@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 
+
+import {connect} from 'react-redux';
+import { addToPerformanslar } from '../../store/actions/performanslar';
+
+
 import { Button } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -15,6 +20,21 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 
+import Swal from 'sweetalert2';
+
+
+
+const mapDispatchToProps =  {
+    addToPerformanslar
+
+};
+
+const mapStateToProps = state => {
+    return{
+    performanslar: state.performanslar
+    }
+}
+
 class PerformansEkle extends React.Component {
     constructor(...args){
         super(...args);
@@ -26,7 +46,6 @@ class PerformansEkle extends React.Component {
     }
     handleChange= (e)=>{
         let val = e.target.value;
-        console.log(this.state.amacDetay)
         this.setState({amacDetay:{...this.state.amacDetay,[e.target.name]:val}})
 
     }
@@ -40,6 +59,23 @@ class PerformansEkle extends React.Component {
         this.setState({
             modalopen:!this.state.modalopen
         })
+    }
+    handleSubmit =(e)=>{
+        
+        const {addToPerformanslar}=this.props;
+        addToPerformanslar(this.state.amacDetay,this.props.amacId,this.props.hedefId);
+        this.setState({
+            modalopen:!this.state.modalopen,
+            amacDetay:[],
+            Birim:[]
+        })
+        Swal.fire({
+            title: 'Kayıt Başarılı!',
+            position: 'top-end',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
     render() {
         const { classes } = this.props;
@@ -90,7 +126,7 @@ class PerformansEkle extends React.Component {
                     <Button onClick={this.modalAccountOpen}>
                         İptal
                     </Button>
-                    <Button >
+                    <Button onClick={this.handleSubmit} >
                         Ekle
                     </Button>
                 </DialogActions>
@@ -100,4 +136,4 @@ class PerformansEkle extends React.Component {
 
 }
 
-export default PerformansEkle
+export default connect(mapStateToProps,mapDispatchToProps)(PerformansEkle)

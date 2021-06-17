@@ -134,7 +134,6 @@ class Hedefler extends React.Component {
       <div>
         {/* Stratejik amaç ekleme popupı */}
         
-        {console.log(birimlerim)}
         <GridContainer>
 
           <Grid item xs={4} >
@@ -172,7 +171,7 @@ class Hedefler extends React.Component {
                   <div style={{ width: "100%", marginLeft: "5rem" }} >
                     <GridContainer alignItems='center' justify='center'>
                       <GridItem xs={12} sm={12} md={12}>
-                        <HedefEkle classes={this.props.classes} birimler={acoounttye} amacAdi={strateji.adi} />
+                        <HedefEkle classes={this.props.classes} birimler={acoounttye} amacAdi={strateji.adi}  amacId={strateji.id} />
                       </GridItem>
                     </GridContainer>
 
@@ -218,7 +217,7 @@ class Hedefler extends React.Component {
                             <div style={{ width: '%100' }}>
                               <GridContainer alignItems='center' justify='center'>
                                 <GridItem xs={12} sm={12} md={12}>
-                                  <PerformansEkle birimler={BIRIMLER} hedefAdi={item.adi} classes={this.props.classes} />
+                                  <PerformansEkle birimler={BIRIMLER} hedefAdi={item.adi} classes={this.props.classes} amacId={strateji.id} hedefId={item.id} />
                                 </GridItem>
                               </GridContainer>
                               {item.performanslar ? item.performanslar.map(performans => <Accordion expanded={this.state.performansexpanded === performans.path} onChange={this.handleChangePerformans(performans.path)}>
