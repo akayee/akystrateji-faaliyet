@@ -21,8 +21,10 @@ class YeniIsEkle extends React.Component {
         super(...args);
         this.state = {
             modalopen: false,
+            date:new Date().getFullYear(),
             amacDetay: [],
             Birim: [],
+            OlcuBirimi:[],
             isTuru: [{ adi: '', OlcuBrimi: null, hedef: '', adam: '', gun: '', Birim: [] }]
         }
     }
@@ -34,6 +36,11 @@ class YeniIsEkle extends React.Component {
     handleChangeBirim = (e) => {
         let val = e.target.value;
         this.setState({ Birim: val })
+
+    }
+    handleChangeOlcuBirimi = (e) => {
+        let val = e.target.value;
+        this.setState({ OlcuBirimi: val })
 
     }
 
@@ -55,7 +62,7 @@ class YeniIsEkle extends React.Component {
                     
                         {isler && isler.map((is, index) => <Grid container spacing={3}key={index}>
                            
-                                <Grid item xs={4}>
+                                <Grid item xs={6}>
                                     <TextField
                                         name="adi"
                                         autoFocus
@@ -68,18 +75,37 @@ class YeniIsEkle extends React.Component {
                                     />
                                 </Grid>
 
-                                <Grid item xs={4}>
-                                    <TextField
+                                <Grid item xs={6}>
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                        Ölçü Birimi?
+                                </InputLabel>
+                                    <Select
                                         name="OlcuBirimi"
-                                        autoFocus
-                                        margin="dense"
-                                        id="name"
-                                        label="Ölçü Birimi"
                                         type="text"
-                                        fullWidth
-                                        onChange={this.handleChange}
-                                    />
-                                </Grid>
+                                        multiple
+                                        value={this.state.OlcuBirimi}
+                                        onChange={this.handleChangeOlcuBirimi}
+                                    >
+                                        {this.props.birimler.map((item, index) => {
+                                            return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                        }
+                                        )}
+                                    </Select>
+
+                                    <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
+                                </FormControl>
+                            </Grid>
+                            <Grid item xs={3}>
+                            <div style={{textAlign:"center"}}>
+                                        <b>{this.state.date -2} Gerçekleşen</b> 18284
+                            </div  >
+                            </Grid>
+                            <Grid item xs={3} >
+                            <div style={{textAlign:"center"}}>
+                                        <b>{this.state.date -1} Gerçekleşen</b> 5184
+                            </div>
+                            </Grid>
 
                             <Grid item xs={4}>
                                     <TextField
@@ -93,37 +119,32 @@ class YeniIsEkle extends React.Component {
                                         onChange={this.handleChange}
                                         />
                             </Grid>
-
-
-                      
                             <Grid item xs={4}>
-                            <FormHelperText>Yukarıda Girilen İşi Kaç Personel Kaç Günde Yapar</FormHelperText>
-                                
-                            </Grid>
-                                <Grid item xs={4}>
-                                <TextField
-                                        name="adam"
+                                    <TextField
+                                        name="hedefN"
                                         autoFocus
                                         margin="dense"
                                         id="name"
-                                        label="Personel Sayısı"
+                                        label="n+1 Yıl Sonu Hedefi"
                                         type="text"
                                         fullWidth
                                         onChange={this.handleChange}
-                                    />
-                           </Grid>
+                                        />
+                            </Grid>
                             <Grid item xs={4}>
-                                <TextField
-                                        name="gun"
+                                    <TextField
+                                        name="hedefNN"
                                         autoFocus
                                         margin="dense"
                                         id="name"
-                                        label="Gün Sayısı"
+                                        label="n+2 Yıl Sonu Hedefi"
                                         type="text"
                                         fullWidth
                                         onChange={this.handleChange}
-                                    /> 
+                                        />
                             </Grid>
+
+
 
 
                             <Grid item xs={8}>
