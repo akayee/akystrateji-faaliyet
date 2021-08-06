@@ -90,7 +90,7 @@ class HedefEkle extends React.Component {
                             autoFocus
                             margin="dense"
                             id="name"
-                            label="Stratejik Hedef Adı"
+                            label="Stratejik Hedef Tanımı"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -98,7 +98,7 @@ class HedefEkle extends React.Component {
                         <Grid item xs={4}>
                             <FormControl className={classes.formControl}>
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Birimi?
+                                    Strateji Yılı?
                                 </InputLabel>
                                 <Select
                                     name="Birim"
@@ -113,7 +113,28 @@ class HedefEkle extends React.Component {
                                     )}
                                 </Select>
 
-                                <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
+                                <FormHelperText>Lütfen Bir Yıl Seçiniz</FormHelperText>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Stratejik Amaç?
+                                </InputLabel>
+                                <Select
+                                    name="Birim"
+                                    type="text"
+                                    multiple
+                                    value={this.state.Birim}
+                                    onChange={this.handleChangeBirim}
+                                >
+                                    {this.props.birimler.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
+
+                                <FormHelperText>Lütfen Bir Amaç Seçiniz</FormHelperText>
                             </FormControl>
                         </Grid>
                     </Grid>

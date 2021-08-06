@@ -89,7 +89,7 @@ const styles = {
 
 
 //component/task table yapısı kullanılarak oradaki icon buttonlarla icon eklenecek
-class Hedefler extends React.Component {
+class StratejiOlustur extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {
@@ -328,8 +328,8 @@ class Hedefler extends React.Component {
   }
 
 }
-Hedefler.propTypes = {
+StratejiOlustur.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(Hedefler));
+export default connect(mapStateToProps)(withStyles(styles)(StratejiOlustur));

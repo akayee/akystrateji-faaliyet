@@ -107,7 +107,7 @@ class Home extends Component {
                 <CardIcon color="success">
                   <Icon>content_copy</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Anlık Hedef Tamamlanma Oranı</p>
+                <p className={classes.cardCategory}>Faaliyet</p>
                 <h3 className={classes.cardTitle}> %80</h3>
 
                 <LinearProgress variant="determinate"  color='primary' value={80} />
@@ -142,14 +142,14 @@ class Home extends Component {
                 <CardIcon color="warning">
                   <Icon>info_outline</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Toplam Hedefin Tamamlanma Oranı</p>
+                <p className={classes.cardCategory}>Maaliyet</p>
                 <h3 className={classes.cardTitle}>%40</h3>
                 <LinearProgress variant="determinate"  color='primary' value={40} />
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
                   <LocalOffer />
-                  Tüm veriler baz alınmıştır.
+                  Tüm harcamalar baz alınmıştır.
                 </div>
               </CardFooter>
             </Card>
@@ -174,7 +174,7 @@ class Home extends Component {
         </GridContainer>
        
         <GridContainer>
-          <GridItem xs={12} sm={12} md={6}>
+          <GridItem xs={12} sm={12} md={12}>
           <Card>
               <CardHeader color="success">
                 <h4 className={classes.cardTitleWhite}>Başarılı Birim Listesi</h4>
@@ -189,40 +189,6 @@ class Home extends Component {
                 tableHead={["Adı", "Tamamlanma Oranı", "Son İşlem Tarihi"]}
                 tableData={[['Emlak İstimlak Dairesi Başkanlığı','%42','17/11/2020'],['Sosyal Hizmetler Dairesi Başkanlığı','%39','17/11/2020'],['Çevre Koruma Dairesi Başkanlığı','%42','17/11/2020']]}
               />
-              </CardBody>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
-            <Card>
-              <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Kritik Durumdaki Birimler Listesi</h4>
-                <p className={classes.cardCategoryWhite}>
-                Olması Gereken ortalama %39</p>
-              </CardHeader>
-              <CardBody>
-              <Table
-                tableHeaderColor="danger"
-                onDelete={this.deleteAccount}
-                tableHead={["Adı", "Tamamlanma Oranı", "Son İşlem Tarihi"]}
-                tableData={[['Bilgi İşlem Dairesi Başkanlığı','%20','17/11/2020'],['Destek Hizmetleri Dairesi Başkanlığı','%18','17/11/2020'],['Zabıta Dairesi Başkanlığı','%22','17/11/2020']]}
-                />
-              </CardBody>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={12}>
-            <Card>
-              <CardHeader color="warning">
-                <h4 className={classes.cardTitleWhite}>Anlık Aktivite Listesi</h4>
-                <p className={classes.cardCategoryWhite}>
-                Güncel girilen iş emirleri.</p>
-              </CardHeader>
-              <CardBody>
-              <Table
-                tableHeaderColor="warning"
-                onDelete={this.deleteAccount}
-                tableHead={["Adı", "Birimi","Hedef Adı","Değer", "Son İşlem Tarihi"]}
-                tableData={[["Tabela Montajı",'Fen İşleri Dairesi Başkanlığı',"Tabela Direk Montaj Hizmeti",'20','17/11/2020'],["Strateji Programı İhalesi",'Bilgi İşlem Dairesi Başkanlığı',"Yazılım İhaleleri",'1','17/11/2020'],["Esnaf Denetimi",'Zabıta Dairesi Başkanlığı',"Halkın Huzuru için Esnafların Denetlenmesi",'22','17/11/2020']]}
-                />
               </CardBody>
             </Card>
           </GridItem>

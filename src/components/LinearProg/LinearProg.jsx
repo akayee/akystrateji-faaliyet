@@ -40,7 +40,7 @@ return <Grid container >
     <Grid item xs={12} style={{display:"flex", justifyContent:"flex-end"}} >
         {/* <LinearProgress variant="determinate" color={props.gerceklesmeOrani<70?'secondary':'primary'} value={props.gerceklesmeOrani>100?100:props.gerceklesmeOrani} /> */}
         <Chart options={options1} series={parts} type="radialBar" width={175} />
-        <Chart options={options} series={series} type="donut" width={200} />
+        <Chart options={options} series={series} type="donut" width={250} />
         
     </Grid>
 

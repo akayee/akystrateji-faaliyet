@@ -94,7 +94,7 @@ class AmacEkle extends React.Component {
                         <Grid item xs={4}>
                             <FormControl className={classes.formControl}>
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Birimi?
+                                    Strateji Yılı?
                                 </InputLabel>
                                 <Select
                                     name="Birim"
@@ -109,7 +109,7 @@ class AmacEkle extends React.Component {
                                     )}
                                 </Select>
 
-                                <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
+                                <FormHelperText>Lütfen Bir Yıl Seçiniz</FormHelperText>
                             </FormControl>
                         </Grid>
                     </Grid>

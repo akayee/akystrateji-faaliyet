@@ -3,7 +3,8 @@ import {ADD_TO_HEDEFLER,REMOVE_FROM_HEDEFLER} from '../actions/hedefler';
 import HedefItem from '../../models/hedef-item';
 
 const initialState={
-    hedefler:[]
+    hedefler:[],
+    loading:false
 };
 
 export default (state=initialState,action)=>{

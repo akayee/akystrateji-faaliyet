@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, IconButton } from "@material-ui/core";
+import { Button, Divider, IconButton } from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Dialog from '@material-ui/core/Dialog';
@@ -15,16 +15,18 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 class YeniIsEkle extends React.Component {
     constructor(...args) {
         super(...args);
         this.state = {
             modalopen: false,
-            date:new Date().getFullYear(),
+            date: new Date().getFullYear(),
             amacDetay: [],
             Birim: [],
-            OlcuBirimi:[],
+            OlcuBirimi: [],
             isTuru: [{ adi: '', OlcuBrimi: null, hedef: '', adam: '', gun: '', Birim: [] }]
         }
     }
@@ -59,120 +61,162 @@ class YeniIsEkle extends React.Component {
                     <DialogContentText>
                         Eklediğiniz Performansın Adı: {this.props.performansAdi}
                     </DialogContentText>
-                    
-                        {isler && isler.map((is, index) => <Grid container spacing={3}key={index}>
-                           
-                                <Grid item xs={6}>
-                                    <TextField
-                                        name="adi"
-                                        autoFocus
-                                        margin="dense"
-                                        id="name"
-                                        label="Adı"
-                                        type="text"
-                                        fullWidth
-                                        onChange={this.handleChange}
-                                    />
-                                </Grid>
 
-                                <Grid item xs={6}>
-                                <FormControl className={classes.formControl}>
-                                    <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                        Ölçü Birimi?
+                    <Grid container spacing={3} >
+
+                        <Grid item xs={6}>
+                            <TextField
+                                name="adi"
+                                autoFocus
+                                margin="dense"
+                                id="name"
+                                multiline
+                                label="Adı"
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
+                        </Grid>
+
+                        <Grid item xs={6}>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Ölçü Birimi?
                                 </InputLabel>
-                                    <Select
-                                        name="OlcuBirimi"
-                                        type="text"
-                                        multiple
-                                        value={this.state.OlcuBirimi}
-                                        onChange={this.handleChangeOlcuBirimi}
-                                    >
-                                        {this.props.birimler.map((item, index) => {
-                                            return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
-                                        }
-                                        )}
-                                    </Select>
+                                <Select
+                                    name="OlcuBirimi"
+                                    type="text"
+                                    multiple
+                                    value={this.state.OlcuBirimi}
+                                    onChange={this.handleChangeOlcuBirimi}
+                                >
+                                    {this.props.birimler.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
 
-                                    <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
-                                </FormControl>
-                            </Grid>
-                            <Grid item xs={3}>
-                            <div style={{textAlign:"center"}}>
-                                        <b>{this.state.date -2} Gerçekleşen</b> 18284
+                                <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
+                            </FormControl>
+                        </Grid>
+                        <Divider variant="fullWidth" />
+                        <Grid item xs={3}>
+                            <div style={{ textAlign: "center" }}>
+                                <b>{this.state.date - 2} Gerçekleşen</b> 18284
                             </div  >
-                            </Grid>
-                            <Grid item xs={3} >
-                            <div style={{textAlign:"center"}}>
-                                        <b>{this.state.date -1} Gerçekleşen</b> 5184
+                        </Grid>
+                        <Grid item xs={3} >
+                            <div style={{ textAlign: "center" }}>
+                                <b>{this.state.date - 1} Gerçekleşen</b> 5184
                             </div>
-                            </Grid>
+                        </Grid>
 
-                            <Grid item xs={4}>
-                                    <TextField
-                                        name="hedef"
-                                        autoFocus
-                                        margin="dense"
-                                        id="name"
-                                        label="Yıl Sonu Hedefi"
-                                        type="text"
-                                        fullWidth
-                                        onChange={this.handleChange}
-                                        />
-                            </Grid>
-                            <Grid item xs={4}>
-                                    <TextField
-                                        name="hedefN"
-                                        autoFocus
-                                        margin="dense"
-                                        id="name"
-                                        label="n+1 Yıl Sonu Hedefi"
-                                        type="text"
-                                        fullWidth
-                                        onChange={this.handleChange}
-                                        />
-                            </Grid>
-                            <Grid item xs={4}>
-                                    <TextField
-                                        name="hedefNN"
-                                        autoFocus
-                                        margin="dense"
-                                        id="name"
-                                        label="n+2 Yıl Sonu Hedefi"
-                                        type="text"
-                                        fullWidth
-                                        onChange={this.handleChange}
-                                        />
-                            </Grid>
-
-
+                        <Grid item xs={6}>
+                            <TextField
+                                name="hedef"
+                                autoFocus
+                                margin="dense"
+                                id="name"
+                                label="Yıl Sonu Hedefi"
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                name="hedefN"
+                                autoFocus
+                                margin="dense"
+                                id="name"
+                                label="n+1 Yıl Sonu Hedefi"
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                name="hedefNN"
+                                autoFocus
+                                margin="dense"
+                                id="name"
+                                label="n+2 Yıl Sonu Hedefi"
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
+                        </Grid>
 
 
-                            <Grid item xs={8}>
-                                <FormControl className={classes.formControl}>
-                                    <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                        Birimi?
+
+
+                        <Grid item xs={6}>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Birimi?
                                 </InputLabel>
-                                    <Select
-                                        name="Birim"
-                                        type="text"
-                                        multiple
-                                        value={this.state.Birim}
-                                        onChange={this.handleChangeBirim}
-                                    >
-                                        {this.props.birimler.map((item, index) => {
-                                            return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
-                                        }
-                                        )}
-                                    </Select>
+                                <Select
+                                    name="Birim"
+                                    type="text"
+                                    value={this.state.Birim}
+                                    onChange={this.handleChangeBirim}
+                                >
+                                    {this.props.birimler.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
 
-                                    <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
-                                </FormControl>
-                            </Grid>
-                            
-                            
-                            </Grid>)}
-                        
-                    
+                                <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                name="aciklama"
+                                autoFocus
+                                margin="dense"
+                                id="aciklama"
+                                multiline
+                                label="Açıklama"
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <FormControlLabel
+                                control={<Checkbox checked={true} name="gilad" />}
+                                label="Stratejik Faaliyet?"
+                            />
+                        </Grid>
+
+
+                        <Grid item xs={6}>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Stratejik Performansı?
+                                </InputLabel>
+                                <Select
+                                    name="Birim"
+                                    type="text"
+                                    value={this.state.Birim}
+                                    onChange={this.handleChangeBirim}
+                                >
+                                    {this.props.birimler.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
+
+                                <FormHelperText>Lütfen Bir Performans Seçiniz</FormHelperText>
+                            </FormControl>
+                        </Grid>
+
+
+                    </Grid>
+
+
 
 
                 </DialogContent>

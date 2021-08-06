@@ -4,7 +4,8 @@ import BIRIMLER from '../../data/birimler';
 
 
 const initialState= {
-    birimler:BIRIMLER
+    birimler:BIRIMLER,
+    loading:false
 };
 
 export default (state=initialState,action)=>{

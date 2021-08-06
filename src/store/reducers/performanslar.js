@@ -3,7 +3,8 @@ import {ADD_TO_PERFORMANSLAR,REMOVE_FROM_PERFORMANSLAR} from '../actions/perform
 import PerformansItem from '../../models/performans-item';
 
 const initialState={
-    performanslar:[]
+    performanslar:[],
+    loading:false
 };
 
 export default (state=initialState,action)=>{

@@ -3,7 +3,8 @@ import {ADD_TO_AMACLAR,REMOVE_FROM_AMACLAR} from '../actions/amaclar';
 import AmacItem from '../../models/amac_item';
 
 const initialState={
-    amaclar:[]
+    amaclar:[],
+    loading:false
 };
 
 export default (state=initialState,action)=>{

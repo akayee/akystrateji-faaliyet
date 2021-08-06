@@ -100,7 +100,7 @@ class PerformansEkle extends React.Component {
                         <Grid item xs={4}>
                             <FormControl className={classes.formControl}>
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Birimi?
+                                    Strateji Yılı?
                                 </InputLabel>
                                 <Select
                                     name="Birim"
@@ -115,7 +115,28 @@ class PerformansEkle extends React.Component {
                                     )}
                                 </Select>
 
-                                <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
+                                <FormHelperText>Lütfen Bir Yıl Seçiniz</FormHelperText>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Stratejik Hedefi?
+                                </InputLabel>
+                                <Select
+                                    name="Birim"
+                                    type="text"
+                                    multiple
+                                    value={this.state.Birim}
+                                    onChange={this.handleChangeBirim}
+                                >
+                                    {this.props.birimler.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
+
+                                <FormHelperText>Lütfen Bir Hedef Seçiniz</FormHelperText>
                             </FormControl>
                         </Grid>
                     </Grid>

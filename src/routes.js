@@ -12,10 +12,11 @@ import EditAccount from "views/MyAccounts/EditAccount.jsx";
 import Register from "views/Register/Register.jsx";
 import Numarataj from "views/Numarataj/Numarataj.jsx";
 import Birimler from "./views/Birimler/Birimler";
-import Hedefler from "./views/Hedefler/Hedefler";
+import StratejiOlustur from "./views/StratejiOlustur/StratejiOlustur";
 import Raporlar from "./views/Raporlar/Raporlar";
 import Ayarlar from "./views/Ayarlar/Ayarlar";
 import Stratejiler from "./views/Stratejier/Stratejiler";
+import YilSonuDevir from "./views/YilSonuDevir/YilSonuDevir";
 
 
 const dashboardRoutes = [
@@ -79,10 +80,10 @@ const dashboardRoutes = [
 
   },
   {
-    path:"/hedefler",
-    name:"Birimim",
+    path:"/birimstratejiolustur",
+    name:"Strateji Oluştur",
     icon:AssessmentIcon,
-    component: Hedefler,
+    component: StratejiOlustur,
     layout: "/admin"
 
   },
@@ -99,6 +100,14 @@ const dashboardRoutes = [
     name:"Sistem Ayarları",
     icon:TuneIcon,
     component: Ayarlar,
+    layout: "/admin"
+
+  },
+  {
+    path:"/yilsonudevir",
+    name:"Yıl Sonu Devir",
+    icon:TuneIcon,
+    component: YilSonuDevir,
     layout: "/admin"
 
   }
