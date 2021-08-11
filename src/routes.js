@@ -65,7 +65,7 @@ const dashboardRoutes = [
   },
   {
     path:"/birimler",
-    name:"Strateji Raporu Birimler",
+    name:"Birimlerin Faaliyet Raporu",
     icon:GroupIcon,
     component: Birimler,
     layout: "/admin"
@@ -73,7 +73,7 @@ const dashboardRoutes = [
   },
   {
     path:"/strateji",
-    name:"Strateji Raporu",
+    name:"Faaliyet Raporu",
     icon:GroupIcon,
     component: Stratejiler,
     layout: "/admin"
@@ -81,7 +81,7 @@ const dashboardRoutes = [
   },
   {
     path:"/birimstratejiolustur",
-    name:"Strateji Oluştur",
+    name:"Performans Planı Oluştur",
     icon:AssessmentIcon,
     component: StratejiOlustur,
     layout: "/admin"

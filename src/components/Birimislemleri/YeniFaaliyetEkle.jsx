@@ -14,7 +14,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-
+const EkonomikSiniflandirma = [0,1,2,3,4,5,6,7,8,9]
 class YeniFaaliyetEkle extends React.Component {
     constructor(...args) {
         super(...args);
@@ -22,7 +22,8 @@ class YeniFaaliyetEkle extends React.Component {
             modalopen: false,
             amacDetay: [],
             Birim: [],
-            isTuru: [{ adi: '', OlcuBrimi: null, hedef: '', adam: '', gun: '', Birim: [] }]
+            isTuru: [{ adi: '', OlcuBrimi: null, hedef: '', adam: '', gun: '', Birim: [] }],
+            ekonomiksinif:null
         }
     }
     handleChange = (e) => {
@@ -33,6 +34,11 @@ class YeniFaaliyetEkle extends React.Component {
     handleChangeBirim = (e) => {
         let val = e.target.value;
         this.setState({ Birim: val })
+
+    }
+    handleChangeEko = (e) => {
+        let val = e.target.value;
+        this.setState({ ekonomiksinif: val })
 
     }
 
@@ -96,7 +102,7 @@ class YeniFaaliyetEkle extends React.Component {
 
                       
                             
-                            <Grid item xs={8}>
+                            <Grid item xs={6}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel shrink id="demo-simple-select-placeholder-label-label">
                                         Birimi?
@@ -104,7 +110,6 @@ class YeniFaaliyetEkle extends React.Component {
                                     <Select
                                         name="Birim"
                                         type="text"
-                                        multiple
                                         value={this.state.Birim}
                                         onChange={this.handleChangeBirim}
                                     >
@@ -115,6 +120,26 @@ class YeniFaaliyetEkle extends React.Component {
                                     </Select>
 
                                     <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
+                                </FormControl>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                        Ekonomik Sınıflandırması?
+                                </InputLabel>
+                                    <Select
+                                        name="EkonomikSinif"
+                                        type="text"
+                                        value={this.state.ekonomiksinif}
+                                        onChange={this.handleChangeEko}
+                                    >
+                                        {EkonomikSiniflandirma.map((item, index) => {
+                                            return <MenuItem key={item} value={item}>{item} </MenuItem>
+                                        }
+                                        )}
+                                    </Select>
+
+                                    <FormHelperText>Lütfen Ekonomik Sınıf Seçiniz</FormHelperText>
                                 </FormControl>
                             </Grid>
                             

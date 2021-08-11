@@ -47,7 +47,7 @@ class Stratejiler extends React.Component {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                 >
-                    S{strateji.id + 1}:{strateji.adi}
+                    A{strateji.id + 1}:{strateji.adi}
                 </AccordionSummary>
                 <AccordionDetails>
                     <div style={{ width: '%100' }}>
@@ -57,7 +57,7 @@ class Stratejiler extends React.Component {
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                             >
-                                <Grid xs={5}>S{strateji.id + 1}H{hedef.id + 1} : {hedef.adi}</Grid>
+                                <Grid xs={5}>H{strateji.id + 1}.{hedef.id + 1} : {hedef.adi}</Grid>
                                 <Grid xs={5}><LinearProg gerceklesmeOrani={hedef.hedefGerceklesmeOrani} /></Grid>
                                 <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[hedef.birimId].Adi}</Grid>
                             </AccordionSummary>
@@ -69,7 +69,7 @@ class Stratejiler extends React.Component {
                                             aria-controls="panel1bh-content"
                                             id="panel1bh-header"
                                         >
-                                            <Grid xs={5}>S{strateji.id + 1}H{hedef.id + 1}P{performans.id + 1} : {performans.adi}</Grid>
+                                            <Grid xs={5}>P{strateji.id + 1}.{hedef.id + 1}.{performans.id + 1} : {performans.adi}</Grid>
                                             <Grid xs={5}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} /></Grid>
                                             <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[performans.birimId].Adi}</Grid>
                                         </AccordionSummary>

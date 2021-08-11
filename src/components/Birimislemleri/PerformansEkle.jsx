@@ -79,9 +79,9 @@ class PerformansEkle extends React.Component {
     }
     render() {
         const { classes } = this.props;
-        return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Ekle</Button>
+        return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Hedefi Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Performans Oluştur</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yeni Performans Hedefi Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                     Stratejik Hedef: {this.props.hedefAdi}

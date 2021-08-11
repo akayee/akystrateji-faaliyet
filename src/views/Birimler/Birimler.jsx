@@ -154,7 +154,7 @@ class Birimler extends React.Component {
                                             aria-controls="panel1bh-content"
                                             id="panel1bh-header"
                                         >
-                                            <Grid xs={6}>P{performans.id + 1} : {performans.adi}</Grid>
+                                            <Grid xs={6}>P{item.id+1}.{performans.id + 1} : {performans.adi}</Grid>
                                             <Grid xs={6}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} /> </Grid>
                                         </AccordionSummary>
                                         <AccordionDetails>
