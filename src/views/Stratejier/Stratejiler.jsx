@@ -7,7 +7,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {  Grid } from '@material-ui/core';
 import BIRIMLER from '../../data/birimler';
 import LinearProg from '../../components/LinearProg/LinearProg';
-import { FullscreenExit } from '@material-ui/icons';
 import { connect} from 'react-redux';
 
 

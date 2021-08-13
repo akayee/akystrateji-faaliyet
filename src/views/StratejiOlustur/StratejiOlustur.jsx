@@ -4,12 +4,9 @@ import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import GridItem from "components/Grid/GridItem.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
-import MaterialTable from 'material-table';
 import Card from "components/Card/Card.jsx";
-import axios from 'axios'
-import { currentUser, addData, auth, takeData, updateData, deleteData, moneyTransfer, addPaymentData } from '../../firebase/auth';
-import { Button, IconButton } from "@material-ui/core";
-import AddIcon from '@material-ui/icons/Add';
+import { currentUser } from '../../firebase/auth';
+import { IconButton } from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Grid from '@material-ui/core/Grid';
@@ -30,7 +27,6 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import LinearProg from '../../components/LinearProg/LinearProg';
 import BIRIMLER from "../../data/birimler";
 import PerformansEkle from "../../components/Birimislemleri/PerformansEkle";
 import YeniIsEkle from "../../components/Birimislemleri/YeniIsEkle";
@@ -38,15 +34,9 @@ import YeniFaaliyetEkle from "../../components/Birimislemleri/YeniFaaliyetEkle";
 import Swal from 'sweetalert2';
 
 import { connect} from 'react-redux';
+import {getStrategyData} from '../../store/actions/birimsstratejibilgiler';
 
 
-
-const mapStateToProps = state => {
-  return{
-    birimlerim: state.birimler
-  }
-  
-};
 const personeller = [
   { Adi: 'Ahmet YILMAZ', kadro: 'Şirket', id: '1', Birim: 'Yol Asfalt', cinsiyet: 'Erkek', ustBirimId: '0', girisTarihi: '10/10/2019', gorevi: 'Ofis Mühendisi' },
   { Adi: 'Kemal Ecevit', id: '4', Birim: 'İnşaat Yapım', kadro: 'Memur', ustBirimId: '0', cinsiyet: 'Erkek', girisTarihi: '10/05/1995', gorevi: 'Şube Müdürü' },];
@@ -108,6 +98,10 @@ class StratejiOlustur extends React.Component {
       ],
     };
   }
+  componentDidMount(){
+    this.props.getStrategyData()
+    
+}
 
   handleChange = (panel) => (event, isExpanded) => {
     this.setState({ expanded: isExpanded ? panel : false });
@@ -129,7 +123,8 @@ class StratejiOlustur extends React.Component {
     };
 
     
-    const birimlerim= this.props.birimlerim.birimler
+    const strategydata= this.props.strategydata
+    console.log(strategydata)
     return (
       <div>
         {/* Stratejik amaç ekleme popupı */}
@@ -241,7 +236,7 @@ class StratejiOlustur extends React.Component {
                                   <Grid container>
                                     <Grid item xs={4}><YeniIsEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER}/></Grid>
                                     <Grid item xs={6}><YeniFaaliyetEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
-                                    <Grid container><h4><b>İşler</b></h4></Grid>
+                                    <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
                                     <Grid container>
                                       <Grid item xs={2}><b>Adi</b></Grid>
                                       <Grid item xs={2}><b>Ölçü Birimi</b></Grid>
@@ -331,5 +326,5 @@ class StratejiOlustur extends React.Component {
 StratejiOlustur.propTypes = {
   classes: PropTypes.object.isRequired
 };
-
-export default connect(mapStateToProps)(withStyles(styles)(StratejiOlustur));
+const mapStateToProps = (state)=>({strategydata:state.strategydata})
+export default connect(mapStateToProps,{getStrategyData})(withStyles(styles)(StratejiOlustur));

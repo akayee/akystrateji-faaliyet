@@ -72,7 +72,6 @@ class YeniFaaliyetEkle extends React.Component {
                                         onChange={this.handleChange}
                                     />
                                 </Grid>
-
                                 <Grid item xs={4}>
                                     <TextField
                                         name="OlcuBirimi"
@@ -85,7 +84,6 @@ class YeniFaaliyetEkle extends React.Component {
                                         onChange={this.handleChange}
                                     />
                                 </Grid>
-
                             <Grid item xs={4}>
                                     <TextField
                                         name="hedef"
@@ -97,11 +95,7 @@ class YeniFaaliyetEkle extends React.Component {
                                         fullWidth
                                         onChange={this.handleChange}
                                         />
-                            </Grid>
-
-
-                      
-                            
+                            </Grid>                           
                             <Grid item xs={6}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel shrink id="demo-simple-select-placeholder-label-label">
@@ -118,7 +112,6 @@ class YeniFaaliyetEkle extends React.Component {
                                         }
                                         )}
                                     </Select>
-
                                     <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
                                 </FormControl>
                             </Grid>
@@ -138,17 +131,10 @@ class YeniFaaliyetEkle extends React.Component {
                                         }
                                         )}
                                     </Select>
-
                                     <FormHelperText>Lütfen Ekonomik Sınıf Seçiniz</FormHelperText>
                                 </FormControl>
-                            </Grid>
-                            
-                            
+                            </Grid>                            
                             </Grid>)}
-                        
-                    
-
-
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={this.modalAccountOpen}>

@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {createStore,combineReducers} from 'redux';
+import {createStore,combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import { createBrowserHistory } from "history";
 import { HashRouter as Router, Route , Switch, Redirect } from "react-router-dom";
 
@@ -15,6 +17,7 @@ import birimlerReducer from './store/reducers/birimler';
 import amaclarReducer from './store/reducers/amaclar';
 import hedeflerReducer from './store/reducers/hedefler';
 import performanslarReducer from './store/reducers/performanslar';
+import strategyReducer from './store/reducers/birimstratejibilgiler';
 
 const hist = createBrowserHistory();
 localStorage.setItem('FirmId','1');
@@ -22,9 +25,15 @@ const rootReducer =combineReducers({
   birimler:birimlerReducer,
   amaclar:amaclarReducer,
   hedefler:hedeflerReducer,
-  performanslar:performanslarReducer
+  performanslar:performanslarReducer,
+  strategydata: strategyReducer
 });
-const store = createStore(rootReducer)
+const initialState = {
+
+}
+const middleware = [thunk];
+
+const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middleware)));
 ReactDOM.render(
   <Provider store= {store}>
       <Router history={hist}>
