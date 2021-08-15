@@ -1,4 +1,4 @@
-import {ADD_TO_AMACLAR,REMOVE_FROM_AMACLAR} from '../actions/amaclar';
+import {ADD_TO_AMACLAR,REMOVE_FROM_AMACLAR,GET_AMACDATA} from '../actions/amaclar';
 
 import AmacItem from '../../models/amac_item';
 
@@ -10,6 +10,12 @@ const initialState={
 export default (state=initialState,action)=>{
 
     switch(action.type){
+        case GET_AMACDATA:
+            return {
+                ...state,
+                amaclar:action.payload,
+                loading:false
+            }
         case ADD_TO_AMACLAR:
             const addedAmac = action.amac
             const id=state.amaclar.length+1;

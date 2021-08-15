@@ -1,4 +1,4 @@
-import {ADD_TO_PERFORMANSLAR,REMOVE_FROM_PERFORMANSLAR} from '../actions/performanslar';
+import {ADD_TO_PERFORMANSLAR,REMOVE_FROM_PERFORMANSLAR , GET_PERFORMANSDATA} from '../actions/performanslar';
 
 import PerformansItem from '../../models/performans-item';
 
@@ -10,6 +10,12 @@ const initialState={
 export default (state=initialState,action)=>{
 
     switch(action.type){
+        case GET_PERFORMANSDATA:
+            return {
+                ...state,
+                performanslar:action.payload,
+                loading:false
+            }
         case ADD_TO_PERFORMANSLAR:
             const addedData = action.performans
             const id=state.performanslar.length+1;

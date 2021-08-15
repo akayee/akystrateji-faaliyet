@@ -1,4 +1,4 @@
-import {ADD_TO_HEDEFLER,REMOVE_FROM_HEDEFLER} from '../actions/hedefler';
+import {ADD_TO_HEDEFLER,REMOVE_FROM_HEDEFLER,GET_HEDEFDATA} from '../actions/hedefler';
 
 import HedefItem from '../../models/hedef-item';
 
@@ -10,6 +10,12 @@ const initialState={
 export default (state=initialState,action)=>{
 
     switch(action.type){
+        case GET_BIRIMDATA:
+            return {
+                ...state,
+                hedefler:action.payload,
+                loading:false
+            }
         case ADD_TO_HEDEFLER:
             const addedHedef = action.hedef
             const id=state.hedefler.length+1;

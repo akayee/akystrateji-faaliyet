@@ -1,4 +1,4 @@
-import {ADD_TO_BIRIM,REMOVE_FROM_BIRIM} from '../actions/birimler';
+import {ADD_TO_BIRIM,REMOVE_FROM_BIRIM, GET_BIRIMDATA} from '../actions/birimler';
 import BirimItem from '../../models/birim-item';
 import BIRIMLER from '../../data/birimler';
 
@@ -11,6 +11,12 @@ const initialState= {
 export default (state=initialState,action)=>{
 
     switch(action.type){
+        case GET_BIRIMDATA:
+            return {
+                ...state,
+                birimler:action.payload,
+                loading:false
+            }
         case ADD_TO_BIRIM:
             const addedBirim = action.birim;
             
