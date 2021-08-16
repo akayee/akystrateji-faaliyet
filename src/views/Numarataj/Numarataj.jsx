@@ -99,35 +99,35 @@ class Numarataj extends React.Component {
   //ACCOUN BİLGİLERİNİ ÇEKME. SAYFA AÇILIRKEN YAPILIYOR
   componentDidMount() {
     var that = this;
-    let newdata = takeData(this.state.user, dataAdress).then(function (snapshot) {
-      let data = [];
-      snapshot.forEach(item => {
-        data.push(item.exportVal())
-      })
-      data.reverse();
-      let newdat = data;
-      let isler = [];
-      newdat.filter(dat => {
-        let dt = new Date(dat.date);        
-        let string = dat.date.toString().split("/")
-        if (20+string[2] === that.state.year.toString()) {
-          isler.push(dat)
-          return true
-        }
-        return false
+    // let newdata = takeData(this.state.user, dataAdress).then(function (snapshot) {
+    //   let data = [];
+    //   snapshot.forEach(item => {
+    //     data.push(item.exportVal())
+    //   })
+    //   data.reverse();
+    //   let newdat = data;
+    //   let isler = [];
+    //   newdat.filter(dat => {
+    //     let dt = new Date(dat.date);        
+    //     let string = dat.date.toString().split("/")
+    //     if (20+string[2] === that.state.year.toString()) {
+    //       isler.push(dat)
+    //       return true
+    //     }
+    //     return false
 
-      })
-      that.setState({
-        data,
-        yearData: isler
-      })
-    });
+    //   })
+    //   that.setState({
+    //     data,
+    //     yearData: isler
+    //   })
+    // });
     
-    if (newdata.length > 0) {
-      this.setState({
-        data: newdata
-      })
-    }
+    // if (newdata.length > 0) {
+    //   this.setState({
+    //     data: newdata
+    //   })
+    // }
     /*
     let numdata= JSON.stringify(numData);
     let newData=JSON.parse(numdata, (key, value) => {
@@ -373,7 +373,7 @@ class Numarataj extends React.Component {
     }
     let data = { Tanim: this.state.Tanim, isEmri: this.state.isEmri, Ilce: this.state.Ilce, Mahalle: this.state.Mahalle, date: newdate, EkipNo: this.state.EkipNo }
     dat.push(data)
-    addData(this.state.user,data,dataAdress);
+    // addData(this.state.user,data,dataAdress);
     dat.reverse();
     this.setState({ modalAccountShow: false, data: dat, Tanim: "",yearData:dat, isEmri: [], EkipNo: "" });
   }

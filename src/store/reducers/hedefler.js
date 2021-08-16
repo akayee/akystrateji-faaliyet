@@ -10,7 +10,7 @@ const initialState={
 export default (state=initialState,action)=>{
 
     switch(action.type){
-        case GET_BIRIMDATA:
+        case GET_HEDEFDATA:
             return {
                 ...state,
                 hedefler:action.payload,

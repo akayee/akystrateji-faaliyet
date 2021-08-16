@@ -7,30 +7,27 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
+import CheckIcon from '@material-ui/icons/Check';
+import { IconButton } from "@material-ui/core";
+import Tooltip from '@material-ui/core/Tooltip';
 import { Link } from 'react-router-dom';
-import {  Grid } from '@material-ui/core';
-import axios from 'axios';
+import { Grid } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { currentUser, addData, auth, takeData, updateData, deleteData, moneyTransfer, addPaymentData } from '../../firebase/auth';
+import { currentUser } from '../../firebase/auth';
 import LinearProg from '../../components/LinearProg/LinearProg';
-import { connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import BIRIMSTRATEGYDATA from "../../data/birimstrategydata";
 import BIRIMLER from "../../data/birimler";
-import birimler from "../../store/reducers/birimler";
 
-const API_URL = 'http://localhost:63544/api/hesaplar';
-const dataAdress = 'Hesaplar';
+import { getPerformansData } from '../../store/actions/performanslar';
+import { getStrategyData } from '../../store/actions/birimsstratejibilgiler'
 
-const mapStateToProps = state => {
-  return{
-    birimlerim: state.birimler
-  }
-  
-};
+
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -59,10 +56,16 @@ class Birimler extends React.Component {
       hedefexpanded: false,
       performansexpanded: false,
       user: currentUser(),
-      data:BIRIMSTRATEGYDATA
+      data: BIRIMSTRATEGYDATA,
+      performanslar: [],
+      birimlerim: []
     };
   }
-  
+
+  componentDidMount() {
+    this.props.getPerformansData();
+    this.props.getStrategyData();
+  }
   modalClose = () => this.setState({ modalShow: false });
   modalOpen = () => this.setState({ modalShow: !this.state.modalShow });
   paymentOpen = () => this.setState({ paymentShow: !this.state.paymentShow });
@@ -73,7 +76,7 @@ class Birimler extends React.Component {
     this.setState({ hedefexpanded: isExpanded ? panel : false });
   };
   handleChangePerformans = (panel) => (event, isExpanded) => {
-      this.setState({ performansexpanded: isExpanded ? panel : false });
+    this.setState({ performansexpanded: isExpanded ? panel : false });
   };
 
   handleChange = (e) => {
@@ -100,119 +103,133 @@ class Birimler extends React.Component {
       );
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
-    
+
 
     //DİZAYN CLASSLARININ PROPDAN ALINMA İŞLEMİ
     const { classes } = this.props;
-    const birimlerim= this.props.birimlerim.birimler
-    
+    const performanslar = this.props.performanslar.performanslar;
+    const strategydata = this.props.strategydata.strategydata;
+    console.log(strategydata)
+
     return (
       <div>
         <GridContainer>
-          {console.log(birimlerim)}
-          {this.state.data.map((i, index) =>
 
-            <GridItem xs={12} sm={12} md={12}>
-              <Card>
-                <CardHeader color="success">
-                  <GridContainer alignItems='center' justify='center'>
-                    <GridItem xs={12} sm={12} md={12}>
-                      <h4>{BIRIMLER[i.id].Adi}</h4>
-                    </GridItem>
+          {performanslar.length > 0 ? <GridItem xs={12} sm={12} md={12}>
+            <Card>
+              <CardHeader color="warning">
+                Açıklama Girilmesi Gereken Performans Göstergeleri
+              </CardHeader>
+              <CardBody>
+                {performanslar.map((performans, index) =>
+                  <div>
+                    <GridContainer spacing={2}>
+                      <Grid xs={6}>{performans.adi}</Grid>
+                      <Grid xs={5}>
+                        <TextField
+                          name="Tanim"
+                          multiline
+                          margin="dense"
+                          id="name"
+                          type="text"
+                          fullWidth
+                        /></Grid>
+                      <Grid xs={1}>
+                        <Tooltip title="Açıklamayı Kaydet">
+                          <IconButton>
+                            <CheckIcon />
+                          </IconButton>
+                        </Tooltip>
+                      </Grid>
+                    </GridContainer>
+                  </div>)}
+              </CardBody>
 
-                  </GridContainer>
-                </CardHeader>
-                <CardBody>
-                  <GridContainer alignItems='center' justify='center'>
-                    <GridItem xs={5} sm={5} md={5}>
-                      <div ><b>Adi</b></div ></GridItem>
-                    <GridItem xs={7} sm={7} md={7}>
-                      <b>Güncel Hedef Tamamlanma Yüzdesi</b>
-                    </GridItem>
+            </Card>
+          </GridItem> : null}
+          <GridItem xs={12} sm={12} md={12}>
+            <Card>
+              <CardHeader color="success">
+                <GridContainer alignItems='center' justify='center'>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <h4>{strategydata.birim && strategydata.birim.adi}</h4>
+                  </GridItem>
 
-
-                  </GridContainer>
-                  {
-                    i.hedefler.map((item) =>
-                      <Accordion expanded={this.state.hedefexpanded === item.path} onChange={this.handleChangeHedef(item.path)}>
-                        <AccordionSummary
-                          expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1bh-content"
-                          id="panel1bh-header"
-                        >
-                          <Grid xs={6}>H{item.id + 1} : <Link to={{
-                            pathname: "/admin/numarataj",
-                            state: { detailData: item }
-                          }}><div >{item.adi}</div ></Link></Grid>
-                          <Grid xs={6}> <LinearProg gerceklesmeOrani={item.hedefGerceklesmeOrani} /> </Grid>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <div style={{ width: '%100' }}>
-                            {item.performanslar ? item.performanslar.map(performans=><Accordion expanded={this.state.performansexpanded === performans.path} onChange={this.handleChangePerformans(performans.path)}>
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            aria-controls="panel1bh-content"
-                                            id="panel1bh-header"
-                                        >
-                                            <Grid xs={6}>P{item.id+1}.{performans.id + 1} : {performans.adi}</Grid>
-                                            <Grid xs={6}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} /> </Grid>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                            <Grid container>
-                                                <Grid container><h4><b>İşler</b></h4></Grid>
-                                                <Grid container>
-                                                    <Grid item xs={2}><b>Adi</b></Grid>
-                                                    <Grid item xs={2}><b>Ölçü Birimi</b></Grid>
-                                                    <Grid item xs={2}><b>Hedef</b> </Grid>
-                                                    <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
-                                                    <Grid item xs={4}><b>Açıklama</b></Grid>
-                                                </Grid>
-                                                {performans.isler && performans.isler.map((is, index) => <Grid container>                                                  
-                                                  <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
-                                                    <Grid item xs={2}>{is.adi}</Grid>
-                                                    <Grid item xs={2} style={{textAlign:'center'}}>{is.OlcuBrimi} </Grid>
-                                                    <Grid item xs={2}>{is.hedef} </Grid>
-                                                    <Grid item xs={2}>{is.gerceklesme} </Grid>
-                                                    <Grid item xs={4}>{is.aciklama} </Grid>
-                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} /></Grid>
-                                                    
-                                                </Grid>)}
-                                                <Grid container><h4><b>Faaliyetler</b></h4></Grid>
-                                                <Grid container>
-                                                    <Grid item xs={2}><b>Adi</b></Grid>
-                                                    <Grid item xs={2} ><b>Ölçü Birimi</b></Grid>
-                                                    <Grid item xs={2}><b>Hedef</b> </Grid>
-                                                    <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
-                                                    <Grid item xs={4}><b>Açıklama</b></Grid>
-                                                </Grid>
-                                                {performans.isler && performans.faaliyetler.map((is, index) => <Grid container>
-                                                  <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
-                                                    <Grid item xs={2}>{is.adi}</Grid>
-                                                    <Grid item xs={2} style={{textAlign:'center'}}>{is.OlcuBrimi} </Grid>
-                                                    <Grid item xs={2}>{is.hedef} </Grid>
-                                                    <Grid item xs={2}>{is.gerceklesme} </Grid>
-                                                    <Grid item xs={4}>{is.aciklama} </Grid>
-                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} /> </Grid>
-                                                </Grid>)}
-                                            </Grid>
-                                        </AccordionDetails>
-                                    </Accordion>):null}
-                          </div>
-                        </AccordionDetails>
-                      </Accordion>
+                </GridContainer>
+              </CardHeader>
+              <CardBody>
+                <GridContainer alignItems='center' justify='center'>
+                  <GridItem xs={7} sm={7} md={7}>
+                    <div ><b>Adi</b></div ></GridItem>
+                  <GridItem xs={5} sm={5} md={5}>
+                    <b>Güncel Hedef Tamamlanma Yüzdesi</b>
+                  </GridItem>
 
 
-                    )}
-                </CardBody>
-              </Card>
-            </GridItem>
+                </GridContainer>
 
+                <div style={{ width: '%100' }}>
+                  {strategydata.performanslar ? strategydata.performanslar.map(performans => <Accordion expanded={this.state.performansexpanded === performans.id} onChange={this.handleChangePerformans(performans.id)}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1bh-content"
+                      id="panel1bh-header"
+                    >
+                      <Grid xs={6}>P{strategydata.stratejikAmac.id}.{strategydata.hedefler.id + 1}.{performans.id + 1} : {performans.adi}</Grid>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Grid container>
+                        <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
+                        <Grid container>
+                          <Grid item xs={2}><b>Adi</b></Grid>
+                          <Grid item xs={2}><b>Ölçü Birimi</b></Grid>
+                          <Grid item xs={2}><b>Hedef</b> </Grid>
+                          <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
+                          <Grid item xs={4}><b>Açıklama</b></Grid>
+                        </Grid>
+                        {strategydata.isturleri && strategydata.isturleri.map((is, index) => <Grid container>
+                          <Grid item xs={12}><b>{strategydata.birim.adi}</b></Grid>
+                          <Grid item xs={2}>{is.adi}</Grid>
+                          <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiId} </Grid>
+                          <Grid item xs={2}>{is.yillikHedef} </Grid>
+                          <Grid item xs={2}>{is.toplamDeger} </Grid>
+                          <Grid item xs={4}>{is.aciklama} </Grid>
+                          <Grid item xs={12}>
+                          <LinearProg 
+                          parts={[(is.firstPart* 100)/is.yillikHedef,(is.secondPart* 100)/is.yillikHedef,(is.thirdPart* 100)/is.yillikHedef,(is.lastPart* 100)/is.yillikHedef]} 
+                          gerceklesmeOrani={(is.toplamDeger * 100) / is.yillikHedef} 
+                          gosterilecekalan={["Tamamlanan","Kalan"]}
+                           /></Grid>
 
-          )}
-
-
-
-
+                        </Grid>)}
+                        <Grid container><h4><b>Faaliyetler</b></h4></Grid>
+                        <Grid container>
+                          <Grid item xs={2}><b>Adi</b></Grid>
+                          <Grid item xs={2} ><b>Ölçü Birimi</b></Grid>
+                          <Grid item xs={2}><b>Hedef</b> </Grid>
+                          <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
+                          <Grid item xs={4}><b>Açıklama</b></Grid>
+                        </Grid>
+                        {strategydata.vmFaaliyetTurleri && strategydata.vmFaaliyetTurleri.map((is, index) => <Grid container>
+                          <Grid item xs={12}><b>{strategydata.birim.adi}</b></Grid>
+                          <Grid item xs={2}>{is.adi}</Grid>
+                          <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiId} </Grid>
+                          <Grid item xs={2}>{is.yillikHedef} </Grid>
+                          <Grid item xs={2}>{is.toplamDeger} </Grid>
+                          <Grid item xs={4}>{is.aciklama} </Grid>
+                          <Grid item xs={12}><LinearProg 
+                          parts={[(is.firstPart* 100)/is.yillikHedef,(is.secondPart* 100)/is.yillikHedef,(is.thirdPart* 100)/is.yillikHedef,(is.lastPart* 100)/is.yillikHedef]} 
+                          gerceklesmeOrani={(is.toplamDeger * 100) / is.yillikHedef} 
+                          gosterilecekalan={["Tamamlanan","Kalan"]} 
+                           /> </Grid>
+                        </Grid>)}
+                      </Grid>
+                    </AccordionDetails>
+                  </Accordion>) : null}
+                </div>
+              </CardBody>
+            </Card>
+          </GridItem>
         </GridContainer>
 
       </div>
@@ -225,4 +242,5 @@ Birimler.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(Birimler));
+const mapStateToProps = (state) => ({ performanslar: state.performanslar, strategydata: state.strategydata })
+export default connect(mapStateToProps, { getPerformansData, getStrategyData })(withStyles(styles)(Birimler));

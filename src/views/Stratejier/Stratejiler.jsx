@@ -57,7 +57,7 @@ class Stratejiler extends React.Component {
                                 id="panel1bh-header"
                             >
                                 <Grid xs={5}>H{strateji.id + 1}.{hedef.id + 1} : {hedef.adi}</Grid>
-                                <Grid xs={5}><LinearProg gerceklesmeOrani={hedef.hedefGerceklesmeOrani} /></Grid>
+                                <Grid xs={5}><LinearProg gerceklesmeOrani={hedef.hedefGerceklesmeOrani} gosterilecekalan={["Performans","Faaliyet"]}  /></Grid>
                                 <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[hedef.birimId].Adi}</Grid>
                             </AccordionSummary>
                             <AccordionDetails>
@@ -69,7 +69,7 @@ class Stratejiler extends React.Component {
                                             id="panel1bh-header"
                                         >
                                             <Grid xs={5}>P{strateji.id + 1}.{hedef.id + 1}.{performans.id + 1} : {performans.adi}</Grid>
-                                            <Grid xs={5}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} /></Grid>
+                                            <Grid xs={5}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} gosterilecekalan={["Performans","Faaliyet"]} /></Grid>
                                             <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[performans.birimId].Adi}</Grid>
                                         </AccordionSummary>
                                         <AccordionDetails>
@@ -88,7 +88,7 @@ class Stratejiler extends React.Component {
                                                     <Grid item xs={2}>{is.hedef} </Grid>
                                                     <Grid item xs={2}>{is.gerceklesme} </Grid>
                                                     <Grid item xs={4}>{is.aciklama} </Grid>
-                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} /> </Grid>
+                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} gosterilecekalan={["Performans","Faaliyet"]} /> </Grid>
                                                 </Grid>)}
                                                 <Grid container><h4><b>Faaliyetler</b></h4></Grid>
                                                 <Grid container>
@@ -104,7 +104,7 @@ class Stratejiler extends React.Component {
                                                     <Grid item xs={2}>{is.hedef} </Grid>
                                                     <Grid item xs={2}>{is.gerceklesme} </Grid>
                                                     <Grid item xs={4}>{is.aciklama} </Grid>
-                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} /> </Grid>
+                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani}  gosterilecekalan={["Performans","Faaliyet"]}/> </Grid>
                                                 </Grid>)}
                                             </Grid>
                                         </AccordionDetails>

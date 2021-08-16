@@ -104,15 +104,16 @@ class Dashboard extends React.Component {
   checkLogin=()=>{
     var that=this;
     firebase.auth().onAuthStateChanged(function(user){
-      if(user){
+      // if(user){
         that.setState({
           loginOpen:true
         });
-      }else{
-        that.setState({
-          loginOpen:false
-        });
-      }
+      // }else{
+      //   that.setState({
+      //     loginOpen:false
+      //   });
+      // }
+      
     }); 
     
   }

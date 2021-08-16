@@ -6,7 +6,7 @@ import Chart from 'react-apexcharts'
 
 const LinearProg = props => {
     const options = {
-        labels:["Faaliyet","Maaliyet"]
+        labels:props.gosterilecekalan
     }
     var options1 = {
         plotOptions: {
@@ -28,7 +28,7 @@ const LinearProg = props => {
       };
 
 const series = [props.gerceklesmeOrani, props.gerceklesmeOrani > 100 ? 0 : 100 - props.gerceklesmeOrani]
-const parts=[15,20,15]
+const parts=props.parts;
 
 
 return <Grid container >

@@ -41,7 +41,7 @@ const styles = {
     { Adi: 'Stratejik Amaç', id: '0', hedef: '80' },
     { Adi: 'Stratejik Hedef', id: '1', hedef: '70' },
     { Adi: 'Stratejik Performans', id: '2', hedef: '70' },
-    { Adi: 'Faaliyet', id: '3', hedef: '92' },
+    { Adi: 'Performans Göstergesi', id: '3', hedef: '92' },
     { Adi: 'Maaliyet', id: '4', hedef: '93' }]
   class YilSonuDevir extends React.Component{
       constructor(...args){
