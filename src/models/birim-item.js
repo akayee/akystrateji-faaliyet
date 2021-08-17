@@ -1,9 +1,9 @@
 class BirimItem{
     constructor(birimId,birimAdi,UstBirimId,BirimTipi){
-        this.birimId=birimId;
-        this.birimAdi=birimAdi;
-        this.BirimTipi=BirimTipi;
-        this.UstBirimId=UstBirimId;
+        this.id=birimId;
+        this.adi=birimAdi;
+        this.birimTipiId=BirimTipi;
+        this.ustBirimId=UstBirimId;
 
     }
 }

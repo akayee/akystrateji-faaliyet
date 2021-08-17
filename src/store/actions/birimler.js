@@ -9,12 +9,40 @@ export const GET_BIRIMDATA = 'GET_BIRIMDATA'
 
 
 
-export const addToBirim = birim =>{
-    return {type:ADD_TO_BIRIM,birim:birim};
+export const addToBirim = birim => async dispatch=>{
+
+    try{
+        const res =await axios.put('https://localhost:44312/Birimler/AddNewBirim',birim);
+        dispatch({
+            type:ADD_TO_BIRIM,
+            payload:res.data
+        })
+    }
+    catch(e){
+        dispatch({
+            type:ADD_TO_BIRIM,
+            payload:console.log(e),
+            error:true,
+            birim
+        })
+    }
 ;}
 
-export const removeFromBirim = birimId=>{
-    return {type:REMOVE_FROM_BIRIM,bid:birimId}
+export const removeFromBirim = birimId => async dispatch=>{
+    try{
+        const res =await axios.put('https://localhost:44312/Birimler/DeleteaBirim',birimId);
+        dispatch({
+            type:REMOVE_FROM_BIRIM,
+            payload:res.data
+        })
+    }
+    catch(e){
+        dispatch({
+            type:REMOVE_FROM_BIRIM,
+            payload:console.log(e),
+            error:true
+        })
+    }
 };
 
 export const getBirimData = birimId =>async dispatch=> {
