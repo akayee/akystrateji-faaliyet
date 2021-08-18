@@ -12,10 +12,11 @@ export const GET_BIRIMDATA = 'GET_BIRIMDATA'
 export const addToBirim = birim => async dispatch=>{
 
     try{
-        const res =await axios.put('https://localhost:44312/Birimler/AddNewBirim',birim);
+        const res =await axios.post('https://localhost:44312/Birimler/AddNewBirim',birim);
         dispatch({
             type:ADD_TO_BIRIM,
-            payload:res.data
+            payload:res.data,
+            birim
         })
     }
     catch(e){

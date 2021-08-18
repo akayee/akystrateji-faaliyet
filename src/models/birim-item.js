@@ -1,10 +1,11 @@
 class BirimItem{
-    constructor(birimId,birimAdi,UstBirimId,BirimTipi){
+    constructor(birimId,birimAdi,UstBirimId,BirimTipi,Deleted,OlusturmaTarihi){
         this.id=birimId;
-        this.adi=birimAdi;
-        this.birimTipiId=BirimTipi;
-        this.ustBirimId=UstBirimId;
-
+        this.Adi=birimAdi;
+        this.UstBirimId=UstBirimId;
+        this.Deleted=Deleted;
+        this.BirimTipiId=BirimTipi;
+        this.OlusturmaTarihi=OlusturmaTarihi;
     }
 }
 export default BirimItem

@@ -109,7 +109,6 @@ class Birimler extends React.Component {
     const { classes } = this.props;
     const performanslar = this.props.performanslar.performanslar;
     const strategydata = this.props.strategydata.strategydata;
-    console.log(strategydata)
 
     return (
       <div>

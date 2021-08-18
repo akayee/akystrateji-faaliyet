@@ -1,10 +1,8 @@
 import {ADD_TO_BIRIM,REMOVE_FROM_BIRIM, GET_BIRIMDATA} from '../actions/birimler';
-import BirimItem from '../../models/birim-item';
-import BIRIMLER from '../../data/birimler';
 
 
 const initialState= {
-    birimler:BIRIMLER,
+    birimler:[],
     loading:false,
     error:false,
     errormessage:''
@@ -29,7 +27,9 @@ export default (state=initialState,action)=>{
                 }
             }
         case ADD_TO_BIRIM:
-            let addedBirim = action.birim
+            let addedBirim = action.birim;
+            addedBirim.adi=action.birim.Adi;
+            let yenibirimler = state.birimler;
             if(action.error==true)
             {
                 return {
@@ -37,15 +37,12 @@ export default (state=initialState,action)=>{
                     errormessage:action.payload
                 }
             }else{
-                let updateOrNewBirimItem;
-                if ( !state.birimler[addedBirim.id]){
-                    //Eklenecek Birim Birimlerimiz Arasında Yok İse
-                    updateOrNewBirimItem = new BirimItem(addedBirim.id,addedBirim.birimAdi,addedBirim.UstBirimId,addedBirim.BirimTipi);                
-                }
+                    //Eklenecek Birim Birimlerimiz Arasında Yok İse 
+                    yenibirimler.push(addedBirim)           
     
                 return { 
                     ...state,
-                    birimler:{...state.birimler,[addedBirim.id]:updateOrNewBirimItem}
+                    birimler:yenibirimler
                 }
             }
         case REMOVE_FROM_BIRIM:

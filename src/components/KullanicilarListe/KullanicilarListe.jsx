@@ -104,8 +104,8 @@ class KullanicilarListele extends React.Component {
             expanded: {},
             listelemesayisi: 3,
             tumliste: false,
-            kullanicilar:kullanicilar,
-            degismeyenListe:kullanicilar
+            kullanicilar: kullanicilar,
+            degismeyenListe: kullanicilar
         }
     }
     handleExpandClick = (event, path) => {
@@ -126,10 +126,10 @@ class KullanicilarListele extends React.Component {
             tumliste: !this.state.tumliste
         })
     }
-    handleTextChange=(e)=>{
-        let kullaniciliste=this.state.degismeyenListe.filter(kul=>kul.Adi.toLowerCase().indexOf(e.target.value.toLowerCase())>-1);
+    handleTextChange = (e) => {
+        let kullaniciliste = this.state.degismeyenListe.filter(kul => kul.Adi.toLowerCase().indexOf(e.target.value.toLowerCase()) > -1);
         this.setState({
-            kullanicilar:kullaniciliste
+            kullanicilar: kullaniciliste
         })
     }
     render() {
@@ -143,7 +143,7 @@ class KullanicilarListele extends React.Component {
                         Kullanicilar
                     </Typography>
                 </GridItem>
-                <GridItem style={{alignSelf: 'flex-end'}}>
+                <GridItem style={{ alignSelf: 'flex-end' }}>
                     <FormControl >
                         <InputLabel htmlFor="input-with-icon-adornment">Arama Yap</InputLabel>
                         <Input
@@ -160,8 +160,10 @@ class KullanicilarListele extends React.Component {
             </GridContainer>
 
 
-            <GridContainer spacing={2}>
-                <KullaniciEkle classes={classes} birimler={accounts}/>
+            <GridContainer spacing={2}
+                justifyContent="flex-start"
+                alignItems="stretch">
+                <KullaniciEkle classes={classes} birimler={accounts} />
                 {this.state.kullanicilar.slice(0, this.state.listelemesayisi).map((kullanici, index) => <GridItem key={index}>
                     <Card>
                         <CardHeader>{kullanici.Adi} ({kullanici.id})
@@ -193,7 +195,7 @@ class KullanicilarListele extends React.Component {
                             >
                                 <ExpandMoreIcon />
                             </IconButton>
-                            Detay
+                            Personel Bilgileri
                         </CardActions>
                         <Collapse in={this.state.expanded[kullanici.id]} timeout="auto" unmountOnExit>
                             <CardContent>

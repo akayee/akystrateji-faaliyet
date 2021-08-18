@@ -5,13 +5,13 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import GridItem from "components/Grid/GridItem.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import Card from "components/Card/Card.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
-import AddIcon from '@material-ui/icons/Add';
 import IconButton from '@material-ui/core/IconButton';
-import EditIcon from '@material-ui/icons/Edit';
-import {  Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import KullanicilarListele from "../../components/KullanicilarListe/KullanicilarListe";
+import YeniOlcuBirimiEkle from "../../components/YeniOlcuBirimiEkle/YeniOlcuBirimiEkle";
+import { Delete } from "@material-ui/icons";
+import YeniBirimEkle from "../../components/YeniBirimEkle/YeniBirimEkle";
 
 
 
@@ -60,7 +60,7 @@ class Ayarlar extends React.Component {
   }
   handleExpandClick = (event, path) => {
     this.setState({
-      expanded: {...this.state.expanded,[path]:!this.state.expanded[path]}
+      expanded: { ...this.state.expanded, [path]: !this.state.expanded[path] }
     })
   }
   render() {
@@ -76,29 +76,30 @@ class Ayarlar extends React.Component {
     const { classes } = this.props;
 
     //TODO Kullanicilar sistemden çekilerek ayarlancak
-    
+
     const parametre = ['Adet', 'm²', 'km²', 'TL', 'm³', 'Litre']
 
 
     return (
       <div>
-        <KullanicilarListele/>
+        <KullanicilarListele />
 
-        
-        <GridContainer alignItems='center' justify='center'>
+
+        <GridContainer alignItems='stretch' justify='center'>
           <GridItem xs={6} >
-          <Typography variant="h4" component="h4">
-            Ölçü Birimi
-          </Typography>
+            <Typography variant="h4" component="h4">
+              Ölçü Birimi
+            </Typography>
             <Card>
               <CardBody>
-                {parametre.map(i => <GridContainer alignItems='center' >
+                <YeniOlcuBirimiEkle classes={classes} />
+                {parametre.map((i,index) => <GridContainer alignItems='center' key={index} >
                   <GridItem xs={3}>
                     {i}
                   </GridItem>
                   <GridItem xs={3}>
                     <IconButton >
-                      <EditIcon />
+                      <Delete />
                     </IconButton>
                   </GridItem>
 
@@ -107,38 +108,18 @@ class Ayarlar extends React.Component {
             </Card>
           </GridItem>
           <GridItem xs={6} >
-          <Typography variant="h4" component="h4">
-            Birimler
-          </Typography>
+            <Typography variant="h4" component="h4">
+              Birimler
+            </Typography>
             <Card>
               <CardBody>
-              <GridContainer alignItems='center' >
-                  <GridItem xs={3}>
-                    Yeni Birim Ekle
-                  </GridItem>
-                  <GridItem xs={3}>
-                    <IconButton >
-                      <AddIcon />
-                    </IconButton>
-                  </GridItem>
-
-                </GridContainer>
-                {parametre.map(i => <GridContainer alignItems='center' >
-                  <GridItem xs={3}>
-                    {i}
-                  </GridItem>
-                  <GridItem xs={3}>
-                    <IconButton >
-                      <EditIcon />
-                    </IconButton>
-                  </GridItem>
-
-                </GridContainer>)}
+                <YeniBirimEkle classes={classes} />
+                
               </CardBody>
             </Card>
           </GridItem>
         </GridContainer>
-          
+
 
 
       </div>
