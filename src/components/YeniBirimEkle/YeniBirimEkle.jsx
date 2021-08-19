@@ -16,7 +16,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
-import { addToBirim,getBirimData } from '../../store/actions/birimler';
+import { addToBirim,getBirimData,removeFromBirim } from '../../store/actions/birimler';
 import Swal from 'sweetalert2';
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -65,6 +65,7 @@ class YeniBirimEkle extends React.Component {
             modalopen: false,
             amacDetay: [],
             Birim: null,
+            error:false
         }
     }
 
@@ -87,9 +88,33 @@ class YeniBirimEkle extends React.Component {
             modalopen: !this.state.modalopen
         })
     }
+    handleBirimDelete=(e,birim)=>{
+        this.props.removeFromBirim(birim);
+        if(this.props.error)
+        {
+            
+        Swal.fire({
+            title: 'Kayıt Başarıyla Silindi!',
+            position: 'top-end',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        }else{
+            
+        Swal.fire({
+            title: 'Oops...',
+            position: 'top-end',
+            icon: 'error',
+            text: 'Hata Oluştu',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        }
+    }
 
     handleSubmit = (e) => {
-        var birim = new BirimItem(0,this.state.amacDetay.Tanim,this.state.Birim,2,false,Date.now);
+        var birim = new BirimItem(0,this.state.amacDetay.Tanim,this.state.Birim,4,false,Date.now);
         this.props.addToBirim(birim);
         this.setState({
             modalopen: !this.state.modalopen,
@@ -107,7 +132,7 @@ class YeniBirimEkle extends React.Component {
     render() {
         const { classes } = this.props;
         const {birimler} = this.props.birimler;
-        return <div key={this.props.birimler}><GridContainer alignItems='center' >
+        return <div ><GridContainer alignItems='center' >
             <GridItem xs={3}>
                 Yeni Birim Ekle
             </GridItem>
@@ -117,12 +142,13 @@ class YeniBirimEkle extends React.Component {
                 </IconButton>
             </GridItem>
         </GridContainer>
+        {console.log(birimler)}
         {birimler&&birimler.map((birim,index) => <GridContainer alignItems='center' key={index} >
                   <GridItem xs={10}>
                     {birim.adi}
                   </GridItem>
                   <GridItem xs={2}>
-                    <IconButton >
+                    <IconButton onClick={(e)=>this.handleBirimDelete(e,birim)} >
                       <Delete />
                     </IconButton>
                   </GridItem>
@@ -205,5 +231,5 @@ class YeniBirimEkle extends React.Component {
 
 }
 
-const mapStateToProps = (state) => ({ birimler: state.birimler })
-export default connect(mapStateToProps,{getBirimData,addToBirim})(YeniBirimEkle)
+const mapStateToProps = (state) => ({ birimler: state.birimler,error:state.error })
+export default connect(mapStateToProps,{getBirimData,addToBirim,removeFromBirim})(YeniBirimEkle)

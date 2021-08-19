@@ -64,7 +64,7 @@ class Birimler extends React.Component {
 
   componentDidMount() {
     this.props.getPerformansData();
-    this.props.getStrategyData();
+    this.props.getStrategyData(2);
   }
   modalClose = () => this.setState({ modalShow: false });
   modalOpen = () => this.setState({ modalShow: !this.state.modalShow });
@@ -114,7 +114,7 @@ class Birimler extends React.Component {
       <div>
         <GridContainer>
 
-          {performanslar.length > 0 ? <GridItem xs={12} sm={12} md={12}>
+          {performanslar&&performanslar.length > 0 ? <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="warning">
                 Açıklama Girilmesi Gereken Performans Göstergeleri
@@ -151,7 +151,7 @@ class Birimler extends React.Component {
               <CardHeader color="success">
                 <GridContainer alignItems='center' justify='center'>
                   <GridItem xs={12} sm={12} md={12}>
-                    <h4>{strategydata.birim && strategydata.birim.adi}</h4>
+                    <h4>{strategydata&&strategydata.birim && strategydata.birim.adi}</h4>
                   </GridItem>
 
                 </GridContainer>
@@ -168,7 +168,7 @@ class Birimler extends React.Component {
                 </GridContainer>
 
                 <div style={{ width: '%100' }}>
-                  {strategydata.performanslar ? strategydata.performanslar.map(performans => <Accordion expanded={this.state.performansexpanded === performans.id} onChange={this.handleChangePerformans(performans.id)}>
+                  {strategydata&&strategydata.performanslar ? strategydata.performanslar.map(performans => <Accordion expanded={this.state.performansexpanded === performans.id} onChange={this.handleChangePerformans(performans.id)}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1bh-content"

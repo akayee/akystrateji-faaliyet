@@ -30,6 +30,7 @@ export default (state=initialState,action)=>{
             let addedBirim = action.birim;
             addedBirim.adi=action.birim.Adi;
             let yenibirimler = state.birimler;
+            addedBirim.id=action.payload;
             if(action.error==true)
             {
                 return {
@@ -50,8 +51,8 @@ export default (state=initialState,action)=>{
             {
                 return state
             }else{
-                let updatedBirimItem = {...state.birimler}
-                delete updatedBirimItem[action.bid]
+                let updatedBirimItem = state.birimler;
+                updatedBirimItem.filter(item=> item.id!=action.birim.id);
     
                 return { 
                     ...state,

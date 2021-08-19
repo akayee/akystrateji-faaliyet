@@ -16,7 +16,8 @@ export const addToBirim = birim => async dispatch=>{
         dispatch({
             type:ADD_TO_BIRIM,
             payload:res.data,
-            birim
+            birim,
+            error:false,
         })
     }
     catch(e){
@@ -29,12 +30,14 @@ export const addToBirim = birim => async dispatch=>{
     }
 ;}
 
-export const removeFromBirim = birimId => async dispatch=>{
+export const removeFromBirim = birim => async dispatch=>{
     try{
-        const res =await axios.put('https://localhost:44312/Birimler/DeleteaBirim',birimId);
+        const res =await axios.post('https://localhost:44312/Birimler/DeleteaBirim',birim);
         dispatch({
             type:REMOVE_FROM_BIRIM,
-            payload:res.data
+            payload:res.data,
+            error:false,
+            birim
         })
     }
     catch(e){
