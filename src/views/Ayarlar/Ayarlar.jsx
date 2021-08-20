@@ -10,7 +10,6 @@ import IconButton from '@material-ui/core/IconButton';
 import { Typography } from "@material-ui/core";
 import KullanicilarListele from "../../components/KullanicilarListe/KullanicilarListe";
 import YeniOlcuBirimiEkle from "../../components/YeniOlcuBirimiEkle/YeniOlcuBirimiEkle";
-import { Delete } from "@material-ui/icons";
 import YeniBirimEkle from "../../components/YeniBirimEkle/YeniBirimEkle";
 
 
@@ -93,17 +92,7 @@ class Ayarlar extends React.Component {
             <Card>
               <CardBody>
                 <YeniOlcuBirimiEkle classes={classes} />
-                {parametre.map((i,index) => <GridContainer alignItems='center' key={index} >
-                  <GridItem xs={3}>
-                    {i}
-                  </GridItem>
-                  <GridItem xs={3}>
-                    <IconButton >
-                      <Delete />
-                    </IconButton>
-                  </GridItem>
-
-                </GridContainer>)}
+              
               </CardBody>
             </Card>
           </GridItem>

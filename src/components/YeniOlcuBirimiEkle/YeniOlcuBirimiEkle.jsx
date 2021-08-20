@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 
@@ -8,47 +8,31 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
-import { addToAmaclar } from '../../store/actions/amaclar';
+import { addToOlcuBirimi, removeFromOlcuBirimi, getOlcuBirimiData } from '../../store/actions/olcubirimi';
 import Swal from 'sweetalert2';
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import IconButton from '@material-ui/core/IconButton';
+import { Delete } from "@material-ui/icons";
+import OlcuBirimiItem from '../../models/olcubirimi_item';
 
-const mapDispatchToProps = {
-    addToAmaclar
-
-};
-
-const mapStateToProps = state => {
-    return {
-        amaclar: state.amaclar
-    }
-}
 class YeniOlcuBirimiEkle extends React.Component {
     constructor(...args) {
         super(...args);
         this.state = {
             modalopen: false,
-            amacDetay: [],
-            Birim: []
+            OlcuBirimi: []
         }
+    }
+    componentDidMount() {
+        this.props.getOlcuBirimiData();
     }
     handleChange = (e) => {
         let val = e.target.value;
-        this.setState({ amacDetay: { ...this.state.amacDetay, [e.target.name]: val } })
-
-    }
-    handleChangeBirim = (e) => {
-        let val = e.target.value;
-        this.setState({ Birim: val })
+        this.setState({ OlcuBirimi: { ...this.state.amacDetay, [e.target.name]: val } })
 
     }
 
@@ -59,8 +43,9 @@ class YeniOlcuBirimiEkle extends React.Component {
     }
 
     handleSubmit = (e) => {
-        const { addToAmaclar } = this.props;
-        addToAmaclar(this.state.amacDetay);
+        var olcubirimi = new OlcuBirimiItem(0, this.state.OlcuBirimi.tanim, false);
+        console.log(olcubirimi);
+        this.props.addToOlcuBirimi(olcubirimi);
         this.setState({
             modalopen: !this.state.modalopen,
             amacDetay: [],
@@ -74,19 +59,55 @@ class YeniOlcuBirimiEkle extends React.Component {
             timer: 1500
         })
     }
-    render() {
-        const { classes } = this.props;
-        return <div><GridContainer alignItems='center' >
-        <GridItem xs={3}>
-          Yeni Ölçü Birimi Ekle
-        </GridItem>
-        <GridItem xs={3}>
-          <IconButton onClick={this.modalAccountOpen} >
-            <AddIcon />
-          </IconButton>
-        </GridItem>
+    
+    handleBirimDelete = (e, birim) => {
+        this.props.removeFromOlcuBirimi(birim);
+        if (this.props.error === false) {
 
-      </GridContainer>
+            Swal.fire({
+                title: 'Kayıt Başarıyla Silindi!',
+                position: 'top-end',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        } else {
+
+            Swal.fire({
+                title: 'Oops...',
+                position: 'top-end',
+                icon: 'error',
+                text: 'Hata Oluştu',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    }
+    render() {
+        const { olcubirimi } = this.props.olcubirimi;
+        return <div><GridContainer alignItems='center' >
+            <GridItem xs={3}>
+                Yeni Ölçü Birimi Ekle
+            </GridItem>
+            <GridItem xs={3}>
+                <IconButton onClick={this.modalAccountOpen} >
+                    <AddIcon />
+                </IconButton>
+            </GridItem>
+        </GridContainer>
+            {olcubirimi&&olcubirimi.map((i, index) => <GridContainer alignItems='center' key={index} >
+                <GridItem xs={4}>
+                    {i.tanim}
+                </GridItem>
+                <GridItem xs={3}>
+                    <IconButton onClick={(e) => this.handleBirimDelete(e, i)} >
+                        <Delete />
+                    </IconButton>
+                </GridItem>
+
+            </GridContainer>)}
+
+
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Ölçü Birimi Oluştur</DialogTitle>
                 <DialogContent>
@@ -95,11 +116,11 @@ class YeniOlcuBirimiEkle extends React.Component {
                     </DialogContentText>
                     <Grid container spacing={3}>
                         <TextField
-                            name="Tanim"
+                            name="tanim"
                             autoFocus
                             margin="dense"
                             id="name"
-                            label="Ölçü Birimi"
+                            label="Ölçü Birimi Adı"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -122,4 +143,7 @@ class YeniOlcuBirimiEkle extends React.Component {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(YeniOlcuBirimiEkle)
+
+
+const mapStateToProps = (state) => ({ olcubirimi: state.olcubirimi, error: state.olcubirimi.error })
+export default connect(mapStateToProps, { getOlcuBirimiData,removeFromOlcuBirimi,addToOlcuBirimi })(YeniOlcuBirimiEkle)

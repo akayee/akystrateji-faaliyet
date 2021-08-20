@@ -1,8 +1,8 @@
-import {ADD_TO_BIRIM,REMOVE_FROM_BIRIM, GET_BIRIMDATA} from '../actions/birimler';
+import {ADD_TO_OLCUBIRIMI,GET_OLCUBIRIMIDATA,REMOVE_FROM_OLCUBIRIMI} from '../actions/olcubirimi';
 
 
 const initialState= {
-    birimler:[],
+    olcubirimi:[],
     loading:false,
     error:false,
     errormessage:''
@@ -11,7 +11,7 @@ const initialState= {
 export default (state=initialState,action)=>{
 
     switch(action.type){
-        case GET_BIRIMDATA:
+        case GET_OLCUBIRIMIDATA:
 
             if(action.error==true)
             {
@@ -22,20 +22,20 @@ export default (state=initialState,action)=>{
             }else{
                 return {
                     ...state,
-                    birimler:action.payload,
+                    olcubirimi:action.payload,
                     loading:false
                 }
             }
-        case ADD_TO_BIRIM:
-            let addedBirim = action.birim;
-            addedBirim.adi=action.birim.Adi;
-            let yenibirimler = state.birimler;
+        case ADD_TO_OLCUBIRIMI:
+            let addedBirim = action.olcubirimi;
+            let yenibirimler = state.olcubirimi;
             addedBirim.id=action.payload;
             if(action.error==true)
             {
                 return {
                     ...state,
-                    errormessage:action.payload
+                    errormessage:action.payload,
+                    error:true
                 }
             }else{
                     //Eklenecek Birim Birimlerimiz Arasında Yok İse 
@@ -43,20 +43,20 @@ export default (state=initialState,action)=>{
     
                 return { 
                     ...state,
-                    birimler:yenibirimler
+                    olcubirimi:yenibirimler
                 }
             }
-        case REMOVE_FROM_BIRIM:
+        case REMOVE_FROM_OLCUBIRIMI:
             if(action.error==true)
             {
-                return state
+                return {...state,error:true}
             }else{
-                let updatedBirimItem = state.birimler;
-                updatedBirimItem=updatedBirimItem.filter(item=> item.id!=action.birim.id);
+                let updatedBirimItem = state.olcubirimi;
+                updatedBirimItem=updatedBirimItem.filter(item=> item.id!=action.olcubirimi.id);
     
                 return { 
                     ...state,
-                    birimler:updatedBirimItem
+                    olcubirimi:updatedBirimItem
                 }
             }
             

@@ -18,6 +18,7 @@ import amaclarReducer from './store/reducers/amaclar';
 import hedeflerReducer from './store/reducers/hedefler';
 import performanslarReducer from './store/reducers/performanslar';
 import strategyReducer from './store/reducers/birimstratejibilgiler';
+import olcubirimiReducer from './store/reducers/olcubirimi';
 
 const hist = createBrowserHistory();
 localStorage.setItem('FirmId','1');
@@ -26,7 +27,8 @@ const rootReducer =combineReducers({
   amaclar:amaclarReducer,
   hedefler:hedeflerReducer,
   performanslar:performanslarReducer,
-  strategydata: strategyReducer
+  strategydata: strategyReducer,
+  olcubirimi:olcubirimiReducer
 });
 const initialState = {
 

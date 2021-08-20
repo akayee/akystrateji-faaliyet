@@ -33,6 +33,7 @@ export const addToBirim = birim => async dispatch=>{
 export const removeFromBirim = birim => async dispatch=>{
     try{
         const res =await axios.post('https://localhost:44312/Birimler/DeleteaBirim',birim);
+        
         dispatch({
             type:REMOVE_FROM_BIRIM,
             payload:res.data,
