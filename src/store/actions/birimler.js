@@ -1,10 +1,6 @@
-
-
 import axios from 'axios';
 export const ADD_TO_BIRIM='ADD_TO_BIRIM';
-
 export const REMOVE_FROM_BIRIM='REMOVE_FROM_BIRIM';
-
 export const GET_BIRIMDATA = 'GET_BIRIMDATA'
 
 

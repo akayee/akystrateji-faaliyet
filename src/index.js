@@ -25,6 +25,9 @@ import donanimlarReducer from './store/reducers/birimislemleri/donanimlar';
 import araclarReducer from './store/reducers/birimislemleri/araclistesi';
 import personellerReducer from './store/reducers/birimislemleri/personeller';
 import fizikselyapilarReducer from './store/reducers/birimislemleri/fizikselyapilar';
+import yetkigorevlerReducer from './store/reducers/birimislemleri/yetkigorev';
+import mevzuatlarReducer from './store/reducers/birimislemleri/mevzuatlar';
+
 
 const hist = createBrowserHistory();
 localStorage.setItem('FirmId','1');
@@ -40,7 +43,9 @@ const rootReducer =combineReducers({
   donanimlar:donanimlarReducer,
   araclar:araclarReducer,
   personeller:personellerReducer,
-  fizikselyapilar:fizikselyapilarReducer
+  fizikselyapilar:fizikselyapilarReducer,
+  yetkigorevler:yetkigorevlerReducer,
+  mevzuatlar:mevzuatlarReducer
 });
 const initialState = {
 
