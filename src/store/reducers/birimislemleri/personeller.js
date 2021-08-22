@@ -1,8 +1,8 @@
-import {ADD_TO_OLCUBIRIMI,GET_OLCUBIRIMIDATA,REMOVE_FROM_OLCUBIRIMI} from '../actions/olcubirimi';
+import {ADD_TO_PERSONELLER,REMOVE_FROM_PERSONELLER,GET_PERSONELLERDATA} from '../../actions/birimislemleri/personeller';
 
 
 const initialState= {
-    olcubirimi:[],
+    personeller:[],
     loading:false,
     error:false,
     errormessage:''
@@ -11,7 +11,7 @@ const initialState= {
 export default (state=initialState,action)=>{
 
     switch(action.type){
-        case GET_OLCUBIRIMIDATA:
+        case GET_PERSONELLERDATA:
 
             if(action.error==true)
             {
@@ -22,43 +22,42 @@ export default (state=initialState,action)=>{
             }else{
                 return {
                     ...state,
-                    olcubirimi:action.payload,
+                    personeller:action.payload,
                     loading:false
                 }
             }
-        case ADD_TO_OLCUBIRIMI:
-            let addedBirim = action.olcubirimi;
-            let yenibirimler = state.olcubirimi;
+        case ADD_TO_PERSONELLER:
+            let addedpersonel = action.personel;
+            let yenipersoneller = state.personeller;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.
             //Deleted columnları true olanlar görünmediği için yanlış veri silinmeye çalışılabiliyor.
-            addedBirim.id=action.payload;
+            addedpersonel.id=action.payload;
             if(action.error==true)
             {
                 return {
                     ...state,
-                    errormessage:action.payload,
-                    error:true
+                    errormessage:action.payload
                 }
             }else{
-                    yenibirimler.push(addedBirim)           
+                    yenipersoneller.push(addedpersonel)           
     
                 return { 
                     ...state,
-                    olcubirimi:yenibirimler
+                    personeller:yenipersoneller
                 }
             }
-        case REMOVE_FROM_OLCUBIRIMI:
+        case REMOVE_FROM_PERSONELLER:
             if(action.error==true)
             {
-                return {...state,error:true}
+                return state
             }else{
-                let updatedBirimItem = state.olcubirimi;
-                updatedBirimItem=updatedBirimItem.filter(item=> item.id!=action.olcubirimi.id);
+                let updatedpersonelItem = state.personeller;
+                updatedpersonelItem=updatedpersonelItem.filter(item=> item.id!=action.personel.id);
     
                 return { 
                     ...state,
-                    olcubirimi:updatedBirimItem
+                    personeller:updatedpersonelItem
                 }
             }
             

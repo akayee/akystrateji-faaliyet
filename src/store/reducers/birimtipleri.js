@@ -1,8 +1,8 @@
-import {ADD_TO_OLCUBIRIMI,GET_OLCUBIRIMIDATA,REMOVE_FROM_OLCUBIRIMI} from '../actions/olcubirimi';
+import {ADD_TO_BIRIMTIPI,REMOVE_FROM_BIRIMTIPI,GET_BIRIMTIPIDATA} from '../actions/birimtipleri';
 
 
 const initialState= {
-    olcubirimi:[],
+    birimTipleri:[],
     loading:false,
     error:false,
     errormessage:''
@@ -11,7 +11,7 @@ const initialState= {
 export default (state=initialState,action)=>{
 
     switch(action.type){
-        case GET_OLCUBIRIMIDATA:
+        case GET_BIRIMTIPIDATA:
 
             if(action.error==true)
             {
@@ -22,13 +22,13 @@ export default (state=initialState,action)=>{
             }else{
                 return {
                     ...state,
-                    olcubirimi:action.payload,
+                    birimTipleri:action.payload,
                     loading:false
                 }
             }
-        case ADD_TO_OLCUBIRIMI:
-            let addedBirim = action.olcubirimi;
-            let yenibirimler = state.olcubirimi;
+        case ADD_TO_BIRIMTIPI:
+            let addedBirim = action.birimtipi;
+            let yenibirimTipleri = state.birimTipleri;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.
             //Deleted columnları true olanlar görünmediği için yanlış veri silinmeye çalışılabiliyor.
@@ -37,28 +37,28 @@ export default (state=initialState,action)=>{
             {
                 return {
                     ...state,
-                    errormessage:action.payload,
-                    error:true
+                    errormessage:action.payload
                 }
             }else{
-                    yenibirimler.push(addedBirim)           
+                    //Eklenen birim state üzerinden güncelleniyor
+                    yenibirimTipleri.push(addedBirim)           
     
                 return { 
                     ...state,
-                    olcubirimi:yenibirimler
+                    birimTipleri:yenibirimTipleri
                 }
             }
-        case REMOVE_FROM_OLCUBIRIMI:
+        case REMOVE_FROM_BIRIMTIPI:
             if(action.error==true)
             {
-                return {...state,error:true}
+                return state
             }else{
-                let updatedBirimItem = state.olcubirimi;
-                updatedBirimItem=updatedBirimItem.filter(item=> item.id!=action.olcubirimi.id);
+                let updatedBirimTipiItem = state.birimTipleri;
+                updatedBirimTipiItem=updatedBirimTipiItem.filter(item=> item.id!=action.birimtipi.id);
     
                 return { 
                     ...state,
-                    olcubirimi:updatedBirimItem
+                    birimTipleri:updatedBirimTipiItem
                 }
             }
             

@@ -1,8 +1,8 @@
-import {ADD_TO_OLCUBIRIMI,GET_OLCUBIRIMIDATA,REMOVE_FROM_OLCUBIRIMI} from '../actions/olcubirimi';
+import {ADD_TO_ARACLAR,REMOVE_FROM_ARACLAR,GET_ARACLARDATA} from '../../actions/birimislemleri/araclistesi';
 
 
 const initialState= {
-    olcubirimi:[],
+    araclar:[],
     loading:false,
     error:false,
     errormessage:''
@@ -11,7 +11,7 @@ const initialState= {
 export default (state=initialState,action)=>{
 
     switch(action.type){
-        case GET_OLCUBIRIMIDATA:
+        case GET_ARACLARDATA:
 
             if(action.error==true)
             {
@@ -22,43 +22,43 @@ export default (state=initialState,action)=>{
             }else{
                 return {
                     ...state,
-                    olcubirimi:action.payload,
+                    araclar:action.payload,
                     loading:false
                 }
             }
-        case ADD_TO_OLCUBIRIMI:
-            let addedBirim = action.olcubirimi;
-            let yenibirimler = state.olcubirimi;
+        case ADD_TO_ARACLAR:
+            let addedarac = action.arac;
+            addedarac.adi=action.arac.Adi;
+            let yeniaraclar = state.araclar;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.
             //Deleted columnları true olanlar görünmediği için yanlış veri silinmeye çalışılabiliyor.
-            addedBirim.id=action.payload;
+            addedarac.id=action.payload;
             if(action.error==true)
             {
                 return {
                     ...state,
-                    errormessage:action.payload,
-                    error:true
+                    errormessage:action.payload
                 }
             }else{
-                    yenibirimler.push(addedBirim)           
+                    yeniaraclar.push(addedarac)           
     
                 return { 
                     ...state,
-                    olcubirimi:yenibirimler
+                    araclar:yeniaraclar
                 }
             }
-        case REMOVE_FROM_OLCUBIRIMI:
+        case REMOVE_FROM_ARACLAR:
             if(action.error==true)
             {
-                return {...state,error:true}
+                return state
             }else{
-                let updatedBirimItem = state.olcubirimi;
-                updatedBirimItem=updatedBirimItem.filter(item=> item.id!=action.olcubirimi.id);
+                let updatedaracItem = state.araclar;
+                updatedaracItem=updatedaracItem.filter(item=> item.id!=action.arac.id);
     
                 return { 
                     ...state,
-                    olcubirimi:updatedBirimItem
+                    araclar:updatedaracItem
                 }
             }
             

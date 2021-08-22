@@ -19,6 +19,12 @@ import hedeflerReducer from './store/reducers/hedefler';
 import performanslarReducer from './store/reducers/performanslar';
 import strategyReducer from './store/reducers/birimstratejibilgiler';
 import olcubirimiReducer from './store/reducers/olcubirimi';
+import birimtipiReducer from './store/reducers/birimtipleri';
+import yazilimlarReducer from './store/reducers/birimislemleri/yazilimlar';
+import donanimlarReducer from './store/reducers/birimislemleri/donanimlar';
+import araclarReducer from './store/reducers/birimislemleri/araclistesi';
+import personellerReducer from './store/reducers/birimislemleri/personeller';
+import fizikselyapilarReducer from './store/reducers/birimislemleri/fizikselyapilar';
 
 const hist = createBrowserHistory();
 localStorage.setItem('FirmId','1');
@@ -28,7 +34,13 @@ const rootReducer =combineReducers({
   hedefler:hedeflerReducer,
   performanslar:performanslarReducer,
   strategydata: strategyReducer,
-  olcubirimi:olcubirimiReducer
+  olcubirimi:olcubirimiReducer,
+  birimtipleri:birimtipiReducer,
+  yazilimlar:yazilimlarReducer,
+  donanimlar:donanimlarReducer,
+  araclar:araclarReducer,
+  personeller:personellerReducer,
+  fizikselyapilar:fizikselyapilarReducer
 });
 const initialState = {
 

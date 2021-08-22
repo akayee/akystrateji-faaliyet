@@ -30,6 +30,9 @@ export default (state=initialState,action)=>{
             let addedBirim = action.birim;
             addedBirim.adi=action.birim.Adi;
             let yenibirimler = state.birimler;
+            //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
+            //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.
+            //Deleted columnları true olanlar görünmediği için yanlış veri silinmeye çalışılabiliyor.
             addedBirim.id=action.payload;
             if(action.error==true)
             {
@@ -38,7 +41,6 @@ export default (state=initialState,action)=>{
                     errormessage:action.payload
                 }
             }else{
-                    //Eklenecek Birim Birimlerimiz Arasında Yok İse 
                     yenibirimler.push(addedBirim)           
     
                 return { 
