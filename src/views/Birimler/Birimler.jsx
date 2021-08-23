@@ -168,13 +168,13 @@ class Birimler extends React.Component {
                 </GridContainer>
 
                 <div style={{ width: '%100' }}>
-                  {strategydata&&strategydata.performanslar ? strategydata.performanslar.map(performans => <Accordion expanded={this.state.performansexpanded === performans.id} onChange={this.handleChangePerformans(performans.id)}>
+                  {strategydata.performanslar&&strategydata.performanslar ? strategydata.performanslar.map(performans => <Accordion expanded={this.state.performansexpanded === performans.id} onChange={this.handleChangePerformans(performans.id)}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1bh-content"
                       id="panel1bh-header"
                     >
-                      <Grid xs={6}>P{strategydata.stratejikAmac.id}.{strategydata.hedefler.id + 1}.{performans.id + 1} : {performans.adi}</Grid>
+                      <Grid xs={6}>P{performans.amaclarId}.{performans.hedeflerId + 1}.{performans.id + 1} : {performans.adi}</Grid>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Grid container>

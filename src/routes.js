@@ -17,6 +17,7 @@ import Raporlar from "./views/Raporlar/Raporlar";
 import Ayarlar from "./views/Ayarlar/Ayarlar";
 import Stratejiler from "./views/Stratejier/Stratejiler";
 import YilSonuDevir from "./views/YilSonuDevir/YilSonuDevir";
+import BirimBilgileri from "./views/BirimBilgileri/BirimBilgileri";
 
 
 const dashboardRoutes = [
@@ -101,7 +102,6 @@ const dashboardRoutes = [
     icon:TuneIcon,
     component: Ayarlar,
     layout: "/admin"
-
   },
   {
     path:"/yilsonudevir",
@@ -109,7 +109,13 @@ const dashboardRoutes = [
     icon:TuneIcon,
     component: YilSonuDevir,
     layout: "/admin"
-
+  },
+  {
+    path:"/birimbilgileri",
+    name:"Birim Bilgileri",
+    icon:Person,
+    component: BirimBilgileri,
+    layout: "/admin"
   }
   
 

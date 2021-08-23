@@ -33,8 +33,8 @@ import YeniIsEkle from "../../components/Birimislemleri/YeniIsEkle";
 import YeniFaaliyetEkle from "../../components/Birimislemleri/YeniFaaliyetEkle";
 import Swal from 'sweetalert2';
 
-import { connect} from 'react-redux';
-import {getStrategyData} from '../../store/actions/birimsstratejibilgiler';
+import { connect } from 'react-redux';
+import { getStrategyData } from '../../store/actions/birimsstratejibilgiler';
 
 
 const personeller = [
@@ -56,8 +56,6 @@ const acoounttye = [
   { Adi: 'Zabıta', id: '3', hedef: '92' },
   { Adi: 'Bilgi İşlem', id: '4', hedef: '93' }]
 
-const API_URL = 'http://localhost:63544/api/hesaplar';
-const dataAdress = 'Hesaplar';
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -98,10 +96,10 @@ class StratejiOlustur extends React.Component {
       ],
     };
   }
-  componentDidMount(){
+  componentDidMount() {
     this.props.getStrategyData()
-    
-}
+
+  }
 
   handleChange = (panel) => (event, isExpanded) => {
     this.setState({ expanded: isExpanded ? panel : false });
@@ -122,13 +120,13 @@ class StratejiOlustur extends React.Component {
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
 
-    
-    const strategydata= this.props.strategydata
+
+    const strategydata = this.props.strategydata
     console.log(strategydata)
     return (
       <div>
         {/* Stratejik amaç ekleme popupı */}
-        
+
         <GridContainer>
 
           <Grid item xs={4} >
@@ -141,7 +139,7 @@ class StratejiOlustur extends React.Component {
             <YeniFaaliyetEkle performansAdi={''} birim={''} classes={this.props.classes} birimler={BIRIMLER} />
           </Grid>
           <Grid item xs={12} >
-            
+
             <Card>
               {/* Stratejik amaç tablosu */}
 
@@ -166,7 +164,7 @@ class StratejiOlustur extends React.Component {
                   <div style={{ width: "100%", marginLeft: "5rem" }} >
                     <GridContainer alignItems='center' justify='center'>
                       <GridItem xs={12} sm={12} md={12}>
-                        <HedefEkle classes={this.props.classes} birimler={acoounttye} amacAdi={strateji.adi}  amacId={strateji.id} />
+                        <HedefEkle classes={this.props.classes} birimler={acoounttye} amacAdi={strateji.adi} amacId={strateji.id} />
                       </GridItem>
                     </GridContainer>
 
@@ -180,7 +178,7 @@ class StratejiOlustur extends React.Component {
                           >
                             <Grid xs={5}>H{strateji.id + 1}.{item.id + 1} : <div >{item.adi}</div ></Grid>
                             <Grid item xs={7} style={{ textAlign: 'right' }}>
-                              <IconButton onClick={e=>{
+                              <IconButton onClick={e => {
                                 e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
                                 Swal.fire({
                                   title: 'Emin Misin?',
@@ -234,7 +232,7 @@ class StratejiOlustur extends React.Component {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                   <Grid container>
-                                    <Grid item xs={4}><YeniIsEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER}/></Grid>
+                                    <Grid item xs={4}><YeniIsEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /></Grid>
                                     <Grid item xs={6}><YeniFaaliyetEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
                                     <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
                                     <Grid container>
@@ -279,44 +277,9 @@ class StratejiOlustur extends React.Component {
                   </div>
                 </AccordionDetails>
               </Accordion>)}
-
-
             </Card>
           </Grid>
-
-
         </GridContainer>
-
-        <PersonelListesi personeller={personeller} />
-        <Grid container justify="center" spacing={3}>
-          <Grid item xs={4} >
-            <Donanimlar donanimlar={donanimlar} />
-          </Grid>
-
-          <Grid item xs={4} >
-            <Yazilimlar yazilimlar={yazilimlar} />
-          </Grid>
-          <Grid item xs={4} >
-            <AracListesi araclar={araclar} />
-          </Grid>
-        </Grid>
-        <Grid container justify="center" spacing={3}>
-          <Grid item xs={12} >
-            <TeskilatSemasi />
-          </Grid>
-          <Grid item xs={4} >
-            <FizikselYapi />
-          </Grid>
-          <Grid item xs={4} >
-            <YetkiGorev />
-          </Grid>
-          <Grid item xs={4} >
-            <Mevzuat />
-          </Grid>
-        </Grid>
-
-
-
       </div>
     )
 
@@ -326,5 +289,5 @@ class StratejiOlustur extends React.Component {
 StratejiOlustur.propTypes = {
   classes: PropTypes.object.isRequired
 };
-const mapStateToProps = (state)=>({strategydata:state.strategydata})
-export default connect(mapStateToProps,{getStrategyData})(withStyles(styles)(StratejiOlustur));
+const mapStateToProps = (state) => ({ strategydata: state.strategydata })
+export default connect(mapStateToProps, { getStrategyData })(withStyles(styles)(StratejiOlustur));

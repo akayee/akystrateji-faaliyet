@@ -22,7 +22,7 @@ class Yazilimlar extends React.Component{
               <b>Yazılımlar</b>
             </CardHeader>
             <CardBody>
-                {this.props.yazilimlar.map((yazilim,index)=><div>
+                {this.props.yazilimlar&&this.props.yazilimlar.map((yazilim,index)=><div>
                   
                    {index+1 }-{yazilim.Adi} 
                 

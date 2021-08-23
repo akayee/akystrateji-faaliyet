@@ -1,11 +1,12 @@
-import {ADD_TO_BIRIM,REMOVE_FROM_BIRIM, GET_BIRIMDATA} from '../actions/birimler';
+import {ADD_TO_BIRIM,REMOVE_FROM_BIRIM, GET_BIRIMDATA,GET_BIRIMBILGILERI} from '../actions/birimler';
 
 
 const initialState= {
     birimler:[],
     loading:false,
     error:false,
-    errormessage:''
+    errormessage:'',
+    birimbilgileri:[]
 };
 
 export default (state=initialState,action)=>{
@@ -61,7 +62,20 @@ export default (state=initialState,action)=>{
                     birimler:updatedBirimItem
                 }
             }
-            
+        case GET_BIRIMBILGILERI:
+            if(action.error==true)
+            {
+                return { 
+                    ...state,
+                    errormessage:action.payload
+                }
+            }else{
+                return {
+                    ...state,
+                    birimbilgileri:action.payload,
+                    loading:false
+                }
+            }
         default:
             return state;
     }

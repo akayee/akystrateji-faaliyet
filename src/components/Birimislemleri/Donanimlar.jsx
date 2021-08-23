@@ -23,7 +23,7 @@ class Donanimlar extends React.Component{
             <b>Donanımlar</b>
           </CardHeader>
           <CardBody>
-              {this.props.donanimlar.map((donanim,index)=><Grid  container justify="center" spacing={3}>
+              {this.props.donanimlar&&this.props.donanimlar.map((donanim,index)=><Grid  container justify="center" spacing={3}>
                 
                 <Grid item xs={6}>{donanim.Adi}</Grid> <Grid item xs={6}>{donanim.Adet}</Grid> 
             
