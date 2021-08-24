@@ -28,7 +28,9 @@ export default (state=initialState,action)=>{
             }
         case ADD_TO_FIZIKSELYAPI:
             let addedfizikselyapi = action.fizikselyapi;
-            addedfizikselyapi.adi=action.fizikselyapi.Adi;
+            addedfizikselyapi.adi=addedfizikselyapi.Adi;
+            addedfizikselyapi.konum=addedfizikselyapi.Konum;
+            addedfizikselyapi.metreKare=addedfizikselyapi.MetreKare;
             let yenifizikselyapilar = state.fizikselyapilar;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.

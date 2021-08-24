@@ -88,7 +88,7 @@ class BirimBilgileri extends React.Component {
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
 
-    const {fizikselYapilar,donanimlar,mevzuatlar,yazilimlar,aracListesi,personeller,yetkiGorevTanimlari}= this.props.birimbilgileri;
+    const {fizikselYapilar,donanimlar,mevzuatlar,yazilimlar,aracListesi,personeller,yetkiGorevTanimlari,yetkiliOlduguBirimler}= this.props.birimbilgileri;
     //const {fizikselyapilar}= this.props.birimbilgileri;
     return (
       <div>
@@ -111,7 +111,7 @@ class BirimBilgileri extends React.Component {
             <TeskilatSemasi />
           </Grid>
           <Grid item xs={4} >
-            <FizikselYapi fizikselyapilar={fizikselYapilar} />
+            <FizikselYapi birimler={yetkiliOlduguBirimler} fizikselyapilar={fizikselYapilar} />
           </Grid>
           <Grid item xs={4} >
             <YetkiGorev />
