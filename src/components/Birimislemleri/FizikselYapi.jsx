@@ -12,6 +12,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import FizikselYapiEkle from './FizikselYapiEkle';
 import { getFizikselYapiData } from '../../store/actions/birimislemleri/fizikselyapilar';
 import FizikselYapiGuncelle from './FizikselYapiGuncelle';
+import Divider from '../Ui/Divider';
 
 
 const options = [
@@ -28,19 +29,34 @@ class FizikselYapi extends React.Component {
       anchorEl: null,
       open: false,
       openMenu: {},
-      openMenuGuncelle: false
+      openMenuGuncelle: false,
+      editData:'',
+      isLoading:false
     }
   }
   componentDidMount() {
     let BirimId = 2;
     this.props.getFizikselYapiData(BirimId);
+    if(this.props.error != true)
+    {
+      this.setState({
+        isLoading:true
+      })
+    }else{
+      this.setState({
+        isLoading:true
+      })
+    }
+    
   }
-  handleClick = (event) => {
+  handleClick = (event,fizikselyapi) => {
     this.setState({
-      anchorEl: event.currentTarget
+      anchorEl: event.currentTarget,
+      editData:fizikselyapi
+      
     })
   }
-  handleClose = (e, key) => {
+  handleClose = ( key) => {
     if (key == 'Düzenle') {
 
       this.setState({
@@ -49,7 +65,7 @@ class FizikselYapi extends React.Component {
         openMenuGuncelle: true
 
       })
-    }else{
+    } else {
       this.setState({
         anchorEl: null,
         openMenu: { [key]: true }
@@ -57,17 +73,20 @@ class FizikselYapi extends React.Component {
       })
     }
   }
-  handleModalOpenGuncelle = () =>{
+  handleModalOpenGuncelle = () => {
     this.setState({
-      openMenuGuncelle:!this.state.openMenuGuncelle
+      openMenuGuncelle: !this.state.openMenuGuncelle
     })
   }
   render() {
 
 
     const { fizikselyapilar } = this.props.fizikselyapilar;
-    const {birimler} = this.props;
-    console.log(birimler)
+    const { birimler } = this.props;
+    console.log(this.props)
+    if(this.props.fizikselyapilar.loading==true){
+      return <div>Loading</div>
+    }
     return <div>
       <FizikselYapiEkle props={this.props} />
       <Card  >
@@ -79,16 +98,17 @@ class FizikselYapi extends React.Component {
             <Grid item xs={4}><b>Adi</b></Grid> <Grid item xs={4}><b>Konum</b></Grid> <Grid item xs={4}><b>m²</b></Grid>
           </Grid>
           {typeof fizikselyapilar != "undefined" && fizikselyapilar.map((fizikselyapi) => <Grid container justify="center" spacing={3}>
+            
             <Grid item xs={4}>{fizikselyapi.adi}</Grid>
             <Grid item xs={4}>{fizikselyapi.konum} </Grid>
-            <Grid item xs={3}>{fizikselyapi.metreKare}</Grid>
-            <Grid item xs={1}>
+            <Grid item xs={2}>{fizikselyapi.metreKare}</Grid>
+            <Grid item xs={2}>
               <div>
                 <IconButton
                   aria-label="more"
                   aria-controls="long-menu"
                   aria-haspopup="true"
-                  onClick={this.handleClick}
+                  onClick={(e)=>this.handleClick(e,fizikselyapi)}
                 >
                   <MoreVertIcon />
                 </IconButton>
@@ -107,17 +127,18 @@ class FizikselYapi extends React.Component {
                   }}
                 >
                   {options.map((option) => (
-                    <MenuItem key={option} onClick={(e) => this.handleClose(e, option)}>
+                    <MenuItem key={option} onClick={()=>this.handleClose( option)}>
                       {option}
                     </MenuItem>
                   ))}
                 </Menu>
               </div>
             </Grid>
+            <Divider />
           </Grid>)}
+          <FizikselYapiGuncelle open={this.state.openMenuGuncelle} fizikselyapi={this.state.editData}  birimler={birimler} handleModalOpenGuncelle={this.handleModalOpenGuncelle} />
         </CardBody>
       </Card>
-      <FizikselYapiGuncelle open={this.state.openMenuGuncelle} birimler={birimler} handleModalOpenGuncelle={this.handleModalOpenGuncelle} />
     </div>
   }
 }

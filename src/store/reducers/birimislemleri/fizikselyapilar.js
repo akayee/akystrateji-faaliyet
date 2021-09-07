@@ -1,9 +1,9 @@
-import {ADD_TO_FIZIKSELYAPI,GET_FIZIKSELYAPIDATA,REMOVE_FROM_FIZIKSELYAPI} from '../../actions/birimislemleri/fizikselyapilar';
+import {ADD_TO_FIZIKSELYAPI,GET_FIZIKSELYAPIDATA,REMOVE_FROM_FIZIKSELYAPI,UPDATE_FIZIKSELYAPIDATA} from '../../actions/birimislemleri/fizikselyapilar';
 
 
 const initialState= {
     fizikselyapilar:[],
-    loading:false,
+    loading:true,
     error:false,
     errormessage:''
 };
@@ -17,7 +17,8 @@ export default (state=initialState,action)=>{
             {
                 return { 
                     ...state,
-                    errormessage:action.payload
+                    errormessage:action.payload,
+                    loading:false
                 }
             }else{
                 return {
@@ -63,7 +64,21 @@ export default (state=initialState,action)=>{
                     fizikselyapilar:updatedfizikselyapiItem
                 }
             }
-            
+        case UPDATE_FIZIKSELYAPIDATA:
+            if(action.error==true){
+
+                return {...state,
+                error:true}
+            }else{
+                let updatedfizikselyapiItem = state.fizikselyapilar;
+                let updatedItem= action.payload;
+                let updateIndex = updatedfizikselyapiItem.findIndex(obj=>obj.id==updatedItem.id);
+                updatedfizikselyapiItem[updateIndex]=updatedItem;
+                return {
+                    ...state,
+                    fizikselyapilar:updatedfizikselyapiItem
+                }
+            }
         default:
             return state;
     }

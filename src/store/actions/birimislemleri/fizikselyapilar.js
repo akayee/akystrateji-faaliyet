@@ -1,7 +1,8 @@
 import axios from 'axios';
 export const ADD_TO_FIZIKSELYAPI='ADD_TO_FIZIKSELYAPI';
 export const REMOVE_FROM_FIZIKSELYAPI='REMOVE_FROM_FIZIKSELYAPI';
-export const GET_FIZIKSELYAPIDATA = 'GET_FIZIKSELYAPIDATA'
+export const GET_FIZIKSELYAPIDATA = 'GET_FIZIKSELYAPIDATA';
+export const UPDATE_FIZIKSELYAPIDATA = 'UPDATE_FIZIKSELYAPIDATA';
 
 
 
@@ -51,13 +52,34 @@ export const getFizikselYapiData = birimId =>async dispatch=> {
         const res =await axios.get(`https://localhost:44312/FizikselYapilar/GetListofFizikselYapilar?BirimId=${birimId}`)
         dispatch({
             type:GET_FIZIKSELYAPIDATA,
-            payload:res.data
+            payload:res.data,
         })
     }
     catch(e){
         dispatch({
             type:GET_FIZIKSELYAPIDATA,
             payload:console.log(e)
+        })
+    }
+}
+
+export const updateFizikselYapiData = fizikselyapi => async dispatch =>{
+
+    try{
+        const res = await axios.put(`https://localhost:44312/FizikselYapilar/GetListofFizikselYapilar`,fizikselyapi);
+        dispatch({
+            type:UPDATE_FIZIKSELYAPIDATA,
+            payload:res.data,
+            fizikselyapi,
+            error:false,
+        })
+
+    }catch(e){
+        dispatch({
+            type:UPDATE_FIZIKSELYAPIDATA,
+            payload:console.log(e),
+            error:true,
+            fizikselyapi
         })
     }
 }

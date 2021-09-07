@@ -15,25 +15,26 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FizikselYapiItem from '../../models/fizikselyapi_item';
 import Swal from 'sweetalert2';
-import { addToFizikselYapi,removeFromFizikselYapilar} from '../../store/actions/birimislemleri/fizikselyapilar';
+import { updateFizikselYapiData, removeFromFizikselYapilar } from '../../store/actions/birimislemleri/fizikselyapilar';
 
-class FizikselYapiGuncelle extends React.Component{
-    constructor(...args){
+class FizikselYapiGuncelle extends React.Component {
+    constructor(...args) {
         super(...args)
-        this.state={            
-            modalopen:this.props.open,
-            Birim:'',
-            yapiBilgileri:{}
+        this.state = {
+            modalopen: this.props.open,
+            Birim: this.props.fizikselyapi.birimId,
+            yapiBilgileri: {},
+            birimler:this.props.birimler
         }
     }
     modalAccountOpen = () => {
         this.setState({
-            modalopen:!this.state.modalopen
+            modalopen: !this.state.modalopen
         })
     }
-    handleChangeBirim= (e)=>{
+    handleChangeBirim = (e) => {
         let val = e.target.value;
-        this.setState({Birim:val})
+        this.setState({ Birim: val })
 
     }
     handleChange = (e) => {
@@ -42,12 +43,11 @@ class FizikselYapiGuncelle extends React.Component{
 
     }
     handleSubmit = (e) => {
-        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Konum!=null&&this.state.yapiBilgileri.MetreKare!=null&&this.state.Birim!=null)
-        {
-            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Konum,this.state.yapiBilgileri.MetreKare,false,this.state.Birim);
-            this.props.addToFizikselYapi(yapi);
+        if (this.state.yapiBilgileri.Adi != null && this.state.yapiBilgileri.Konum != null && this.state.yapiBilgileri.MetreKare != null && this.state.Birim != null) {
+            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi, this.state.yapiBilgileri.Konum, this.state.yapiBilgileri.MetreKare, false, this.state.Birim);
+            this.props.updateFizikselYapiData(yapi);
             if (this.props.error === false) {
-    
+
                 Swal.fire({
                     title: 'Kayıt Başarılı!',
                     position: 'top-end',
@@ -55,7 +55,7 @@ class FizikselYapiGuncelle extends React.Component{
                     showConfirmButton: false,
                     timer: 1500
                 })
-    
+
                 this.setState({
                     modalopen: !this.state.modalopen,
                     amacDetay: [],
@@ -72,7 +72,7 @@ class FizikselYapiGuncelle extends React.Component{
                     timer: 1500
                 })
             }
-        }else{
+        } else {
             Swal.fire({
                 title: 'Oops...',
                 position: 'top-end',
@@ -82,75 +82,75 @@ class FizikselYapiGuncelle extends React.Component{
                 timer: 1500
             })
         }
-        
+
 
     }
-    render () {
-        const {birimler}=this.props
-        console.log(this.props)
+    render() {
+        const { birimler, fizikselyapi } = this.props
+        
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Stratejik Amaç Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         Bu ekrandan birim veya birimlerinize stratejik amaç tanımlayabilirsiniz.
-            </DialogContentText>
+                    </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
                             <TextField
-                            name="Adi"
-                            autoFocus
-                            required
-                            margin="dense"
-                            id="name"
-                            label="Yapi Adı"
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
+                                name="Adi"
+                                autoFocus
+                                required
+                                margin="dense"
+                                id="name"
+                                label={fizikselyapi.adi}
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                            name="Konum"
-                            margin="dense"
-                            required
-                            id="name"
-                            label="Yapi Konumu"
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
+                                name="Konum"
+                                margin="dense"
+                                required
+                                id="name"
+                                label={fizikselyapi.konum}
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                            name="MetreKare"
-                            margin="dense"
-                            required
-                            id="name"
-                            label="Yapi Metre Karesi"
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
+                                name="MetreKare"
+                                margin="dense"
+                                required
+                                id="name"
+                                label={fizikselyapi.metreKare}
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
                         </Grid>
                         <Grid item xs={4}>
                             <FormControl >
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                   Ekleyeceğiniz Birim.
+                                    Birimi 
                                 </InputLabel>
                                 <Select
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim}
+                                    value={this.state.Birim ||''}
+                                    defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
-                                    {birimler&&birimler.map((item, index) => {
+                                    {birimler && birimler.map((item, index) => {
                                         return <MenuItem key={item.id} value={item.id}>{item.adi} </MenuItem>
                                     }
                                     )}
                                 </Select>
-
                                 <FormHelperText>Lütfen Bir Birim Seçiniz</FormHelperText>
                             </FormControl>
                         </Grid>
@@ -172,4 +172,4 @@ class FizikselYapiGuncelle extends React.Component{
 }
 
 const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
-export default connect(mapStateToProps, {addToFizikselYapi,removeFromFizikselYapilar })(FizikselYapiGuncelle)
+export default connect(mapStateToProps, { updateFizikselYapiData, removeFromFizikselYapilar })(FizikselYapiGuncelle)
