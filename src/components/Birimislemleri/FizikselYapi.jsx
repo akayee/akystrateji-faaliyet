@@ -10,9 +10,11 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import FizikselYapiEkle from './FizikselYapiEkle';
-import { getFizikselYapiData } from '../../store/actions/birimislemleri/fizikselyapilar';
+import { getFizikselYapiData, removeFromFizikselYapilar } from '../../store/actions/birimislemleri/fizikselyapilar';
 import FizikselYapiGuncelle from './FizikselYapiGuncelle';
 import Divider from '../Ui/Divider';
+import Skeleton from 'react-loading-skeleton';
+import Swal from 'sweetalert2';
 
 
 const options = [
@@ -30,33 +32,32 @@ class FizikselYapi extends React.Component {
       open: false,
       openMenu: {},
       openMenuGuncelle: false,
-      editData:'',
-      isLoading:false
+      editData: '',
+      isLoading: false
     }
   }
   componentDidMount() {
     let BirimId = 2;
     this.props.getFizikselYapiData(BirimId);
-    if(this.props.error != true)
-    {
+    if (this.props.error != true) {
       this.setState({
-        isLoading:true
+        isLoading: true
       })
-    }else{
+    } else {
       this.setState({
-        isLoading:true
+        isLoading: true
       })
     }
-    
+
   }
-  handleClick = (event,fizikselyapi) => {
+  handleClick = (event, fizikselyapi) => {
     this.setState({
       anchorEl: event.currentTarget,
-      editData:fizikselyapi
-      
+      editData: fizikselyapi
+
     })
   }
-  handleClose = ( key) => {
+  handleClose = (key) => {
     if (key == 'Düzenle') {
 
       this.setState({
@@ -66,11 +67,27 @@ class FizikselYapi extends React.Component {
 
       })
     } else {
+      Swal.fire({
+        title: 'Silmek istediğinize emin misiniz?',
+        showDenyButton: true,
+        confirmButtonText: 'Kaydet',
+        denyButtonText: `İptal`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Silme işlemi başarılı!', '', 'success')
+
+          this.props.removeFromFizikselYapilar(this.state.editData);
+
+        } else if (result.isDenied) {
+          Swal.fire('Silme işlemi iptal edildi', '', 'info')
+        }
+      })
       this.setState({
         anchorEl: null,
         openMenu: { [key]: true }
+      });
 
-      })
     }
   }
   handleModalOpenGuncelle = () => {
@@ -84,8 +101,10 @@ class FizikselYapi extends React.Component {
     const { fizikselyapilar } = this.props.fizikselyapilar;
     const { birimler } = this.props;
     console.log(this.props)
-    if(this.props.fizikselyapilar.loading==true){
-      return <div>Loading</div>
+    if (this.props.fizikselyapilar.loading == true) {
+      return <div>
+        <Skeleton height={100} />
+        <Skeleton count={6} /></div>
     }
     return <div>
       <FizikselYapiEkle props={this.props} />
@@ -98,7 +117,7 @@ class FizikselYapi extends React.Component {
             <Grid item xs={4}><b>Adi</b></Grid> <Grid item xs={4}><b>Konum</b></Grid> <Grid item xs={4}><b>m²</b></Grid>
           </Grid>
           {typeof fizikselyapilar != "undefined" && fizikselyapilar.map((fizikselyapi) => <Grid container justify="center" spacing={3}>
-            
+
             <Grid item xs={4}>{fizikselyapi.adi}</Grid>
             <Grid item xs={4}>{fizikselyapi.konum} </Grid>
             <Grid item xs={2}>{fizikselyapi.metreKare}</Grid>
@@ -108,7 +127,7 @@ class FizikselYapi extends React.Component {
                   aria-label="more"
                   aria-controls="long-menu"
                   aria-haspopup="true"
-                  onClick={(e)=>this.handleClick(e,fizikselyapi)}
+                  onClick={(e) => this.handleClick(e, fizikselyapi)}
                 >
                   <MoreVertIcon />
                 </IconButton>
@@ -127,7 +146,7 @@ class FizikselYapi extends React.Component {
                   }}
                 >
                   {options.map((option) => (
-                    <MenuItem key={option} onClick={()=>this.handleClose( option)}>
+                    <MenuItem key={option} onClick={() => this.handleClose(option)}>
                       {option}
                     </MenuItem>
                   ))}
@@ -136,7 +155,7 @@ class FizikselYapi extends React.Component {
             </Grid>
             <Divider />
           </Grid>)}
-          <FizikselYapiGuncelle open={this.state.openMenuGuncelle} fizikselyapi={this.state.editData}  birimler={birimler} handleModalOpenGuncelle={this.handleModalOpenGuncelle} />
+          <FizikselYapiGuncelle open={this.state.openMenuGuncelle} fizikselyapi={this.state.editData} birimler={birimler} handleModalOpenGuncelle={this.handleModalOpenGuncelle} />
         </CardBody>
       </Card>
     </div>
@@ -144,4 +163,4 @@ class FizikselYapi extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
-export default connect(mapStateToProps, { getFizikselYapiData })(FizikselYapi)
+export default connect(mapStateToProps, { getFizikselYapiData, removeFromFizikselYapilar })(FizikselYapi)

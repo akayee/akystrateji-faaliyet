@@ -23,7 +23,7 @@ class FizikselYapiGuncelle extends React.Component {
         this.state = {
             modalopen: this.props.open,
             Birim: this.props.fizikselyapi.birimId,
-            yapiBilgileri: {},
+            yapiBilgileri: this.props.fizikselyapi,
             birimler:this.props.birimler
         }
     }
@@ -43,8 +43,7 @@ class FizikselYapiGuncelle extends React.Component {
 
     }
     handleSubmit = (e) => {
-        if (this.state.yapiBilgileri.Adi != null && this.state.yapiBilgileri.Konum != null && this.state.yapiBilgileri.MetreKare != null && this.state.Birim != null) {
-            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi, this.state.yapiBilgileri.Konum, this.state.yapiBilgileri.MetreKare, false, this.state.Birim);
+            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.adi, this.state.yapiBilgileri.konum, this.state.yapiBilgileri.metreKare, false, this.state.Birim||this.props.yapiBilgileri.birimId);
             this.props.updateFizikselYapiData(yapi);
             if (this.props.error === false) {
 
@@ -71,17 +70,7 @@ class FizikselYapiGuncelle extends React.Component {
                     showConfirmButton: false,
                     timer: 1500
                 })
-            }
-        } else {
-            Swal.fire({
-                title: 'Oops...',
-                position: 'top-end',
-                icon: 'error',
-                text: 'Yıldızlı alanların hepsini doldurunuz',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        }
+            } 
 
 
     }
@@ -142,7 +131,7 @@ class FizikselYapiGuncelle extends React.Component {
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim ||''}
+                                    value={this.state.Birim || this.props.fizikselyapi.birimId}
                                     defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >

@@ -30,7 +30,7 @@ export const addToFizikselYapi= fizikselyapi => async dispatch=>{
 export const removeFromFizikselYapilar = fizikselyapi => async dispatch=>{
     try{
         const res =await axios.post('https://localhost:44312/FizikselYapilar/DeleteaFizikselYapi',fizikselyapi);
-        
+        console.log(res)
         dispatch({
             type:REMOVE_FROM_FIZIKSELYAPI,
             payload:res.data,
@@ -66,7 +66,7 @@ export const getFizikselYapiData = birimId =>async dispatch=> {
 export const updateFizikselYapiData = fizikselyapi => async dispatch =>{
 
     try{
-        const res = await axios.put(`https://localhost:44312/FizikselYapilar/GetListofFizikselYapilar`,fizikselyapi);
+        const res = await axios.post(`https://localhost:44312/FizikselYapilar/GetListofFizikselYapilar`,fizikselyapi);
         dispatch({
             type:UPDATE_FIZIKSELYAPIDATA,
             payload:res.data,
