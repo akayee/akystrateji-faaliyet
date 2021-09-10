@@ -43,9 +43,21 @@ class FizikselYapiGuncelle extends React.Component {
 
     }
     handleSubmit = (e) => {
-            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.adi || this.props.fizikselyapi.adi, this.state.yapiBilgileri.konum ||this.props.fizikselyapi.konum, this.state.yapiBilgileri.metreKare ||this.props.fizikselyapi.metreKare, false, this.state.Birim||this.props.fizikselyapi.birimId);
+            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi || this.props.fizikselyapi.adi,
+                 this.state.yapiBilgileri.Konum ||this.props.fizikselyapi.konum,
+                  this.state.yapiBilgileri.MetreKare ||this.props.fizikselyapi.metreKare,
+                   false,
+                   this.state.Birim||this.props.fizikselyapi.birimId,
+                   this.props.fizikselyapi.id,
+                   this.props.fizikselyapi.olusturmaTarihi);
             this.props.updateFizikselYapiData(yapi);
+            
             if (this.props.error === false) {
+                this.setState({
+                    modalopen: !this.state.modalopen,
+                    amacDetay: [],
+                    Birim: null
+                })
 
                 Swal.fire({
                     title: 'Kayıt Başarılı!',
@@ -54,14 +66,14 @@ class FizikselYapiGuncelle extends React.Component {
                     showConfirmButton: false,
                     timer: 1500
                 })
-
-                this.setState({
-                    modalopen: !this.state.modalopen,
-                    amacDetay: [],
-                    Birim: null
-                })
+                this.props.handleModalOpenGuncelle(e)
+                
             }
             else {
+                
+                this.setState({
+                    modalopen: !this.state.modalopen
+                })
                 Swal.fire({
                     title: 'Oops...',
                     position: 'top-end',
@@ -70,6 +82,8 @@ class FizikselYapiGuncelle extends React.Component {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                
+                this.props.handleModalOpenGuncelle(e)
             } 
 
 

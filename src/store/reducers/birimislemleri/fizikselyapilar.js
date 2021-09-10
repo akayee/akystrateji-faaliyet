@@ -1,3 +1,4 @@
+import { CallToActionOutlined } from '@material-ui/icons';
 import {ADD_TO_FIZIKSELYAPI,GET_FIZIKSELYAPIDATA,REMOVE_FROM_FIZIKSELYAPI,UPDATE_FIZIKSELYAPIDATA} from '../../actions/birimislemleri/fizikselyapilar';
 
 
@@ -71,7 +72,15 @@ export default (state=initialState,action)=>{
                 error:true}
             }else{
                 let updatedfizikselyapiItem = state.fizikselyapilar;
-                let updatedItem= action.payload;
+                let updatedItem= {
+                    adi:action.payload.Adi,
+                    birimId:action.payload.BirimId,
+                    deleted:action.payload.Deleted,
+                    konum:action.payload.Konum,
+                    metreKare:action.payload.MetreKare,
+                    olusturmaTarihi:action.payload.OlusturmaTarihi,
+                    id:action.payload.id
+                };
                 let updateIndex = updatedfizikselyapiItem.findIndex(obj=>obj.id==updatedItem.id);
                 updatedfizikselyapiItem[updateIndex]=updatedItem;
                 return {

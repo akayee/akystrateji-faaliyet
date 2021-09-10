@@ -66,15 +66,17 @@ export const getFizikselYapiData = birimId =>async dispatch=> {
 export const updateFizikselYapiData = fizikselyapi => async dispatch =>{
 
     try{
-        const res = await axios.post(`https://localhost:44312/FizikselYapilar/GetListofFizikselYapilar`,fizikselyapi);
+        const res = await axios.post(`https://localhost:44312/FizikselYapilar/UpdateaFizikselYapi`,fizikselyapi);
+        
         dispatch({
             type:UPDATE_FIZIKSELYAPIDATA,
-            payload:res.data,
+            payload:fizikselyapi,
             fizikselyapi,
             error:false,
         })
 
     }catch(e){
+        
         dispatch({
             type:UPDATE_FIZIKSELYAPIDATA,
             payload:console.log(e),
