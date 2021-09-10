@@ -43,7 +43,7 @@ class FizikselYapiGuncelle extends React.Component {
 
     }
     handleSubmit = (e) => {
-            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.adi, this.state.yapiBilgileri.konum, this.state.yapiBilgileri.metreKare, false, this.state.Birim||this.props.yapiBilgileri.birimId);
+            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.adi || this.props.fizikselyapi.adi, this.state.yapiBilgileri.konum ||this.props.fizikselyapi.konum, this.state.yapiBilgileri.metreKare ||this.props.fizikselyapi.metreKare, false, this.state.Birim||this.props.fizikselyapi.birimId);
             this.props.updateFizikselYapiData(yapi);
             if (this.props.error === false) {
 
@@ -76,7 +76,6 @@ class FizikselYapiGuncelle extends React.Component {
     }
     render() {
         const { birimler, fizikselyapi } = this.props
-        
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Stratejik Amaç Oluştur</DialogTitle>
@@ -131,7 +130,7 @@ class FizikselYapiGuncelle extends React.Component {
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim || this.props.fizikselyapi.birimId}
+                                    value={this.state.Birim || fizikselyapi.birimId}
                                     defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
