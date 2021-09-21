@@ -1,5 +1,6 @@
 class YetkiGorevItem{
-    constructor(yetkiAdi,Kanun,Deleted,birimId){
+    constructor(id,yetkiAdi,Kanun,Deleted,birimId){
+        this.id=id;
         this.Adi=yetkiAdi;
         this.Kanun=Kanun;
         this.Deleted=Deleted;

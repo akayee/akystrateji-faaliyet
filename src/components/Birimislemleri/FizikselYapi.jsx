@@ -96,7 +96,6 @@ class FizikselYapi extends React.Component {
   render() {
     const { fizikselyapilar } = this.props.fizikselyapilar;
     const { birimler } = this.props;
-    console.log(this.props)
     if (this.props.fizikselyapilar.loading == true) {
       return <div>
         <Skeleton height={100} />

@@ -38,8 +38,10 @@ export default (state = initialState, action) => {
             }
         case REMOVE_FROM_YETKIGOREV:
             if (action.error == true) {
-                return {...state,
-                    loading: false,}
+                return {
+                    ...state,
+                    loading: false,
+                }
             } else {
                 let updatedyetkigorevItem = state.yetkigorevler;
                 updatedyetkigorevItem = updatedyetkigorevItem.filter(item => item.id != action.yetkigorev.id);
@@ -51,27 +53,40 @@ export default (state = initialState, action) => {
                 }
             }
         case GET_YETKIGOREVLER:
-            if (action.error == true){
-                return {...state,
-                    loading: false}
-            }else {
-                return {...state,
-                yetkigorev:action.payload,
-                loading: false}
-            }
-            case UPDATE_FIZIKSELYAPIDATA:
-                if (action.error == true){
-                    return {...state,
-                        loading: false}
-                } else {
-                    let updatedyetkigorevItem = state.yetkigorevler;
-                    //Ekranda düzgün gözüksün diye düzenleme yapılabilir.
-                    let uindex = updatedyetkigorevItem.findIndex(obj=> obj.id == action.yetkigorev.id);
-                    updatedyetkigorevItem[uindex]=action.yetkigorev;
-                    return {...state,
-                    yetkigorev:updatedyetkigorevItem,
-                    loading: false}
+            if (action.error == true) {
+                return {
+                    ...state,
+                    loading: false
                 }
+            } else {
+                return {
+                    ...state,
+                    yetkigorevler: action.payload,
+                    loading: false
+                }
+            }
+        case UPDATE_FIZIKSELYAPIDATA:
+            if (action.error == true) {
+                return {
+                    ...state,
+                    loading: false
+                }
+            } else {
+                let updatedyetkigorevItem = state.yetkigorevler;
+                let updatedItem = {
+                    id:action.yetkigorev.id,
+                    adi:action.yetkigorev.Adi,
+                    kanun:action.yetkigorev.Kanun
+                }
+                //Ekranda düzgün gözüksün diye düzenleme yapılabilir.
+                let uindex = updatedyetkigorevItem.findIndex(obj => obj.id == updatedItem.id);
+                updatedyetkigorevItem[uindex] = updatedItem;
+                return {
+                    ...state,
+                    yetkigorevler: updatedyetkigorevItem,
+                    loading: false
+                }
+            }
 
         default:
             return state;

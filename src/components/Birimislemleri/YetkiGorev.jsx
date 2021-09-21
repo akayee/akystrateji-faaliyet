@@ -95,8 +95,13 @@ class YetkiGorev extends React.Component {
 
     render() {
 
-        const { yetkigorev } = this.props.yetkigorevler;
+        const { yetkigorevler } = this.props.yetkigorevler;
         const { birimler } = this.props;
+        if (this.props.yetkigorevler.loading == true) {
+            return <div>
+                <Skeleton height={100} />
+                <Skeleton count={6} /></div>
+        }
         return <div>
             <YetkiGorevEkle props={this.props} />
             <Card  >
@@ -105,10 +110,10 @@ class YetkiGorev extends React.Component {
                 </CardHeader>
                 <CardBody>
                     <Grid container justify="center" spacing={3}>
-                        <Grid item xs={4}><b>Adi</b></Grid> <Grid item xs={4}><b>Kanun</b></Grid>
+                        <Grid item xs={5}><b>Adi</b></Grid> <Grid item xs={5}><b>Kanun</b></Grid>
 
                     </Grid>
-                    {typeof yetkigorev != "undefined" && yetkigorev.map((yetkiGorev, index) => <Grid container justify="center" spacing={3} key={index} >
+                    {typeof yetkigorevler != "undefined" && yetkigorevler.map((yetkiGorev, index) => <Grid container justify="center" spacing={3} key={index} >
                         <Grid item xs={5}>{yetkiGorev.adi} </Grid>
                         <Grid item xs={5}>{yetkiGorev.kanun} </Grid>
                         <Grid item xs={2}>
@@ -143,9 +148,13 @@ class YetkiGorev extends React.Component {
                                 </Menu>
                             </div>
                         </Grid>
-                    </Grid>)}
+
+                        <Divider />
+                    </Grid>
+
+                    )}
                 </CardBody>
-                <YetkiGorevGuncelle open={this.state.openMenuGuncelle} fizikselyapi={this.state.editData} birimler={birimler} handleModalOpenGuncelle={this.handleModalOpenGuncelle} />
+                <YetkiGorevGuncelle open={this.state.openMenuGuncelle} yetkigorev={this.state.editData} birimler={birimler} handleModalOpenGuncelle={this.handleModalOpenGuncelle} />
             </Card>
         </div>
     }

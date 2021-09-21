@@ -14,10 +14,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { addToYetkiGorev,removeFromYetkiGorev} from '../../store/actions/birimislemleri/yetkigorev';
-import YetkiGorevItem from '../../models/yetkigorev-item';
+import { addToMevzuat} from '../../store/actions/birimislemleri/mevzuatlar';
+import MevzuatItem from '../../models/mevzuat-item';
 
-class YetkiGorevEkle extends React.Component{
+class MevzuatEkle extends React.Component{
     constructor(...args){
         super(...args)
         this.state={            
@@ -44,8 +44,8 @@ class YetkiGorevEkle extends React.Component{
     handleSubmit = (e) => {
         if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Kanun!=null)
         {
-            var yapi = new YetkiGorevItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Kanun,false,this.state.Birim);
-            this.props.addToYetkiGorev(yapi);
+            var yapi = new MevzuatItem(0,this.state.yapiBilgileri.Mevzuat,this.state.yapiBilgileri.Tanim,false,this.state.Birim);
+            this.props.addToMevzuat(yapi);
             if (this.props.error === false) {
     
                 Swal.fire({
@@ -88,22 +88,22 @@ class YetkiGorevEkle extends React.Component{
     render () {
         const {birimler}=this.props.props
         return <div>
-            <Button onClick={this.modalAccountOpen} >Yetki Görev Tanımı Ekle</Button>
+            <Button onClick={this.modalAccountOpen} >Mevzuat Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Yetki Görev Tanımı Oluştur.</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yeni Mevzuat Tanımı Oluştur.</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan biriminizin yetki görevlerini tanımlayabilirsiniz.
+                        Bu ekrandan biriminizin mevzuat tanımlarını yapabilirsiniz.
             </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
                             <TextField
-                            name="Adi"
+                            name="Mevzuat"
                             autoFocus
                             required
                             margin="dense"
                             id="name"
-                            label="Yetki Adı"
+                            label="Mevzuat"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -111,11 +111,11 @@ class YetkiGorevEkle extends React.Component{
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                            name="Kanun"
+                            name="Tanim"
                             margin="dense"
                             required
                             id="name"
-                            label="Kanun"
+                            label="Tanım"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -159,5 +159,5 @@ class YetkiGorevEkle extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => ({ yetkigorevler: state.yetkigorevler, error: state.yetkigorevler.error })
-export default connect(mapStateToProps, {addToYetkiGorev,removeFromYetkiGorev })(YetkiGorevEkle)
+const mapStateToProps = (state) => ({ mevzuatlar: state.mevzuatlar, error: state.mevzuatlar.error })
+export default connect(mapStateToProps, {addToMevzuat })(MevzuatEkle)

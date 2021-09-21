@@ -14,16 +14,16 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { updateYetkiGorev, removeFromYetkiGorev } from '../../store/actions/birimislemleri/yetkigorev';
-import YetkiGorevItem from '../../models/yetkigorev-item';
+import { updateMevzuat } from '../../store/actions/birimislemleri/mevzuatlar';
+import MevzuatItem from '../../models/mevzuat-item';
 
-class YetkiGorevGuncelle extends React.Component {
+class MevzuatGuncelle extends React.Component {
     constructor(...args) {
         super(...args)
         this.state = {
             modalopen: this.props.open,
-            Birim: this.props.yetkigorev.birimId,
-            yapiBilgileri: this.props.yetkigorev,
+            Birim: this.props.mevzuat.birimId,
+            yapiBilgileri: this.props.mevzuat,
             birimler: this.props.birimler
         }
     }
@@ -44,12 +44,12 @@ class YetkiGorevGuncelle extends React.Component {
     }
     handleSubmit = (e) => {
 
-        var yapi = new YetkiGorevItem(this.props.yetkigorev.id,this.state.yapiBilgileri.Adi || this.props.yetkigorev.adi,
-            this.state.yapiBilgileri.Konum || this.props.yetkigorev.kanun,
+        var yapi = new MevzuatItem(this.props.mevzuat.id,this.state.yapiBilgileri.Mevzuat || this.props.mevzuat.mevzuat,
+            this.state.yapiBilgileri.Tanim || this.props.mevzuat.tanim,
             false,
-            this.state.Birim || this.props.yetkigorev.birimId);
-        yapi.OlusturmaTarihi = this.props.yetkigorev.olusturmaTarihi;
-        this.props.updateYetkiGorev(yapi);
+            this.state.Birim || this.props.mevzuat.birimId);
+        yapi.OlusturmaTarihi = this.props.mevzuat.olusturmaTarihi;
+        this.props.updateMevzuat(yapi);
 
         if (this.props.error === false) {
             this.setState({
@@ -88,7 +88,7 @@ class YetkiGorevGuncelle extends React.Component {
 
     }
     render() {
-        const { birimler, yetkigorev } = this.props
+        const { birimler, mevzuat } = this.props
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Stratejik Amaç Oluştur</DialogTitle>
@@ -99,12 +99,12 @@ class YetkiGorevGuncelle extends React.Component {
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
                             <TextField
-                                name="Adi"
+                                name="Mevzuat"
                                 autoFocus
                                 required
                                 margin="dense"
                                 id="name"
-                                label={yetkigorev.adi}
+                                label={mevzuat.mevzuat}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -112,11 +112,11 @@ class YetkiGorevGuncelle extends React.Component {
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                                name="Kanun"
+                                name="Tanim"
                                 margin="dense"
                                 required
                                 id="name"
-                                label={yetkigorev.kanun}
+                                label={mevzuat.tanim}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -131,7 +131,7 @@ class YetkiGorevGuncelle extends React.Component {
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim || yetkigorev.birimId}
+                                    value={this.state.Birim || mevzuat.birimId}
                                     defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
@@ -160,5 +160,5 @@ class YetkiGorevGuncelle extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
-export default connect(mapStateToProps, { updateYetkiGorev, removeFromYetkiGorev })(YetkiGorevGuncelle)
+const mapStateToProps = (state) => ({ mevzuatlar: state.mevzuatlar, error: state.mevzuatlar.error })
+export default connect(mapStateToProps, { updateMevzuat})(MevzuatGuncelle)
