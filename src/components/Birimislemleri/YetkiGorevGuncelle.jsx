@@ -15,25 +15,26 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FizikselYapiItem from '../../models/fizikselyapi_item';
 import Swal from 'sweetalert2';
-import { addToFizikselYapi,removeFromFizikselYapilar} from '../../store/actions/birimislemleri/fizikselyapilar';
+import { updateYetkiGorev, removeFromYetkiGorev } from '../../store/actions/birimislemleri/yetkigorev';
 
-class FizikselYapiEkle extends React.Component{
-    constructor(...args){
+class YetkiGorevGuncelle extends React.Component {
+    constructor(...args) {
         super(...args)
-        this.state={            
-            modalopen:false,
-            Birim:'',
-            yapiBilgileri:{}
+        this.state = {
+            modalopen: this.props.open,
+            Birim: this.props.fizikselyapi.birimId,
+            yapiBilgileri: this.props.fizikselyapi,
+            birimler:this.props.birimler
         }
     }
     modalAccountOpen = () => {
         this.setState({
-            modalopen:!this.state.modalopen
+            modalopen: !this.state.modalopen
         })
     }
-    handleChangeBirim= (e)=>{
+    handleChangeBirim = (e) => {
         let val = e.target.value;
-        this.setState({Birim:val})
+        this.setState({ Birim: val })
 
     }
     handleChange = (e) => {
@@ -42,12 +43,22 @@ class FizikselYapiEkle extends React.Component{
 
     }
     handleSubmit = (e) => {
-        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Konum!=null&&this.state.yapiBilgileri.MetreKare!=null&&this.state.Birim!=null)
-        {
-            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Konum,this.state.yapiBilgileri.MetreKare,false,this.state.Birim);
-            this.props.addToFizikselYapi(yapi);
+            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi || this.props.fizikselyapi.adi,
+                 this.state.yapiBilgileri.Konum ||this.props.fizikselyapi.konum,
+                  this.state.yapiBilgileri.MetreKare ||this.props.fizikselyapi.metreKare,
+                   false,
+                   this.state.Birim||this.props.fizikselyapi.birimId,
+                   this.props.fizikselyapi.id,
+                   this.props.fizikselyapi.olusturmaTarihi);
+            this.props.updateYetkiGorev(yapi);
+            
             if (this.props.error === false) {
-    
+                this.setState({
+                    modalopen: !this.state.modalopen,
+                    amacDetay: [],
+                    Birim: null
+                })
+
                 Swal.fire({
                     title: 'Kayıt Başarılı!',
                     position: 'top-end',
@@ -55,14 +66,14 @@ class FizikselYapiEkle extends React.Component{
                     showConfirmButton: false,
                     timer: 1500
                 })
-    
-                this.setState({
-                    modalopen: !this.state.modalopen,
-                    amacDetay: [],
-                    Birim: null
-                })
+                this.props.handleModalOpenGuncelle(e)
+                
             }
             else {
+                
+                this.setState({
+                    modalopen: !this.state.modalopen
+                })
                 Swal.fire({
                     title: 'Oops...',
                     position: 'top-end',
@@ -71,86 +82,65 @@ class FizikselYapiEkle extends React.Component{
                     showConfirmButton: false,
                     timer: 1500
                 })
-            }
-        }else{
-            Swal.fire({
-                title: 'Oops...',
-                position: 'top-end',
-                icon: 'error',
-                text: 'Yıldızlı alanların hepsini doldurunuz',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        }
-        
+                
+                this.props.handleModalOpenGuncelle(e)
+            } 
+
 
     }
-    render () {
-        const {birimler}=this.props.props
+    render() {
+        const { birimler, fizikselyapi } = this.props
         return <div>
-            <Button onClick={this.modalAccountOpen} >Fiziksel Yapı Ekle</Button>
-            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Fiziksel Yapı Oluştur</DialogTitle>
+            <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Yeni Stratejik Amaç Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan biriminize fiziksel yapı tanımlayabilirsiniz.
-            </DialogContentText>
+                        Bu ekrandan birim veya birimlerinize stratejik amaç tanımlayabilirsiniz.
+                    </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
                             <TextField
-                            name="Adi"
-                            autoFocus
-                            required
-                            margin="dense"
-                            id="name"
-                            label="Yapi Adı"
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
+                                name="Adi"
+                                autoFocus
+                                required
+                                margin="dense"
+                                id="name"
+                                label={fizikselyapi.adi}
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                            name="Konum"
-                            margin="dense"
-                            required
-                            id="name"
-                            label="Yapi Konumu"
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                            name="MetreKare"
-                            margin="dense"
-                            required
-                            id="name"
-                            label="Yapi Metre Karesi"
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
+                                name="Kanun"
+                                margin="dense"
+                                required
+                                id="name"
+                                label={fizikselyapi.kanun}
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
                         </Grid>
                         <Grid item xs={4}>
                             <FormControl >
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                   Ekleyeceğiniz Birim.
+                                    Birimi 
                                 </InputLabel>
                                 <Select
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim}
+                                    value={this.state.Birim || fizikselyapi.birimId}
+                                    defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
-                                    {birimler&&birimler.map((item, index) => {
+                                    {birimler && birimler.map((item, index) => {
                                         return <MenuItem key={item.id} value={item.id}>{item.adi} </MenuItem>
                                     }
                                     )}
                                 </Select>
-
                                 <FormHelperText>Lütfen Bir Birim Seçiniz</FormHelperText>
                             </FormControl>
                         </Grid>
@@ -159,7 +149,7 @@ class FizikselYapiEkle extends React.Component{
 
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={this.modalAccountOpen}>
+                    <Button onClick={this.props.handleModalOpenGuncelle}>
                         İptal
                     </Button>
                     <Button onClick={this.handleSubmit} >
@@ -172,4 +162,4 @@ class FizikselYapiEkle extends React.Component{
 }
 
 const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
-export default connect(mapStateToProps, {addToFizikselYapi,removeFromFizikselYapilar })(FizikselYapiEkle)
+export default connect(mapStateToProps, { updateYetkiGorev, removeFromYetkiGorev })(YetkiGorevGuncelle)

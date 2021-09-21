@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
@@ -48,13 +47,11 @@ class FizikselYapi extends React.Component {
         isLoading: true
       })
     }
-
   }
   handleClick = (event, fizikselyapi) => {
     this.setState({
       anchorEl: event.currentTarget,
       editData: fizikselyapi
-
     })
   }
   handleClose = (key) => {
@@ -64,9 +61,8 @@ class FizikselYapi extends React.Component {
         anchorEl: null,
         openMenu: { [key]: true },
         openMenuGuncelle: true
-
       })
-    } else {
+    } else if(key == 'Sil') {
       Swal.fire({
         title: 'Silmek istediğinize emin misiniz?',
         showDenyButton: true,
@@ -76,9 +72,7 @@ class FizikselYapi extends React.Component {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           Swal.fire('Silme işlemi başarılı!', '', 'success')
-
           this.props.removeFromFizikselYapilar(this.state.editData);
-
         } else if (result.isDenied) {
           Swal.fire('Silme işlemi iptal edildi', '', 'info')
         }
@@ -87,7 +81,11 @@ class FizikselYapi extends React.Component {
         anchorEl: null,
         openMenu: { [key]: true }
       });
-
+    }else{      
+      this.setState({
+        anchorEl: null,
+        openMenu: { [key]: true }
+      });
     }
   }
   handleModalOpenGuncelle = () => {
@@ -96,8 +94,6 @@ class FizikselYapi extends React.Component {
     })
   }
   render() {
-
-
     const { fizikselyapilar } = this.props.fizikselyapilar;
     const { birimler } = this.props;
     console.log(this.props)
@@ -116,8 +112,7 @@ class FizikselYapi extends React.Component {
           <Grid container justify="center" spacing={3}>
             <Grid item xs={4}><b>Adi</b></Grid> <Grid item xs={4}><b>Konum</b></Grid> <Grid item xs={4}><b>m²</b></Grid>
           </Grid>
-          {typeof fizikselyapilar != "undefined" && fizikselyapilar.map((fizikselyapi) => <Grid container justify="center" spacing={3}>
-
+          {typeof fizikselyapilar != "undefined" && fizikselyapilar.map((fizikselyapi,index) => <Grid container justify="center" key={index} spacing={3}>
             <Grid item xs={4}>{fizikselyapi.adi}</Grid>
             <Grid item xs={4}>{fizikselyapi.konum} </Grid>
             <Grid item xs={2}>{fizikselyapi.metreKare}</Grid>
@@ -161,6 +156,5 @@ class FizikselYapi extends React.Component {
     </div>
   }
 }
-
 const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
 export default connect(mapStateToProps, { getFizikselYapiData, removeFromFizikselYapilar })(FizikselYapi)

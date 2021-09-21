@@ -13,11 +13,11 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import FizikselYapiItem from '../../models/fizikselyapi_item';
 import Swal from 'sweetalert2';
-import { addToFizikselYapi,removeFromFizikselYapilar} from '../../store/actions/birimislemleri/fizikselyapilar';
+import { addToYetkiGorev,removeFromYetkiGorev} from '../../store/actions/birimislemleri/yetkigorev';
+import YetkiGorevItem from '../../models/yetkigorev-item';
 
-class FizikselYapiEkle extends React.Component{
+class YetkiGorevEkle extends React.Component{
     constructor(...args){
         super(...args)
         this.state={            
@@ -42,10 +42,10 @@ class FizikselYapiEkle extends React.Component{
 
     }
     handleSubmit = (e) => {
-        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Konum!=null&&this.state.yapiBilgileri.MetreKare!=null&&this.state.Birim!=null)
+        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Kanun!=null)
         {
-            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Konum,this.state.yapiBilgileri.MetreKare,false,this.state.Birim);
-            this.props.addToFizikselYapi(yapi);
+            var yapi = new YetkiGorevItem(this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Kanun,false,this.state.Birim);
+            this.props.addToYetkiGorev(yapi);
             if (this.props.error === false) {
     
                 Swal.fire({
@@ -88,12 +88,12 @@ class FizikselYapiEkle extends React.Component{
     render () {
         const {birimler}=this.props.props
         return <div>
-            <Button onClick={this.modalAccountOpen} >Fiziksel Yapı Ekle</Button>
+            <Button onClick={this.modalAccountOpen} >Yetki Görev Tanımı Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Fiziksel Yapı Oluştur</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yeni Yetki Görev Tanımı Oluştur.</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan biriminize fiziksel yapı tanımlayabilirsiniz.
+                        Bu ekrandan biriminizin yetki görevlerini tanımlayabilirsiniz.
             </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
@@ -103,7 +103,7 @@ class FizikselYapiEkle extends React.Component{
                             required
                             margin="dense"
                             id="name"
-                            label="Yapi Adı"
+                            label="Yetki Adı"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -111,23 +111,11 @@ class FizikselYapiEkle extends React.Component{
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                            name="Konum"
+                            name="Kanun"
                             margin="dense"
                             required
                             id="name"
-                            label="Yapi Konumu"
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                            name="MetreKare"
-                            margin="dense"
-                            required
-                            id="name"
-                            label="Yapi Metre Karesi"
+                            label="Kanun"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -171,5 +159,5 @@ class FizikselYapiEkle extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
-export default connect(mapStateToProps, {addToFizikselYapi,removeFromFizikselYapilar })(FizikselYapiEkle)
+const mapStateToProps = (state) => ({ yetkigorevler: state.yetkigorevler, error: state.yetkigorevler.error })
+export default connect(mapStateToProps, {addToYetkiGorev,removeFromYetkiGorev })(YetkiGorevEkle)
