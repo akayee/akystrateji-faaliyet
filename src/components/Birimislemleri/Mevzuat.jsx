@@ -74,7 +74,7 @@ class Mevzuat extends React.Component {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           Swal.fire('Silme işlemi başarılı!', '', 'success')
-          this.props.removeFromYetkiGorev(this.state.editData);
+          this.props.removeFromMevzuat(this.state.editData);
         } else if (result.isDenied) {
           Swal.fire('Silme işlemi iptal edildi', '', 'info')
         }
@@ -111,11 +111,11 @@ class Mevzuat extends React.Component {
         </CardHeader>
         <CardBody>
           <Grid container justify="center" spacing={3}>
-            <Grid item xs={5}><b>Yönetmelik</b></Grid> <Grid item xs={5}><b>Tanım</b></Grid>
+            <Grid item xs={5}><b>Mevzuat Adi</b></Grid> <Grid item xs={5}><b>Yönetmelik</b></Grid>
           </Grid>
           {typeof mevzuatlar != "undefined" && mevzuatlar.map((mevzuat, index) => <Grid container justify="center" spacing={3} key={index} >
-                        <Grid item xs={5}>{mevzuat.mevzuat} </Grid>
-                        <Grid item xs={5}>{mevzuat.tanim} </Grid>
+                        <Grid item xs={5}>{mevzuat.adi} </Grid>
+                        <Grid item xs={5}>{mevzuat.yonetmelik} </Grid>
                         <Grid item xs={2}>
                             <div>
                                 <IconButton

@@ -42,9 +42,10 @@ class MevzuatEkle extends React.Component{
 
     }
     handleSubmit = (e) => {
-        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Kanun!=null)
+        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Yonetmelik!=null)
         {
-            var yapi = new MevzuatItem(0,this.state.yapiBilgileri.Mevzuat,this.state.yapiBilgileri.Tanim,false,this.state.Birim);
+            var yapi = new MevzuatItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Yonetmelik,false,this.state.Birim);
+            console.log(yapi)
             this.props.addToMevzuat(yapi);
             if (this.props.error === false) {
     
@@ -98,12 +99,12 @@ class MevzuatEkle extends React.Component{
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
                             <TextField
-                            name="Mevzuat"
+                            name="Adi"
                             autoFocus
                             required
                             margin="dense"
                             id="name"
-                            label="Mevzuat"
+                            label="Mevzuat Adi"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -111,11 +112,11 @@ class MevzuatEkle extends React.Component{
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                            name="Tanim"
+                            name="Yonetmelik"
                             margin="dense"
                             required
                             id="name"
-                            label="Tanım"
+                            label="Yönetmelik"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}

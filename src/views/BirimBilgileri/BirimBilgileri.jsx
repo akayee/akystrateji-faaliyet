@@ -114,10 +114,10 @@ class BirimBilgileri extends React.Component {
             <FizikselYapi birimler={yetkiliOlduguBirimler} fizikselyapilar={fizikselYapilar} />
           </Grid>
           <Grid item xs={4} >
-            <YetkiGorev birimler={yetkiliOlduguBirimler} fizikselyapilar={fizikselYapilar} />
+            <YetkiGorev birimler={yetkiliOlduguBirimler} yetkiGorevTanimlari={yetkiGorevTanimlari} />
           </Grid>
           <Grid item xs={4} >
-            <Mevzuat />
+            <Mevzuat birimler={yetkiliOlduguBirimler} mevzuatlar={mevzuatlar} />
           </Grid>
         </Grid>
 

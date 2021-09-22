@@ -44,8 +44,8 @@ class MevzuatGuncelle extends React.Component {
     }
     handleSubmit = (e) => {
 
-        var yapi = new MevzuatItem(this.props.mevzuat.id,this.state.yapiBilgileri.Mevzuat || this.props.mevzuat.mevzuat,
-            this.state.yapiBilgileri.Tanim || this.props.mevzuat.tanim,
+        var yapi = new MevzuatItem(this.props.mevzuat.id,this.state.yapiBilgileri.Adi || this.props.mevzuat.adi,
+            this.state.yapiBilgileri.Yonetmelik || this.props.mevzuat.yonetmelik,
             false,
             this.state.Birim || this.props.mevzuat.birimId);
         yapi.OlusturmaTarihi = this.props.mevzuat.olusturmaTarihi;
@@ -99,12 +99,12 @@ class MevzuatGuncelle extends React.Component {
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
                             <TextField
-                                name="Mevzuat"
+                                name="Mevzuat Adi"
                                 autoFocus
                                 required
                                 margin="dense"
                                 id="name"
-                                label={mevzuat.mevzuat}
+                                label={mevzuat.adi}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -112,11 +112,11 @@ class MevzuatGuncelle extends React.Component {
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                                name="Tanim"
+                                name="Yonetmelik"
                                 margin="dense"
                                 required
                                 id="name"
-                                label={mevzuat.tanim}
+                                label={mevzuat.yonetmelik}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}

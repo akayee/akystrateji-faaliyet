@@ -1,8 +1,8 @@
 class MevzuatItem{
-    constructor(id,yonetmelik,Tanim,Deleted,birimId){
+    constructor(id,adi,Tanim,Deleted,birimId){
         this.id=id;
-        this.Yonetmelik=yonetmelik;
-        this.Tanim=Tanim;
+        this.Adi=adi;
+        this.Yonetmelik=Tanim;
         this.Deleted=Deleted;
         this.BirimId=birimId;
     }

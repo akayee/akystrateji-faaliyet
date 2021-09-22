@@ -3,7 +3,7 @@ import { ADD_TO_MEVZUAT, REMOVE_FROM_MEVZUAT, GET_MEVZUATLAR, UPDATE_FROM_MEVZUA
 
 const initialState = {
     mevzuatlar: [],
-    loading: false,
+    loading: true,
     error: false,
     errormessage: ''
 };
@@ -14,6 +14,7 @@ export default (state = initialState, action) => {
         case ADD_TO_MEVZUAT:
             let addedMevzuat = action.mevzuat;
             addedMevzuat.adi = action.mevzuat.Adi;
+            addedMevzuat.yonetmelik= action.mevzuat.Yonetmelik;
             let yenimevzuatlar = state.mevzuatlar;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.
@@ -59,7 +60,8 @@ export default (state = initialState, action) => {
             } else {
                 return {
                     ...state,
-                    mevzuatlar: action.payload
+                    mevzuatlar: action.payload,
+                    loading: false
                 }
             }
         case UPDATE_FROM_MEVZUATLAR:
@@ -69,11 +71,11 @@ export default (state = initialState, action) => {
                     loading: false
                 }
             } else {
-                let updatedMevzuatItem = state.yetkigorevler;
+                let updatedMevzuatItem = state.mevzuatlar;
                 let updatedItem = {
                     id: action.mevzuat.id,
-                    yonetmelik: action.mevzuat.Yonetmelik,
-                    tanim: action.mevzuat.Tanim
+                    adi: action.mevzuat.Adi,
+                    yonetmelik: action.mevzuat.Yonetmelik
                 }
                 //Ekranda düzgün gözüksün diye düzenleme yapılabilir.
                 let uindex = updatedMevzuatItem.findIndex(obj => obj.id == updatedItem.id);
