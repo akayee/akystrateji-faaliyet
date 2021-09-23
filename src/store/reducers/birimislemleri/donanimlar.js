@@ -1,66 +1,92 @@
-import {ADD_TO_DONANIMLAR,REMOVE_FROM_DONANIMLAR,GET_DONANIMDATA} from '../../actions/birimislemleri/donanimlar'
+import { ADD_TO_DONANIMLAR, REMOVE_FROM_DONANIMLAR, GET_DONANIMDATA, UPDATE_FROM_DONANIM } from '../../actions/birimislemleri/donanimlar'
 
 
-const initialState= {
-    donanimlar:[],
-    loading:false,
-    error:false,
-    errormessage:''
+const initialState = {
+    donanimlar: [],
+    loading: true,
+    error: false,
+    errormessage: ''
 };
 
-export default (state=initialState,action)=>{
+export default (state = initialState, action) => {
 
-    switch(action.type){
+    switch (action.type) {
         case GET_DONANIMDATA:
 
-            if(action.error==true)
-            {
-                return { 
-                    ...state,
-                    errormessage:action.payload
-                }
-            }else{
+            if (action.error == true) {
                 return {
                     ...state,
-                    donanimlar:action.payload,
-                    loading:false
+                    errormessage: action.payload,
+                    loading: false
+                }
+            } else {
+                return {
+                    ...state,
+                    donanimlar: action.payload,
+                    loading: false
                 }
             }
         case ADD_TO_DONANIMLAR:
             let addedDonanim = action.donanim;
+            addedDonanim.adi = action.donanim.Adi;
+            addedDonanim.sayi = action.donanim.Sayi;
             let yenidonanimlar = state.donanimlar;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.
             //Deleted columnları true olanlar görünmediği için yanlış veri silinmeye çalışılabiliyor.
-            addedDonanim.id=action.payload;
-            if(action.error==true)
-            {
+            addedDonanim.id = action.payload;
+            if (action.error == true) {
                 return {
                     ...state,
-                    errormessage:action.payload
+                    errormessage: action.payload,
+                    loading: false
                 }
-            }else{
-                    yenidonanimlar.push(addedDonanim)           
-    
-                return { 
+            } else {
+                yenidonanimlar.push(addedDonanim)
+
+                return {
                     ...state,
-                    donanimlar:yenidonanimlar
+                    donanimlar: yenidonanimlar,
+                    loading: false
                 }
             }
         case REMOVE_FROM_DONANIMLAR:
-            if(action.error==true)
-            {
-                return state
-            }else{
-                let updatedDonanimItem = state.donanimlar;
-                updatedDonanimItem=updatedDonanimItem.filter(item=> item.id!=action.donanim.id);
-    
-                return { 
+            if (action.error == true) {
+                return {
                     ...state,
-                    donanimlar:updatedDonanimItem
+                    loading: false
+                }
+            } else {
+                let updatedDonanimItem = state.donanimlar;
+                updatedDonanimItem = updatedDonanimItem.filter(item => item.id != action.donanim.id);
+
+                return {
+                    ...state,
+                    donanimlar: updatedDonanimItem,
+                    loading: false
                 }
             }
-            
+        case UPDATE_FROM_DONANIM:
+            if (action.error == true) {
+                return { ...state, loading: false }
+            } else {
+
+                let updatedDonanimItem = state.donanimlar;
+                let updatedItem = {
+                    id: action.mevzuat.Id,
+                    adi: action.mevzuat.Adi,
+                    sayi: action.mevzuat.Sayi
+                }
+                //Ekranda düzgün gözüksün diye düzenleme yapılabilir.
+                let uindex = updatedDonanimItem.findIndex(obj => obj.id == updatedItem.id);
+                updatedDonanimItem[uindex] = updatedItem;
+                return {
+                    ...state,
+                    loading: false,
+                    donanimlar: updatedDonanimItem
+                }
+            }
+
         default:
             return state;
     }

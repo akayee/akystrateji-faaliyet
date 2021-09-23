@@ -14,10 +14,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { updateMevzuat } from '../../store/actions/birimislemleri/mevzuatlar';
-import MevzuatItem from '../../models/mevzuat-item';
+import { updateDonanim } from '../../store/actions/birimislemleri/donanimlar';
+import DonanimItem from '../../models/donanim_item';
 
-class MevzuatGuncelle extends React.Component {
+class DonanimGuncelle extends React.Component {
     constructor(...args) {
         super(...args)
         this.state = {
@@ -44,8 +44,8 @@ class MevzuatGuncelle extends React.Component {
     }
     handleSubmit = (e) => {
 
-        var yapi = new MevzuatItem(this.props.mevzuat.id,this.state.yapiBilgileri.Adi || this.props.mevzuat.adi,
-            this.state.yapiBilgileri.Yonetmelik || this.props.mevzuat.yonetmelik,
+        var yapi = new DonanimItem(this.props.mevzuat.id,this.state.yapiBilgileri.Adi || this.props.mevzuat.adi,
+            this.state.yapiBilgileri.Sayi || this.props.mevzuat.Sayi,
             false,
             this.state.Birim || this.props.mevzuat.birimId);
         yapi.OlusturmaTarihi = this.props.mevzuat.olusturmaTarihi;
@@ -91,10 +91,10 @@ class MevzuatGuncelle extends React.Component {
         const { birimler, mevzuat } = this.props
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Mevzuat Güncelle</DialogTitle>
+                <DialogTitle id="form-dialog-title">Donanım Güncelle Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan donanım güncellemelerinizi tanımlayabilirsiniz.
+                        Bu ekrandan donanım güncelleme işlemlerini tanımlayabilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
@@ -112,11 +112,11 @@ class MevzuatGuncelle extends React.Component {
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                                name="Yonetmelik"
+                                name="Sayi"
                                 margin="dense"
                                 required
                                 id="name"
-                                label={mevzuat.yonetmelik}
+                                label={mevzuat.sayi}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -160,5 +160,5 @@ class MevzuatGuncelle extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ mevzuatlar: state.mevzuatlar, error: state.mevzuatlar.error })
-export default connect(mapStateToProps, { updateMevzuat})(MevzuatGuncelle)
+const mapStateToProps = (state) => ({ donanimlar: state.donanimlar, error: state.donanimlar.error })
+export default connect(mapStateToProps, { updateDonanim})(DonanimGuncelle)
