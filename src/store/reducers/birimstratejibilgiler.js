@@ -6,7 +6,7 @@ const initialState= {
     strategydata:[],
     birimler:null,
     birimtipi:null,
-    loading:false
+    loading:true
 };
 
 export default (state=initialState,action)=>{

@@ -14,16 +14,19 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { updateDonanim } from '../../store/actions/birimislemleri/donanimlar';
-import DonanimItem from '../../models/donanim_item';
+import { updateAraclar } from '../../store/actions/birimislemleri/araclistesi';
+import AracItem from '../../models/arac-item';
 
-class DonanimGuncelle extends React.Component {
+
+const aracCinsi = ['Otomobil', 'Kamyonet', 'Pickup', 'Motor', 'Tır']
+const aracTahsisTuru = ['Kiralık', 'Kamu', 'Başka Kurumun', 'Geçici']
+class AracGuncelle extends React.Component {
     constructor(...args) {
         super(...args)
         this.state = {
             modalopen: this.props.open,
-            Birim: this.props.donanim.birimId,
-            yapiBilgileri: this.props.donanim,
+            Birim: null,
+            yapiBilgileri: this.props.araclar,
             birimler: this.props.birimler
         }
     }
@@ -34,7 +37,7 @@ class DonanimGuncelle extends React.Component {
     }
     handleChangeBirim = (e) => {
         let val = e.target.value;
-        this.setState({ Birim: val })
+        this.setState({ [e.target.name]: val })
 
     }
     handleChange = (e) => {
@@ -44,18 +47,19 @@ class DonanimGuncelle extends React.Component {
     }
     handleSubmit = (e) => {
 
-        var yapi = new DonanimItem(this.props.donanim.id,this.state.yapiBilgileri.Adi || this.props.donanim.adi,
-            this.state.yapiBilgileri.Sayi || this.props.donanim.Sayi,
+        var yapi = new AracItem(this.props.arac.id,this.state.yapiBilgileri.Adi || this.props.arac.adi,
             false,
-            this.state.Birim || this.props.donanim.birimId);
-        yapi.OlusturmaTarihi = this.props.donanim.olusturmaTarihi;
-        this.props.updateDonanim(yapi);
+            this.state.Birim || this.props.arac.birimId);
+        yapi.OlusturmaTarihi = this.props.arac.olusturmaTarihi;
+        this.props.updateAraclar(yapi);
 
         if (this.props.error === false) {
             this.setState({
                 modalopen: !this.state.modalopen,
                 amacDetay: [],
-                Birim: null
+                Birim: null,
+                TahisisTuru:null,
+                AracCinsi:null
             })
 
             Swal.fire({
@@ -88,39 +92,71 @@ class DonanimGuncelle extends React.Component {
 
     }
     render() {
-        const { birimler, donanim } = this.props
+        const { birimler, arac } = this.props;
+        console.log(arac)
+        console.log(aracTahsisTuru[0])
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Donanım Güncelle</DialogTitle>
+                <DialogTitle id="form-dialog-title">Araç Güncelle</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan donanım güncelleme işlemlerini tanımlayabilirsiniz.
+                        Bu ekrandan araç güncelleme işlemlerini tanımlayabilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={4}>
-                        <Grid item xs={3}>
+                        <Grid item xs={5}>
                             <TextField
                                 name="Adi"
                                 autoFocus
                                 required
                                 margin="dense"
                                 id="name"
-                                label={donanim.adi}
+                                label={arac.adi}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
                             />
                         </Grid>
                         <Grid item xs={4}>
-                            <TextField
-                                name="Sayi"
-                                margin="dense"
-                                required
-                                id="name"
-                                label={donanim.sayi}
-                                type="text"
-                                fullWidth
-                                onChange={this.handleChange}
-                            />
+                            <FormControl >
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Ekleyeceğiniz Aracın Cinsi.
+                                </InputLabel>
+                                <Select
+                                    name="AracCinsi"
+                                    type="text"
+                                    required
+                                    value={arac.aracCinsi||this.state.yapiBilgileri.AracCinsi}
+                                    onChange={this.handleChangeBirim}
+                                >
+                                    {aracCinsi && aracCinsi.map((item, index) => {
+                                        return <MenuItem key={index} value={index}>{item} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
+
+                                <FormHelperText>Lütfen Bir Araç Cinsi Seçiniz</FormHelperText>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <FormControl >
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Ekleyeceğiniz Aracın Sahiplenme Turu.
+                                </InputLabel>
+                                <Select
+                                    name="TahsisTuru"
+                                    type="text"
+                                    required
+                                    value={arac.tahsisTuru||this.state.yapiBilgileri.TahisisTuru}
+                                    onChange={this.handleChangeBirim}
+                                >
+                                    {aracTahsisTuru && aracTahsisTuru.map((item, index) => {
+                                        return <MenuItem key={index} value={index}>{item} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
+
+                                <FormHelperText>Lütfen Bir Araç Cinsi Seçiniz</FormHelperText>
+                            </FormControl>
                         </Grid>
                         <Grid item xs={4}>
                             <FormControl >
@@ -131,7 +167,7 @@ class DonanimGuncelle extends React.Component {
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim || donanim.birimId}
+                                    value={this.state.Birim || arac.birimId}
                                     defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
@@ -160,5 +196,5 @@ class DonanimGuncelle extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ donanimlar: state.donanimlar, error: state.donanimlar.error })
-export default connect(mapStateToProps, { updateDonanim})(DonanimGuncelle)
+const mapStateToProps = (state) => ({ araclar: state.araclar, error: state.araclar.error })
+export default connect(mapStateToProps, { updateAraclar})(AracGuncelle)

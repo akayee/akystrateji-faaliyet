@@ -13,7 +13,7 @@ export const UPDATE_FROM_DONANIM= 'UPDATE_FROM_DONANIM';
 export const addToDonanim = donanim => async dispatch=>{
 
     try{
-        const res =await axios.post('https://localhost:44312/Donanimlar/AddNewDonanim',donanim);
+        const res =await axios.post('https://localhost:44312/Donanim/AddNewDonanim',donanim);
         dispatch({
             type:ADD_TO_DONANIMLAR,
             payload:res.data,
@@ -33,7 +33,7 @@ export const addToDonanim = donanim => async dispatch=>{
 
 export const removeFromDonanim = donanim => async dispatch=>{
     try{
-        const res =await axios.post('https://localhost:44312/Donanimlar/DeleteaDonanim',donanim);
+        const res =await axios.post('https://localhost:44312/Donanim/DeleteaDonanim',donanim);
         
         dispatch({
             type:REMOVE_FROM_DONANIMLAR,
@@ -53,7 +53,7 @@ export const removeFromDonanim = donanim => async dispatch=>{
 
 export const getDonanimData = (birimId) =>async dispatch=> {
     try{
-        const res =await axios.get(`https://localhost:44312/Donanimlar/GetListofDonanimlar?BirimId=${birimId}`)
+        const res =await axios.get(`https://localhost:44312/Donanim/GetListofDonanimlar?BirimId=${birimId}`)
         dispatch({
             type:GET_DONANIMDATA,
             payload:res.data,
@@ -71,7 +71,7 @@ export const getDonanimData = (birimId) =>async dispatch=> {
 
 export const updateDonanim = donanim => async dispatch =>{
     try{
-        const res = await axios.post('https://localhost:44312/Donanimlar/UpdateaDonanim',donanim);
+        const res = await axios.post('https://localhost:44312/Donanim/UpdateaDonanim',donanim);
         dispatch({
             type:UPDATE_FROM_DONANIM,
             payload:res.data,

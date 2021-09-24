@@ -14,8 +14,8 @@ import FizikselYapi from "../../components/Birimislemleri/FizikselYapi";
 import YetkiGorev from "../../components/Birimislemleri/YetkiGorev";
 import Mevzuat from "../../components/Birimislemleri/Mevzuat";
 import STRATEGYDATA from "../../data/dummydata";
+import Skeleton from 'react-loading-skeleton';
 
-import Swal from 'sweetalert2';
 
 import { connect} from 'react-redux';
 import {getBirimBilgileri} from '../../store/actions/birimler';
@@ -88,6 +88,12 @@ class BirimBilgileri extends React.Component {
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
 
+    if (this.props.birimbilgileri.loading == true) {
+      return <div>
+        <Skeleton height={100} />
+        <Skeleton count={6} /></div>
+    }
+
     const {fizikselYapilar,donanimlar,mevzuatlar,yazilimlar,aracListesi,personeller,yetkiGorevTanimlari,yetkiliOlduguBirimler}= this.props.birimbilgileri;
     //const {fizikselyapilar}= this.props.birimbilgileri;
     return (
@@ -97,13 +103,13 @@ class BirimBilgileri extends React.Component {
         <PersonelListesi personeller={personeller} />
         <Grid container justify="center" spacing={3}>
           <Grid item xs={4} >
-            <Donanimlar donanimlar={donanimlar} />
+            <Donanimlar birimler={yetkiliOlduguBirimler} donanimlar={donanimlar} />
           </Grid>
           <Grid item xs={4} >
-            <Yazilimlar yazilimlar={yazilimlar} />
+            <Yazilimlar birimler={yetkiliOlduguBirimler} yazilimlar={yazilimlar} />
           </Grid>
           <Grid item xs={4} >
-            <AracListesi araclar={aracListesi} />
+            <AracListesi birimler={yetkiliOlduguBirimler} araclar={aracListesi} />
           </Grid>
         </Grid>
         <Grid container justify="center" spacing={3}>

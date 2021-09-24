@@ -111,7 +111,7 @@ class Mevzuat extends React.Component {
         </CardHeader>
         <CardBody>
           <Grid container justify="center" spacing={3}>
-            <Grid item xs={5}><b>Mevzuat Adi</b></Grid> <Grid item xs={5}><b>Yönetmelik</b></Grid>
+            <Grid item xs={5}><b>Mevzuat Adi</b></Grid> <Grid item xs={5}><b>Yönetmelik</b></Grid><Grid item xs={2}></Grid>
           </Grid>
           {typeof mevzuatlar != "undefined" && mevzuatlar.map((mevzuat, index) => <Grid container justify="center" spacing={3} key={index} >
                         <Grid item xs={5}>{mevzuat.adi} </Grid>

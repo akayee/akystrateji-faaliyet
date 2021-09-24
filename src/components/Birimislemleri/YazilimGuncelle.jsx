@@ -14,16 +14,16 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { updateDonanim } from '../../store/actions/birimislemleri/donanimlar';
-import DonanimItem from '../../models/donanim_item';
+import { updateYazilim } from '../../store/actions/birimislemleri/yazilimlar';
+import YazilimItem from '../../models/yazilim-item';
 
-class DonanimGuncelle extends React.Component {
+class YazilimGuncelle extends React.Component {
     constructor(...args) {
         super(...args)
         this.state = {
             modalopen: this.props.open,
-            Birim: this.props.donanim.birimId,
-            yapiBilgileri: this.props.donanim,
+            Birim: null,
+            yapiBilgileri: this.props.yazilim,
             birimler: this.props.birimler
         }
     }
@@ -44,12 +44,11 @@ class DonanimGuncelle extends React.Component {
     }
     handleSubmit = (e) => {
 
-        var yapi = new DonanimItem(this.props.donanim.id,this.state.yapiBilgileri.Adi || this.props.donanim.adi,
-            this.state.yapiBilgileri.Sayi || this.props.donanim.Sayi,
+        var yapi = new YazilimItem(this.props.yazilim.id,this.state.yapiBilgileri.Adi || this.props.yazilim.adi,
             false,
-            this.state.Birim || this.props.donanim.birimId);
-        yapi.OlusturmaTarihi = this.props.donanim.olusturmaTarihi;
-        this.props.updateDonanim(yapi);
+            this.state.Birim || this.props.yazilim.birimId);
+        yapi.OlusturmaTarihi = this.props.yazilim.olusturmaTarihi;
+        this.props.updateYazilim(yapi);
 
         if (this.props.error === false) {
             this.setState({
@@ -88,35 +87,23 @@ class DonanimGuncelle extends React.Component {
 
     }
     render() {
-        const { birimler, donanim } = this.props
+        const { birimler, yazilim } = this.props;
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Donanım Güncelle</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yazılım Güncelle</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan donanım güncelleme işlemlerini tanımlayabilirsiniz.
+                        Bu ekrandan yazılım güncelleme işlemlerini tanımlayabilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={4}>
-                        <Grid item xs={3}>
+                        <Grid item xs={5}>
                             <TextField
                                 name="Adi"
                                 autoFocus
                                 required
                                 margin="dense"
                                 id="name"
-                                label={donanim.adi}
-                                type="text"
-                                fullWidth
-                                onChange={this.handleChange}
-                            />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                name="Sayi"
-                                margin="dense"
-                                required
-                                id="name"
-                                label={donanim.sayi}
+                                label={yazilim.adi}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -131,7 +118,7 @@ class DonanimGuncelle extends React.Component {
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim || donanim.birimId}
+                                    value={this.state.Birim || yazilim.birimId}
                                     defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
@@ -160,5 +147,5 @@ class DonanimGuncelle extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ donanimlar: state.donanimlar, error: state.donanimlar.error })
-export default connect(mapStateToProps, { updateDonanim})(DonanimGuncelle)
+const mapStateToProps = (state) => ({ yazilimlar: state.yazilimlar, error: state.yazilimlar.error })
+export default connect(mapStateToProps, { updateYazilim})(YazilimGuncelle)

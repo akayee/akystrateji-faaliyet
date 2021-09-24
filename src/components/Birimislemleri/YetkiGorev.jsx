@@ -110,7 +110,7 @@ class YetkiGorev extends React.Component {
                 </CardHeader>
                 <CardBody>
                     <Grid container justify="center" spacing={3}>
-                        <Grid item xs={5}><b>Adi</b></Grid> <Grid item xs={5}><b>Kanun</b></Grid>
+                        <Grid item xs={5}><b>Adi</b></Grid> <Grid item xs={5}><b>Kanun</b></Grid><Grid item xs={2}></Grid>
 
                     </Grid>
                     {typeof yetkigorevler != "undefined" && yetkigorevler.map((yetkiGorev, index) => <Grid container justify="center" spacing={3} key={index} >
