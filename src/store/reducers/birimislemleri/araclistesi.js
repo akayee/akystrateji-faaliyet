@@ -5,7 +5,9 @@ const initialState = {
     araclar: [],
     loading: true,
     error: false,
-    errormessage: ''
+    errormessage: '',
+    aracCinsi:['Otomobil', 'Kamyonet', 'Pickup', 'Motor', 'Tır'],
+    tahsisTuru:['Kiralık', 'Kamu', 'Başka Kurumun', 'Geçici']
 };
 
 export default (state = initialState, action) => {

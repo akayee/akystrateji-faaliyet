@@ -16,8 +16,10 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
 import { addToAraclar } from '../../store/actions/birimislemleri/araclistesi';
 import AracItem from '../../models/arac-item';
+const aracCinsi = ['Otomobil', 'Kamyonet', 'Pickup', 'Motor', 'Tır']
+const aracTahsisTuru = ['Kiralık', 'Kamu', 'Başka Kurumun', 'Geçici']
 
-class AracEkle extends React.Component {
+class PersonelEkle extends React.Component {
     constructor(...args) {
         super(...args)
         this.state = {
@@ -126,7 +128,7 @@ class AracEkle extends React.Component {
                                     value={this.state.yapiBilgileri.Cinsi}
                                     onChange={this.handleChangeAracBilgisi}
                                 >
-                                    {this.props.araclar.aracCinsi && this.props.araclar.aracCinsi.map((item, index) => {
+                                    {aracCinsi && aracCinsi.map((item, index) => {
                                         return <MenuItem key={index} value={index}>{item} </MenuItem>
                                     }
                                     )}
@@ -147,7 +149,7 @@ class AracEkle extends React.Component {
                                     value={this.state.yapiBilgileri.TahsisTuru}
                                     onChange={this.handleChangeAracBilgisi}
                                 >
-                                    {this.props.araclar.tahsisTuru && this.props.araclar.tahsisTuru.map((item, index) => {
+                                    {aracTahsisTuru && aracTahsisTuru.map((item, index) => {
                                         return <MenuItem key={index} value={index}>{item} </MenuItem>
                                     }
                                     )}
@@ -195,4 +197,4 @@ class AracEkle extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ araclar: state.araclar, error: state.araclar.error })
-export default connect(mapStateToProps, { addToAraclar })(AracEkle)
+export default connect(mapStateToProps, { addToAraclar })(PersonelEkle)

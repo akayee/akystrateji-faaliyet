@@ -18,8 +18,6 @@ import { updateAraclar } from '../../store/actions/birimislemleri/araclistesi';
 import AracItem from '../../models/arac-item';
 
 
-const aracCinsi = ['Otomobil', 'Kamyonet', 'Pickup', 'Motor', 'Tır']
-const aracTahsisTuru = ['Kiralık', 'Kamu', 'Başka Kurumun', 'Geçici']
 class AracGuncelle extends React.Component {
     constructor(...args) {
         super(...args)
@@ -92,9 +90,7 @@ class AracGuncelle extends React.Component {
 
     }
     render() {
-        const { birimler, arac } = this.props;
-        console.log(arac)
-        console.log(aracTahsisTuru[0])
+        const { birimler, arac,araclar } = this.props;
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Araç Güncelle</DialogTitle>
@@ -125,15 +121,15 @@ class AracGuncelle extends React.Component {
                                     name="AracCinsi"
                                     type="text"
                                     required
-                                    value={arac.aracCinsi||this.state.yapiBilgileri.AracCinsi}
+                                    value={parseInt(arac.aracCinsi)||this.state.yapiBilgileri.AracCinsi}
+                                    defaultValue={arac.aracCinsi}
                                     onChange={this.handleChangeBirim}
                                 >
-                                    {aracCinsi && aracCinsi.map((item, index) => {
+                                    {this.props.araclar.aracCinsi && this.props.araclar.aracCinsi.map((item, index) => {
                                         return <MenuItem key={index} value={index}>{item} </MenuItem>
                                     }
                                     )}
                                 </Select>
-
                                 <FormHelperText>Lütfen Bir Araç Cinsi Seçiniz</FormHelperText>
                             </FormControl>
                         </Grid>
@@ -146,15 +142,15 @@ class AracGuncelle extends React.Component {
                                     name="TahsisTuru"
                                     type="text"
                                     required
-                                    value={arac.tahsisTuru||this.state.yapiBilgileri.TahisisTuru}
+                                    value={parseInt(arac.tahsisTuru)||this.state.yapiBilgileri.TahisisTuru}
+                                    defaultValue={arac.tahsisTuru}
                                     onChange={this.handleChangeBirim}
                                 >
-                                    {aracTahsisTuru && aracTahsisTuru.map((item, index) => {
+                                    {this.props.araclar.tahsisTuru && this.props.araclar.tahsisTuru.map((item, index) => {
                                         return <MenuItem key={index} value={index}>{item} </MenuItem>
                                     }
                                     )}
                                 </Select>
-
                                 <FormHelperText>Lütfen Bir Araç Cinsi Seçiniz</FormHelperText>
                             </FormControl>
                         </Grid>
@@ -167,8 +163,8 @@ class AracGuncelle extends React.Component {
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim || arac.birimId}
-                                    defaultValue={this.state.Birim}
+                                    value={parseInt(arac.birimId)||this.state.Birim}
+                                    defaultValue={arac.birimId}
                                     onChange={this.handleChangeBirim}
                                 >
                                     {birimler && birimler.map((item, index) => {
