@@ -15,9 +15,6 @@ import Swal from 'sweetalert2';
 import AracEkle from './AracEkle';
 import AracGuncelle from './AracGuncelle';
 
-const aracCinsi = ['Otomobil', 'Kamyonet', 'Pickup', 'Motor', 'Tır']
-const aracTahsisTuru = ['Kiralık', 'Kamu', 'Başka Kurumun', 'Geçici']
-
 const options = [
     'Düzenle',
     'Sil'
@@ -103,7 +100,6 @@ class AracListesi extends React.Component {
         
         const { araclar } = this.props.araclar;
         const { birimler } = this.props;
-        console.log(araclar)
 
         if (this.props.araclar.loading == true) {
             return <div>
@@ -122,8 +118,8 @@ class AracListesi extends React.Component {
                     </Grid>
                     {typeof araclar != "undefined" && araclar.map((arac, index) => <Grid container justify="center" spacing={3} key={index} >
                         <Grid item xs={4}>{arac.adi} </Grid>
-                        <Grid item xs={3}>{aracCinsi[arac.aracCinsi]} </Grid>
-                        <Grid item xs={3}>{aracTahsisTuru[arac.tahsisTuru]} </Grid>
+                        <Grid item xs={3}>{this.props.araclar.aracCinsi[arac.aracCinsi]} </Grid>
+                        <Grid item xs={3}>{this.props.araclar.tahsisTuru[arac.tahsisTuru]} </Grid>
                         <Grid item xs={2}>
                             <div>
                                 <IconButton
@@ -168,5 +164,5 @@ class AracListesi extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ araclar: state.araclar, error: state.araclar.error })
+    const mapStateToProps = (state) => ({ araclar: state.araclar, error: state.araclar.error })
 export default connect(mapStateToProps, { getAraclarData, removeFromAraclar })(AracListesi)

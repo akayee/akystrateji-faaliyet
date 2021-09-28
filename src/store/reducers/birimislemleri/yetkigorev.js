@@ -73,11 +73,7 @@ export default (state = initialState, action) => {
                 }
             } else {
                 let updatedyetkigorevItem = state.yetkigorevler;
-                let updatedItem = {
-                    id:action.yetkigorev.id,
-                    adi:action.yetkigorev.Adi,
-                    kanun:action.yetkigorev.Kanun
-                }
+                let updatedItem = action.yetkigorev;
                 //Ekranda düzgün gözüksün diye düzenleme yapılabilir.
                 let uindex = updatedyetkigorevItem.findIndex(obj => obj.id == updatedItem.id);
                 updatedyetkigorevItem[uindex] = updatedItem;

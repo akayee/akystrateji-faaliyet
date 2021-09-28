@@ -5,7 +5,11 @@ const initialState = {
     personeller: [],
     loading: false,
     error: false,
-    errormessage: ''
+    errormessage: '',
+    cinsiyet:['Kadın','Erkek'],
+    kadro:['Şirket','Memur','İşçi','Sözleşmeli'],
+    unvan:['Personel','Şef','Müdür','Daire Başkanı','Genel Sekreter Yardımcısı','Genel Sekreter'],
+    mezuniyet:['İlkokul','Lise','Ön Lisans','Lisans','Yüksek Lisans']
 };
 
 export default (state = initialState, action) => {
@@ -63,19 +67,7 @@ export default (state = initialState, action) => {
             } else {
 
                 let updatedDonanimItem = state.personeller;
-                let updatedItem = {
-                    id: action.personel.Id,
-                    adi: action.personel.Adi,
-                    kadro: action.personel.Kadro,
-                    mezuniyet: action.personel.Mezuniyet,
-                    cinsiyet: action.personel.Cinsiyet,
-                    iseGirisTarihi: action.personel.IseGirisTarihi,
-                    unvan: action.personel.Unvan,
-                    dogumTarihi: action.personel.DogumTarihi,
-                    tel: action.personel.KisaKod,
-                    kullaniciId: action.personel.KullaniciId
-
-                }
+                let updatedItem = action.personel;
                 //Ekranda düzgün gözüksün diye düzenleme yapılabilir.
                 let uindex = updatedDonanimItem.findIndex(obj => obj.id == updatedItem.id);
                 updatedDonanimItem[uindex] = updatedItem;

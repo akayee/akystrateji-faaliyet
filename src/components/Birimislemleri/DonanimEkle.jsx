@@ -44,7 +44,7 @@ class DonanimEkle extends React.Component{
     handleSubmit = (e) => {
         if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Sayi!=null)
         {
-            var yapi = new DonanimItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Sayi,false,this.state.Birim);
+            var yapi = new DonanimItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Sayi,false,parseInt(this.state.Birim));
             this.props.addToDonanim(yapi);
             if (this.props.error === false) {
     

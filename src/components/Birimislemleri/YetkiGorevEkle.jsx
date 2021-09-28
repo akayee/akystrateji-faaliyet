@@ -44,7 +44,7 @@ class YetkiGorevEkle extends React.Component{
     handleSubmit = (e) => {
         if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Kanun!=null)
         {
-            var yapi = new YetkiGorevItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Kanun,false,this.state.Birim);
+            var yapi = new YetkiGorevItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Kanun,false,parseInt(this.state.Birim));
             this.props.addToYetkiGorev(yapi);
             if (this.props.error === false) {
     

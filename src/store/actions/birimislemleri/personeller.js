@@ -29,7 +29,7 @@ export const addToPersoneller = personel => async dispatch=>{
 
 export const removeFromPersoneller = personel => async dispatch=>{
     try{
-        const res =await axios.post('https://localhost:44312/Personel/DeleteaPersoneller',personel);
+        const res =await axios.post('https://localhost:44312/Personel/DeleteaPersonel',personel);
         
         dispatch({
             type:REMOVE_FROM_PERSONELLER,

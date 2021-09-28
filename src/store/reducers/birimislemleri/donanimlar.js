@@ -28,8 +28,6 @@ export default (state = initialState, action) => {
             }
         case ADD_TO_DONANIMLAR:
             let addedDonanim = action.donanim;
-            addedDonanim.adi = action.donanim.Adi;
-            addedDonanim.sayi = action.donanim.Sayi;
             let yenidonanimlar = state.donanimlar;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.

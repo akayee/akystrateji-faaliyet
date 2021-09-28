@@ -1,11 +1,11 @@
 class AracItem{
     constructor(id,Adi,Cinsi,TahsisTuru,Deleted,birimId){
-        this.Id=id;
-        this.Adi=Adi;
-        this.TahsisTuru=TahsisTuru;
-        this.AracCinsi=Cinsi;
-        this.Deleted=Deleted;
-        this.BirimId=birimId;
+        this.id=id;
+        this.adi=Adi;
+        this.tahsisTuru=TahsisTuru;
+        this.aracCinsi=Cinsi;
+        this.deleted=Deleted;
+        this.birimId=birimId;
 
     }
 };

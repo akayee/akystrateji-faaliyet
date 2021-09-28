@@ -1,11 +1,11 @@
 class FizikselYapiItem{
     constructor(yapiAdi,yapiKonum,yapiMetreKare,Deleted,birimId,id,olusturmaTarihi){
-        this.Adi=yapiAdi;
-        this.Konum=yapiKonum;
-        this.MetreKare=yapiMetreKare;
-        this.Deleted=Deleted;
-        this.BirimId=birimId;
-        this.OlusturmaTarihi=olusturmaTarihi;
+        this.adi=yapiAdi;
+        this.konum=yapiKonum;
+        this.metreKare=yapiMetreKare;
+        this.deleted=Deleted;
+        this.birimId=birimId;
+        this.olusturmaTarihi=olusturmaTarihi;
         this.id=id;
 
     }

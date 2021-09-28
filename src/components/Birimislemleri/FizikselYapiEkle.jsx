@@ -44,7 +44,7 @@ class FizikselYapiEkle extends React.Component{
     handleSubmit = (e) => {
         if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Konum!=null&&this.state.yapiBilgileri.MetreKare!=null&&this.state.Birim!=null)
         {
-            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Konum,this.state.yapiBilgileri.MetreKare,false,this.state.Birim);
+            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Konum,this.state.yapiBilgileri.MetreKare,false,parseInt(this.state.Birim));
             this.props.addToFizikselYapi(yapi);
             if (this.props.error === false) {
     

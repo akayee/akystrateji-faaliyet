@@ -30,9 +30,6 @@ export default (state = initialState, action) => {
             }
         case ADD_TO_ARACLAR:
             let addedarac = action.arac;
-            addedarac.adi = action.arac.Adi;
-            addedarac.aracCinsi = action.arac.AracCinsi;
-            addedarac.tahsisTuru = action.arac.TahsisTuru;
             let yeniaraclar = state.araclar;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.

@@ -72,15 +72,7 @@ export default (state=initialState,action)=>{
                 error:true}
             }else{
                 let updatedfizikselyapiItem = state.fizikselyapilar;
-                let updatedItem= {
-                    adi:action.payload.Adi,
-                    birimId:action.payload.BirimId,
-                    deleted:action.payload.Deleted,
-                    konum:action.payload.Konum,
-                    metreKare:action.payload.MetreKare,
-                    olusturmaTarihi:action.payload.OlusturmaTarihi,
-                    id:action.payload.id
-                };
+                let updatedItem= action.payload;
                 let updateIndex = updatedfizikselyapiItem.findIndex(obj=>obj.id==updatedItem.id);
                 updatedfizikselyapiItem[updateIndex]=updatedItem;
                 return {

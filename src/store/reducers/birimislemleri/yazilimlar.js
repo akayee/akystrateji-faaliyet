@@ -29,7 +29,6 @@ export default (state = initialState, action) => {
         case ADD_TO_YAZILIMLAR:
             let addedBirim = action.yazilim;
             let yeniyazilimlar = state.yazilimlar;
-            addedBirim.adi = action.yazilim.Adi;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.
             //Deleted columnları true olanlar görünmediği için yanlış veri silinmeye çalışılabiliyor.

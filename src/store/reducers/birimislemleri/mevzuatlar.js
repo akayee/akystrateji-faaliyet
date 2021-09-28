@@ -13,8 +13,6 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_MEVZUAT:
             let addedMevzuat = action.mevzuat;
-            addedMevzuat.adi = action.mevzuat.Adi;
-            addedMevzuat.yonetmelik= action.mevzuat.Yonetmelik;
             let yenimevzuatlar = state.mevzuatlar;
             //Eklenen yeni datanın idsi api üzerinden frontende dönülüyor.
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.

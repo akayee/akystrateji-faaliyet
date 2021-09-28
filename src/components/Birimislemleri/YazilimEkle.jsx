@@ -44,7 +44,7 @@ class YazilimEkle extends React.Component{
     handleSubmit = (e) => {
         if(this.state.yapiBilgileri.Adi!=null)
         {
-            var yapi = new YazilimItem(0,this.state.yapiBilgileri.Adi,false,this.state.Birim);
+            var yapi = new YazilimItem(0,this.state.yapiBilgileri.Adi,false,parseInt(this.state.Birim));
             this.props.addToYazilimlar(yapi);
             if (this.props.error === false) {
     

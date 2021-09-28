@@ -100,7 +100,7 @@ class BirimBilgileri extends React.Component {
       <div>
         {/* Stratejik amaç ekleme popupı */ }
         
-        <PersonelListesi personeller={personeller} />
+        <PersonelListesi birimler={yetkiliOlduguBirimler} personeller={personeller} />
         <Grid container justify="center" spacing={3}>
           <Grid item xs={4} >
             <Donanimlar birimler={yetkiliOlduguBirimler} donanimlar={donanimlar} />

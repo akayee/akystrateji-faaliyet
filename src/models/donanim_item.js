@@ -1,10 +1,10 @@
 class DonanimItem{
     constructor(id,Adi,adet,Deleted,birimId){
-        this.Id=id;
-        this.Adi=Adi;
-        this.Sayi=adet;
-        this.Deleted=Deleted;
-        this.BirimId=birimId;
+        this.id=id;
+        this.adi=Adi;
+        this.sayi=adet;
+        this.deleted=Deleted;
+        this.birimId=birimId;
 
     }
 };

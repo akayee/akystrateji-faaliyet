@@ -47,8 +47,8 @@ class AracEkle extends React.Component {
 
     }
     handleSubmit = (e) => {
-        if (this.state.yapiBilgileri.Adi != null) {
-            var yapi = new AracItem(0, this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Cinsi,this.state.yapiBilgileri.TahsisTuru, false, this.state.Birim);
+        if (this.state.yapiBilgileri.Adi != null || this.state.yapiBilgileri.AracCinsi != null || this.state.yapiBilgileri.TahsisTuru != null) {
+            var yapi = new AracItem(0, this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Cinsi,this.state.yapiBilgileri.TahsisTuru, false, parseInt(this.state.Birim));
             this.props.addToAraclar(yapi);
             if (this.props.error === false) {
 

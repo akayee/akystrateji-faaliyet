@@ -1,9 +1,9 @@
 class YazilimItem{
     constructor(id,Adi,Deleted,birimId){
-        this.Id=id;
-        this.Adi=Adi;
-        this.Deleted=Deleted;
-        this.BirimId=birimId;
+        this.id=id;
+        this.adi=Adi;
+        this.deleted=Deleted;
+        this.birimId=birimId;
 
     }
 };
