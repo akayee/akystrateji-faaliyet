@@ -114,7 +114,7 @@ class BirimBilgileri extends React.Component {
         </Grid>
         <Grid container justify="center" spacing={3}>
           <Grid item xs={12} >
-            <TeskilatSemasi />
+            <TeskilatSemasi birimler={yetkiliOlduguBirimler} personeller={personeller} />
           </Grid>
           <Grid item xs={4} >
             <FizikselYapi birimler={yetkiliOlduguBirimler} fizikselyapilar={fizikselYapilar} />

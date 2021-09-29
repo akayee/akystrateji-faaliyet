@@ -46,9 +46,10 @@ class AracGuncelle extends React.Component {
     handleSubmit = (e) => {
 
         var yapi = new AracItem(this.props.arac.id,this.state.yapiBilgileri.Adi || this.props.arac.adi,
+            this.state.yapiBilgileri.AracCinsi || this.props.arac.aracCinsi,this.state.yapiBilgileri.TahsisTuru || this.props.arac.tahsisTuru,
             false,
             this.state.Birim || this.props.arac.birimId);
-        yapi.OlusturmaTarihi = this.props.arac.olusturmaTarihi;
+        yapi.olusturmaTarihi = this.props.arac.olusturmaTarihi;
         this.props.updateAraclar(yapi);
 
         if (this.props.error === false) {

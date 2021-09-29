@@ -96,11 +96,24 @@ class YeniOlcuBirimiEkle extends React.Component {
             </GridItem>
         </GridContainer>
             {olcubirimi&&olcubirimi.map((i, index) => <GridContainer alignItems='center' key={index} >
-                <GridItem xs={4}>
+                <GridItem xs={9}>
                     {i.tanim}
                 </GridItem>
                 <GridItem xs={3}>
-                    <IconButton onClick={(e) => this.handleBirimDelete(e, i)} >
+                    <IconButton onClick={(e) =>{Swal.fire({
+                      title: 'Silmek istediğinize emin misiniz?',
+                      showDenyButton: true,
+                      confirmButtonText: 'Sil',
+                      denyButtonText: `İptal`,
+                  }).then((result) => {
+                      /* Read more about isConfirmed, isDenied below */
+                      if (result.isConfirmed) {
+                          Swal.fire('Silme işlemi başarılı!', '', 'success')
+                          this.handleBirimDelete(e, i);
+                      } else if (result.isDenied) {
+                          Swal.fire('Silme işlemi iptal edildi', '', 'info')
+                      }
+                  })} } >
                         <Delete />
                     </IconButton>
                 </GridItem>

@@ -70,11 +70,7 @@ export default (state = initialState, action) => {
                 }
             } else {
                 let updatedMevzuatItem = state.mevzuatlar;
-                let updatedItem = {
-                    id: action.mevzuat.id,
-                    adi: action.mevzuat.Adi,
-                    yonetmelik: action.mevzuat.Yonetmelik
-                }
+                let updatedItem = action.mevzuat;
                 //Ekranda düzgün gözüksün diye düzenleme yapılabilir.
                 let uindex = updatedMevzuatItem.findIndex(obj => obj.id == updatedItem.id);
                 updatedMevzuatItem[uindex] = updatedItem;

@@ -13,6 +13,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import Skeleton from 'react-loading-skeleton';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
@@ -23,40 +24,6 @@ import GridItem from "components/Grid/GridItem.jsx";
 import IconButton from '@material-ui/core/IconButton';
 import { Delete } from "@material-ui/icons";
 import BirimItem from '../../models/birim-item';
-
-
-
-const accounts = [
-    { Adi: 'Asfalt Dökümü', id: '1', Birim: 'Yol Asfalt', hedef: '70', ustBirimId: '0' },
-    { Adi: 'Yeni Birim İnşaatı', id: '4', Birim: 'İnşaat Yapım', hedef: '78', ustBirimId: '0' },
-    { Adi: 'Mamak Altyapı Çalışması', id: '8', Birim: 'Sinyalizasyon ve Altyapı', hedef: '78', ustBirimId: '0' },
-    { Adi: 'Mamak Tahliye İşlemleri', id: '6', Birim: 'Tahliye ve Yıkım', hedef: '79', ustBirimId: '0' },
-    { Adi: 'Keçiören Dutluk Kaldırım Çalışması', id: '7', Birim: 'Kaldırım Yapım ve Bakım Onarım', hedef: '80', ustBirimId: '0' },
-    { Adi: 'Tabela Direk İşlemleri', id: '0', Birim: 'Numarataj', hedef: '80', ustBirimId: '0' },
-    { Adi: 'Afet Müdahale Ekipmanları Alımı', id: '5', Birim: 'Afet Koordinasyon', hedef: '81', ustBirimId: '0' },
-    { Adi: 'Fiber Altyapı Ruhsat İşlemleri', id: '3', Birim: 'Aykome', hedef: '82', ustBirimId: '0' },
-    { Adi: 'Keşif', id: '2', Birim: 'Kent Estetiği', hedef: '90', ustBirimId: '0' },
-    { Adi: 'Eski Binaların Kamulaştırılması', id: '10', Birim: 'Kamulaştırma', hedef: '60', ustBirimId: '1' },
-    { Adi: 'Arsa Satın Alım İşlemleri', id: '11', Birim: 'Taşınmazlar', hedef: '65', ustBirimId: '1' },
-    { Adi: 'Yazılım İhalesi', id: '9', Birim: 'İdari İşler', hedef: '78', ustBirimId: '1' },
-    { Adi: 'Yeni Yerleşim Birimleri Oluşturulması', id: '12', Birim: 'Yeni Yerleşimler', hedef: '80', ustBirimId: '1' },
-    { Adi: 'Yazılım İhalesi', id: '13', Birim: 'Araştırma İhale ve İdari İşler', hedef: '60', ustBirimId: '2' },
-    { Adi: 'Yeni Sera Kurulumu', id: '14', Birim: 'Bitkisel Üretim ve Uygulama', hedef: '70', ustBirimId: '2' },
-    { Adi: 'Çiftçilere Tohum Dağıtılması', id: '15', Birim: 'İklim Değişikliği ve Uyum', hedef: '70', ustBirimId: '2' },
-    { Adi: 'Keçiören Yeni Park Projeleri', id: '16', Birim: 'Proje ve Yapım İşleri', hedef: '72', ustBirimId: '2' },
-    { Adi: 'Refüj Bakım Çalışmaları', id: '17', Birim: 'Yeşil Alanlar', hedef: '75', ustBirimId: '2' },
-    { Adi: 'Harfiyat İşlemleri', id: '18', Birim: 'Atık Yönetimi', hedef: '80', ustBirimId: '2' },
-    { Adi: 'Denetimler', id: '19', Birim: 'Zabıta 1', hedef: '80', ustBirimId: '3' },
-    { Adi: 'Denetimler', id: '20', Birim: 'Zabıta 2', hedef: '85', ustBirimId: '3' },
-    { Adi: 'Denetimler', id: '21', Birim: 'Zabıta 3', hedef: '87', ustBirimId: '3' },
-    { Adi: 'Denetimler', id: '22', Birim: 'Zabıta 4', hedef: '89', ustBirimId: '3' },
-    { Adi: 'Denetimler', id: '23', Birim: 'Zabıta 5', hedef: '90', ustBirimId: '3' },
-    { Adi: 'Denetimler', id: '24', Birim: 'Zabıta 6', hedef: '92', ustBirimId: '3' },
-    { Adi: 'Denetimler', id: '25', Birim: 'Zabıta 7', hedef: '98', ustBirimId: '3' },
-    { Adi: 'Bilgisayar Temini', id: '26', Birim: 'Elektronik Sistemler ve Donanım', hedef: '81', ustBirimId: '4' },
-    { Adi: 'İnternet İhalesi', id: '27', Birim: 'İletişim', hedef: '85', ustBirimId: '4' },
-    { Adi: 'Yazılım İhalesi', id: '28', Birim: 'Proje İhale ve İdari İşler', hedef: '89', ustBirimId: '4' },
-    { Adi: 'Yazılım Geliştirme ve Bakım', id: '29', Birim: 'Yazılım ve Yönetim', hedef: '99', ustBirimId: '4' },];
 
 class YeniBirimEkle extends React.Component {
     constructor(...args) {
@@ -146,6 +113,12 @@ class YeniBirimEkle extends React.Component {
     render() {
         const { classes } = this.props;
         const { birimler } = this.props.birimler;
+
+        if (this.props.birimler.loading === true) {
+            return <div>
+              <Skeleton height={100} />
+              <Skeleton count={6} /></div>
+          }
         return <div ><GridContainer alignItems='center' >
             <GridItem xs={3}>
                 Yeni Birim Ekle
@@ -161,7 +134,21 @@ class YeniBirimEkle extends React.Component {
                     {birim.adi}
                 </GridItem>
                 <GridItem xs={2}>
-                    <IconButton onClick={(e) => this.handleBirimDelete(e, birim)} >
+                    <IconButton onClick={(e) => {Swal.fire({
+                      title: 'Silmek istediğinize emin misiniz? ',
+                      showDenyButton: true,
+                      text: 'Birime kayıtlı veriler var ise silme gerçekleşemez!',
+                      confirmButtonText: 'Sil',
+                      denyButtonText: `İptal`,
+                  }).then((result) => {
+                      /* Read more about isConfirmed, isDenied below */
+                      if (result.isConfirmed) {
+                          Swal.fire('Silme işlemi başarılı!', '', 'success')
+                          this.handleBirimDelete(e, birim)
+                      } else if (result.isDenied) {
+                          Swal.fire('Silme işlemi iptal edildi', '', 'info')
+                      }
+                  })} } >
                         <Delete />
                     </IconButton>
                 </GridItem>

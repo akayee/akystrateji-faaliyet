@@ -10,7 +10,6 @@ import CardBody from "components/Card/CardBody.jsx";
 import CheckIcon from '@material-ui/icons/Check';
 import { IconButton } from "@material-ui/core";
 import Tooltip from '@material-ui/core/Tooltip';
-import { Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Accordion from '@material-ui/core/Accordion';
@@ -22,7 +21,6 @@ import LinearProg from '../../components/LinearProg/LinearProg';
 import { connect } from 'react-redux';
 
 import BIRIMSTRATEGYDATA from "../../data/birimstrategydata";
-import BIRIMLER from "../../data/birimler";
 
 import { getPerformansData } from '../../store/actions/performanslar';
 import { getStrategyData } from '../../store/actions/birimsstratejibilgiler'
@@ -88,28 +86,13 @@ class Birimler extends React.Component {
     this.setState({ listtype: !this.state.listtype })
   }
   render() {
-    Number.prototype.format = function (n, x, s, c) {
-      var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
-        num = this.toFixed(Math.max(0, ~~n));
-      const groupBy = (items, key) => items.reduce(
-        (result, item) => ({
-          ...result,
-          [item[key]]: [
-            ...(result[item[key]] || []),
-            item,
-          ],
-        }),
-        {},
-      );
-      return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
-    };
+    
 
 
     //DİZAYN CLASSLARININ PROPDAN ALINMA İŞLEMİ
-    const { classes } = this.props;
     const performanslar = this.props.performanslar.performanslar;
     const strategydata = this.props.strategydata.strategydata;
-
+    console.log(strategydata)
     return (
       <div>
         <GridContainer>
@@ -121,10 +104,10 @@ class Birimler extends React.Component {
               </CardHeader>
               <CardBody>
                 {performanslar.map((performans, index) =>
-                  <div>
-                    <GridContainer spacing={2}>
-                      <Grid xs={6}>{performans.adi}</Grid>
-                      <Grid xs={5}>
+                  <div key={index}>
+                    <GridContainer  spacing={2}>
+                      <Grid item xs={6}>{performans.adi}</Grid>
+                      <Grid item xs={5}>
                         <TextField
                           name="Tanim"
                           multiline
@@ -133,7 +116,7 @@ class Birimler extends React.Component {
                           type="text"
                           fullWidth
                         /></Grid>
-                      <Grid xs={1}>
+                      <Grid item xs={1}>
                         <Tooltip title="Açıklamayı Kaydet">
                           <IconButton>
                             <CheckIcon />
@@ -168,13 +151,13 @@ class Birimler extends React.Component {
                 </GridContainer>
 
                 <div style={{ width: '%100' }}>
-                  {strategydata.performanslar&&strategydata.performanslar ? strategydata.performanslar.map(performans => <Accordion expanded={this.state.performansexpanded === performans.id} onChange={this.handleChangePerformans(performans.id)}>
+                  {strategydata.performanslar&&strategydata.performanslar ? strategydata.performanslar.map((performans,index) => <Accordion key={index} expanded={this.state.performansexpanded === performans.id} onChange={this.handleChangePerformans(performans.id)}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1bh-content"
                       id="panel1bh-header"
                     >
-                      <Grid xs={6}>P{performans.amaclarId}.{performans.hedeflerId + 1}.{performans.id + 1} : {performans.adi}</Grid>
+                      <Grid item xs={6}>P{performans.amaclarId}.{performans.hedeflerId + 1}.{performans.id + 1} : {performans.adi}</Grid>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Grid container>
@@ -186,7 +169,7 @@ class Birimler extends React.Component {
                           <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
                           <Grid item xs={4}><b>Açıklama</b></Grid>
                         </Grid>
-                        {strategydata.isturleri && strategydata.isturleri.map((is, index) => <Grid container>
+                        {strategydata.isturleri && strategydata.isturleri.map((is, index) => <Grid key={index} container>
                           <Grid item xs={12}><b>{strategydata.birim.adi}</b></Grid>
                           <Grid item xs={2}>{is.adi}</Grid>
                           <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiId} </Grid>
@@ -209,7 +192,7 @@ class Birimler extends React.Component {
                           <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
                           <Grid item xs={4}><b>Açıklama</b></Grid>
                         </Grid>
-                        {strategydata.vmFaaliyetTurleri && strategydata.vmFaaliyetTurleri.map((is, index) => <Grid container>
+                        {strategydata.vmFaaliyetTurleri && strategydata.vmFaaliyetTurleri.map((is, index) => <Grid key={index} container>
                           <Grid item xs={12}><b>{strategydata.birim.adi}</b></Grid>
                           <Grid item xs={2}>{is.adi}</Grid>
                           <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiId} </Grid>

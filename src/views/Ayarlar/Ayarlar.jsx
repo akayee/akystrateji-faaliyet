@@ -85,7 +85,7 @@ class Ayarlar extends React.Component {
 
 
         <GridContainer alignItems='stretch' justify='center'>
-          <GridItem xs={6} >
+          <GridItem xs={4} >
             <Typography variant="h4" component="h4">
               Ölçü Birimi
             </Typography>
@@ -96,7 +96,7 @@ class Ayarlar extends React.Component {
               </CardBody>
             </Card>
           </GridItem>
-          <GridItem xs={6} >
+          <GridItem xs={8} >
             <Typography variant="h4" component="h4">
               Birimler
             </Typography>

@@ -13,7 +13,7 @@ export default (state=initialState,action)=>{
     switch(action.type){
         case GET_OLCUBIRIMIDATA:
 
-            if(action.error==true)
+            if(action.error===true)
             {
                 return { 
                     ...state,
@@ -33,7 +33,7 @@ export default (state=initialState,action)=>{
             //Bu durum ekleme anından hemen sonra denenen silme işlemlerinde hata alınmasını engellemek için.
             //Deleted columnları true olanlar görünmediği için yanlış veri silinmeye çalışılabiliyor.
             addedBirim.id=action.payload;
-            if(action.error==true)
+            if(action.error===true)
             {
                 return {
                     ...state,
@@ -49,7 +49,7 @@ export default (state=initialState,action)=>{
                 }
             }
         case REMOVE_FROM_OLCUBIRIMI:
-            if(action.error==true)
+            if(action.error===true)
             {
                 return {...state,error:true}
             }else{

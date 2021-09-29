@@ -71,10 +71,7 @@ export default (state = initialState, action) => {
             } else {
 
                 let updatedDonanimItem = state.yazilimlar;
-                let updatedItem = {
-                    id: action.yazilim.Id,
-                    adi: action.yazilim.Adi
-                }
+                let updatedItem = action.yazilim;
                 //Ekranda düzgün gözüksün diye düzenleme yapılabilir.
                 let uindex = updatedDonanimItem.findIndex(obj => obj.id == updatedItem.id);
                 updatedDonanimItem[uindex] = updatedItem;

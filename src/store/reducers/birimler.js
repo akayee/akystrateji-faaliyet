@@ -3,7 +3,7 @@ import {ADD_TO_BIRIM,REMOVE_FROM_BIRIM, GET_BIRIMDATA,GET_BIRIMBILGILERI} from '
 
 const initialState= {
     birimler:[],
-    loading:false,
+    loading:true,
     error:false,
     errormessage:'',
     birimbilgileri:[]
@@ -18,7 +18,8 @@ export default (state=initialState,action)=>{
             {
                 return { 
                     ...state,
-                    errormessage:action.payload
+                    errormessage:action.payload,
+                    loadiing:false
                 }
             }else{
                 return {
@@ -39,27 +40,31 @@ export default (state=initialState,action)=>{
             {
                 return {
                     ...state,
-                    errormessage:action.payload
+                    errormessage:action.payload,
+                    loading:false
                 }
             }else{
                     yenibirimler.push(addedBirim)           
     
                 return { 
                     ...state,
-                    birimler:yenibirimler
+                    birimler:yenibirimler,
+                    loading:false
                 }
             }
         case REMOVE_FROM_BIRIM:
             if(action.error==true)
             {
-                return state
+                return {...state,
+                    loading:false}
             }else{
                 let updatedBirimItem = state.birimler;
                 updatedBirimItem=updatedBirimItem.filter(item=> item.id!=action.birim.id);
     
                 return { 
                     ...state,
-                    birimler:updatedBirimItem
+                    birimler:updatedBirimItem,
+                    loading:false
                 }
             }
         case GET_BIRIMBILGILERI:
@@ -67,7 +72,8 @@ export default (state=initialState,action)=>{
             {
                 return { 
                     ...state,
-                    errormessage:action.payload
+                    errormessage:action.payload,
+                    loading:false
                 }
             }else{
                 return {

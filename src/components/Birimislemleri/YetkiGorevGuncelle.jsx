@@ -160,5 +160,5 @@ class YetkiGorevGuncelle extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
+const mapStateToProps = (state) => ({ yetkigorevler: state.yetkigorevler, error: state.yetkigorevler.error })
 export default connect(mapStateToProps, { updateYetkiGorev, removeFromYetkiGorev })(YetkiGorevGuncelle)

@@ -66,7 +66,7 @@ export default (state = initialState, action) => {
                 }
             }
         case UPDATE_FIZIKSELYAPIDATA:
-            if (action.error == true) {
+            if (action.error === true) {
                 return {
                     ...state,
                     loading: false
