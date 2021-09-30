@@ -13,16 +13,7 @@ import Grid from '@material-ui/core/Grid';
 //componentler
 import AmacEkle from "../../components/Birimislemleri/AmacEkle";
 import HedefEkle from "../../components/Birimislemleri/HedefEkle";
-import PersonelListesi from "../../components/Birimislemleri/PersonelListesi";
-import Donanimlar from "../../components/Birimislemleri/Donanimlar";
-import Yazilimlar from "../../components/Birimislemleri/Yazilimlar";
-import AracListesi from "../../components/Birimislemleri/AracListesi";
-import TeskilatSemasi from "../../components/Birimislemleri/TeskilatSemasi";
-import FizikselYapi from "../../components/Birimislemleri/FizikselYapi";
-import YetkiGorev from "../../components/Birimislemleri/YetkiGorev";
-import Mevzuat from "../../components/Birimislemleri/Mevzuat";
 import STRATEGYDATA from "../../data/dummydata";
-
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -32,23 +23,8 @@ import PerformansEkle from "../../components/Birimislemleri/PerformansEkle";
 import YeniIsEkle from "../../components/Birimislemleri/YeniIsEkle";
 import YeniFaaliyetEkle from "../../components/Birimislemleri/YeniFaaliyetEkle";
 import Swal from 'sweetalert2';
-
 import { connect } from 'react-redux';
 import { getStrategyData } from '../../store/actions/birimsstratejibilgiler';
-
-
-const personeller = [
-  { Adi: 'Ahmet YILMAZ', kadro: 'Şirket', id: '1', Birim: 'Yol Asfalt', cinsiyet: 'Erkek', ustBirimId: '0', girisTarihi: '10/10/2019', gorevi: 'Ofis Mühendisi' },
-  { Adi: 'Kemal Ecevit', id: '4', Birim: 'İnşaat Yapım', kadro: 'Memur', ustBirimId: '0', cinsiyet: 'Erkek', girisTarihi: '10/05/1995', gorevi: 'Şube Müdürü' },];
-const donanimlar = [
-  { Adi: 'Masaüstü Bilgisayar', Adet: 15 },
-  { Adi: 'Yazıcı', Adet: 10 },];
-const yazilimlar = [
-  { Adi: 'Araç Takip Sistemi' },
-  { Adi: 'İhbarname Takip Sistemi' },];
-const araclar = [
-  { Adi: 'Renault Megane 2011', Cinsi: 'Binek', SahiplikTuru: 'Resmi' },
-  { Adi: 'Ford Transit', Cinsi: 'Pickup', SahiplikTuru: 'Kiralık' },];
 const acoounttye = [
   { Adi: 'Fen İşleri', id: '0', hedef: '80' },
   { Adi: 'Emlak İstimlak', id: '1', hedef: '70' },
@@ -128,7 +104,6 @@ class StratejiOlustur extends React.Component {
         {/* Stratejik amaç ekleme popupı */}
 
         <GridContainer>
-
           <Grid item xs={4} >
             <AmacEkle classes={this.props.classes} birimler={acoounttye} />
           </Grid>
@@ -139,7 +114,6 @@ class StratejiOlustur extends React.Component {
             <YeniFaaliyetEkle performansAdi={''} birim={''} classes={this.props.classes} birimler={BIRIMLER} />
           </Grid>
           <Grid item xs={12} >
-
             <Card>
               {/* Stratejik amaç tablosu */}
 
@@ -156,7 +130,7 @@ class StratejiOlustur extends React.Component {
                     </IconButton>
 
                     <IconButton>
-                      <EditIcon />
+                      <EditIcon onClick={e=>{e.stopPropagation();}} />
                     </IconButton>
                   </Grid>
                 </AccordionSummary>
@@ -202,7 +176,7 @@ class StratejiOlustur extends React.Component {
                               </IconButton>
 
                               <IconButton>
-                                <EditIcon />
+                                <EditIcon onClick={e=>{e.stopPropagation();}} />
                               </IconButton>
                             </Grid>
                           </AccordionSummary>
@@ -226,7 +200,7 @@ class StratejiOlustur extends React.Component {
                                     </IconButton>
 
                                     <IconButton>
-                                      <EditIcon />
+                                      <EditIcon onClick={e=>{e.stopPropagation();}} />
                                     </IconButton>
                                   </Grid>
                                 </AccordionSummary>

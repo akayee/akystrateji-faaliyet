@@ -16,20 +16,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
-import { addToAmaclar } from '../../store/actions/amaclar';
+import { updateAmac } from '../../store/actions/amaclar';
 import Swal from 'sweetalert2';
 
-const mapDispatchToProps = {
-    addToAmaclar
 
-};
 
-const mapStateToProps = state => {
-    return {
-        amaclar: state.amaclar
-    }
-}
-class AmacEkle extends React.Component {
+class AmacGuncelle extends React.Component {
     constructor(...args) {
         super(...args);
         this.state = {
@@ -129,5 +121,5 @@ class AmacEkle extends React.Component {
     }
 
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(AmacEkle)
+const mapStateToProps = (state) => ({ amaclar: state.amaclar, error: state.amaclar.error })
+export default connect(mapStateToProps, {updateAmac})(AmacGuncelle)
