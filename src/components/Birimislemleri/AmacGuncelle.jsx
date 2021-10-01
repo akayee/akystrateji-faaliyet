@@ -64,7 +64,7 @@ class AmacGuncelle extends React.Component {
         })
     }
     render() {
-        const { classes } = this.props;
+        const { classes,amac } = this.props;
         return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Stratejik Amaç Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Stratejik Amaç Oluştur</DialogTitle>
@@ -78,7 +78,7 @@ class AmacGuncelle extends React.Component {
                             autoFocus
                             margin="dense"
                             id="name"
-                            label="Stratejik Amaç Adı"
+                            label={amac.adi}
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -92,7 +92,7 @@ class AmacGuncelle extends React.Component {
                                     name="Birim"
                                     type="text"
                                     multiple
-                                    value={this.state.Birim}
+                                    value={this.state.Birim||amac.birimId}
                                     onChange={this.handleChangeBirim}
                                 >
                                     {this.props.birimler.map((item, index) => {

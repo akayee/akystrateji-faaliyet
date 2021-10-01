@@ -25,6 +25,10 @@ import YeniFaaliyetEkle from "../../components/Birimislemleri/YeniFaaliyetEkle";
 import Swal from 'sweetalert2';
 import { connect } from 'react-redux';
 import { getStrategyData } from '../../store/actions/birimsstratejibilgiler';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 const acoounttye = [
   { Adi: 'Fen İşleri', id: '0', hedef: '80' },
   { Adi: 'Emlak İstimlak', id: '1', hedef: '70' },
@@ -62,6 +66,7 @@ class StratejiOlustur extends React.Component {
       expanded: false,
       hedefexpanded: false,
       performansexpanded: false,
+      Yil:null,
       columns: [
         { title: 'Amaç Adı', field: 'adi' },
         {
@@ -86,6 +91,11 @@ class StratejiOlustur extends React.Component {
   handleChangePerformans = (panel) => (event, isExpanded) => {
     this.setState({ performansexpanded: isExpanded ? panel : false });
   };
+  handleChangeYil=(e)=>{
+    this.setState({
+      yil:e.target.value
+    })
+  }
 
 
   render() {
@@ -102,7 +112,28 @@ class StratejiOlustur extends React.Component {
     return (
       <div>
         {/* Stratejik amaç ekleme popupı */}
-
+        <div style={{float:'right'}}>
+          <Grid item xs={4}>
+            <FormControl >
+              <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                Yıl
+              </InputLabel>
+              <Select
+                name="Yil"
+                type="text"
+                required
+                value={this.state.Yil }
+                defaultValue={this.state.Yil}
+                onChange={this.handleChangeYil}
+              >
+                {strategydata.Yillar && strategydata.Yillar.map((item, index) => {
+                  return <MenuItem key={item.id} value={item.id}>{item.adi} </MenuItem>
+                }
+                )}
+              </Select>
+            </FormControl>
+          </Grid>
+        </div>
         <GridContainer>
           <Grid item xs={4} >
             <AmacEkle classes={this.props.classes} birimler={acoounttye} />
@@ -130,7 +161,7 @@ class StratejiOlustur extends React.Component {
                     </IconButton>
 
                     <IconButton>
-                      <EditIcon onClick={e=>{e.stopPropagation();}} />
+                      <EditIcon onClick={e => { e.stopPropagation(); }} />
                     </IconButton>
                   </Grid>
                 </AccordionSummary>
@@ -176,7 +207,7 @@ class StratejiOlustur extends React.Component {
                               </IconButton>
 
                               <IconButton>
-                                <EditIcon onClick={e=>{e.stopPropagation();}} />
+                                <EditIcon onClick={e => { e.stopPropagation(); }} />
                               </IconButton>
                             </Grid>
                           </AccordionSummary>
@@ -200,7 +231,7 @@ class StratejiOlustur extends React.Component {
                                     </IconButton>
 
                                     <IconButton>
-                                      <EditIcon onClick={e=>{e.stopPropagation();}} />
+                                      <EditIcon onClick={e => { e.stopPropagation(); }} />
                                     </IconButton>
                                   </Grid>
                                 </AccordionSummary>

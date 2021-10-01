@@ -4,6 +4,7 @@ import BirimItem from '../../models/birim-item';
 
 const initialState= {
     strategydata:[],
+    stratejiYillari:[],
     birimler:null,
     birimtipi:null,
     loading:true

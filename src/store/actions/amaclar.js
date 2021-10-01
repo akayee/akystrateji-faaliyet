@@ -16,7 +16,7 @@ export const removeFromAmaclar= amac=>{
 
 export const getAmacData = yil=>async dispatch=>{
     try{
-        const res =await axios.get(`https://localhost:44312/Amaclar/GetListofAmaclar`,yil)
+        const res =await axios.get(`https://localhost:44312/Amaclar/GetListofAmaclar`,)
         dispatch({
             type:GET_AMACDATA,
             payload:res.data,
