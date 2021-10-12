@@ -1,26 +1,20 @@
-import React from 'react'
-import STRATEGYDATA from '../../data/dummydata';
+import React from 'react';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {  Grid } from '@material-ui/core';
-import BIRIMLER from '../../data/birimler';
 import LinearProg from '../../components/LinearProg/LinearProg';
 import { connect} from 'react-redux';
+import { getStrategyData } from '../../store/actions/birimsstratejibilgiler'
 
 
-const mapStateToProps = state => {
-    return{
-      birimlerim: state.birimler
-    }
-}
 class Stratejiler extends React.Component {
 
     constructor(...args) {
         super(...args);
         this.state = {
-            data: STRATEGYDATA,
+            data: null,
             expanded: false,
             hedefexpanded: false,
             performansexpanded: false
@@ -35,12 +29,16 @@ class Stratejiler extends React.Component {
     handleChangePerformans = (panel) => (event, isExpanded) => {
         this.setState({ performansexpanded: isExpanded ? panel : false });
     };
+    componentDidMount() {
+        this.props.getStrategyData(2);
+      }
     render() {
 
-        const birimlerim= this.props.birimlerim.birimler
+        const {stratejikAmac,hedefler,performanslar,isturleri,vmFaaliyetTurleri}= this.props.strategydata.strategydata;
+        console.log(this.props.strategydata)
 
         return <div>
-            {this.state.data.map((strateji, index) => <Accordion expanded={this.state.expanded === strateji.path} onChange={this.handleChange(strateji.path)}>
+            {stratejikAmac&&stratejikAmac.map((strateji, index) => <Accordion key={index} expanded={this.state.expanded === strateji.path} onChange={this.handleChange(strateji.path)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
@@ -50,27 +48,25 @@ class Stratejiler extends React.Component {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div style={{ width: '%100' }}>
-                        {strateji.hedefler.map((hedef, index) => <Accordion expanded={this.state.hedefexpanded === hedef.path} onChange={this.handleChangeHedef(hedef.path)}>
+                        {hedefler.map((hedef, index) => <Accordion key={index} expanded={this.state.hedefexpanded === hedef.path} onChange={this.handleChangeHedef(hedef.path)}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                             >
-                                <Grid xs={5}>H{strateji.id + 1}.{hedef.id + 1} : {hedef.adi}</Grid>
-                                <Grid xs={5}><LinearProg gerceklesmeOrani={hedef.hedefGerceklesmeOrani} gosterilecekalan={["Performans","Faaliyet"]}  /></Grid>
-                                <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[hedef.birimId].Adi}</Grid>
+                                <Grid xs={5}>H{strateji.id + 1}.{hedef.id + 1} : {hedef.tanim}</Grid>
+                                <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{}</Grid>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div style={{ width: '%100' }}>
-                                    {hedef.performanslar ? hedef.performanslar.map((performans, index) => <Accordion expanded={this.state.performansexpanded === performans.path} onChange={this.handleChangePerformans(performans.path)}>
+                                    {performanslar ? performanslar.map((performans, index) => <Accordion key={index} expanded={this.state.performansexpanded === performans.path} onChange={this.handleChangePerformans(performans.path)}>
                                         <AccordionSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1bh-content"
                                             id="panel1bh-header"
                                         >
                                             <Grid xs={5}>P{strateji.id + 1}.{hedef.id + 1}.{performans.id + 1} : {performans.adi}</Grid>
-                                            <Grid xs={5}><LinearProg gerceklesmeOrani={performans.gerceklesmeOrani} gosterilecekalan={["Performans","Faaliyet"]} /></Grid>
-                                            <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{BIRIMLER[performans.birimId].Adi}</Grid>
+                                            <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{}</Grid>
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <Grid container>
@@ -82,13 +78,13 @@ class Stratejiler extends React.Component {
                                                     <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
                                                     <Grid item xs={4}><b>Açıklama</b></Grid>
                                                 </Grid>
-                                                {performans.isler && performans.isler.map((is, index) => <Grid container>
+                                                {isturleri && isturleri.map((is, index) => <Grid key={index} container>
                                                     <Grid item xs={2}>{is.adi}</Grid>
                                                     <Grid item xs={2} style={{textAlign:'center'}}>{is.OlcuBrimi} </Grid>
-                                                    <Grid item xs={2}>{is.hedef} </Grid>
-                                                    <Grid item xs={2}>{is.gerceklesme} </Grid>
+                                                    <Grid item xs={2}>{is.yillikHedef} </Grid>
+                                                    <Grid item xs={2}>{is.toplamDeger} </Grid>
                                                     <Grid item xs={4}>{is.aciklama} </Grid>
-                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani} gosterilecekalan={["Performans","Faaliyet"]} /> </Grid>
+                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={(is.toplamDeger*100/is.yillikHedef)} gosterilecekalan={["Performans","Faaliyet"]} parts={[is.firstPart,is.secondPart,is.thirdPart,is.lastPart]} /> </Grid>
                                                 </Grid>)}
                                                 <Grid container><h4><b>Faaliyetler</b></h4></Grid>
                                                 <Grid container>
@@ -98,13 +94,13 @@ class Stratejiler extends React.Component {
                                                     <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
                                                     <Grid item xs={4}><b>Açıklama</b></Grid>
                                                 </Grid>
-                                                {performans.isler && performans.faaliyetler.map((is, index) => <Grid container>
+                                                {vmFaaliyetTurleri && vmFaaliyetTurleri.map((is, index) => <Grid key={index} container>
                                                     <Grid item xs={2}>{is.adi}</Grid>
                                                     <Grid item xs={2} style={{textAlign:'center'}}>{is.OlcuBrimi} </Grid>
-                                                    <Grid item xs={2}>{is.hedef} </Grid>
-                                                    <Grid item xs={2}>{is.gerceklesme} </Grid>
+                                                    <Grid item xs={2}>{is.yillikHedef} </Grid>
+                                                    <Grid item xs={2}>{is.toplamDeger} </Grid>
                                                     <Grid item xs={4}>{is.aciklama} </Grid>
-                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.gerceklesmeOrani}  gosterilecekalan={["Performans","Faaliyet"]}/> </Grid>
+                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={(is.toplamDeger*100/is.yillikHedef)}  gosterilecekalan={["Performans","Faaliyet"]} parts={[is.firstPart,is.secondPart,is.thirdPart,is.lastPart]} /> </Grid>
                                                 </Grid>)}
                                             </Grid>
                                         </AccordionDetails>
@@ -124,4 +120,6 @@ class Stratejiler extends React.Component {
         </div>
     }
 }
-export default connect(mapStateToProps)(Stratejiler);
+
+const mapStateToProps = (state) => ({strategydata: state.strategydata })
+export default connect(mapStateToProps, {getStrategyData })(Stratejiler);
