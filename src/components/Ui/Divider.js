@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Divider(){
+ const  Divider=()=>{
 
     return <div style={{borderTop: "3px dashed #bbb",width:"100%",padding:2}}></div>
 }

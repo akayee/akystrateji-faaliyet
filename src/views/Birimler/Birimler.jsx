@@ -17,10 +17,9 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { currentUser } from '../../firebase/auth';
-import LinearProg from '../../components/LinearProg/LinearProg';
+import LinearProg from '../../components/LinearProg/LinearProgStrateji';
 import { connect } from 'react-redux';
 
-import BIRIMSTRATEGYDATA from "../../data/birimstrategydata";
 
 import { getPerformansData } from '../../store/actions/performanslar';
 import { getStrategyData } from '../../store/actions/birimsstratejibilgiler'
@@ -54,7 +53,6 @@ class Birimler extends React.Component {
       hedefexpanded: false,
       performansexpanded: false,
       user: currentUser(),
-      data: BIRIMSTRATEGYDATA,
       performanslar: [],
       birimlerim: []
     };
@@ -86,24 +84,46 @@ class Birimler extends React.Component {
     this.setState({ listtype: !this.state.listtype })
   }
   render() {
-    
-
-
     //DİZAYN CLASSLARININ PROPDAN ALINMA İŞLEMİ
-    const performanslar = this.props.performanslar.performanslar;
     const strategydata = this.props.strategydata.strategydata;
     console.log(strategydata)
     return (
       <div>
         <GridContainer>
 
-          {performanslar&&performanslar.length > 0 ? <GridItem xs={12} sm={12} md={12}>
+          {strategydata.isturleri&&strategydata.isturleri.length > 0 ? <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="warning">
                 Açıklama Girilmesi Gereken Performans Göstergeleri
               </CardHeader>
               <CardBody>
-                {performanslar.map((performans, index) =>
+                {strategydata.isturleri.filter(obj=>obj.aciklama==undefined).map((performans, index) =>
+                  <div key={index}>
+                    <GridContainer  spacing={2}>
+                      <Grid item xs={6}>{performans.adi}</Grid>
+                      <Grid item xs={5}>
+                        <TextField
+                          name="Tanim"
+                          multiline
+                          margin="dense"
+                          id="name"
+                          type="text"
+                          fullWidth
+                        /></Grid>
+                      <Grid item xs={1}>
+                        <Tooltip title="Açıklamayı Kaydet">
+                          <IconButton>
+                            <CheckIcon />
+                          </IconButton>
+                        </Tooltip>
+                      </Grid>
+                    </GridContainer>
+                  </div>)}
+              </CardBody>
+              <CardHeader color="warning">
+                Açıklama Girilmesi Gereken Mali Faaliyetler              </CardHeader>
+              <CardBody>
+                {strategydata.vmFaaliyetTurleri.filter(obj=>obj.aciklama==undefined).map((performans, index) =>
                   <div key={index}>
                     <GridContainer  spacing={2}>
                       <Grid item xs={6}>{performans.adi}</Grid>
@@ -144,7 +164,7 @@ class Birimler extends React.Component {
                   <GridItem xs={7} sm={7} md={7}>
                     <div ><b>Adi</b></div ></GridItem>
                   <GridItem xs={5} sm={5} md={5}>
-                    <b>Güncel Hedef Tamamlanma Yüzdesi</b>
+                    <b>Tamamlanan Faaliyet / Kullanılan Maaliyet</b>
                   </GridItem>
 
 
@@ -158,6 +178,12 @@ class Birimler extends React.Component {
                       id="panel1bh-header"
                     >
                       <Grid item xs={6}>P{performans.amaclarId}.{performans.hedeflerId + 1}.{performans.id + 1} : {performans.adi}</Grid>
+                      <Grid item xs={6}>
+                          <LinearProg 
+                                            gerceklesmeOrani={strategydata.isturleri.filter(obj=>obj.performansId == performans.id).map(item => item.toplamDeger).reduce((prev, next) => prev + next)} 
+                                            yillikHedef={strategydata.vmFaaliyetTurleri.filter(obj=>obj.performansId == performans.id).map(item => item.toplamDeger).reduce((prev, next) => prev + next)} 
+                                            gosterilecekalan={["Faaliyet", "Maaliyet"]} />
+                          </Grid>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Grid container>
@@ -168,6 +194,7 @@ class Birimler extends React.Component {
                           <Grid item xs={2}><b>Hedef</b> </Grid>
                           <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
                           <Grid item xs={4}><b>Açıklama</b></Grid>
+                          
                         </Grid>
                         {strategydata.isturleri && strategydata.isturleri.map((is, index) => <Grid key={index} container>
                           <Grid item xs={12}><b>{strategydata.birim.adi}</b></Grid>
@@ -177,11 +204,11 @@ class Birimler extends React.Component {
                           <Grid item xs={2}>{is.toplamDeger} </Grid>
                           <Grid item xs={4}>{is.aciklama} </Grid>
                           <Grid item xs={12}>
-                          <LinearProg 
-                          parts={[(is.firstPart* 100)/is.yillikHedef,(is.secondPart* 100)/is.yillikHedef,(is.thirdPart* 100)/is.yillikHedef,(is.lastPart* 100)/is.yillikHedef]} 
-                          gerceklesmeOrani={(is.toplamDeger * 100) / is.yillikHedef} 
-                          gosterilecekalan={["Tamamlanan","Kalan"]}
-                           /></Grid>
+                          <LinearProg gerceklesmeOrani={is.toplamDeger} 
+                                                    yillikHedef={is.yillikHedef} gosterilecekalan={["Gerçekleşen", "Hedef"]} 
+                                                    parts={[(is.firstPart * 100) / is.yillikHedef, (is.secondPart * 100) / is.yillikHedef,
+                                                         (is.thirdPart * 100) / is.yillikHedef, (is.lastPart * 100) / is.yillikHedef]}
+                                                        gerceklesmeOrani={(is.toplamDeger * 100) / is.yillikHedef} /></Grid>
 
                         </Grid>)}
                         <Grid container><h4><b>Faaliyetler</b></h4></Grid>
@@ -199,11 +226,11 @@ class Birimler extends React.Component {
                           <Grid item xs={2}>{is.yillikHedef} </Grid>
                           <Grid item xs={2}>{is.toplamDeger} </Grid>
                           <Grid item xs={4}>{is.aciklama} </Grid>
-                          <Grid item xs={12}><LinearProg 
-                          parts={[(is.firstPart* 100)/is.yillikHedef,(is.secondPart* 100)/is.yillikHedef,(is.thirdPart* 100)/is.yillikHedef,(is.lastPart* 100)/is.yillikHedef]} 
-                          gerceklesmeOrani={(is.toplamDeger * 100) / is.yillikHedef} 
-                          gosterilecekalan={["Tamamlanan","Kalan"]} 
-                           /> </Grid>
+                          <Grid item xs={12}><LinearProg gerceklesmeOrani={is.toplamDeger} 
+                                                    yillikHedef={is.yillikHedef} gosterilecekalan={["Gerçekleşen", "Hedef"]} 
+                                                    parts={[(is.firstPart * 100) / is.yillikHedef, (is.secondPart * 100) / is.yillikHedef,
+                                                         (is.thirdPart * 100) / is.yillikHedef, (is.lastPart * 100) / is.yillikHedef]}
+                                                        gerceklesmeOrani={(is.toplamDeger * 100) / is.yillikHedef} /> </Grid>
                         </Grid>)}
                       </Grid>
                     </AccordionDetails>

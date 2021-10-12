@@ -78,7 +78,7 @@ class StratejiOlustur extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.getStrategyData()
+    this.props.getStrategyData(2)
 
   }
 
@@ -107,8 +107,7 @@ class StratejiOlustur extends React.Component {
     };
 
 
-    const strategydata = this.props.strategydata
-    console.log(strategydata)
+    const strategydata = this.props.strategydata;
     return (
       <div>
         {/* Stratejik amaç ekleme popupı */}

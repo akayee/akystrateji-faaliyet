@@ -1,10 +1,9 @@
 import React from 'react';
-import LinearProgress from "@material-ui/core/LinearProgress";
 import { Grid } from '@material-ui/core';
 import Chart from 'react-apexcharts'
 
 
-const LinearProg = props => {
+const LinearProgStrateji = props => {
     const options = {
         labels:props.gosterilecekalan
     }
@@ -27,7 +26,7 @@ const LinearProg = props => {
         labels: ['1.', '2.','3.']
       };
 
-const series = [props.gerceklesmeOrani, props.gerceklesmeOrani > 100 ? 0 : 100 - props.gerceklesmeOrani]
+const series = [props.gerceklesmeOrani, props.yillikHedef]
 const parts=props.parts;
 
 
@@ -39,11 +38,12 @@ return <Grid container >
     </Grid> */}
     <Grid item xs={12} style={{display:"flex", justifyContent:"flex-end"}} >
         {/* <LinearProgress variant="determinate" color={props.gerceklesmeOrani<70?'secondary':'primary'} value={props.gerceklesmeOrani>100?100:props.gerceklesmeOrani} /> */}
-        <Chart options={options1} series={parts} type="radialBar" width={175} />
+        {parts?<Chart options={options1} series={parts} type="radialBar" width={175} />:null}
+        
         <Chart options={options} series={series} type="donut" width={250} />
         
     </Grid>
 
 </Grid>
 }
-export default LinearProg
+export default LinearProgStrateji

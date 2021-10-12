@@ -4,9 +4,10 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {  Grid } from '@material-ui/core';
-import LinearProg from '../../components/LinearProg/LinearProg';
-import { connect} from 'react-redux';
-import { getStrategyData } from '../../store/actions/birimsstratejibilgiler'
+import LinearProg from '../../components/LinearProg/LinearProgStrateji';
+import { connect } from 'react-redux';
+import { getStrategyData } from '../../store/actions/birimsstratejibilgiler';
+import Divider from '../../components/Ui/Divider.js';
 
 
 class Stratejiler extends React.Component {
@@ -31,14 +32,22 @@ class Stratejiler extends React.Component {
     };
     componentDidMount() {
         this.props.getStrategyData(2);
-      }
+    }
+    
     render() {
-
-        const {stratejikAmac,hedefler,performanslar,isturleri,vmFaaliyetTurleri}= this.props.strategydata.strategydata;
-        console.log(this.props.strategydata)
+        function amount(item){
+            return item.Amount;
+          }
+          
+          function sum(prev, next){
+            return prev + next;
+          }
+        const { stratejikAmac, hedefler, performanslar, isturleri, vmFaaliyetTurleri,birim } = this.props.strategydata.strategydata;
+        const {birimler}=this.props.strategydata;
+        console.log(birim)
 
         return <div>
-            {stratejikAmac&&stratejikAmac.map((strateji, index) => <Accordion key={index} expanded={this.state.expanded === strateji.path} onChange={this.handleChange(strateji.path)}>
+            {stratejikAmac && stratejikAmac.map((strateji, index) => <Accordion key={index} expanded={this.state.expanded === strateji.path} onChange={this.handleChange(strateji.path)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
@@ -55,7 +64,6 @@ class Stratejiler extends React.Component {
                                 id="panel1bh-header"
                             >
                                 <Grid xs={5}>H{strateji.id + 1}.{hedef.id + 1} : {hedef.tanim}</Grid>
-                                <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{}</Grid>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div style={{ width: '%100' }}>
@@ -66,11 +74,19 @@ class Stratejiler extends React.Component {
                                             id="panel1bh-header"
                                         >
                                             <Grid xs={5}>P{strateji.id + 1}.{hedef.id + 1}.{performans.id + 1} : {performans.adi}</Grid>
-                                            <Grid xs={2} style={{display:"flex",justifyContent:"center",alignItems:"center"}}>{}</Grid>
+                                            <Grid xs={2} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                                {
+                                                //birim && birim.find(obj=>obj.id ==isturleri.find(o=>o).birimId).adi 
+                                                }
+                                                </Grid>
+                                            <Grid item xs={5}><LinearProg 
+                                            gerceklesmeOrani={isturleri.filter(obj=>obj.performansId == performans.id).map(item => item.toplamDeger).reduce((prev, next) => prev + next)} 
+                                            yillikHedef={vmFaaliyetTurleri.filter(obj=>obj.performansId == performans.id).map(item => item.toplamDeger).reduce((prev, next) => prev + next)} 
+                                            gosterilecekalan={["Faaliyet", "Maaliyet"]} /> </Grid>
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <Grid container>
-                                                <Grid container><h4><b>İşler</b></h4></Grid>
+                                                <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
                                                 <Grid container>
                                                     <Grid item xs={2}><b>Adi</b></Grid>
                                                     <Grid item xs={2}><b>Ölçü Birimi</b></Grid>
@@ -80,13 +96,18 @@ class Stratejiler extends React.Component {
                                                 </Grid>
                                                 {isturleri && isturleri.map((is, index) => <Grid key={index} container>
                                                     <Grid item xs={2}>{is.adi}</Grid>
-                                                    <Grid item xs={2} style={{textAlign:'center'}}>{is.OlcuBrimi} </Grid>
+                                                    <Grid item xs={2} style={{ textAlign: 'center' }}>{is.OlcuBrimi} </Grid>
                                                     <Grid item xs={2}>{is.yillikHedef} </Grid>
                                                     <Grid item xs={2}>{is.toplamDeger} </Grid>
                                                     <Grid item xs={4}>{is.aciklama} </Grid>
-                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={(is.toplamDeger*100/is.yillikHedef)} gosterilecekalan={["Performans","Faaliyet"]} parts={[is.firstPart,is.secondPart,is.thirdPart,is.lastPart]} /> </Grid>
-                                                </Grid>)}
-                                                <Grid container><h4><b>Faaliyetler</b></h4></Grid>
+                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.toplamDeger} 
+                                                    yillikHedef={is.yillikHedef} gosterilecekalan={["Gerçekleşen", "Hedef"]} 
+                                                    parts={[(is.firstPart * 100) / is.yillikHedef, (is.secondPart * 100) / is.yillikHedef,
+                                                         (is.thirdPart * 100) / is.yillikHedef, (is.lastPart * 100) / is.yillikHedef]}
+                                                        gerceklesmeOrani={(is.toplamDeger * 100) / is.yillikHedef} /> </Grid>
+                                                </Grid>)}                                                
+                                                <Divider />
+                                                <Grid container><h4><b>Maaliyetler</b></h4></Grid>
                                                 <Grid container>
                                                     <Grid item xs={2}><b>Adi</b></Grid>
                                                     <Grid item xs={2} ><b>Ölçü Birimi</b></Grid>
@@ -96,11 +117,15 @@ class Stratejiler extends React.Component {
                                                 </Grid>
                                                 {vmFaaliyetTurleri && vmFaaliyetTurleri.map((is, index) => <Grid key={index} container>
                                                     <Grid item xs={2}>{is.adi}</Grid>
-                                                    <Grid item xs={2} style={{textAlign:'center'}}>{is.OlcuBrimi} </Grid>
+                                                    <Grid item xs={2} style={{ textAlign: 'center' }}>{is.OlcuBrimi} </Grid>
                                                     <Grid item xs={2}>{is.yillikHedef} </Grid>
                                                     <Grid item xs={2}>{is.toplamDeger} </Grid>
                                                     <Grid item xs={4}>{is.aciklama} </Grid>
-                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={(is.toplamDeger*100/is.yillikHedef)}  gosterilecekalan={["Performans","Faaliyet"]} parts={[is.firstPart,is.secondPart,is.thirdPart,is.lastPart]} /> </Grid>
+                                                    <Grid item xs={12}><LinearProg gerceklesmeOrani={is.toplamDeger} 
+                                                    yillikHedef={is.yillikHedef} gosterilecekalan={["Gerçekleşen", "Hedef"]} 
+                                                    parts={[(is.firstPart * 100) / is.yillikHedef, 
+                                                        (is.secondPart * 100) / is.yillikHedef, (is.thirdPart * 100) / is.yillikHedef, (is.lastPart * 100) / is.yillikHedef]}
+                                                        gerceklesmeOrani={(is.toplamDeger * 100) / is.yillikHedef} /> </Grid>
                                                 </Grid>)}
                                             </Grid>
                                         </AccordionDetails>
@@ -121,5 +146,5 @@ class Stratejiler extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({strategydata: state.strategydata })
-export default connect(mapStateToProps, {getStrategyData })(Stratejiler);
+const mapStateToProps = (state) => ({ strategydata: state.strategydata })
+export default connect(mapStateToProps, { getStrategyData })(Stratejiler);
