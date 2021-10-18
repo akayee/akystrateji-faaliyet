@@ -29,6 +29,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import Divider from '../../components/Ui/Divider.js';
+import Skeleton from 'react-loading-skeleton';
 const acoounttye = [
   { Adi: 'Fen İşleri', id: '0', hedef: '80' },
   { Adi: 'Emlak İstimlak', id: '1', hedef: '70' },
@@ -78,7 +80,7 @@ class StratejiOlustur extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.getStrategyData(2)
+    this.props.getStrategyData([2])
 
   }
 
@@ -106,8 +108,14 @@ class StratejiOlustur extends React.Component {
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
 
-
-    const strategydata = this.props.strategydata;
+    if(this.props.strategydata.loading== true){
+      return <div>
+      <Skeleton height={100} />
+      <Skeleton count={6} /></div>
+    }
+    const strategydata = this.props.strategydata.strategydata;
+    const {stratejikAmac,hedefler,performanslar,isturleri,vmFaaliyetTurleri}=this.props.strategydata.strategydata
+    console.log(strategydata)
     return (
       <div>
         {/* Stratejik amaç ekleme popupı */}
@@ -125,7 +133,7 @@ class StratejiOlustur extends React.Component {
                 defaultValue={this.state.Yil}
                 onChange={this.handleChangeYil}
               >
-                {strategydata.Yillar && strategydata.Yillar.map((item, index) => {
+                {this.props.strategydata.Yillar && this.props.strategydata.Yillar.map((item, index) => {
                   return <MenuItem key={item.id} value={item.id}>{item.adi} </MenuItem>
                 }
                 )}
@@ -147,7 +155,7 @@ class StratejiOlustur extends React.Component {
             <Card>
               {/* Stratejik amaç tablosu */}
 
-              {this.state.amacData.map(strateji => <Accordion expanded={this.state.expanded === strateji.path} onChange={this.handleChange(strateji.path)}>
+              {stratejikAmac.map(strateji => <Accordion expanded={this.state.expanded === strateji.id} onChange={this.handleChange(strateji.id)}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1bh-content"
@@ -173,14 +181,14 @@ class StratejiOlustur extends React.Component {
                     </GridContainer>
 
                     {
-                      strateji.hedefler.map((item) =>
-                        <Accordion expanded={this.state.hedefexpanded === item.path} onChange={this.handleChangeHedef(item.path)}>
+                      hedefler.map((item) =>
+                        <Accordion expanded={this.state.hedefexpanded === strateji.id +'/'+item.id} onChange={this.handleChangeHedef(strateji.id +'/'+item.id)}>
                           <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                           >
-                            <Grid xs={5}>H{strateji.id + 1}.{item.id + 1} : <div >{item.adi}</div ></Grid>
+                            <Grid xs={5}>H{strateji.id + 1}.{item.id + 1} : <div >{item.tanim}</div ></Grid>
                             <Grid item xs={7} style={{ textAlign: 'right' }}>
                               <IconButton onClick={e => {
                                 e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
@@ -217,7 +225,7 @@ class StratejiOlustur extends React.Component {
                                   <PerformansEkle birimler={BIRIMLER} hedefAdi={item.adi} classes={this.props.classes} amacId={strateji.id} hedefId={item.id} />
                                 </GridItem>
                               </GridContainer>
-                              {item.performanslar ? item.performanslar.map(performans => <Accordion expanded={this.state.performansexpanded === performans.path} onChange={this.handleChangePerformans(performans.path)}>
+                              {performanslar ? performanslar.map(performans => <Accordion expanded={this.state.performansexpanded === strateji.id +'/'+item.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id +'/'+item.id+'/'+performans.id)}>
                                 <AccordionSummary
                                   expandIcon={<ExpandMoreIcon />}
                                   aria-controls="panel1bh-content"
@@ -237,7 +245,7 @@ class StratejiOlustur extends React.Component {
                                 <AccordionDetails>
                                   <Grid container>
                                     <Grid item xs={4}><YeniIsEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /></Grid>
-                                    <Grid item xs={6}><YeniFaaliyetEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
+                                    <Grid item xs={6}><YeniFaaliyetEkle performansAdi={performans.adi} birim={null} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
                                     <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
                                     <Grid container>
                                       <Grid item xs={2}><b>Adi</b></Grid>
@@ -246,13 +254,14 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
                                       <Grid item xs={4}><b>Açıklama</b></Grid>
                                     </Grid>
-                                    {performans.isler && performans.isler.map((is, index) => <Grid container>
+                                    {isturleri && isturleri.map((is, index) => <Grid container>
                                       <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
                                       <Grid item xs={2}>{is.adi}</Grid>
-                                      <Grid item xs={2} style={{ textAlign: 'center' }}>{is.OlcuBrimi} </Grid>
-                                      <Grid item xs={2}>{is.hedef} </Grid>
-                                      <Grid item xs={2}>{is.gerceklesme} </Grid>
+                                      <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBrimi} </Grid>
+                                      <Grid item xs={2}>{is.yillikHedef} </Grid>
+                                      <Grid item xs={2}>{is.toplamDeger} </Grid>
                                       <Grid item xs={4}>{is.aciklama} </Grid>
+                                      <Divider />
 
                                     </Grid>)}
                                     <Grid container><h4><b>Faaliyetler</b></h4></Grid>
@@ -263,13 +272,14 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
                                       <Grid item xs={4}><b>Açıklama</b></Grid>
                                     </Grid>
-                                    {performans.isler && performans.faaliyetler.map((is, index) => <Grid container>
+                                    {vmFaaliyetTurleri && vmFaaliyetTurleri.map((is, index) => <Grid container>
                                       <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
                                       <Grid item xs={2}>{is.adi}</Grid>
-                                      <Grid item xs={2} style={{ textAlign: 'center' }}>{is.OlcuBrimi} </Grid>
-                                      <Grid item xs={2}>{is.hedef} </Grid>
-                                      <Grid item xs={2}>{is.gerceklesme} </Grid>
+                                      <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBrimi} </Grid>
+                                      <Grid item xs={2}>{is.yillikHedef} </Grid>
+                                      <Grid item xs={2}>{is.toplamDeger} </Grid>
                                       <Grid item xs={4}>{is.aciklama} </Grid>
+                                      <Divider />
                                     </Grid>)}
                                   </Grid>
                                 </AccordionDetails>
@@ -293,5 +303,5 @@ class StratejiOlustur extends React.Component {
 StratejiOlustur.propTypes = {
   classes: PropTypes.object.isRequired
 };
-const mapStateToProps = (state) => ({ strategydata: state.strategydata })
+const mapStateToProps = (state) => ({ strategydata: state.strategydata,loading:state.loading })
 export default connect(mapStateToProps, { getStrategyData })(withStyles(styles)(StratejiOlustur));
