@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 
@@ -8,27 +8,14 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 import { addToAmaclar } from '../../store/actions/amaclar';
 import Swal from 'sweetalert2';
+import AmacItem from '../../models/amac_item';
 
-const mapDispatchToProps = {
-    addToAmaclar
 
-};
-
-const mapStateToProps = state => {
-    return {
-        amaclar: state.amaclar
-    }
-}
 class AmacEkle extends React.Component {
     constructor(...args) {
         super(...args);
@@ -43,11 +30,6 @@ class AmacEkle extends React.Component {
         this.setState({ amacDetay: { ...this.state.amacDetay, [e.target.name]: val } })
 
     }
-    handleChangeBirim = (e) => {
-        let val = e.target.value;
-        this.setState({ Birim: val })
-
-    }
 
     modalAccountOpen = () => {
         this.setState({
@@ -57,7 +39,8 @@ class AmacEkle extends React.Component {
 
     handleSubmit = (e) => {
         const { addToAmaclar } = this.props;
-        addToAmaclar(this.state.amacDetay);
+        let yeniamac= new AmacItem(0,this.state.amacDetay.Adi)
+        addToAmaclar(yeniamac);
         this.setState({
             modalopen: !this.state.modalopen,
             amacDetay: [],
@@ -82,7 +65,7 @@ class AmacEkle extends React.Component {
                     </DialogContentText>
                     <Grid container spacing={3}>
                         <TextField
-                            name="Tanim"
+                            name="Adi"
                             autoFocus
                             margin="dense"
                             id="name"
@@ -91,30 +74,7 @@ class AmacEkle extends React.Component {
                             fullWidth
                             onChange={this.handleChange}
                         />
-                        <Grid item xs={4}>
-                            <FormControl className={classes.formControl}>
-                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Strateji Yılı?
-                                </InputLabel>
-                                <Select
-                                    name="Birim"
-                                    type="text"
-                                    multiple
-                                    value={this.state.Birim}
-                                    onChange={this.handleChangeBirim}
-                                >
-                                    {this.props.birimler.map((item, index) => {
-                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
-                                    }
-                                    )}
-                                </Select>
-
-                                <FormHelperText>Lütfen Bir Yıl Seçiniz</FormHelperText>
-                            </FormControl>
-                        </Grid>
                     </Grid>
-
-
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={this.modalAccountOpen}>
@@ -130,4 +90,5 @@ class AmacEkle extends React.Component {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AmacEkle)
+const mapStateToProps = (state) => ({ amaclar: state.amaclar.amaclar })
+export default connect(mapStateToProps, { addToAmaclar })(AmacEkle)

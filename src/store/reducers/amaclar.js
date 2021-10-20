@@ -4,7 +4,8 @@ import AmacItem from '../../models/amac_item';
 
 const initialState = {
     amaclar: [],
-    loading: false
+    stratejidata:[],
+    loading: true
 };
 
 export default (state = initialState, action) => {
@@ -14,12 +15,13 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 amaclar: action.payload,
-                loading: false
+                loading: false,
+                stratejidata:action.stratejidata
             }
         case ADD_TO_AMACLAR:
             const addedAmac = action.amac
-            const id = state.amaclar.length + 1;
-            let updatedOrNewAmacItem = new AmacItem(id, addedAmac.Tanim)
+            const id = action.payload;
+            let updatedOrNewAmacItem = new AmacItem(id, addedAmac.adi)
 
             return {
                 ...state, amaclar: { [id]: updatedOrNewAmacItem }

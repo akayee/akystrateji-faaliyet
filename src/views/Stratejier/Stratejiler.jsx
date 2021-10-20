@@ -31,7 +31,7 @@ class Stratejiler extends React.Component {
         this.setState({ performansexpanded: isExpanded ? panel : false });
     };
     componentDidMount() {
-        this.props.getStrategyData([2]);
+        this.props.getStrategyData([1,2]);
     }
 
     render() {
@@ -44,6 +44,7 @@ class Stratejiler extends React.Component {
         }
         const { stratejikAmac, hedefler, performanslar, isturleri, vmFaaliyetTurleri, birim } = this.props.strategydata.strategydata;
         const { birimler } = this.props.strategydata;
+        console.log(this.props)
 
         return <div>
             {stratejikAmac && stratejikAmac.map((strateji, index) => <Accordion key={index} expanded={this.state.expanded === strateji.path} onChange={this.handleChange(strateji.path)}>
