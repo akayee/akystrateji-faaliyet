@@ -174,7 +174,7 @@ class StratejiOlustur extends React.Component {
                   <div style={{ width: "100%", marginLeft: "5rem" }} >
                     <GridContainer alignItems='center' justify='center'>
                       <GridItem xs={12} sm={12} md={12}>
-                        <HedefEkle classes={this.props.classes} birimler={acoounttye} amacAdi={strateji.adi} amacId={strateji.id} />
+                        <HedefEkle classes={this.props.classes} birimler={acoounttye} amac={strateji} amacAdi={strateji.adi} amacId={strateji.id} />
                       </GridItem>
                     </GridContainer>
 

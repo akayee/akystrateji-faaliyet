@@ -19,7 +19,7 @@ export default (state=initialState,action)=>{
         case ADD_TO_HEDEFLER:
             const addedHedef = action.hedef
             const id=state.hedefler.length+1;
-            let updatedOrNewItem = new HedefItem(id,addedHedef.Tanim,action.amacId)
+            let updatedOrNewItem = new HedefItem(action.payload,addedHedef.Tanim,addedHedef.amaclarId)
             
             return {
                 ...state,hedefler:{[id]:updatedOrNewItem}

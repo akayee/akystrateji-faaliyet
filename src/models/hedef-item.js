@@ -1,9 +1,8 @@
 class HedefItem{
-    constructor(hedefId,hedefAdi,amacId){
+    constructor(hedefId,adi,amacId){
         this.hedefId=hedefId;
-        this.adi=hedefAdi;
-        this.amacId=amacId;
-        this.path=(amacId+1)+"/"+hedefId;
+        this.adi=adi;
+        this.amaclarId=amacId;
 
     }
 };
