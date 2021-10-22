@@ -7,6 +7,7 @@ export const REMOVE_FROM_HEDEFLER='REMOVE_FROM_HEDEFLER';
 
 export const GET_HEDEFDATA='GET_HEDEFDATA';
 
+
 export const addToHedefler = (hedef)=>async dispatch=>{
     try{
         //TODO linki kontrol et
@@ -33,7 +34,7 @@ export const removeFromHedefler= hedef =>{
     return {type:REMOVE_FROM_HEDEFLER,hedef}
 };
 
-export const getHdedefData =birimId =>async dispatch=>{
+export const getHdedefData =() =>async dispatch=>{
     try{
         const res =await axios.get(`https://localhost:44312/Hedefler/GetListofHedefler`)
         dispatch({

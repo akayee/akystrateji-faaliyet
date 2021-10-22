@@ -1,6 +1,5 @@
 import {ADD_TO_HEDEFLER,REMOVE_FROM_HEDEFLER,GET_HEDEFDATA} from '../actions/hedefler';
 
-import HedefItem from '../../models/hedef-item';
 
 const initialState={
     hedefler:[],
@@ -17,12 +16,13 @@ export default (state=initialState,action)=>{
                 loading:false
             }
         case ADD_TO_HEDEFLER:
+            let yenihedefler=state.hedefler
             const addedHedef = action.hedef
-            const id=state.hedefler.length+1;
-            let updatedOrNewItem = new HedefItem(action.payload,addedHedef.Tanim,addedHedef.amaclarId)
-            
+            const id=action.payload
+            addedHedef.id=id;
+            yenihedefler.push(addedHedef)
             return {
-                ...state,hedefler:{[id]:updatedOrNewItem}
+                ...state,hedefler:yenihedefler
             }
         case REMOVE_FROM_HEDEFLER:
             let deletedItem={...state.hedefler};

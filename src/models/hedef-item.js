@@ -1,7 +1,7 @@
 class HedefItem{
-    constructor(hedefId,adi,amacId){
+    constructor(hedefId,tanim,amacId){
         this.hedefId=hedefId;
-        this.adi=adi;
+        this.tanim=tanim;
         this.amaclarId=amacId;
 
     }

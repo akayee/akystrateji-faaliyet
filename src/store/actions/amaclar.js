@@ -4,7 +4,7 @@ import axios from 'axios';
 export const ADD_TO_AMACLAR='ADD_TO_AMACLAR';
 export const REMOVE_FROM_AMACLAR='REMOVE_FROM_AMACLAR';
 export const GET_AMACDATA='GET_AMACDATA';
-export const UPDATE_FROM_AMACLAR='UPDATE_FROM_AMACLAR'
+export const UPDATE_FROM_AMACLAR='UPDATE_FROM_AMACLAR';
 
 export const addToAmaclar = amac => async dispatch=>{
     try{

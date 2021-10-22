@@ -117,6 +117,7 @@ class StratejiOlustur extends React.Component {
       <Skeleton count={6} /></div>
     }
     const {stratejikAmac,hedefler,performanslar,isturleri,vmFaaliyetTurleri}=this.props.strategydata
+    console.log(this.props.strategydata)
     return (
       <div>
         {/* Stratejik amaç ekleme popupı */}
@@ -159,7 +160,7 @@ class StratejiOlustur extends React.Component {
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
                 >
-                  <Grid item xs={10} >A{strateji.id + 1}:{strateji.adi}</Grid>
+                  <Grid item xs={10} >A{strateji.id}:{strateji.adi}</Grid>
                   <Grid item xs={2} style={{ textAlign: 'right' }}>
                     <IconButton>
                       <DeleteIcon />
@@ -186,7 +187,7 @@ class StratejiOlustur extends React.Component {
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                           >
-                            <Grid xs={5}>H{strateji.id + 1}.{item.id + 1} : <div >{item.tanim}</div ></Grid>
+                            <Grid xs={5}>H{strateji.id }.{item.id } : <div >{item.tanim}</div ></Grid>
                             <Grid item xs={7} style={{ textAlign: 'right' }}>
                               <IconButton onClick={e => {
                                 e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
@@ -220,7 +221,7 @@ class StratejiOlustur extends React.Component {
                             <div style={{ width: '%100' }}>
                               <GridContainer alignItems='center' justify='center'>
                                 <GridItem xs={12} sm={12} md={12}>
-                                  <PerformansEkle birimler={BIRIMLER} hedefAdi={item.adi} classes={this.props.classes} amacId={strateji.id} hedefId={item.id} />
+                                  <PerformansEkle birimler={BIRIMLER} classes={this.props.classes} hedef={item} />
                                 </GridItem>
                               </GridContainer>
                               {performanslar ? performanslar.filter(obj=>obj.hedeflerId==item.id).map(performans => <Accordion expanded={this.state.performansexpanded === strateji.id +'/'+item.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id +'/'+item.id+'/'+performans.id)}>
@@ -229,7 +230,7 @@ class StratejiOlustur extends React.Component {
                                   aria-controls="panel1bh-content"
                                   id="panel1bh-header"
                                 >
-                                  <Grid xs={5}>P{strateji.id + 1}.{item.id + 1}.{performans.id + 1} : {performans.adi}</Grid>
+                                  <Grid xs={5}>P{strateji.id }.{item.id}.{performans.id} : {performans.adi}</Grid>
                                   <Grid item xs={7} style={{ textAlign: 'right' }}>
                                     <IconButton>
                                       <DeleteIcon />

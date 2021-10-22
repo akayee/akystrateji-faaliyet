@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import {connect} from 'react-redux';
 import { addToPerformanslar } from '../../store/actions/performanslar';
+import { getHdedefData } from '../../store/actions/hedefler'
 
 
 import { Button } from '@material-ui/core';
@@ -23,25 +24,13 @@ import AddIcon from '@material-ui/icons/Add';
 import Swal from 'sweetalert2';
 
 
-
-const mapDispatchToProps =  {
-    addToPerformanslar
-
-};
-
-const mapStateToProps = state => {
-    return{
-    performanslar: state.performanslar
-    }
-}
-
 class PerformansEkle extends React.Component {
     constructor(...args){
         super(...args);
         this.state={
             modalopen:false,
             amacDetay:[],
-            Birim:[]
+            Hedef:null
         }
     }
     handleChange= (e)=>{
@@ -51,7 +40,7 @@ class PerformansEkle extends React.Component {
     }
     handleChangeBirim= (e)=>{
         let val = e.target.value;
-        this.setState({Birim:val})
+        this.setState({Hedef:val})
 
     }
 
@@ -60,6 +49,10 @@ class PerformansEkle extends React.Component {
             modalopen:!this.state.modalopen
         })
     }
+    componentDidMount()
+    {
+        this.props.getHdedefData();
+    }
     handleSubmit =(e)=>{
         
         const {addToPerformanslar}=this.props;
@@ -67,7 +60,7 @@ class PerformansEkle extends React.Component {
         this.setState({
             modalopen:!this.state.modalopen,
             amacDetay:[],
-            Birim:[]
+            Hedef:null
         })
         Swal.fire({
             title: 'Kayıt Başarılı!',
@@ -78,7 +71,8 @@ class PerformansEkle extends React.Component {
           })
     }
     render() {
-        const { classes } = this.props;
+        const { classes,hedef,hedefler } = this.props;
+        console.log(hedef)
         return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Hedefi Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Performans Hedefi Oluştur</DialogTitle>
@@ -92,7 +86,7 @@ class PerformansEkle extends React.Component {
                             autoFocus
                             margin="dense"
                             id="name"
-                            label="Performans Açıklama"
+                            label="Performans Hedefi Tanımı"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -100,38 +94,16 @@ class PerformansEkle extends React.Component {
                         <Grid item xs={4}>
                             <FormControl className={classes.formControl}>
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Strateji Yılı?
-                                </InputLabel>
-                                <Select
-                                    name="Birim"
-                                    type="text"
-                                    multiple
-                                    value={this.state.Birim}
-                                    onChange={this.handleChangeBirim}
-                                >
-                                    {this.props.birimler.map((item, index) => {
-                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
-                                    }
-                                    )}
-                                </Select>
-
-                                <FormHelperText>Lütfen Bir Yıl Seçiniz</FormHelperText>
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <FormControl className={classes.formControl}>
-                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
                                     Stratejik Hedefi?
                                 </InputLabel>
                                 <Select
-                                    name="Birim"
+                                    name="Hedef"
                                     type="text"
-                                    multiple
-                                    value={this.state.Birim}
+                                    value={this.state.Hedef||hedef.id}
                                     onChange={this.handleChangeBirim}
                                 >
-                                    {this.props.birimler.map((item, index) => {
-                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    {hedefler.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>H{item.id} {item.tanim.slice(0,40)} </MenuItem>
                                     }
                                     )}
                                 </Select>
@@ -157,4 +129,5 @@ class PerformansEkle extends React.Component {
 
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(PerformansEkle)
+const mapStateToProps = (state) => ({ hedefler: state.hedefler.hedefler,loading:state.hedefler.loading})
+export default connect(mapStateToProps,{addToPerformanslar,getHdedefData})(PerformansEkle)

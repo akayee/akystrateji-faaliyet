@@ -32,7 +32,7 @@ class HedefEkle extends React.Component {
         this.state={
             modalopen:false,
             amacDetay:[],
-            Birim:[],
+            Amaclar:null,
             amac:this.props.amac
         }
     }
@@ -58,12 +58,11 @@ class HedefEkle extends React.Component {
         const hedef= new HedefItem(0,this.state.amacDetay.Tanim,this.props.amac.id)
         
         
-        console.log(hedef)
         addToHedefler(hedef);
         this.setState({
             modalopen:!this.state.modalopen,
             amacDetay:[],
-            Amaclar:[]
+            Amaclar:null
         })
         Swal.fire({
             title: 'Kayıt Başarılı!',
@@ -76,7 +75,6 @@ class HedefEkle extends React.Component {
     render() {
         const { classes,amac } = this.props;
         const {amaclar} = this.props;
-        console.log(amac)
         if(this.props.loading== true){
             return <div>
             <Skeleton height={100} />
@@ -111,7 +109,7 @@ class HedefEkle extends React.Component {
                                     value={this.state.Amaclar||amac.id}
                                     onChange={this.handleChangeBirim}
                                 >
-                                    {amaclar.map((item, index) => {
+                                    {amaclar&&amaclar.map((item, index) => {
                                         return <MenuItem key={item.id} value={item.id}>A{item.id} {item.adi.slice(0,40)} </MenuItem>
                                     }
                                     )}

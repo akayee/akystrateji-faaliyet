@@ -17,12 +17,13 @@ export default (state=initialState,action)=>{
                 loading:false
             }
         case ADD_TO_PERFORMANSLAR:
-            const addedData = action.performans
-            const id=state.performanslar.length+1;
-            let updatedOrNewItem = new PerformansItem(id,addedData.Tanim,action.amacId,action.hedefId)
-            
+            let yeniperformanslar=state.performanslar
+            const addedPerformans = action.performans
+            const id=action.payload
+            addedPerformans.id=id;
+            yeniperformanslar.push(addedPerformans)
             return {
-                ...state,performanslar:{[id]:updatedOrNewItem}
+                ...state,performanslar:yeniperformanslar
             }
         case REMOVE_FROM_PERFORMANSLAR:
             let allItems={...state.performanslar};
