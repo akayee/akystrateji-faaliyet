@@ -1,6 +1,5 @@
 import {ADD_TO_PERFORMANSLAR,REMOVE_FROM_PERFORMANSLAR , GET_PERFORMANSDATA} from '../actions/performanslar';
 
-import PerformansItem from '../../models/performans-item';
 
 const initialState={
     performanslar:[],

@@ -20,7 +20,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import BIRIMLER from "../../data/birimler";
 import PerformansEkle from "../../components/Birimislemleri/PerformansEkle";
-import YeniIsEkle from "../../components/Birimislemleri/YeniIsEkle";
+import PerformansGostergesiEkle from "../../components/Birimislemleri/PerformansGostergesiEkle";
 import YeniFaaliyetEkle from "../../components/Birimislemleri/YeniFaaliyetEkle";
 import Swal from 'sweetalert2';
 import { connect } from 'react-redux';
@@ -243,7 +243,7 @@ class StratejiOlustur extends React.Component {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                   <Grid container>
-                                    <Grid item xs={4}><YeniIsEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /></Grid>
+                                    <Grid item xs={4}><PerformansGostergesiEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /></Grid>
                                     <Grid item xs={6}><YeniFaaliyetEkle performansAdi={performans.adi} birim={null} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
                                     <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
                                     <Grid container>

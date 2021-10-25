@@ -9,19 +9,21 @@ export const GET_PERFORMANSDATA='GET_PERFORMANSDATA';
 
 export const addToPerformanslar = (performans)=>async dispatch=>{
     try{
-        const res =await axios.get(`https://localhost:44312/Performanslar/AddNewPerformans`,performans)
+        const res =await axios.post(`https://localhost:44312/Performanslar/AddNewPerformans`,performans)
         dispatch({
-            type:GET_PERFORMANSDATA,
+            type:ADD_TO_PERFORMANSLAR,
             payload:res.data,
-            performans
+            performans,
+            error:false
 
         })
     }
     catch(e){
         dispatch({
-            type:GET_PERFORMANSDATA,
+            type:ADD_TO_PERFORMANSLAR,
             payload:console.log(e),
-            performans
+            performans,
+            error:true
         })
     }
 };

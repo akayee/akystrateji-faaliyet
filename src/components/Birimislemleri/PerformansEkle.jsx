@@ -56,7 +56,11 @@ class PerformansEkle extends React.Component {
     handleSubmit =(e)=>{
         
         const {addToPerformanslar}=this.props;
-        addToPerformanslar(this.state.amacDetay,this.props.amacId,this.props.hedefId);
+        let performans = {
+            adi:this.state.amacDetay.Adi,
+            hedeflerId:this.props.hedef.id
+        }
+        addToPerformanslar(performans);
         this.setState({
             modalopen:!this.state.modalopen,
             amacDetay:[],
@@ -72,7 +76,6 @@ class PerformansEkle extends React.Component {
     }
     render() {
         const { classes,hedef,hedefler } = this.props;
-        console.log(hedef)
         return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Hedefi Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Performans Hedefi Oluştur</DialogTitle>
@@ -82,7 +85,7 @@ class PerformansEkle extends React.Component {
             </DialogContentText>
                     <Grid container spacing={3}>
                         <TextField
-                            name="Tanim"
+                            name="Adi"
                             autoFocus
                             margin="dense"
                             id="name"

@@ -2,7 +2,6 @@ import { ADD_TO_AMACLAR, REMOVE_FROM_AMACLAR, GET_AMACDATA, UPDATE_FROM_AMACLAR 
 import { ADD_TO_HEDEFLER } from '../actions/hedefler';
 import { ADD_TO_PERFORMANSLAR } from '../actions/performanslar';
 
-import AmacItem from '../../models/amac_item';
 
 const initialState = {
     amaclar: [],
@@ -24,7 +23,6 @@ export default (state = initialState, action) => {
             let yeniamaclar = state.amaclar;
             const addedAmac = action.amac
             const id = action.payload;
-            let updatedOrNewAmacItem = new AmacItem(id, addedAmac.adi)
             addedAmac.id = id;
             let liste = state.stratejidata.stratejikAmac;
             liste.push(addedAmac);
@@ -66,13 +64,12 @@ export default (state = initialState, action) => {
                 liste.push({ id: action.payload, tanim: action.hedef.tanim, amaclarId: action.hedef.amaclarId })
                 return { ...state, stratejidata: { ...state.stratejidata, hedefler: liste } }
             }
-
         case ADD_TO_PERFORMANSLAR:
             if (action.error == true) {
                 return { ...state, loading: false }
             } else {
                 let liste = state.stratejidata.performanslar;
-                liste.push({ id: action.payload, tanim: action.performans.tanim, hedeflerId: action.performans.amaclarId })
+                liste.push({ id: action.payload, adi: action.performans.adi, hedeflerId: action.performans.hedeflerId });
                 return { ...state, stratejidata: { ...state.stratejidata, performanslar: liste } }
             }
 
