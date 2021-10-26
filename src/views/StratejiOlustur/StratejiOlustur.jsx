@@ -187,7 +187,7 @@ class StratejiOlustur extends React.Component {
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                           >
-                            <Grid xs={5}>H{strateji.id }.{item.id } : <div >{item.tanim}</div ></Grid>
+                            <Grid xs={5}>H{strateji.id }.{item.hedeflerId } : <div >{item.tanim}</div ></Grid>
                             <Grid item xs={7} style={{ textAlign: 'right' }}>
                               <IconButton onClick={e => {
                                 e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
@@ -230,7 +230,7 @@ class StratejiOlustur extends React.Component {
                                   aria-controls="panel1bh-content"
                                   id="panel1bh-header"
                                 >
-                                  <Grid xs={5}>P{strateji.id }.{item.id}.{performans.id} : {performans.adi}</Grid>
+                                  <Grid xs={5}>P{strateji.id }.{item.hedeflerId}.{performans.performanslarId} : {performans.adi}</Grid>
                                   <Grid item xs={7} style={{ textAlign: 'right' }}>
                                     <IconButton>
                                       <DeleteIcon />

@@ -16,11 +16,12 @@ export default (state=initialState,action)=>{
                 loading:false
             }
         case ADD_TO_HEDEFLER:
-            let yenihedefler=state.hedefler
-            const addedHedef = action.hedef
-            const id=action.payload
+            let yenihedefler=state.hedefler;
+            const addedHedef = action.hedef;
+            const id=action.payload;
             addedHedef.id=id;
-            yenihedefler.push(addedHedef)
+            addedHedef.hedeflerId=yenihedefler.filter(obj=>obj.amaclarId==action.hedef.amaclarId).length;
+            yenihedefler.push(addedHedef);
             return {
                 ...state,hedefler:yenihedefler
             }

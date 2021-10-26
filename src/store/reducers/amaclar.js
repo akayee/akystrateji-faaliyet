@@ -61,15 +61,17 @@ export default (state = initialState, action) => {
                 return { ...state, loading: false }
             } else {
                 let liste = state.stratejidata.hedefler;
-                liste.push({ id: action.payload, tanim: action.hedef.tanim, amaclarId: action.hedef.amaclarId })
+                let nextid= liste.filter(obj=>obj.amaclarId==action.hedef.amaclarId).length
+                liste.push({ id: action.payload, tanim: action.hedef.tanim, amaclarId: action.hedef.amaclarId,hedeflerId:nextid })
                 return { ...state, stratejidata: { ...state.stratejidata, hedefler: liste } }
             }
         case ADD_TO_PERFORMANSLAR:
             if (action.error == true) {
                 return { ...state, loading: false }
             } else {
-                let liste = state.stratejidata.performanslar;
-                liste.push({ id: action.payload, adi: action.performans.adi, hedeflerId: action.performans.hedeflerId });
+                let liste = state.stratejidata.performanslar;                
+                let nextid= liste.filter(obj=>obj.hedeflerId==action.hedef.hedeflerId).length
+                liste.push({ id: action.payload, adi: action.performans.adi, hedeflerId: action.performans.hedeflerId,performanslarId:nextid });
                 return { ...state, stratejidata: { ...state.stratejidata, performanslar: liste } }
             }
 

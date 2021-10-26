@@ -16,11 +16,12 @@ export default (state=initialState,action)=>{
                 loading:false
             }
         case ADD_TO_PERFORMANSLAR:
-            let yeniperformanslar=state.performanslar
-            const addedPerformans = action.performans
-            const id=action.payload
+            let yeniperformanslar=state.performanslar;
+            const addedPerformans = action.performans;
+            const id=action.payload;
             addedPerformans.id=id;
-            yeniperformanslar.push(addedPerformans)
+            addedPerformans.performanslarId=yeniperformanslar.filter(obj=>obj.hedeflerId==action.performans.hedeflerId);
+            yeniperformanslar.push(addedPerformans);
             return {
                 ...state,performanslar:yeniperformanslar
             }
