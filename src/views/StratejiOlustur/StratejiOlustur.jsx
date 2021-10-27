@@ -243,8 +243,8 @@ class StratejiOlustur extends React.Component {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                   <Grid container>
-                                    <Grid item xs={4}><PerformansGostergesiEkle performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /></Grid>
-                                    <Grid item xs={6}><YeniFaaliyetEkle performansAdi={performans.adi} birim={null} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
+                                    <Grid item xs={4}><PerformansGostergesiEkle performans={performans} performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /></Grid>
+                                    <Grid item xs={6}><YeniFaaliyetEkle performans={performans} performansAdi={performans.adi} birim={null} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
                                     <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
                                     <Grid container>
                                       <Grid item xs={8}><b>Adi</b></Grid>
@@ -252,7 +252,7 @@ class StratejiOlustur extends React.Component {
                                     </Grid>
                                     {isturleri && isturleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid container>
                                       <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
-                                      <Grid item xs={8}>{is.adi}</Grid>
+                                      <Grid item xs={8}>PG {strateji.id }.{item.hedeflerId}.{performans.performanslarId}.{is.isturleriId}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
                                       <Divider />
 
@@ -264,7 +264,7 @@ class StratejiOlustur extends React.Component {
                                     </Grid>
                                     {vmFaaliyetTurleri && vmFaaliyetTurleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid container>
                                       <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
-                                      <Grid item xs={8}>{is.adi}</Grid>
+                                      <Grid item xs={8}>PF {strateji.id }.{item.hedeflerId}.{performans.performanslarId}.{is.faaliyetlerId}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
                                       <Divider />
                                     </Grid>)}
