@@ -180,14 +180,14 @@ class StratejiOlustur extends React.Component {
                     </GridContainer>
 
                     {
-                      hedefler.filter(obj=>obj.amaclarId==strateji.id).map((item) =>
+                      hedefler.filter(obj=>obj.amaclarId==strateji.id).map((item,hedeflerindex) =>
                         <Accordion expanded={this.state.hedefexpanded === strateji.id +'/'+item.id} onChange={this.handleChangeHedef(strateji.id +'/'+item.id)}>
                           <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                           >
-                            <Grid xs={5}>H{strateji.id }.{item.hedeflerId } : <div >{item.tanim}</div ></Grid>
+                            <Grid xs={5}>H{strateji.id }.{hedeflerindex+1} : <div >{item.tanim}</div ></Grid>
                             <Grid item xs={7} style={{ textAlign: 'right' }}>
                               <IconButton onClick={e => {
                                 e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
@@ -224,13 +224,13 @@ class StratejiOlustur extends React.Component {
                                   <PerformansEkle birimler={BIRIMLER} classes={this.props.classes} hedef={item} />
                                 </GridItem>
                               </GridContainer>
-                              {performanslar ? performanslar.filter(obj=>obj.hedeflerId==item.id).map(performans => <Accordion expanded={this.state.performansexpanded === strateji.id +'/'+item.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id +'/'+item.id+'/'+performans.id)}>
+                              {performanslar ? performanslar.filter(obj=>obj.hedeflerId==item.id).map((performans,performansindex) => <Accordion expanded={this.state.performansexpanded === strateji.id +'/'+item.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id +'/'+item.id+'/'+performans.id)}>
                                 <AccordionSummary
                                   expandIcon={<ExpandMoreIcon />}
                                   aria-controls="panel1bh-content"
                                   id="panel1bh-header"
                                 >
-                                  <Grid xs={5}>P{strateji.id }.{item.hedeflerId}.{performans.performanslarId} : {performans.adi}</Grid>
+                                  <Grid xs={5}>P{strateji.id }.{hedeflerindex+1}.{performansindex+1} : {performans.adi}</Grid>
                                   <Grid item xs={7} style={{ textAlign: 'right' }}>
                                     <IconButton>
                                       <DeleteIcon />
@@ -248,11 +248,11 @@ class StratejiOlustur extends React.Component {
                                     <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
                                     <Grid container>
                                       <Grid item xs={8}><b>Adi</b></Grid>
-                                      <Grid item xs={2}><b>Ölçü Birimi</b></Grid>
+                                      <Grid item xs={2} style={{ textAlign: 'center' }}><b>Ölçü Birimi</b></Grid>
                                     </Grid>
                                     {isturleri && isturleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid container>
                                       <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
-                                      <Grid item xs={8}>PG {strateji.id }.{item.hedeflerId}.{performans.performanslarId}.{is.isturleriId}-{is.adi}</Grid>
+                                      <Grid item xs={8}>PG {strateji.id }.{hedeflerindex+1}.{performansindex+1}.{index+1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
                                       <Divider />
 
@@ -260,11 +260,11 @@ class StratejiOlustur extends React.Component {
                                     <Grid container><h4><b>Faaliyetler</b></h4></Grid>
                                     <Grid container>
                                       <Grid item xs={8}><b>Adi</b></Grid>
-                                      <Grid item xs={2} ><b>Ölçü Birimi</b></Grid>
+                                      <Grid item xs={2} style={{ textAlign: 'center' }} ><b>Ölçü Birimi</b></Grid>
                                     </Grid>
                                     {vmFaaliyetTurleri && vmFaaliyetTurleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid container>
                                       <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
-                                      <Grid item xs={8}>PF {strateji.id }.{item.hedeflerId}.{performans.performanslarId}.{is.faaliyetlerId}-{is.adi}</Grid>
+                                      <Grid item xs={8}>PF {strateji.id }.{hedeflerindex+1}.{performansindex+1}.{index+1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
                                       <Divider />
                                     </Grid>)}
