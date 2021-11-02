@@ -52,13 +52,13 @@ class PerformansGostergesiEkle extends React.Component {
         })
     }
     render() {
-        const { classes } = this.props;
+        const { classes, performans } = this.props;
         return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Göstergesi Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Performans Göstergesi Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Eklediğiniz Performansın Hedefi Adı: {this.props.performansAdi}
+                        Eklediğiniz Performansın Hedefi Adı: {performans.adi}
                     </DialogContentText>
                     <Grid container spacing={3} >
                         <Grid item xs={6}>
