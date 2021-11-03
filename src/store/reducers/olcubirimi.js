@@ -3,7 +3,7 @@ import {ADD_TO_OLCUBIRIMI,GET_OLCUBIRIMIDATA,REMOVE_FROM_OLCUBIRIMI} from '../ac
 
 const initialState= {
     olcubirimi:[],
-    loading:false,
+    loading:true,
     error:false,
     errormessage:''
 };

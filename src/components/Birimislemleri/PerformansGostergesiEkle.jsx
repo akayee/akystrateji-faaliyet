@@ -16,7 +16,12 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Divider from '../Ui/Divider';
+import {connect} from 'react-redux';
+
+import { addToPerformanslar } from '../../store/actions/performanslar';
+import {getOlcuBirimiData} from '../../store/actions/olcubirimi';
+import {getPerformansData} from '../../store/actions/performanslar';
+import {getBirimData} from '../../store/actions/birimler';
 
 class PerformansGostergesiEkle extends React.Component {
     constructor(...args) {
@@ -29,6 +34,11 @@ class PerformansGostergesiEkle extends React.Component {
             OlcuBirimi: [],
             isTuru: [{ adi: '', OlcuBrimi: null, hedef: '', adam: '', gun: '', Birim: [] }]
         }
+    }
+    componentDidMount(){
+        this.props.getOlcuBirimiData();
+        this.props.getPerformansData();
+        this.props.getBirimData();
     }
     handleChange = (e) => {
         let val = e.target.value;
@@ -52,7 +62,7 @@ class PerformansGostergesiEkle extends React.Component {
         })
     }
     render() {
-        const { classes, performans } = this.props;
+        const { classes, performans,performanslar,olcubirimi } = this.props;
         return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Göstergesi Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Performans Göstergesi Oluştur</DialogTitle>
@@ -167,4 +177,5 @@ class PerformansGostergesiEkle extends React.Component {
 
 }
 
-export default PerformansGostergesiEkle
+const mapStateToProps = (state) => ({ hedefler: state.hedefler.hedefler,loading:state.performanslar.loading, olcuBirimi:state.olcubirimi.olcubirimi })
+export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToPerformanslar,getBirimData})(PerformansGostergesiEkle)
