@@ -16,9 +16,10 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Skeleton from 'react-loading-skeleton';
 import {connect} from 'react-redux';
 
-import { addToPerformanslar } from '../../store/actions/performanslar';
+import { addToPerformansGostergesi } from '../../store/actions/performansgostergesi';
 import {getOlcuBirimiData} from '../../store/actions/olcubirimi';
 import {getPerformansData} from '../../store/actions/performanslar';
 import {getBirimData} from '../../store/actions/birimler';
@@ -32,7 +33,7 @@ class PerformansGostergesiEkle extends React.Component {
             amacDetay: [],
             Birim: [],
             OlcuBirimi: [],
-            isTuru: [{ adi: '', OlcuBrimi: null, hedef: '', adam: '', gun: '', Birim: [] }]
+            isTuru: [{ adi: '', olcuBrimi: '', performansId:this.props.performans.id, birimId:'' }]
         }
     }
     componentDidMount(){
@@ -45,15 +46,9 @@ class PerformansGostergesiEkle extends React.Component {
         this.setState({ isTuru: { ...this.state.isTuru, [e.target.name]: val } })
 
     }
-    handleChangeBirim = (e) => {
-        let val = e.target.value;
-        this.setState({ Birim: val })
-
-    }
-    handleChangeOlcuBirimi = (e) => {
-        let val = e.target.value;
-        this.setState({ OlcuBirimi: val })
-
+    handleSubmit=(e)=>{
+        let data= this.state.isTuru;
+        this.props.addToPerformansGostergesi(data);
     }
 
     modalAccountOpen = () => {
@@ -62,7 +57,13 @@ class PerformansGostergesiEkle extends React.Component {
         })
     }
     render() {
-        const { classes, performans,performanslar,olcubirimi } = this.props;
+        const { classes, performans,performanslar,olcuBirimi,birimler } = this.props;
+        console.log(this.props)
+        if(this.props.loading== true){
+            return <div>
+            <Skeleton height={100} />
+            <Skeleton count={6} /></div>
+          }
         return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Göstergesi Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Performans Göstergesi Oluştur</DialogTitle>
@@ -91,14 +92,13 @@ class PerformansGostergesiEkle extends React.Component {
                                     Ölçü Birimi?
                                 </InputLabel>
                                 <Select
-                                    name="OlcuBirimi"
+                                    name="olcuBirimi"
                                     type="text"
-                                    multiple
-                                    value={this.state.OlcuBirimi}
-                                    onChange={this.handleChangeOlcuBirimi}
+                                    value={this.state.isTuru.olcuBirimi||''}
+                                    onChange={this.handleChange}
                                 >
-                                    {this.props.birimler.map((item, index) => {
-                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    {olcuBirimi.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.tanim} </MenuItem>
                                     }
                                     )}
                                 </Select>
@@ -115,13 +115,13 @@ class PerformansGostergesiEkle extends React.Component {
                                     Birimi?
                                 </InputLabel>
                                 <Select
-                                    name="Birim"
+                                    name="birimId"
                                     type="text"
-                                    value={this.state.Birim}
-                                    onChange={this.handleChangeBirim}
+                                    value={this.state.isTuru.birimId||''}
+                                    onChange={this.handleChange}
                                 >
-                                    {this.props.birimler.map((item, index) => {
-                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    {birimler.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.adi} </MenuItem>
                                     }
                                     )}
                                 </Select>
@@ -141,13 +141,14 @@ class PerformansGostergesiEkle extends React.Component {
                                     Performans Hedefi
                                 </InputLabel>
                                 <Select
-                                    name="Birim"
+                                    name="performansId"
                                     type="text"
-                                    value={this.state.Birim}
-                                    onChange={this.handleChangeBirim}
+                                    value={this.props.performans.id}
+                                    disabled
+                                    onChange={this.handleChange}
                                 >
-                                    {this.props.birimler.map((item, index) => {
-                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    {performanslar.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.adi} </MenuItem>
                                     }
                                     )}
                                 </Select>
@@ -167,7 +168,7 @@ class PerformansGostergesiEkle extends React.Component {
                     <Button onClick={this.modalAccountOpen}>
                         İptal
                     </Button>
-                    <Button >
+                    <Button onClick={this.handleSubmit} >
                         Ekle
                     </Button>
                 </DialogActions>
@@ -177,5 +178,5 @@ class PerformansGostergesiEkle extends React.Component {
 
 }
 
-const mapStateToProps = (state) => ({ hedefler: state.hedefler.hedefler,loading:state.performanslar.loading, olcuBirimi:state.olcubirimi.olcubirimi })
-export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToPerformanslar,getBirimData})(PerformansGostergesiEkle)
+const mapStateToProps = (state) => ({ performanslar: state.performanslar.performanslar,loading:state.performanslar.loading, olcuBirimi:state.olcubirimi.olcubirimi,birimler:state.birimler.birimler })
+export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToPerformansGostergesi,getBirimData})(PerformansGostergesiEkle)
