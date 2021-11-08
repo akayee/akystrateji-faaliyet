@@ -17,10 +17,9 @@ export default (state=initialState,action)=>{
             }
         case ADD_TO_PERFORMANSGOSTERGESI:
             let yeniperformansgostergeleri=state.performansgostergeleri;
-            const addedPerformans = action.performans;
+            const addedPerformans = action.isturu;
             const id=action.payload;
             addedPerformans.id=id;
-            addedPerformans.performansgostergeleriId=yeniperformansgostergeleri.filter(obj=>obj.hedeflerId==action.performans.hedeflerId);
             yeniperformansgostergeleri.push(addedPerformans);
             return {
                 ...state,performansgostergeleri:yeniperformansgostergeleri

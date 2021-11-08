@@ -48,6 +48,9 @@ class PerformansGostergesiEkle extends React.Component {
     }
     handleSubmit=(e)=>{
         let data= this.state.isTuru;
+        data.performansId=this.props.performans.id;
+        data.strateji=true;
+        data.aciklama='Yok';
         this.props.addToPerformansGostergesi(data);
     }
 
@@ -58,7 +61,6 @@ class PerformansGostergesiEkle extends React.Component {
     }
     render() {
         const { classes, performans,performanslar,olcuBirimi,birimler } = this.props;
-        console.log(this.props)
         if(this.props.loading== true){
             return <div>
             <Skeleton height={100} />
