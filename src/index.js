@@ -28,7 +28,8 @@ import fizikselyapilarReducer from './store/reducers/birimislemleri/fizikselyapi
 import yetkigorevlerReducer from './store/reducers/birimislemleri/yetkigorev';
 import mevzuatlarReducer from './store/reducers/birimislemleri/mevzuatlar';
 import stratejikYillarReducer from './store/reducers/stratejikyil';
-import performansGostergesiReducer from './store/reducers/performansgostergesi'
+import performansGostergesiReducer from './store/reducers/performansgostergesi';
+import faaliyetTurleriReducer from './store/reducers/faaliyetturu';
 
 
 const hist = createBrowserHistory();
@@ -49,7 +50,8 @@ const rootReducer =combineReducers({
   yetkigorevler:yetkigorevlerReducer,
   mevzuatlar:mevzuatlarReducer,
   stratejikyillar:stratejikYillarReducer,
-  performansgostergeleri:performansGostergesiReducer
+  performansgostergeleri:performansGostergesiReducer,
+  faaliyetturleri:faaliyetTurleriReducer
 });
 const initialState = {
 

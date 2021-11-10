@@ -52,6 +52,7 @@ class PerformansGostergesiEkle extends React.Component {
         data.strateji=true;
         data.aciklama='Yok';
         this.props.addToPerformansGostergesi(data);
+        this.modalAccountOpen();
     }
 
     modalAccountOpen = () => {

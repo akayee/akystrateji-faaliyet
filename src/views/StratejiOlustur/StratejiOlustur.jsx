@@ -251,7 +251,7 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={2} style={{ textAlign: 'center' }}><b>Ölçü Birimi</b></Grid>
                                     </Grid>
                                     {isturleri && isturleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid container>
-                                      <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
+                                      <Grid item xs={12}><b>Birim Adi</b></Grid>
                                       <Grid item xs={8}>PG {strateji.id }.{hedeflerindex+1}.{performansindex+1}.{index+1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
                                       <Divider />
@@ -263,7 +263,7 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={2} style={{ textAlign: 'center' }} ><b>Ölçü Birimi</b></Grid>
                                     </Grid>
                                     {vmFaaliyetTurleri && vmFaaliyetTurleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid container>
-                                      <Grid item xs={12}><b>{BIRIMLER[is.birimId].Adi}</b></Grid>
+                                      <Grid item xs={12}><b>Birim Adı</b></Grid>
                                       <Grid item xs={8}>PF {strateji.id }.{hedeflerindex+1}.{performansindex+1}.{index+1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
                                       <Divider />

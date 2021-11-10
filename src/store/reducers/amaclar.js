@@ -1,6 +1,7 @@
 import { ADD_TO_AMACLAR, REMOVE_FROM_AMACLAR, GET_AMACDATA, UPDATE_FROM_AMACLAR } from '../actions/amaclar';
 import { ADD_TO_HEDEFLER } from '../actions/hedefler';
 import { ADD_TO_PERFORMANSLAR } from '../actions/performanslar';
+import { ADD_TO_PERFORMANSGOSTERGESI } from '../actions/performansgostergesi';
 
 
 const initialState = {
@@ -61,18 +62,27 @@ export default (state = initialState, action) => {
                 return { ...state, loading: false }
             } else {
                 let liste = state.stratejidata.hedefler;
-                let nextid= liste.filter(obj=>obj.amaclarId==action.hedef.amaclarId).length
-                liste.push({ id: action.payload, tanim: action.hedef.tanim, amaclarId: action.hedef.amaclarId,hedeflerId:nextid })
+                let nextid = liste.filter(obj => obj.amaclarId == action.hedef.amaclarId).length
+                liste.push({ id: action.payload, tanim: action.hedef.tanim, amaclarId: action.hedef.amaclarId, hedeflerId: nextid })
                 return { ...state, stratejidata: { ...state.stratejidata, hedefler: liste } }
             }
         case ADD_TO_PERFORMANSLAR:
             if (action.error == true) {
                 return { ...state, loading: false }
             } else {
-                let liste = state.stratejidata.performanslar;                
-                let nextid= liste.filter(obj=>obj.hedeflerId==action.hedef.hedeflerId).length
-                liste.push({ id: action.payload, adi: action.performans.adi, hedeflerId: action.performans.hedeflerId,performanslarId:nextid });
+                let liste = state.stratejidata.performanslar;
+                let nextid = liste.filter(obj => obj.hedeflerId == action.hedef.hedeflerId).length
+                liste.push({ id: action.payload, adi: action.performans.adi, hedeflerId: action.performans.hedeflerId, performanslarId: nextid });
                 return { ...state, stratejidata: { ...state.stratejidata, performanslar: liste } }
+            }
+        case ADD_TO_PERFORMANSGOSTERGESI:
+            if (action.error == true) {
+                return { ...state, loading: false }
+            } else {
+                let liste = state.stratejidata.isturleri;
+                let nextid = liste.filter(obj => obj.performansId == action.isturu.performansId).length
+                liste.push({ id: action.payload, adi: action.isturu.adi, performansId: action.isturu.performansId, isturuId: nextid });
+                return { ...state, stratejidata: { ...state.stratejidata, isturleri: liste } }
             }
 
         default:
