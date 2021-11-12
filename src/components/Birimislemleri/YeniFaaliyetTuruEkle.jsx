@@ -24,7 +24,7 @@ import {getOlcuBirimiData} from '../../store/actions/olcubirimi';
 import {getPerformansData} from '../../store/actions/performanslar';
 import {getBirimData} from '../../store/actions/birimler';
 
-class FaaliyetTuruEkle extends React.Component {
+class YeniFaaliyetTuruEkle extends React.Component {
     constructor(...args) {
         super(...args);
         this.state = {
@@ -37,8 +37,8 @@ class FaaliyetTuruEkle extends React.Component {
         }
     }
     componentDidMount(){
-        this.props.getOlcuBirimiData();
         this.props.getPerformansData();
+        this.props.getOlcuBirimiData();
         this.props.getBirimData();
     }
     handleChange = (e) => {
@@ -110,7 +110,7 @@ class FaaliyetTuruEkle extends React.Component {
                                 <Select
                                     name="olcuBirimi"
                                     type="text"
-                                    value={this.state.isTuru.olcuBirimi||''}
+                                    value={this.state.faaliyetler.olcuBirimi||''}
                                     onChange={this.handleChange}
                                 >
                                     {olcuBirimi.map((item, index) => {
@@ -133,7 +133,7 @@ class FaaliyetTuruEkle extends React.Component {
                                 <Select
                                     name="birimId"
                                     type="text"
-                                    value={this.state.isTuru.birimId||''}
+                                    value={this.state.faaliyetler.birimId||''}
                                     onChange={this.handleChange}
                                 >
                                     {birimler.map((item, index) => {
@@ -194,5 +194,5 @@ class FaaliyetTuruEkle extends React.Component {
 
 }
 
-const mapStateToProps = (state) => ({ performanslar: state.performanslar.performanslar,loading:state.performanslar.loading, olcuBirimi:state.olcubirimi.olcubirimi,birimler:state.birimler.birimler })
-export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToFaaliyetTuru,getBirimData})(FaaliyetTuruEkle)
+const mapStateToProps = (state) => ({ performanslar: state.performanslar.performanslar,loading:state.olcubirimi.loading, olcuBirimi:state.olcubirimi.olcubirimi,birimler:state.birimler.birimler })
+export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToFaaliyetTuru,getBirimData})(YeniFaaliyetTuruEkle)

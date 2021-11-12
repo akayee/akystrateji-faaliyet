@@ -3,7 +3,7 @@ import {ADD_TO_PERFORMANSLAR,REMOVE_FROM_PERFORMANSLAR , GET_PERFORMANSDATA} fro
 
 const initialState={
     performanslar:[],
-    loading:false
+    loading:true
 };
 
 export default (state=initialState,action)=>{

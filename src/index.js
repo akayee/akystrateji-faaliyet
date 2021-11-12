@@ -29,7 +29,7 @@ import yetkigorevlerReducer from './store/reducers/birimislemleri/yetkigorev';
 import mevzuatlarReducer from './store/reducers/birimislemleri/mevzuatlar';
 import stratejikYillarReducer from './store/reducers/stratejikyil';
 import performansGostergesiReducer from './store/reducers/performansgostergesi';
-import faaliyetTurleriReducer from './store/reducers/faaliyetturu';
+import faaliyetTurleriReducer from './store/reducers/faaliyetturleri';
 
 
 const hist = createBrowserHistory();

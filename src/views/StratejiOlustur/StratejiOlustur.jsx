@@ -21,7 +21,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import BIRIMLER from "../../data/birimler";
 import PerformansEkle from "../../components/Birimislemleri/PerformansEkle";
 import PerformansGostergesiEkle from "../../components/Birimislemleri/PerformansGostergesiEkle";
-import YeniFaaliyetEkle from "../../components/Birimislemleri/YeniFaaliyetEkle";
+import YeniFaaliyetTuruEkle from "../../components/Birimislemleri/YeniFaaliyetTuruEkle";
 import Swal from 'sweetalert2';
 import { connect } from 'react-redux';
 import { getAmacData } from '../../store/actions/amaclar';
@@ -244,7 +244,7 @@ class StratejiOlustur extends React.Component {
                                 <AccordionDetails>
                                   <Grid container>
                                     <Grid item xs={4}><PerformansGostergesiEkle performans={performans} performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /></Grid>
-                                    <Grid item xs={6}><YeniFaaliyetEkle performans={performans} performansAdi={performans.adi} birim={null} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
+                                    <Grid item xs={6}><YeniFaaliyetTuruEkle performans={performans} performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
                                     <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
                                     <Grid container>
                                       <Grid item xs={8}><b>Adi</b></Grid>
