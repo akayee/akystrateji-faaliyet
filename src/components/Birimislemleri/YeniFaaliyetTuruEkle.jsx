@@ -37,13 +37,13 @@ class YeniFaaliyetTuruEkle extends React.Component {
         }
     }
     componentDidMount(){
-        this.props.getPerformansData();
         this.props.getOlcuBirimiData();
+        this.props.getPerformansData();
         this.props.getBirimData();
     }
     handleChange = (e) => {
         let val = e.target.value;
-        this.setState({ isTuru: { ...this.state.isTuru, [e.target.name]: val } })
+        this.setState({ faaliyetler: { ...this.state.faaliyetler, [e.target.name]: val } })
 
     }
     handleSubmit=(e)=>{
@@ -67,8 +67,8 @@ class YeniFaaliyetTuruEkle extends React.Component {
             <Skeleton height={100} />
             <Skeleton count={6} /></div>
           }
-        return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Göstergesi Ekle</Button>
-            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
+        return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Maali Faaliyet Ekle</Button>
+            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title" maxWidth="md">
                 <DialogTitle id="form-dialog-title">Yeni Performans Göstergesi Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
@@ -91,7 +91,6 @@ class YeniFaaliyetTuruEkle extends React.Component {
                         <Grid item xs={6}>
                             <TextField
                                 name="ekonomikKod"
-                                autoFocus
                                 margin="dense"
                                 id="ekonomikKod"
                                 multiline
@@ -194,5 +193,5 @@ class YeniFaaliyetTuruEkle extends React.Component {
 
 }
 
-const mapStateToProps = (state) => ({ performanslar: state.performanslar.performanslar,loading:state.olcubirimi.loading, olcuBirimi:state.olcubirimi.olcubirimi,birimler:state.birimler.birimler })
+const mapStateToProps = (state) => ({ performanslar: state.performanslar.performanslar,loading:state.performanslar.loading, olcuBirimi:state.olcubirimi.olcubirimi,birimler:state.birimler.birimler })
 export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToFaaliyetTuru,getBirimData})(YeniFaaliyetTuruEkle)

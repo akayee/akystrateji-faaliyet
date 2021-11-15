@@ -57,7 +57,7 @@ class AmacEkle extends React.Component {
     render() {
         const { classes } = this.props;
         return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Stratejik Amaç Ekle</Button>
-            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
+            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title" maxWidth="md">
                 <DialogTitle id="form-dialog-title">Yeni Stratejik Amaç Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>

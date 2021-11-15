@@ -81,7 +81,7 @@ class HedefEkle extends React.Component {
             <Skeleton count={6} /></div>
           }
         return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Stratejik Hedef Ekle</Button>
-            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
+            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title" maxWidth="md">
                 <DialogTitle id="form-dialog-title">Yeni Stratejik Hedef Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
