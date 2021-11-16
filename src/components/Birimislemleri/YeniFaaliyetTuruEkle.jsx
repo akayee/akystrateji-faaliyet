@@ -33,7 +33,7 @@ class YeniFaaliyetTuruEkle extends React.Component {
             amacDetay: [],
             Birim: [],
             OlcuBirimi: [],
-            faaliyetler: [{ adi: '', olcuBrimi: '', performansId:this.props.performans.id, birimId:'' }]
+            faaliyetler: [{ adi: '', olcuBirimiId: '', performansId:this.props.performans.id, birimId:'', ekonomikKod:'' }]
         }
     }
     componentDidMount(){
@@ -47,7 +47,7 @@ class YeniFaaliyetTuruEkle extends React.Component {
 
     }
     handleSubmit=(e)=>{
-        let data= this.state.isTuru;
+        let data= this.state.faaliyetler;
         data.performansId=this.props.performans.id;
         data.strateji=true;
         data.aciklama='Yok';
@@ -107,7 +107,7 @@ class YeniFaaliyetTuruEkle extends React.Component {
                                     Ölçü Birimi?
                                 </InputLabel>
                                 <Select
-                                    name="olcuBirimi"
+                                    name="olcuBirimiId"
                                     type="text"
                                     value={this.state.faaliyetler.olcuBirimi||''}
                                     onChange={this.handleChange}

@@ -2,6 +2,7 @@ import { ADD_TO_AMACLAR, REMOVE_FROM_AMACLAR, GET_AMACDATA, UPDATE_FROM_AMACLAR 
 import { ADD_TO_HEDEFLER } from '../actions/hedefler';
 import { ADD_TO_PERFORMANSLAR } from '../actions/performanslar';
 import { ADD_TO_PERFORMANSGOSTERGESI } from '../actions/performansgostergesi';
+import { ADD_TO_FAALIYETTURU } from '../actions/faaliyetturleri';
 
 
 const initialState = {
@@ -83,6 +84,15 @@ export default (state = initialState, action) => {
                 let nextid = liste.filter(obj => obj.performansId == action.isturu.performansId).length
                 liste.push({ id: action.payload, adi: action.isturu.adi, performansId: action.isturu.performansId, isturuId: nextid });
                 return { ...state, stratejidata: { ...state.stratejidata, isturleri: liste } }
+            }
+        case ADD_TO_PERFORMANSGOSTERGESI:
+            if (action.error == true) {
+                return { ...state, loading: false }
+            } else {
+                let liste = state.stratejidata.vmFaaliyetTurleri;
+                let nextid = liste.filter(obj => obj.performansId == action.vmFaaliyetTurleri.performansId).length
+                liste.push({ id: action.payload, adi: action.vmFaaliyetTurleri.adi, performansId: action.vmFaaliyetTurleri.performansId, faaliyetlerId: nextid });
+                return { ...state, stratejidata: { ...state.stratejidata, vmFaaliyetTurleri: liste } }
             }
 
         default:

@@ -87,6 +87,7 @@ class Birimler extends React.Component {
   render() {
     //DİZAYN CLASSLARININ PROPDAN ALINMA İŞLEMİ
     const strategydata = this.props.strategydata.strategydata;
+    console.log(strategydata)
     return (
       <div>
         <GridContainer>

@@ -47,7 +47,7 @@ class Stratejiler extends React.Component {
         console.log(this.props)
 
         return <div>
-            {stratejikAmac && stratejikAmac.map((strateji, index) => <Accordion key={index} expanded={this.state.expanded === strateji.path} onChange={this.handleChange(strateji.path)}>
+            {stratejikAmac && stratejikAmac.map((strateji, index) => <Accordion key={index} expanded={this.state.expanded === strateji.id} onChange={this.handleChange(strateji.id)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
@@ -57,7 +57,7 @@ class Stratejiler extends React.Component {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div style={{ width: '%100' }}>
-                        {hedefler.map((hedef, index) => <Accordion key={index} expanded={this.state.hedefexpanded === hedef.path} onChange={this.handleChangeHedef(hedef.path)}>
+                        {hedefler.map((hedef, index) => <Accordion key={index} expanded={this.state.hedefexpanded === strateji.id+'/'+hedef.id} onChange={this.handleChangeHedef(strateji.id+'/'+hedef.id)}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1bh-content"
@@ -67,7 +67,7 @@ class Stratejiler extends React.Component {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div style={{ width: '%100' }}>
-                                    {performanslar ? performanslar.map((performans, index) => <Accordion key={index} expanded={this.state.performansexpanded === performans.path} onChange={this.handleChangePerformans(performans.path)}>
+                                    {performanslar ? performanslar.map((performans, index) => <Accordion key={index} expanded={this.state.performansexpanded === strateji.id+'/'+hedef.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id+'/'+hedef.id+'/'+performans.id)}>
                                         <AccordionSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1bh-content"
