@@ -57,24 +57,24 @@ class Stratejiler extends React.Component {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div style={{ width: '%100' }}>
-                        {hedefler.map((hedef, index) => <Accordion key={index} expanded={this.state.hedefexpanded === strateji.id+'/'+hedef.id} onChange={this.handleChangeHedef(strateji.id+'/'+hedef.id)}>
+                        {hedefler.map((hedef, index) => <Accordion key={index} expanded={this.state.hedefexpanded === strateji.id+hedef.id} onChange={this.handleChangeHedef(strateji.id+hedef.id)}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                             >
-                                <Grid xs={5}>H{strateji.id + 1}.{hedef.id + 1} : {hedef.tanim}</Grid>
+                                <Grid item xs={5}>H{strateji.id + 1}.{hedef.id + 1} : {hedef.tanim}</Grid>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div style={{ width: '%100' }}>
-                                    {performanslar ? performanslar.map((performans, index) => <Accordion key={index} expanded={this.state.performansexpanded === strateji.id+'/'+hedef.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id+'/'+hedef.id+'/'+performans.id)}>
+                                    {performanslar ? performanslar.map((performans, index) => <Accordion key={index} expanded={this.state.performansexpanded === strateji.id+hedef.id+performans.id} onChange={this.handleChangePerformans(strateji.id+hedef.id+performans.id)}>
                                         <AccordionSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1bh-content"
                                             id="panel1bh-header"
                                         >
-                                            <Grid xs={5}>P{strateji.id + 1}.{hedef.id + 1}.{performans.id + 1} : {performans.adi}</Grid>
-                                            <Grid xs={2} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                            <Grid item xs={5}>P{strateji.id + 1}.{hedef.id + 1}.{performans.id + 1} : {performans.adi}</Grid>
+                                            <Grid item xs={2} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                                 {
                                                     //birim && birim.find(obj=>obj.id ==isturleri.find(o=>o).birimId).adi 
                                                 }

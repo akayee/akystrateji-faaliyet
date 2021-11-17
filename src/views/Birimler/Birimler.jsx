@@ -42,6 +42,8 @@ const styles = {
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
     marginBottom: "3px",
     textDecoration: "none"
+  },
+  scrollable:{
   }
 };
 //component/task table yapısı kullanılarak oradaki icon buttonlarla icon eklenecek
@@ -87,7 +89,6 @@ class Birimler extends React.Component {
   render() {
     //DİZAYN CLASSLARININ PROPDAN ALINMA İŞLEMİ
     const strategydata = this.props.strategydata.strategydata;
-    console.log(strategydata)
     return (
       <div>
         <GridContainer>
@@ -97,13 +98,15 @@ class Birimler extends React.Component {
               <CardHeader color="warning">
                 Açıklama Girilmesi Gereken Performans Göstergeleri
               </CardHeader>
-              <CardBody>
+              <CardBody style={{
+                    maxHeight: '300px',
+                    overflowY: 'scroll',}}>
                 {
                   //WRN burada ilgili işlerin açıklama girilmesi gereken seviyesi sorgulanacak. Sadece açıklama girilmesi gerekenler listelenecek
                 }
-                {strategydata.isturleri.filter(obj => obj.aciklama == undefined).map((performans, index) =>
-                  <div key={index}>
-                    <GridContainer spacing={2}>
+                {strategydata.isturleri.filter(obj => (obj.aciklama == undefined || obj.aciklama=='Yok')|| obj.toplamDeger<(obj.yillikHedef*(new Date().getMonth()+1)/12)).map((performans, index) =>
+                  <div key={index} >
+                    <GridContainer spacing={2} >
                       <Grid item xs={6}>{performans.adi}</Grid>
                       <Grid item xs={5}>
                         <TextField
@@ -127,9 +130,12 @@ class Birimler extends React.Component {
               <CardHeader color="warning">
                 Açıklama Girilmesi Gereken Mali Faaliyetler
               </CardHeader>
-              <CardBody>
-                {strategydata.vmFaaliyetTurleri.filter(obj => obj.aciklama == undefined).map((performans, index) =>
-                  <div key={index}>
+              <CardBody style={{
+                    maxHeight: '300px',
+                    overflowY: 'scroll',}}>
+                {strategydata.vmFaaliyetTurleri.filter(obj => (obj.aciklama == undefined || obj.aciklama=='Yok')|| obj.toplamDeger>(obj.yillikHedef*(new Date().getMonth()+1)/12)).map((performans, index) =>
+                  <div key={index} classes={styles.scrollable}>
+                    
                     <GridContainer spacing={2}>
                       <Grid item xs={6}>{performans.adi}</Grid>
                       <Grid item xs={5}>

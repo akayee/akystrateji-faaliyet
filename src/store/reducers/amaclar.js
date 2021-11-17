@@ -85,7 +85,7 @@ export default (state = initialState, action) => {
                 liste.push({ id: action.payload, adi: action.isturu.adi, performansId: action.isturu.performansId, isturuId: nextid });
                 return { ...state, stratejidata: { ...state.stratejidata, isturleri: liste } }
             }
-        case ADD_TO_PERFORMANSGOSTERGESI:
+        case ADD_TO_FAALIYETTURU:
             if (action.error == true) {
                 return { ...state, loading: false }
             } else {

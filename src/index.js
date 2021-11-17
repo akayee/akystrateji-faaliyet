@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import { createBrowserHistory } from "history";
-import { HashRouter as Router, Route , Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route , Switch, Redirect } from "react-router-dom";
 
 // core components
 import Admin from "layouts/Admin.jsx";

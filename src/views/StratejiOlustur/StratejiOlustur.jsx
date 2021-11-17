@@ -70,7 +70,7 @@ class StratejiOlustur extends React.Component {
       expanded: false,
       hedefexpanded: false,
       performansexpanded: false,
-      Yil:null,
+      Yil:'',
       columns: [
         { title: 'Amaç Adı', field: 'adi' },
         {
@@ -154,7 +154,7 @@ class StratejiOlustur extends React.Component {
             <Card>
               {/* Stratejik amaç tablosu */}
 
-              {stratejikAmac.map(strateji => <Accordion expanded={this.state.expanded === strateji.id} onChange={this.handleChange(strateji.id)}>
+              {stratejikAmac.map((strateji,stratejiIndex) => <Accordion key={stratejiIndex} expanded={this.state.expanded === strateji.id} onChange={this.handleChange(strateji.id)}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1bh-content"
@@ -181,13 +181,13 @@ class StratejiOlustur extends React.Component {
 
                     {
                       hedefler.filter(obj=>obj.amaclarId==strateji.id).map((item,hedeflerindex) =>
-                        <Accordion expanded={this.state.hedefexpanded === strateji.id +'/'+item.id} onChange={this.handleChangeHedef(strateji.id +'/'+item.id)}>
+                        <Accordion key={hedeflerindex} expanded={this.state.hedefexpanded === strateji.id +'/'+item.id} onChange={this.handleChangeHedef(strateji.id +'/'+item.id)}>
                           <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                           >
-                            <Grid xs={5}>H{strateji.id }.{hedeflerindex+1} : <div >{item.tanim}</div ></Grid>
+                            <Grid item xs={5}>H{strateji.id }.{hedeflerindex+1} : <div >{item.tanim}</div ></Grid>
                             <Grid item xs={7} style={{ textAlign: 'right' }}>
                               <IconButton onClick={e => {
                                 e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
@@ -220,17 +220,17 @@ class StratejiOlustur extends React.Component {
                           <AccordionDetails>
                             <div style={{ width: '%100' }}>
                               <GridContainer alignItems='center' justify='center'>
-                                <GridItem xs={12} sm={12} md={12}>
+                                <GridItem item xs={12} sm={12} md={12}>
                                   <PerformansEkle birimler={BIRIMLER} classes={this.props.classes} hedef={item} />
                                 </GridItem>
                               </GridContainer>
-                              {performanslar ? performanslar.filter(obj=>obj.hedeflerId==item.id).map((performans,performansindex) => <Accordion expanded={this.state.performansexpanded === strateji.id +'/'+item.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id +'/'+item.id+'/'+performans.id)}>
+                              {performanslar ? performanslar.filter(obj=>obj.hedeflerId==item.id).map((performans,performansindex) => <Accordion key={performansindex} expanded={this.state.performansexpanded === strateji.id +'/'+item.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id +'/'+item.id+'/'+performans.id)}>
                                 <AccordionSummary
                                   expandIcon={<ExpandMoreIcon />}
                                   aria-controls="panel1bh-content"
                                   id="panel1bh-header"
                                 >
-                                  <Grid xs={5}>P{strateji.id }.{hedeflerindex+1}.{performansindex+1} : {performans.adi}</Grid>
+                                  <Grid item xs={5}>P{strateji.id }.{hedeflerindex+1}.{performansindex+1} : {performans.adi}</Grid>
                                   <Grid item xs={7} style={{ textAlign: 'right' }}>
                                     <IconButton>
                                       <DeleteIcon />
@@ -250,7 +250,7 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={8}><b>Adi</b></Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}><b>Ölçü Birimi</b></Grid>
                                     </Grid>
-                                    {isturleri && isturleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid container>
+                                    {isturleri && isturleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid key={index} container>
                                       <Grid item xs={12}><b>Birim Adi</b></Grid>
                                       <Grid item xs={8}>PG {strateji.id }.{hedeflerindex+1}.{performansindex+1}.{index+1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
@@ -262,7 +262,7 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={8}><b>Adi</b></Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }} ><b>Ölçü Birimi</b></Grid>
                                     </Grid>
-                                    {vmFaaliyetTurleri && vmFaaliyetTurleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid container>
+                                    {vmFaaliyetTurleri && vmFaaliyetTurleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid key={index} container>
                                       <Grid item xs={12}><b>Birim Adı</b></Grid>
                                       <Grid item xs={8}>PF {strateji.id }.{hedeflerindex+1}.{performansindex+1}.{index+1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
