@@ -14,17 +14,16 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { updateAraclar } from '../../store/actions/birimislemleri/araclistesi';
-import AracItem from '../../models/arac-item';
+import { updateYazilim } from '../../../store/actions/birimislemleri/yazilimlar';
+import YazilimItem from '../../../models/yazilim-item';
 
-
-class AracGuncelle extends React.Component {
+class YazilimGuncelle extends React.Component {
     constructor(...args) {
         super(...args)
         this.state = {
             modalopen: this.props.open,
             Birim: null,
-            yapiBilgileri: this.props.araclar,
+            yapiBilgileri: this.props.yazilim,
             birimler: this.props.birimler
         }
     }
@@ -35,7 +34,7 @@ class AracGuncelle extends React.Component {
     }
     handleChangeBirim = (e) => {
         let val = e.target.value;
-        this.setState({ [e.target.name]: val })
+        this.setState({ Birim: val })
 
     }
     handleChange = (e) => {
@@ -45,20 +44,17 @@ class AracGuncelle extends React.Component {
     }
     handleSubmit = (e) => {
 
-        var yapi = new AracItem(this.props.arac.id,this.state.yapiBilgileri.Adi || this.props.arac.adi,
-            this.state.yapiBilgileri.AracCinsi || this.props.arac.aracCinsi,this.state.yapiBilgileri.TahsisTuru || this.props.arac.tahsisTuru,
+        var yapi = new YazilimItem(this.props.yazilim.id,this.state.yapiBilgileri.Adi || this.props.yazilim.adi,
             false,
-            this.state.Birim || this.props.arac.birimId);
-        yapi.olusturmaTarihi = this.props.arac.olusturmaTarihi;
-        this.props.updateAraclar(yapi);
+            this.state.Birim || this.props.yazilim.birimId);
+        yapi.OlusturmaTarihi = this.props.yazilim.olusturmaTarihi;
+        this.props.updateYazilim(yapi);
 
         if (this.props.error === false) {
             this.setState({
                 modalopen: !this.state.modalopen,
                 amacDetay: [],
-                Birim: null,
-                TahisisTuru:null,
-                AracCinsi:null
+                Birim: null
             })
 
             Swal.fire({
@@ -91,13 +87,13 @@ class AracGuncelle extends React.Component {
 
     }
     render() {
-        const { birimler, arac,araclar } = this.props;
+        const { birimler, yazilim } = this.props;
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Araç Güncelle</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yazılım Güncelle</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan araç güncelleme işlemlerini tanımlayabilirsiniz.
+                        Bu ekrandan yazılım güncelleme işlemlerini tanımlayabilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={5}>
@@ -107,53 +103,11 @@ class AracGuncelle extends React.Component {
                                 required
                                 margin="dense"
                                 id="name"
-                                label={arac.adi}
+                                label={yazilim.adi}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
                             />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <FormControl >
-                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Ekleyeceğiniz Aracın Cinsi.
-                                </InputLabel>
-                                <Select
-                                    name="AracCinsi"
-                                    type="text"
-                                    required
-                                    value={parseInt(arac.aracCinsi)||this.state.yapiBilgileri.AracCinsi}
-                                    defaultValue={arac.aracCinsi}
-                                    onChange={this.handleChangeBirim}
-                                >
-                                    {this.props.araclar.aracCinsi && this.props.araclar.aracCinsi.map((item, index) => {
-                                        return <MenuItem key={index} value={index}>{item} </MenuItem>
-                                    }
-                                    )}
-                                </Select>
-                                <FormHelperText>Lütfen Bir Araç Cinsi Seçiniz</FormHelperText>
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <FormControl >
-                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Ekleyeceğiniz Aracın Sahiplenme Turu.
-                                </InputLabel>
-                                <Select
-                                    name="TahsisTuru"
-                                    type="text"
-                                    required
-                                    value={parseInt(arac.tahsisTuru)||this.state.yapiBilgileri.TahisisTuru}
-                                    defaultValue={arac.tahsisTuru}
-                                    onChange={this.handleChangeBirim}
-                                >
-                                    {this.props.araclar.tahsisTuru && this.props.araclar.tahsisTuru.map((item, index) => {
-                                        return <MenuItem key={index} value={index}>{item} </MenuItem>
-                                    }
-                                    )}
-                                </Select>
-                                <FormHelperText>Lütfen Bir Araç Cinsi Seçiniz</FormHelperText>
-                            </FormControl>
                         </Grid>
                         <Grid item xs={4}>
                             <FormControl >
@@ -164,8 +118,8 @@ class AracGuncelle extends React.Component {
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={parseInt(arac.birimId)||this.state.Birim}
-                                    defaultValue={arac.birimId}
+                                    value={this.state.Birim || yazilim.birimId}
+                                    defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
                                     {birimler && birimler.map((item, index) => {
@@ -193,5 +147,5 @@ class AracGuncelle extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ araclar: state.araclar, error: state.araclar.error })
-export default connect(mapStateToProps, { updateAraclar})(AracGuncelle)
+const mapStateToProps = (state) => ({ yazilimlar: state.yazilimlar, error: state.yazilimlar.error })
+export default connect(mapStateToProps, { updateYazilim})(YazilimGuncelle)

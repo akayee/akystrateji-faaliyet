@@ -14,8 +14,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { addToAraclar } from '../../store/actions/birimislemleri/araclistesi';
-import AracItem from '../../models/arac-item';
+import { addToAraclar } from '../../../store/actions/birimislemleri/araclistesi';
+import AracItem from '../../../models/arac-item';
 
 class AracEkle extends React.Component {
     constructor(...args) {

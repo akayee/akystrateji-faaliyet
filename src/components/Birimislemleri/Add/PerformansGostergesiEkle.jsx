@@ -19,12 +19,12 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Skeleton from 'react-loading-skeleton';
 import {connect} from 'react-redux';
 
-import { addToFaaliyetTuru } from '../../store/actions/faaliyetturleri';
-import {getOlcuBirimiData} from '../../store/actions/olcubirimi';
-import {getPerformansData} from '../../store/actions/performanslar';
-import {getBirimData} from '../../store/actions/birimler';
+import { addToPerformansGostergesi } from '../../../store/actions/performansgostergesi';
+import {getOlcuBirimiData} from '../../../store/actions/olcubirimi';
+import {getPerformansData} from '../../../store/actions/performanslar';
+import {getBirimData} from '../../../store/actions/birimler';
 
-class YeniFaaliyetTuruEkle extends React.Component {
+class PerformansGostergesiEkle extends React.Component {
     constructor(...args) {
         super(...args);
         this.state = {
@@ -33,7 +33,7 @@ class YeniFaaliyetTuruEkle extends React.Component {
             amacDetay: [],
             Birim: [],
             OlcuBirimi: [],
-            faaliyetler: [{ adi: '', olcuBirimiId: '', performansId:this.props.performans.id, birimId:'', ekonomikKod:'' }]
+            isTuru: [{ adi: '', olcuBrimi: '', performansId:this.props.performans.id, birimId:'' }]
         }
     }
     componentDidMount(){
@@ -43,15 +43,15 @@ class YeniFaaliyetTuruEkle extends React.Component {
     }
     handleChange = (e) => {
         let val = e.target.value;
-        this.setState({ faaliyetler: { ...this.state.faaliyetler, [e.target.name]: val } })
+        this.setState({ isTuru: { ...this.state.isTuru, [e.target.name]: val } })
 
     }
     handleSubmit=(e)=>{
-        let data= this.state.faaliyetler;
+        let data= this.state.isTuru;
         data.performansId=this.props.performans.id;
         data.strateji=true;
         data.aciklama='Yok';
-        this.props.addToFaaliyetTuru(data);
+        this.props.addToPerformansGostergesi(data);
         this.modalAccountOpen();
     }
 
@@ -67,7 +67,7 @@ class YeniFaaliyetTuruEkle extends React.Component {
             <Skeleton height={100} />
             <Skeleton count={6} /></div>
           }
-        return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Maali Faaliyet Ekle</Button>
+        return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Göstergesi Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title" maxWidth="md">
                 <DialogTitle id="form-dialog-title">Yeni Performans Göstergesi Oluştur</DialogTitle>
                 <DialogContent>
@@ -80,21 +80,9 @@ class YeniFaaliyetTuruEkle extends React.Component {
                                 name="adi"
                                 autoFocus
                                 margin="dense"
-                                id="adi"
+                                id="name"
                                 multiline
                                 label="Adı"
-                                type="text"
-                                fullWidth
-                                onChange={this.handleChange}
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                name="ekonomikKod"
-                                margin="dense"
-                                id="ekonomikKod"
-                                multiline
-                                label="Ekonomik Kodu"
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -107,9 +95,9 @@ class YeniFaaliyetTuruEkle extends React.Component {
                                     Ölçü Birimi?
                                 </InputLabel>
                                 <Select
-                                    name="olcuBirimiId"
+                                    name="olcuBirimi"
                                     type="text"
-                                    value={this.state.faaliyetler.olcuBirimi||''}
+                                    value={this.state.isTuru.olcuBirimi||''}
                                     onChange={this.handleChange}
                                 >
                                     {olcuBirimi.map((item, index) => {
@@ -132,7 +120,7 @@ class YeniFaaliyetTuruEkle extends React.Component {
                                 <Select
                                     name="birimId"
                                     type="text"
-                                    value={this.state.faaliyetler.birimId||''}
+                                    value={this.state.isTuru.birimId||''}
                                     onChange={this.handleChange}
                                 >
                                     {birimler.map((item, index) => {
@@ -194,4 +182,4 @@ class YeniFaaliyetTuruEkle extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ performanslar: state.performanslar.performanslar,loading:state.performanslar.loading, olcuBirimi:state.olcubirimi.olcubirimi,birimler:state.birimler.birimler })
-export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToFaaliyetTuru,getBirimData})(YeniFaaliyetTuruEkle)
+export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToPerformansGostergesi,getBirimData})(PerformansGostergesiEkle)

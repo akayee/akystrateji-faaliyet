@@ -19,12 +19,12 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Skeleton from 'react-loading-skeleton';
 import {connect} from 'react-redux';
 
-import { addToPerformansGostergesi } from '../../store/actions/performansgostergesi';
-import {getOlcuBirimiData} from '../../store/actions/olcubirimi';
-import {getPerformansData} from '../../store/actions/performanslar';
-import {getBirimData} from '../../store/actions/birimler';
+import { addToFaaliyetTuru } from '../../../store/actions/faaliyetturleri';
+import {getOlcuBirimiData} from '../../../store/actions/olcubirimi';
+import {getPerformansData} from '../../../store/actions/performanslar';
+import {getBirimData} from '../../../store/actions/birimler';
 
-class PerformansGostergesiEkle extends React.Component {
+class FaaliyetTuruEkle extends React.Component {
     constructor(...args) {
         super(...args);
         this.state = {
@@ -33,7 +33,7 @@ class PerformansGostergesiEkle extends React.Component {
             amacDetay: [],
             Birim: [],
             OlcuBirimi: [],
-            isTuru: [{ adi: '', olcuBrimi: '', performansId:this.props.performans.id, birimId:'' }]
+            faaliyetler: [{ adi: '', olcuBrimi: '', performansId:this.props.performans.id, birimId:'' }]
         }
     }
     componentDidMount(){
@@ -43,15 +43,15 @@ class PerformansGostergesiEkle extends React.Component {
     }
     handleChange = (e) => {
         let val = e.target.value;
-        this.setState({ isTuru: { ...this.state.isTuru, [e.target.name]: val } })
+        this.setState({ faaliyetler: { ...this.state.faaliyetler, [e.target.name]: val } })
 
     }
     handleSubmit=(e)=>{
-        let data= this.state.isTuru;
+        let data= this.state.faaliyetler;
         data.performansId=this.props.performans.id;
         data.strateji=true;
         data.aciklama='Yok';
-        this.props.addToPerformansGostergesi(data);
+        this.props.addToFaaliyetTuru(data);
         this.modalAccountOpen();
     }
 
@@ -68,7 +68,7 @@ class PerformansGostergesiEkle extends React.Component {
             <Skeleton count={6} /></div>
           }
         return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Performans Göstergesi Ekle</Button>
-            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title" maxWidth="md">
+            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Yeni Performans Göstergesi Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
@@ -80,9 +80,22 @@ class PerformansGostergesiEkle extends React.Component {
                                 name="adi"
                                 autoFocus
                                 margin="dense"
-                                id="name"
+                                id="adi"
                                 multiline
                                 label="Adı"
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                name="ekonomikKod"
+                                autoFocus
+                                margin="dense"
+                                id="ekonomikKod"
+                                multiline
+                                label="Ekonomik Kodu"
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -97,7 +110,7 @@ class PerformansGostergesiEkle extends React.Component {
                                 <Select
                                     name="olcuBirimi"
                                     type="text"
-                                    value={this.state.isTuru.olcuBirimi||''}
+                                    value={this.state.faaliyetler.olcuBirimi||''}
                                     onChange={this.handleChange}
                                 >
                                     {olcuBirimi.map((item, index) => {
@@ -120,7 +133,7 @@ class PerformansGostergesiEkle extends React.Component {
                                 <Select
                                     name="birimId"
                                     type="text"
-                                    value={this.state.isTuru.birimId||''}
+                                    value={this.state.faaliyetler.birimId||''}
                                     onChange={this.handleChange}
                                 >
                                     {birimler.map((item, index) => {
@@ -182,4 +195,4 @@ class PerformansGostergesiEkle extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ performanslar: state.performanslar.performanslar,loading:state.performanslar.loading, olcuBirimi:state.olcubirimi.olcubirimi,birimler:state.birimler.birimler })
-export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToPerformansGostergesi,getBirimData})(PerformansGostergesiEkle)
+export default connect(mapStateToProps,{getPerformansData,getOlcuBirimiData,addToFaaliyetTuru,getBirimData})(FaaliyetTuruEkle)

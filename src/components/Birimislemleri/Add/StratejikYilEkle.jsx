@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 
@@ -14,19 +14,18 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
-import { updateAmac } from '../../store/actions/amaclar';
+import { addToStratejiYili,getStratejiYiliData } from '../../../store/actions/stratejikyil';
 import Swal from 'sweetalert2';
+import StratejiYilItem from '../../../models/stratejiyil_item';
 
 
-
-class AmacGuncelle extends React.Component {
+class StratejikYilEkle extends React.Component {
     constructor(...args) {
         super(...args);
         this.state = {
             modalopen: false,
-            amacDetay: [],
+            Date: new Date().getFullYear(),
             Birim: []
         }
     }
@@ -48,8 +47,9 @@ class AmacGuncelle extends React.Component {
     }
 
     handleSubmit = (e) => {
-        const { addToAmaclar } = this.props;
-        addToAmaclar(this.state.amacDetay);
+        const { addToStratejiYili } = this.props;
+        let yeniyil = new StratejiYilItem(0,this.state.Birim);
+        addToStratejiYili(yeniyil);
         this.setState({
             modalopen: !this.state.modalopen,
             amacDetay: [],
@@ -63,26 +63,19 @@ class AmacGuncelle extends React.Component {
             timer: 1500
         })
     }
+    componentDidMount(){
+        this.props.getStratejiYiliData();
+    }
     render() {
-        const { classes,amac } = this.props;
-        return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Stratejik Amaç Ekle</Button>
+        const { classes,stratejikyillar } = this.props;
+        return <div><Button onClick={this.modalAccountOpen}><AddIcon /> Yeni Stratejik Yıl Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Stratejik Amaç Oluştur</DialogTitle>
+                <DialogTitle id="form-dialog-title">Strateji Yılı Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan birim veya birimlerinize stratejik amaç tanımlayabilirsiniz.
+                        Bu ekrandan yeni strateji yılı tanımlayabilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={3}>
-                        <TextField
-                            name="Tanim"
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label={amac.adi}
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
                         <Grid item xs={4}>
                             <FormControl className={classes.formControl}>
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
@@ -91,12 +84,16 @@ class AmacGuncelle extends React.Component {
                                 <Select
                                     name="Birim"
                                     type="text"
-                                    multiple
-                                    value={this.state.Birim||amac.birimId}
+                                    value={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
-                                    {this.props.birimler.map((item, index) => {
-                                        return <MenuItem key={item.id} value={item.id}>{item.Adi} </MenuItem>
+                                    {this.props.gosterilecekyil.map((item, index) => {
+                                        let max =this.state.Date
+                                        if(stratejikyillar.length>0 && stratejikyillar!='Veri Bulunmuyor'){
+                                            max = stratejikyillar.reduce((prev, current) => (prev.yil > current.yil) ? prev : current).yil +1
+                                        }
+                                        
+                                        return <MenuItem key={item} value={max + item}>{max + item} </MenuItem>
                                     }
                                     )}
                                 </Select>
@@ -121,5 +118,6 @@ class AmacGuncelle extends React.Component {
     }
 
 }
-const mapStateToProps = (state) => ({ amaclar: state.amaclar, error: state.amaclar.error })
-export default connect(mapStateToProps, {updateAmac})(AmacGuncelle)
+
+const mapStateToProps = (state) => ({ stratejikyillar: state.stratejikyillar.yillar,gosterilecekyil:state.stratejikyillar.gosterilecekYil,loading:state.stratejikyillar.loading })
+export default connect(mapStateToProps,{addToStratejiYili,getStratejiYiliData})(StratejikYilEkle)

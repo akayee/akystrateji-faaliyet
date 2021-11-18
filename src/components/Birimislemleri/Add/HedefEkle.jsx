@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import {connect} from 'react-redux';
-import { addToHedefler } from '../../store/actions/hedefler';
-import {getAmacData} from '../../store/actions/amaclar';
+import { addToHedefler } from '../../../store/actions/hedefler';
+import {getAmacData} from '../../../store/actions/amaclar';
 
 import { Button } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
@@ -19,7 +19,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 import Skeleton from 'react-loading-skeleton';
-import HedefItem from '../../models/hedef-item';
+import HedefItem from '../../../models/hedef-item';
 
 
 import Swal from 'sweetalert2';

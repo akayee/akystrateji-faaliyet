@@ -12,8 +12,8 @@ import { getYazilimlarData, removeFromYazilimlar } from '../../store/actions/bir
 import Divider from '../Ui/Divider';
 import Skeleton from 'react-loading-skeleton';
 import Swal from 'sweetalert2';
-import YazilimEkle from './YazilimEkle';
-import YazilimGuncelle from './YazilimGuncelle';
+import YazilimEkle from './Add/YazilimEkle';
+import YazilimGuncelle from './Update/YazilimGuncelle';
 
 
 const options = [

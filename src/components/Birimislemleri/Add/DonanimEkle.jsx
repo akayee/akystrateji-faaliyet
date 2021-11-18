@@ -14,10 +14,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { addToMevzuat} from '../../store/actions/birimislemleri/mevzuatlar';
-import MevzuatItem from '../../models/mevzuat-item';
+import { addToDonanim} from '../../../store/actions/birimislemleri/donanimlar';
+import DonanimItem from '../../../models/donanim_item';
 
-class MevzuatEkle extends React.Component{
+class DonanimEkle extends React.Component{
     constructor(...args){
         super(...args)
         this.state={            
@@ -42,11 +42,10 @@ class MevzuatEkle extends React.Component{
 
     }
     handleSubmit = (e) => {
-        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Yonetmelik!=null)
+        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Sayi!=null)
         {
-            var yapi = new MevzuatItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Yonetmelik,false,parseInt(this.state.Birim));
-            console.log(yapi)
-            this.props.addToMevzuat(yapi);
+            var yapi = new DonanimItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Sayi,false,parseInt(this.state.Birim));
+            this.props.addToDonanim(yapi);
             if (this.props.error === false) {
     
                 Swal.fire({
@@ -89,12 +88,12 @@ class MevzuatEkle extends React.Component{
     render () {
         const {birimler}=this.props.props
         return <div>
-            <Button onClick={this.modalAccountOpen} >Mevzuat Ekle</Button>
+            <Button onClick={this.modalAccountOpen} >Donanım Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Mevzuat Tanımı Oluştur.</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yeni Donanım Tanımı Oluştur.</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan biriminizin mevzuat tanımlarını yapabilirsiniz.
+                        Bu ekrandan biriminizin donanım tanımlarını yapabilirsiniz.
             </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
@@ -104,7 +103,7 @@ class MevzuatEkle extends React.Component{
                             required
                             margin="dense"
                             id="name"
-                            label="Mevzuat Adi"
+                            label="Donanim Adi"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -112,11 +111,11 @@ class MevzuatEkle extends React.Component{
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                            name="Yonetmelik"
+                            name="Sayi"
                             margin="dense"
                             required
                             id="name"
-                            label="Yönetmelik"
+                            label="Sayısı"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -160,5 +159,5 @@ class MevzuatEkle extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => ({ mevzuatlar: state.mevzuatlar, error: state.mevzuatlar.error })
-export default connect(mapStateToProps, {addToMevzuat })(MevzuatEkle)
+const mapStateToProps = (state) => ({ donanimlar: state.donanimlar, error: state.donanimlar.error })
+export default connect(mapStateToProps, {addToDonanim })(DonanimEkle)

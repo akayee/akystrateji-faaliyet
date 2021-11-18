@@ -13,18 +13,18 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import FizikselYapiItem from '../../models/fizikselyapi_item';
 import Swal from 'sweetalert2';
-import { updateFizikselYapiData, removeFromFizikselYapilar } from '../../store/actions/birimislemleri/fizikselyapilar';
+import { updateDonanim } from '../../../store/actions/birimislemleri/donanimlar';
+import DonanimItem from '../../../models/donanim_item';
 
-class FizikselYapiGuncelle extends React.Component {
+class DonanimGuncelle extends React.Component {
     constructor(...args) {
         super(...args)
         this.state = {
             modalopen: this.props.open,
-            Birim: this.props.fizikselyapi.birimId,
-            yapiBilgileri: this.props.fizikselyapi,
-            birimler:this.props.birimler
+            Birim: this.props.donanim.birimId,
+            yapiBilgileri: this.props.donanim,
+            birimler: this.props.birimler
         }
     }
     modalAccountOpen = () => {
@@ -43,59 +43,58 @@ class FizikselYapiGuncelle extends React.Component {
 
     }
     handleSubmit = (e) => {
-            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi || this.props.fizikselyapi.adi,
-                 this.state.yapiBilgileri.Konum ||this.props.fizikselyapi.konum,
-                  this.state.yapiBilgileri.MetreKare ||this.props.fizikselyapi.metreKare,
-                   false,
-                   this.state.Birim||this.props.fizikselyapi.birimId,
-                   this.props.fizikselyapi.id,
-                   this.props.fizikselyapi.olusturmaTarihi);
-            this.props.updateFizikselYapiData(yapi);
-            
-            if (this.props.error === false) {
-                this.setState({
-                    modalopen: !this.state.modalopen,
-                    amacDetay: [],
-                    Birim: null
-                })
 
-                Swal.fire({
-                    title: 'Kayıt Başarılı!',
-                    position: 'top-end',
-                    icon: 'success',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                this.props.handleModalOpenGuncelle(e)
-                
-            }
-            else {
-                
-                this.setState({
-                    modalopen: !this.state.modalopen
-                })
-                Swal.fire({
-                    title: 'Oops...',
-                    position: 'top-end',
-                    icon: 'error',
-                    text: 'Hata Oluştu',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                
-                this.props.handleModalOpenGuncelle(e)
-            } 
+        var yapi = new DonanimItem(this.props.donanim.id,this.state.yapiBilgileri.Adi || this.props.donanim.adi,
+            this.state.yapiBilgileri.Sayi || this.props.donanim.Sayi,
+            false,
+            this.state.Birim || this.props.donanim.birimId);
+        yapi.OlusturmaTarihi = this.props.donanim.olusturmaTarihi;
+        this.props.updateDonanim(yapi);
+
+        if (this.props.error === false) {
+            this.setState({
+                modalopen: !this.state.modalopen,
+                amacDetay: [],
+                Birim: null
+            })
+
+            Swal.fire({
+                title: 'Kayıt Başarılı!',
+                position: 'top-end',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            this.props.handleModalOpenGuncelle(e)
+
+        }
+        else {
+
+            this.setState({
+                modalopen: !this.state.modalopen
+            })
+            Swal.fire({
+                title: 'Oops...',
+                position: 'top-end',
+                icon: 'error',
+                text: 'Hata Oluştu',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
+            this.props.handleModalOpenGuncelle(e)
+        }
 
 
     }
     render() {
-        const { birimler, fizikselyapi } = this.props
+        const { birimler, donanim } = this.props
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Stratejik Amaç Oluştur</DialogTitle>
+                <DialogTitle id="form-dialog-title">Donanım Güncelle</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan birim veya birimlerinize stratejik amaç tanımlayabilirsiniz.
+                        Bu ekrandan donanım güncelleme işlemlerini tanımlayabilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
@@ -105,7 +104,7 @@ class FizikselYapiGuncelle extends React.Component {
                                 required
                                 margin="dense"
                                 id="name"
-                                label={fizikselyapi.adi}
+                                label={donanim.adi}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -113,23 +112,11 @@ class FizikselYapiGuncelle extends React.Component {
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                                name="Konum"
+                                name="Sayi"
                                 margin="dense"
                                 required
                                 id="name"
-                                label={fizikselyapi.konum}
-                                type="text"
-                                fullWidth
-                                onChange={this.handleChange}
-                            />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                name="MetreKare"
-                                margin="dense"
-                                required
-                                id="name"
-                                label={fizikselyapi.metreKare}
+                                label={donanim.sayi}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -138,13 +125,13 @@ class FizikselYapiGuncelle extends React.Component {
                         <Grid item xs={4}>
                             <FormControl >
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Birimi 
+                                    Birimi
                                 </InputLabel>
                                 <Select
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim || fizikselyapi.birimId}
+                                    value={this.state.Birim || donanim.birimId}
                                     defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
@@ -173,5 +160,5 @@ class FizikselYapiGuncelle extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
-export default connect(mapStateToProps, { updateFizikselYapiData, removeFromFizikselYapilar })(FizikselYapiGuncelle)
+const mapStateToProps = (state) => ({ donanimlar: state.donanimlar, error: state.donanimlar.error })
+export default connect(mapStateToProps, { updateDonanim})(DonanimGuncelle)

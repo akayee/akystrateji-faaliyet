@@ -6,9 +6,9 @@ import MaterialTable from 'material-table';
 import Card from "components/Card/Card.jsx";
 import { getPersonelData,removeFromPersoneller} from '../../store/actions/birimislemleri/personeller';
 import Grid from '@material-ui/core/Grid';
-import PersonelEkle from './PersonelEkle';
+import PersonelEkle from './Add/PersonelEkle';
 import Swal from 'sweetalert2';
-import PersonelGuncelle from './PersonelGuncelle';
+import PersonelGuncelle from './Update/PersonelGuncelle';
 
 
 class PersonelListesi extends React.Component {

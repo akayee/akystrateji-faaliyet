@@ -12,8 +12,8 @@ import { getAraclarData, removeFromAraclar } from '../../store/actions/birimisle
 import Divider from '../Ui/Divider';
 import Skeleton from 'react-loading-skeleton';
 import Swal from 'sweetalert2';
-import AracEkle from './AracEkle';
-import AracGuncelle from './AracGuncelle';
+import AracEkle from './Add/AracEkle';
+import AracGuncelle from './Update/AracGuncelle';
 
 const options = [
     'Düzenle',

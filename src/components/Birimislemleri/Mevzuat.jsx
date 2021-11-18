@@ -9,11 +9,11 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { getMevzuatlar, removeFromMevzuat } from '../../store/actions/birimislemleri/mevzuatlar';
-import MevzuatEkle from './MevzuatEkle';
+import MevzuatEkle from './Add/MevzuatEkle';
 import Divider from '../Ui/Divider';
 import Skeleton from 'react-loading-skeleton';
 import Swal from 'sweetalert2';
-import MevzuatGuncelle from './MevzuatGuncelle';
+import MevzuatGuncelle from './Update/MevzuatGuncelle';
 
 
 const options = [

@@ -11,9 +11,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
-import { addToAmaclar } from '../../store/actions/amaclar';
+import { addToAmaclar } from '../../../store/actions/amaclar';
 import Swal from 'sweetalert2';
-import AmacItem from '../../models/amac_item';
+import AmacItem from '../../../models/amac_item';
 
 
 class AmacEkle extends React.Component {

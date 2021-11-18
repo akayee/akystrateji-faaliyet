@@ -14,10 +14,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { addToYazilimlar} from '../../store/actions/birimislemleri/yazilimlar';
-import YazilimItem from '../../models/yazilim-item';
+import { addToMevzuat} from '../../../store/actions/birimislemleri/mevzuatlar';
+import MevzuatItem from '../../../models/mevzuat-item';
 
-class YazilimEkle extends React.Component{
+class MevzuatEkle extends React.Component{
     constructor(...args){
         super(...args)
         this.state={            
@@ -33,7 +33,7 @@ class YazilimEkle extends React.Component{
     }
     handleChangeBirim= (e)=>{
         let val = e.target.value;
-        this.setState({[e.target.name]:val})
+        this.setState({Birim:val})
 
     }
     handleChange = (e) => {
@@ -42,10 +42,11 @@ class YazilimEkle extends React.Component{
 
     }
     handleSubmit = (e) => {
-        if(this.state.yapiBilgileri.Adi!=null)
+        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Yonetmelik!=null)
         {
-            var yapi = new YazilimItem(0,this.state.yapiBilgileri.Adi,false,parseInt(this.state.Birim));
-            this.props.addToYazilimlar(yapi);
+            var yapi = new MevzuatItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Yonetmelik,false,parseInt(this.state.Birim));
+            console.log(yapi)
+            this.props.addToMevzuat(yapi);
             if (this.props.error === false) {
     
                 Swal.fire({
@@ -88,22 +89,34 @@ class YazilimEkle extends React.Component{
     render () {
         const {birimler}=this.props.props
         return <div>
-            <Button onClick={this.modalAccountOpen} >Yazılım Ekle</Button>
+            <Button onClick={this.modalAccountOpen} >Mevzuat Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Yazılım Tanımı Oluştur.</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yeni Mevzuat Tanımı Oluştur.</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan biriminizin yazılım tanımlarını yapabilirsiniz.
+                        Bu ekrandan biriminizin mevzuat tanımlarını yapabilirsiniz.
             </DialogContentText>
                     <Grid container spacing={4}>
-                        <Grid item xs={5}>
+                        <Grid item xs={3}>
                             <TextField
                             name="Adi"
                             autoFocus
                             required
                             margin="dense"
                             id="name"
-                            label="Yazılım Adı"
+                            label="Mevzuat Adi"
+                            type="text"
+                            fullWidth
+                            onChange={this.handleChange}
+                        />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <TextField
+                            name="Yonetmelik"
+                            margin="dense"
+                            required
+                            id="name"
+                            label="Yönetmelik"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -147,5 +160,5 @@ class YazilimEkle extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => ({ yazilimlar: state.yazilimlar, error: state.yazilimlar.error })
-export default connect(mapStateToProps, {addToYazilimlar })(YazilimEkle)
+const mapStateToProps = (state) => ({ mevzuatlar: state.mevzuatlar, error: state.mevzuatlar.error })
+export default connect(mapStateToProps, {addToMevzuat })(MevzuatEkle)

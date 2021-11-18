@@ -12,8 +12,8 @@ import { getDonanimData, removeFromDonanim } from '../../store/actions/birimisle
 import Divider from '../Ui/Divider';
 import Skeleton from 'react-loading-skeleton';
 import Swal from 'sweetalert2';
-import DonanimEkle from './DonanimEkle';
-import DonanimGuncelle from './DonanimGuncelle';
+import DonanimEkle from './Add/DonanimEkle';
+import DonanimGuncelle from './Update/DonanimGuncelle';
 
 
 const options = [

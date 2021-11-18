@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 
 import {connect} from 'react-redux';
-import { addToPerformanslar } from '../../store/actions/performanslar';
-import { getHdedefData } from '../../store/actions/hedefler'
+import { addToPerformanslar } from '../../../store/actions/performanslar';
+import { getHdedefData } from '../../../store/actions/hedefler'
 
 
 import { Button } from '@material-ui/core';

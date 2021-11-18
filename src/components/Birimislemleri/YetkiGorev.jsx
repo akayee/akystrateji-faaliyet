@@ -12,8 +12,8 @@ import { getYetkiGorev, removeFromYetkiGorev } from '../../store/actions/birimis
 import Divider from '../Ui/Divider';
 import Skeleton from 'react-loading-skeleton';
 import Swal from 'sweetalert2';
-import YetkiGorevEkle from './YetkiGorevEkle';
-import YetkiGorevGuncelle from './YetkiGorevGuncelle';
+import YetkiGorevEkle from './Add/YetkiGorevEkle';
+import YetkiGorevGuncelle from './Update/YetkiGorevGuncelle';
 
 const options = [
     'Düzenle',

@@ -11,13 +11,13 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
-import { addToOlcuBirimi, removeFromOlcuBirimi, getOlcuBirimiData } from '../../store/actions/olcubirimi';
+import { addToOlcuBirimi, removeFromOlcuBirimi, getOlcuBirimiData } from '../../../store/actions/olcubirimi';
 import Swal from 'sweetalert2';
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import IconButton from '@material-ui/core/IconButton';
 import { Delete } from "@material-ui/icons";
-import OlcuBirimiItem from '../../models/olcubirimi_item';
+import OlcuBirimiItem from '../../../models/olcubirimi_item';
 
 class YeniOlcuBirimiEkle extends React.Component {
     constructor(...args) {

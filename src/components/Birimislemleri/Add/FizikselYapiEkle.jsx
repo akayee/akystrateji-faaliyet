@@ -13,11 +13,11 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import FizikselYapiItem from '../../../models/fizikselyapi_item';
 import Swal from 'sweetalert2';
-import { addToDonanim} from '../../store/actions/birimislemleri/donanimlar';
-import DonanimItem from '../../models/donanim_item';
+import { addToFizikselYapi,removeFromFizikselYapilar} from '../../../store/actions/birimislemleri/fizikselyapilar';
 
-class DonanimEkle extends React.Component{
+class FizikselYapiEkle extends React.Component{
     constructor(...args){
         super(...args)
         this.state={            
@@ -42,10 +42,10 @@ class DonanimEkle extends React.Component{
 
     }
     handleSubmit = (e) => {
-        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Sayi!=null)
+        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Konum!=null&&this.state.yapiBilgileri.MetreKare!=null&&this.state.Birim!=null)
         {
-            var yapi = new DonanimItem(0,this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Sayi,false,parseInt(this.state.Birim));
-            this.props.addToDonanim(yapi);
+            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Konum,this.state.yapiBilgileri.MetreKare,false,parseInt(this.state.Birim));
+            this.props.addToFizikselYapi(yapi);
             if (this.props.error === false) {
     
                 Swal.fire({
@@ -88,12 +88,12 @@ class DonanimEkle extends React.Component{
     render () {
         const {birimler}=this.props.props
         return <div>
-            <Button onClick={this.modalAccountOpen} >Donanım Ekle</Button>
+            <Button onClick={this.modalAccountOpen} >Fiziksel Yapı Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Donanım Tanımı Oluştur.</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yeni Fiziksel Yapı Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan biriminizin donanım tanımlarını yapabilirsiniz.
+                        Bu ekrandan biriminize fiziksel yapı tanımlayabilirsiniz.
             </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
@@ -103,7 +103,7 @@ class DonanimEkle extends React.Component{
                             required
                             margin="dense"
                             id="name"
-                            label="Donanim Adi"
+                            label="Yapi Adı"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -111,11 +111,23 @@ class DonanimEkle extends React.Component{
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                            name="Sayi"
+                            name="Konum"
                             margin="dense"
                             required
                             id="name"
-                            label="Sayısı"
+                            label="Yapi Konumu"
+                            type="text"
+                            fullWidth
+                            onChange={this.handleChange}
+                        />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <TextField
+                            name="MetreKare"
+                            margin="dense"
+                            required
+                            id="name"
+                            label="Yapi Metre Karesi"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -159,5 +171,5 @@ class DonanimEkle extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => ({ donanimlar: state.donanimlar, error: state.donanimlar.error })
-export default connect(mapStateToProps, {addToDonanim })(DonanimEkle)
+const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
+export default connect(mapStateToProps, {addToFizikselYapi,removeFromFizikselYapilar })(FizikselYapiEkle)

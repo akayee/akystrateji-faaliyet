@@ -9,8 +9,8 @@ import CardBody from "components/Card/CardBody.jsx";
 import IconButton from '@material-ui/core/IconButton';
 import { Typography } from "@material-ui/core";
 import KullanicilarListele from "../../components/KullanicilarListe/KullanicilarListe";
-import YeniOlcuBirimiEkle from "../../components/YeniOlcuBirimiEkle/YeniOlcuBirimiEkle";
-import YeniBirimEkle from "../../components/YeniBirimEkle/YeniBirimEkle";
+import YeniOlcuBirimiEkle from "../../components/Birimislemleri/Add/YeniOlcuBirimiEkle";
+import YeniBirimEkle from "../../components/Birimislemleri/Add/YeniBirimEkle";
 
 
 

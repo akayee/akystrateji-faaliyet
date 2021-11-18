@@ -17,13 +17,13 @@ import Skeleton from 'react-loading-skeleton';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
-import { addToBirim, getBirimData, removeFromBirim } from '../../store/actions/birimler';
+import { addToBirim, getBirimData, removeFromBirim } from '../../../store/actions/birimler';
 import Swal from 'sweetalert2';
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import IconButton from '@material-ui/core/IconButton';
 import { Delete } from "@material-ui/icons";
-import BirimItem from '../../models/birim-item';
+import BirimItem from '../../../models/birim-item';
 
 class YeniBirimEkle extends React.Component {
     constructor(...args) {

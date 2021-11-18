@@ -13,18 +13,18 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import FizikselYapiItem from '../../../models/fizikselyapi_item';
 import Swal from 'sweetalert2';
-import { updateMevzuat } from '../../store/actions/birimislemleri/mevzuatlar';
-import MevzuatItem from '../../models/mevzuat-item';
+import { updateFizikselYapiData, removeFromFizikselYapilar } from '../../../store/actions/birimislemleri/fizikselyapilar';
 
-class MevzuatGuncelle extends React.Component {
+class FizikselYapiGuncelle extends React.Component {
     constructor(...args) {
         super(...args)
         this.state = {
             modalopen: this.props.open,
-            Birim: this.props.mevzuat.birimId,
-            yapiBilgileri: this.props.mevzuat,
-            birimler: this.props.birimler
+            Birim: this.props.fizikselyapi.birimId,
+            yapiBilgileri: this.props.fizikselyapi,
+            birimler:this.props.birimler
         }
     }
     modalAccountOpen = () => {
@@ -43,58 +43,59 @@ class MevzuatGuncelle extends React.Component {
 
     }
     handleSubmit = (e) => {
+            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi || this.props.fizikselyapi.adi,
+                 this.state.yapiBilgileri.Konum ||this.props.fizikselyapi.konum,
+                  this.state.yapiBilgileri.MetreKare ||this.props.fizikselyapi.metreKare,
+                   false,
+                   this.state.Birim||this.props.fizikselyapi.birimId,
+                   this.props.fizikselyapi.id,
+                   this.props.fizikselyapi.olusturmaTarihi);
+            this.props.updateFizikselYapiData(yapi);
+            
+            if (this.props.error === false) {
+                this.setState({
+                    modalopen: !this.state.modalopen,
+                    amacDetay: [],
+                    Birim: null
+                })
 
-        var yapi = new MevzuatItem(this.props.mevzuat.id,this.state.yapiBilgileri.Adi || this.props.mevzuat.adi,
-            this.state.yapiBilgileri.Yonetmelik || this.props.mevzuat.yonetmelik,
-            false,
-            this.state.Birim || this.props.mevzuat.birimId);
-        yapi.OlusturmaTarihi = this.props.mevzuat.olusturmaTarihi;
-        this.props.updateMevzuat(yapi);
-
-        if (this.props.error === false) {
-            this.setState({
-                modalopen: !this.state.modalopen,
-                amacDetay: [],
-                Birim: null
-            })
-
-            Swal.fire({
-                title: 'Kayıt Başarılı!',
-                position: 'top-end',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1500
-            })
-            this.props.handleModalOpenGuncelle(e)
-
-        }
-        else {
-
-            this.setState({
-                modalopen: !this.state.modalopen
-            })
-            Swal.fire({
-                title: 'Oops...',
-                position: 'top-end',
-                icon: 'error',
-                text: 'Hata Oluştu',
-                showConfirmButton: false,
-                timer: 1500
-            })
-
-            this.props.handleModalOpenGuncelle(e)
-        }
+                Swal.fire({
+                    title: 'Kayıt Başarılı!',
+                    position: 'top-end',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                this.props.handleModalOpenGuncelle(e)
+                
+            }
+            else {
+                
+                this.setState({
+                    modalopen: !this.state.modalopen
+                })
+                Swal.fire({
+                    title: 'Oops...',
+                    position: 'top-end',
+                    icon: 'error',
+                    text: 'Hata Oluştu',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                
+                this.props.handleModalOpenGuncelle(e)
+            } 
 
 
     }
     render() {
-        const { birimler, mevzuat } = this.props
+        const { birimler, fizikselyapi } = this.props
         return <div>
             <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Mevzuat Güncelle</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yeni Stratejik Amaç Oluştur</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan donanım güncellemelerinizi tanımlayabilirsiniz.
+                        Bu ekrandan birim veya birimlerinize stratejik amaç tanımlayabilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={3}>
@@ -104,7 +105,7 @@ class MevzuatGuncelle extends React.Component {
                                 required
                                 margin="dense"
                                 id="name"
-                                label={mevzuat.adi}
+                                label={fizikselyapi.adi}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -112,11 +113,23 @@ class MevzuatGuncelle extends React.Component {
                         </Grid>
                         <Grid item xs={4}>
                             <TextField
-                                name="Yonetmelik"
+                                name="Konum"
                                 margin="dense"
                                 required
                                 id="name"
-                                label={mevzuat.yonetmelik}
+                                label={fizikselyapi.konum}
+                                type="text"
+                                fullWidth
+                                onChange={this.handleChange}
+                            />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <TextField
+                                name="MetreKare"
+                                margin="dense"
+                                required
+                                id="name"
+                                label={fizikselyapi.metreKare}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -125,13 +138,13 @@ class MevzuatGuncelle extends React.Component {
                         <Grid item xs={4}>
                             <FormControl >
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Birimi
+                                    Birimi 
                                 </InputLabel>
                                 <Select
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim || mevzuat.birimId}
+                                    value={this.state.Birim || fizikselyapi.birimId}
                                     defaultValue={this.state.Birim}
                                     onChange={this.handleChangeBirim}
                                 >
@@ -160,5 +173,5 @@ class MevzuatGuncelle extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ mevzuatlar: state.mevzuatlar, error: state.mevzuatlar.error })
-export default connect(mapStateToProps, { updateMevzuat})(MevzuatGuncelle)
+const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
+export default connect(mapStateToProps, { updateFizikselYapiData, removeFromFizikselYapilar })(FizikselYapiGuncelle)

@@ -13,11 +13,11 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import FizikselYapiItem from '../../models/fizikselyapi_item';
 import Swal from 'sweetalert2';
-import { addToFizikselYapi,removeFromFizikselYapilar} from '../../store/actions/birimislemleri/fizikselyapilar';
+import { addToYazilimlar} from '../../../store/actions/birimislemleri/yazilimlar';
+import YazilimItem from '../../../models/yazilim-item';
 
-class FizikselYapiEkle extends React.Component{
+class YazilimEkle extends React.Component{
     constructor(...args){
         super(...args)
         this.state={            
@@ -33,7 +33,7 @@ class FizikselYapiEkle extends React.Component{
     }
     handleChangeBirim= (e)=>{
         let val = e.target.value;
-        this.setState({Birim:val})
+        this.setState({[e.target.name]:val})
 
     }
     handleChange = (e) => {
@@ -42,10 +42,10 @@ class FizikselYapiEkle extends React.Component{
 
     }
     handleSubmit = (e) => {
-        if(this.state.yapiBilgileri.Adi!=null&&this.state.yapiBilgileri.Konum!=null&&this.state.yapiBilgileri.MetreKare!=null&&this.state.Birim!=null)
+        if(this.state.yapiBilgileri.Adi!=null)
         {
-            var yapi = new FizikselYapiItem(this.state.yapiBilgileri.Adi,this.state.yapiBilgileri.Konum,this.state.yapiBilgileri.MetreKare,false,parseInt(this.state.Birim));
-            this.props.addToFizikselYapi(yapi);
+            var yapi = new YazilimItem(0,this.state.yapiBilgileri.Adi,false,parseInt(this.state.Birim));
+            this.props.addToYazilimlar(yapi);
             if (this.props.error === false) {
     
                 Swal.fire({
@@ -88,46 +88,22 @@ class FizikselYapiEkle extends React.Component{
     render () {
         const {birimler}=this.props.props
         return <div>
-            <Button onClick={this.modalAccountOpen} >Fiziksel Yapı Ekle</Button>
+            <Button onClick={this.modalAccountOpen} >Yazılım Ekle</Button>
             <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Fiziksel Yapı Oluştur</DialogTitle>
+                <DialogTitle id="form-dialog-title">Yeni Yazılım Tanımı Oluştur.</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan biriminize fiziksel yapı tanımlayabilirsiniz.
+                        Bu ekrandan biriminizin yazılım tanımlarını yapabilirsiniz.
             </DialogContentText>
                     <Grid container spacing={4}>
-                        <Grid item xs={3}>
+                        <Grid item xs={5}>
                             <TextField
                             name="Adi"
                             autoFocus
                             required
                             margin="dense"
                             id="name"
-                            label="Yapi Adı"
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                            name="Konum"
-                            margin="dense"
-                            required
-                            id="name"
-                            label="Yapi Konumu"
-                            type="text"
-                            fullWidth
-                            onChange={this.handleChange}
-                        />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                            name="MetreKare"
-                            margin="dense"
-                            required
-                            id="name"
-                            label="Yapi Metre Karesi"
+                            label="Yazılım Adı"
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -171,5 +147,5 @@ class FizikselYapiEkle extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => ({ fizikselyapilar: state.fizikselyapilar, error: state.fizikselyapilar.error })
-export default connect(mapStateToProps, {addToFizikselYapi,removeFromFizikselYapilar })(FizikselYapiEkle)
+const mapStateToProps = (state) => ({ yazilimlar: state.yazilimlar, error: state.yazilimlar.error })
+export default connect(mapStateToProps, {addToYazilimlar })(YazilimEkle)

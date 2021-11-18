@@ -11,17 +11,17 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Grid from '@material-ui/core/Grid';
 //componentler
-import AmacEkle from "../../components/Birimislemleri/AmacEkle";
-import HedefEkle from "../../components/Birimislemleri/HedefEkle";
+import AmacEkle from "../../components/Birimislemleri/Add/AmacEkle";
+import HedefEkle from "../../components/Birimislemleri/Add/HedefEkle";
 import STRATEGYDATA from "../../data/dummydata";
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import BIRIMLER from "../../data/birimler";
-import PerformansEkle from "../../components/Birimislemleri/PerformansEkle";
-import PerformansGostergesiEkle from "../../components/Birimislemleri/PerformansGostergesiEkle";
-import YeniFaaliyetTuruEkle from "../../components/Birimislemleri/YeniFaaliyetTuruEkle";
+import PerformansEkle from "../../components/Birimislemleri/Add/PerformansEkle";
+import PerformansGostergesiEkle from "../../components/Birimislemleri/Add/PerformansGostergesiEkle";
+import YeniFaaliyetTuruEkle from "../../components/Birimislemleri/Add/YeniFaaliyetTuruEkle";
 import Swal from 'sweetalert2';
 import { connect } from 'react-redux';
 import { getAmacData } from '../../store/actions/amaclar';
@@ -32,7 +32,8 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Divider from '../../components/Ui/Divider.js';
 import Skeleton from 'react-loading-skeleton';
-import StratejikYilEkle from "../../components/Birimislemleri/StratejikYilEkle";
+import StratejikYilEkle from "../../components/Birimislemleri/Add/StratejikYilEkle";
+import AmacGuncelle from "../../components/Birimislemleri/Update/AmacGuncelle";
 const acoounttye = [
   { Adi: 'Fen İşleri', id: '0', hedef: '80' },
   { Adi: 'Emlak İstimlak', id: '1', hedef: '70' },
@@ -70,6 +71,13 @@ class StratejiOlustur extends React.Component {
       expanded: false,
       hedefexpanded: false,
       performansexpanded: false,
+      update:{
+        amac:[],
+        hedef:[],
+        performans:[],
+        performansgostergesi:[],
+        faaliyet:[]
+      },
       Yil:'',
       columns: [
         { title: 'Amaç Adı', field: 'adi' },
@@ -100,6 +108,11 @@ class StratejiOlustur extends React.Component {
     this.setState({
       yil:e.target.value
     })
+  }
+  handleChangeUpdate=(modal,updateModal,e)=>{
+    e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
+    
+    this.setState({update:{[modal]:{...this.state.update[modal],[updateModal]:!this.state.update[modal][updateModal]}}})
   }
 
 
@@ -162,13 +175,31 @@ class StratejiOlustur extends React.Component {
                 >
                   <Grid item xs={10} >A{strateji.id}:{strateji.adi}</Grid>
                   <Grid item xs={2} style={{ textAlign: 'right' }}>
-                    <IconButton>
+                    <IconButton onClick={e => {
+                                e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
+                                Swal.fire({
+                                  title: 'Emin Misin?',
+                                  text: "Bu işlemi geri döndüremeyebilirsin!",
+                                  icon: 'warning',
+                                  showCancelButton: true,
+                                  confirmButtonColor: '#3085d6',
+                                  cancelButtonColor: '#d33',
+                                  confirmButtonText: 'Evet, Sil!'
+                                }).then((result) => {
+                                  if (result.isConfirmed) {
+                                    this.removeAmac(strateji)
+                                    Swal.fire(
+                                      'Silindi!',
+                                      'İlgili veri silindi.',
+                                      'success'
+                                    )
+                                  }
+                                })
+                              }}>
                       <DeleteIcon />
                     </IconButton>
 
-                    <IconButton>
-                      <EditIcon onClick={e => { e.stopPropagation(); }} />
-                    </IconButton>
+                    <AmacGuncelle data={strateji} modalName={strateji.id} showModal={this.state.update} updateModalOpen={this.handleChangeUpdate} onClick={(e)=>{e.stopPropagation();this.setState({update:{amac:{[strateji.id]:true}}})}} hideButton={false} />
                   </Grid>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -291,4 +322,4 @@ StratejiOlustur.propTypes = {
   classes: PropTypes.object.isRequired
 };
 const mapStateToProps = (state) => ({ strategydata: state.amaclar.stratejidata,loading:state.amaclar.loading , Yillar: state.stratejikyillar.yillar })
-export default connect(mapStateToProps, { getAmacData,getStratejiYiliData })(withStyles(styles)(StratejiOlustur));
+export default connect(mapStateToProps, { getAmacData,getStratejiYiliData})(withStyles(styles)(StratejiOlustur));

@@ -14,18 +14,20 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { addToPersoneller } from '../../store/actions/birimislemleri/personeller';
-import PersonelItem from '../../models/personel-item';
-import DateFnsUtils from '@date-io/date-fns';
+import { updatePersonelData } from '../../../store/actions/birimislemleri/personeller';
+import PersonelItem from '../../../models/personel-item';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import DateFnsUtils from '@date-io/date-fns';
 
-class PersonelEkle extends React.Component {
+
+class PersonelGuncelle extends React.Component {
     constructor(...args) {
         super(...args)
         this.state = {
-            modalopen: false,
-            Birim: '',
-            yapiBilgileri: { cinsiyet: '', kadro: '', unvan: '', mezuniyet: '' }
+            modalopen: this.props.open,
+            Birim: null,
+            yapiBilgileri: this.props.personeller,
+            birimler: this.props.birimler
         }
     }
     modalAccountOpen = () => {
@@ -38,84 +40,80 @@ class PersonelEkle extends React.Component {
         this.setState({ [e.target.name]: val })
 
     }
-    handleChangeAracBilgisi = (e) => {
+    handleChange = (e) => {
         let val = e.target.value;
         this.setState({ yapiBilgileri: { ...this.state.yapiBilgileri, [e.target.name]: val } })
 
     }
-    handleChange = (e) => {
-        let val = e.target.value;
-        this.setState({ yapiBilgileri: { ...this.state.yapiBilgileri, [e.target.name]: val } })
+    handleSubmit = (e) => {
+
+        var yapi = new PersonelItem(this.props.personel.id, this.state.yapiBilgileri.Adi || this.props.personel.adi,
+            this.state.yapiBilgileri.Kadro || this.props.personel.kadro,
+            this.state.yapiBilgileri.Mezuniyet || this.props.personel.mezuniyet,
+            this.state.yapiBilgileri.Cinsiyet || this.props.personel.cinsiyet,
+            this.state.yapiBilgileri.IseGirisTarihi || this.props.personel.iseGirisTarihi,
+            this.state.yapiBilgileri.Unvan || this.props.personel.unvan,
+            this.state.yapiBilgileri.DogumTarihi || this.props.personel.dogumTarihi,
+            this.state.yapiBilgileri.KisaKod || this.props.personel.tel,
+            false,
+            this.state.Birim || this.props.personel.birimId);
+        yapi.OlusturmaTarihi = this.props.personel.olusturmaTarihi;
+        this.props.updatePersonelData(yapi);
+
+        if (this.props.error === false) {
+            this.setState({
+                modalopen: !this.state.modalopen,
+                amacDetay: [],
+                Birim: null,
+                TahisisTuru: null,
+                AracCinsi: null
+            })
+
+            Swal.fire({
+                title: 'Kayıt Başarılı!',
+                position: 'top-end',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            this.props.handleModalOpenGuncelle(e)
+
+        }
+        else {
+
+            this.setState({
+                modalopen: !this.state.modalopen
+            })
+            Swal.fire({
+                title: 'Oops...',
+                position: 'top-end',
+                icon: 'error',
+                text: 'Hata Oluştu',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
+            this.props.handleModalOpenGuncelle(e)
+        }
+
+
     }
+
+    
     handleChangeDateDogumTarihi = date => {
         this.setState({ yapiBilgileri: { ...this.state.yapiBilgileri, DogumTarihi: date } })
     }
     handleChangeDateIseGiris = date => {
         this.setState({ yapiBilgileri: { ...this.state.yapiBilgileri, IseGirisTarihi: date } })
     }
-    handleSubmit = (e) => {
-        if (this.state.yapiBilgileri.Adi != null) {
-
-            var yapi = new PersonelItem(0, this.state.yapiBilgileri.Adi,
-                this.state.yapiBilgileri.Kadro,
-                this.state.yapiBilgileri.Mezuniyet,
-                Boolean(this.state.yapiBilgileri.Cinsiyet),
-                this.state.yapiBilgileri.IseGirisTarihi,
-                this.state.yapiBilgileri.Unvan,
-                this.state.yapiBilgileri.DogumTarihi,
-                this.state.yapiBilgileri.KisaKod,
-                false,
-                parseInt(this.state.Birim));
-            this.props.addToPersoneller(yapi);
-            console.log(yapi)
-            if (this.props.error === false) {
-
-                Swal.fire({
-                    title: 'Kayıt Başarılı!',
-                    position: 'top-end',
-                    icon: 'success',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-
-                this.setState({
-                    modalopen: !this.state.modalopen,
-                    amacDetay: [],
-                    Birim: null
-                })
-            }
-            else {
-                Swal.fire({
-                    title: 'Oops...',
-                    position: 'top-end',
-                    icon: 'error',
-                    text: 'Hata Oluştu',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        } else {
-            Swal.fire({
-                title: 'Oops...',
-                position: 'top-end',
-                icon: 'error',
-                text: 'Yıldızlı alanların hepsini doldurunuz',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        }
-
-
-    }
     render() {
-        const { birimler } = this.props.props;
+        const { birimler, personel } = this.props;
         return <div>
-            <Button onClick={this.modalAccountOpen} >Personel Ekle</Button>
-            <Dialog open={this.state.modalopen} onClose={this.modalAccountOpen} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Yeni Personel Oluştur.</DialogTitle>
+            <Dialog open={this.props.open} onClose={this.props.handleModalOpenGuncelle} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Personel Bilgilerini Güncelle</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan biriminizin personel tanımlarını yapabilirsiniz.
+                        Bu ekrandan personel bilgileri güncelleme işlemlerini tanımlayabilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={4}>
                         <Grid item xs={4}>
@@ -125,7 +123,7 @@ class PersonelEkle extends React.Component {
                                 required
                                 margin="dense"
                                 id="name"
-                                label="Personel Adı"
+                                label={personel.adi}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -141,8 +139,8 @@ class PersonelEkle extends React.Component {
                                     margin="normal"
                                     id="date-picker-inline"
                                     label="İşe Giriş Tarihi"
-                                    value={this.state.yapiBilgileri.IseGirisTarihi}
-                                    onChange={this.handleChangeDateIseGiris}
+                                    value={this.state.yapiBilgileri.IseGirisTarihi||personel.iseGirisTarihi}
+                                    onChange={this.handleChange}
                                     KeyboardButtonProps={{
                                         'aria-label': 'change date',
                                     }}
@@ -159,8 +157,8 @@ class PersonelEkle extends React.Component {
                                     type="text"
                                     required
                                     fullWidth
-                                    value={this.state.yapiBilgileri.Cinsiyet}
-                                    onChange={this.handleChangeAracBilgisi}
+                                    value={this.state.yapiBilgileri.Cinsiyet||personel.cinsiyet==false?0:1}
+                                    onChange={this.handleChange}
                                 >
                                     {this.props.personeller.cinsiyet && this.props.personeller.cinsiyet.map((item, index) => {
                                         return <MenuItem key={index} value={index}>{item} </MenuItem>
@@ -181,8 +179,8 @@ class PersonelEkle extends React.Component {
                                     type="text"
                                     required
                                     fullWidth
-                                    value={this.state.yapiBilgileri.Mezuniyet}
-                                    onChange={this.handleChangeAracBilgisi}
+                                    value={this.state.yapiBilgileri.Mezuniyet||personel.mezuniyet}
+                                    onChange={this.handleChange}
                                 >
                                     {this.props.personeller.mezuniyet && this.props.personeller.mezuniyet.map((item, index) => {
                                         return <MenuItem key={index} value={index}>{item} </MenuItem>
@@ -203,7 +201,7 @@ class PersonelEkle extends React.Component {
                                     margin="normal"
                                     id="date-picker-inline"
                                     label="Doğum Tarihi"
-                                    value={this.state.yapiBilgileri.DogumTarihi}
+                                    value={this.state.yapiBilgileri.DogumTarihi||personel.dogumTarihi}
                                     onChange={this.handleChangeDateDogumTarihi}
                                     KeyboardButtonProps={{
                                         'aria-label': 'change date',
@@ -221,8 +219,8 @@ class PersonelEkle extends React.Component {
                                     type="text"
                                     required
                                     fullWidth
-                                    value={this.state.yapiBilgileri.Kadro}
-                                    onChange={this.handleChangeAracBilgisi}
+                                    value={this.state.yapiBilgileri.Kadro||personel.kadro}
+                                    onChange={this.handleChange}
                                 >
                                     {this.props.personeller.kadro && this.props.personeller.kadro.map((item, index) => {
                                         return <MenuItem key={index} value={index}>{item} </MenuItem>
@@ -243,8 +241,8 @@ class PersonelEkle extends React.Component {
                                     type="text"
                                     required
                                     fullWidth
-                                    value={this.state.yapiBilgileri.Unvan}
-                                    onChange={this.handleChangeAracBilgisi}
+                                    value={this.state.yapiBilgileri.Unvan||personel.unvan}
+                                    onChange={this.handleChange}
                                 >
                                     {this.props.personeller.unvan && this.props.personeller.unvan.map((item, index) => {
                                         return <MenuItem key={index} value={index}>{item} </MenuItem>
@@ -260,7 +258,7 @@ class PersonelEkle extends React.Component {
                                 name="KisaKod"
                                 margin="dense"
                                 id="name"
-                                label="Kısa Kod"
+                                label={this.state.yapiBilgileri.KisaKod||personel.tel}
                                 type="text"
                                 fullWidth
                                 onChange={this.handleChange}
@@ -269,13 +267,14 @@ class PersonelEkle extends React.Component {
                         <Grid item xs={4}>
                             <FormControl >
                                 <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Ekleyeceğiniz Birim.
+                                    Birimi
                                 </InputLabel>
                                 <Select
                                     name="Birim"
                                     type="text"
                                     required
-                                    value={this.state.Birim}
+                                    value={parseInt(personel.birimId) || this.state.Birim}
+                                    defaultValue={personel.birimId}
                                     onChange={this.handleChangeBirim}
                                 >
                                     {birimler && birimler.map((item, index) => {
@@ -283,8 +282,7 @@ class PersonelEkle extends React.Component {
                                     }
                                     )}
                                 </Select>
-
-                                <FormHelperText>Birim Seçiniz</FormHelperText>
+                                <FormHelperText>Lütfen Bir Birim Seçiniz</FormHelperText>
                             </FormControl>
                         </Grid>
                     </Grid>
@@ -292,7 +290,7 @@ class PersonelEkle extends React.Component {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={this.modalAccountOpen}>
+                    <Button onClick={this.props.handleModalOpenGuncelle}>
                         İptal
                     </Button>
                     <Button onClick={this.handleSubmit} >
@@ -305,4 +303,4 @@ class PersonelEkle extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ personeller: state.personeller, error: state.personeller.error })
-export default connect(mapStateToProps, { addToPersoneller })(PersonelEkle)
+export default connect(mapStateToProps, { updatePersonelData })(PersonelGuncelle)

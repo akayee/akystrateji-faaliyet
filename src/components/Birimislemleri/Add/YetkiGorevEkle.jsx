@@ -14,8 +14,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Swal from 'sweetalert2';
-import { addToYetkiGorev,removeFromYetkiGorev} from '../../store/actions/birimislemleri/yetkigorev';
-import YetkiGorevItem from '../../models/yetkigorev-item';
+import { addToYetkiGorev,removeFromYetkiGorev} from '../../../store/actions/birimislemleri/yetkigorev';
+import YetkiGorevItem from '../../../models/yetkigorev-item';
 
 class YetkiGorevEkle extends React.Component{
     constructor(...args){
