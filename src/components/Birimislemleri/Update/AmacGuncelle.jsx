@@ -22,7 +22,8 @@ class AmacGuncelle extends React.Component {
         super(...args);
         this.state = {
             amacDetay: [],
-            Birim: []
+            Birim: [],
+            modalOpen:null
         }
     }
     handleChange = (e) => {
@@ -30,14 +31,19 @@ class AmacGuncelle extends React.Component {
         this.setState({ amacDetay: { ...this.state.amacDetay, [e.target.name]: val } })
 
     }
+    handleClose=()=>{
+        this.props.updateModalOpen('amac');
+    }
     handleSubmit = (e) => {
         let amac = this.props.data;
-        amac.tanim = this.state.amacDetay.Tanim
+        amac.adi = this.state.amacDetay.Tanim
         this.props.updateAmac(amac);
         if (!this.props.error) {
             this.setState({
-                amacDetay: []
+                amacDetay: [],
+                modalOpen:false
             })
+            
             Swal.fire({
                 title: 'Kayıt Başarılı!',
                 position: 'top-end',
@@ -45,6 +51,7 @@ class AmacGuncelle extends React.Component {
                 showConfirmButton: false,
                 timer: 1500
             })
+            this.props.updateModalOpen('amac')
 
         } else {
             Swal.fire({
@@ -59,16 +66,14 @@ class AmacGuncelle extends React.Component {
 
     }
     render() {
-        const { classes, data, showModal, hideButton, modalName } = this.props;
+        const { classes, data, showModal, hideButton} = this.props;
         if (hideButton == true) {
             return <div></div>
         }
-        return <div>
-            <IconButton>
-                <EditIcon onClick={(e) => this.props.updateModalOpen('amac', modalName, e)} />
-            </IconButton>
-            <Dialog open={showModal.amac[modalName]} onClose={(e) => this.props.updateModalOpen('amac', modalName, e)} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Stratejik Amaç Güncelle</DialogTitle>
+        return <div key={this.props.showModal[data.id]}>
+            
+            <Dialog   open={showModal[data.id]||false} onClose={this.handleClose } aria-labelledby="form-dialog-title">
+                <DialogTitle  id="form-dialog-title">Stratejik Amaç Güncelle</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         Bu ekrandan birim veya birimlerinize stratejik amaç tanımlarını güncelleyebilirsiniz.
@@ -90,7 +95,7 @@ class AmacGuncelle extends React.Component {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={(e) => this.props.updateModalOpen('amac', modalName, e)}>
+                    <Button  onClick={this.handleClose}>
                         İptal
                     </Button>
                     <Button onClick={this.handleSubmit} >

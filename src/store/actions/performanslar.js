@@ -2,10 +2,9 @@
 
 import axios from 'axios';
 export const ADD_TO_PERFORMANSLAR='ADD_TO_PERFORMANSLAR';
-
 export const REMOVE_FROM_PERFORMANSLAR='REMOVE_FROM_PERFORMANSLAR';
-
 export const GET_PERFORMANSDATA='GET_PERFORMANSDATA';
+export const UPDATE_FROM_PERFORMANSLAR='UPDATE_FROM_PERFORMANSLAR';
 
 export const addToPerformanslar = (performans)=>async dispatch=>{
     try{
@@ -32,6 +31,24 @@ export const removeFromPerformanslar= performans =>{
     
     return {type:REMOVE_FROM_PERFORMANSLAR,performans}
 };
+export const updateFromPerformanslar = (performans)=> async dispatch=>{
+    try{
+        const res =await axios.get(`https://localhost:44312/Performanslar/UpdateaPerformance`,performans)
+        dispatch({
+            type:GET_PERFORMANSDATA,
+            payload:res.data,
+            performans,
+            error:false
+        })
+    }
+    catch(e){
+        dispatch({
+            type:GET_PERFORMANSDATA,
+            payload:console.log(e),
+            error:true
+        })
+    }
+}
 
 export const getPerformansData = ()=> async dispatch=>{
     try{

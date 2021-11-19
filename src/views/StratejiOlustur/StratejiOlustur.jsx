@@ -34,6 +34,7 @@ import Divider from '../../components/Ui/Divider.js';
 import Skeleton from 'react-loading-skeleton';
 import StratejikYilEkle from "../../components/Birimislemleri/Add/StratejikYilEkle";
 import AmacGuncelle from "../../components/Birimislemleri/Update/AmacGuncelle";
+import HedefGuncelle from "../../components/Birimislemleri/Update/HedefGuncelle";
 const acoounttye = [
   { Adi: 'Fen İşleri', id: '0', hedef: '80' },
   { Adi: 'Emlak İstimlak', id: '1', hedef: '70' },
@@ -71,14 +72,14 @@ class StratejiOlustur extends React.Component {
       expanded: false,
       hedefexpanded: false,
       performansexpanded: false,
-      update:{
-        amac:[],
-        hedef:[],
-        performans:[],
-        performansgostergesi:[],
-        faaliyet:[]
+      update: {
+        amac: [],
+        hedef: [],
+        performans: [],
+        performansgostergesi: [],
+        faaliyet: []
       },
-      Yil:'',
+      Yil: '',
       columns: [
         { title: 'Amaç Adı', field: 'adi' },
         {
@@ -104,15 +105,19 @@ class StratejiOlustur extends React.Component {
   handleChangePerformans = (panel) => (event, isExpanded) => {
     this.setState({ performansexpanded: isExpanded ? panel : false });
   };
-  handleChangeYil=(e)=>{
+  handleChangeYil = (e) => {
     this.setState({
-      yil:e.target.value
+      yil: e.target.value
     })
   }
-  handleChangeUpdate=(modal,updateModal,e)=>{
-    e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
-    
-    this.setState({update:{[modal]:{...this.state.update[modal],[updateModal]:!this.state.update[modal][updateModal]}}})
+  handleChangeUpdate = (modal) => {
+    let changemodal = this.state.update;
+    changemodal[modal] = [];
+
+    this.setState(state => ({
+      ...state,
+      update: changemodal
+    }))
   }
 
 
@@ -124,17 +129,17 @@ class StratejiOlustur extends React.Component {
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
 
-    if(this.props.loading== true){
+    if (this.props.loading == true) {
       return <div>
-      <Skeleton height={100} />
-      <Skeleton count={6} /></div>
+        <Skeleton height={100} />
+        <Skeleton count={6} /></div>
     }
-    const {stratejikAmac,hedefler,performanslar,isturleri,vmFaaliyetTurleri}=this.props.strategydata
+    const { stratejikAmac, hedefler, performanslar, isturleri, vmFaaliyetTurleri } = this.props.strategydata
     console.log(this.props.strategydata)
     return (
       <div>
         {/* Stratejik amaç ekleme popupı */}
-        <div style={{float:'right'}}>
+        <div style={{ float: 'right' }}>
           <Grid item xs={4}>
             <FormControl >
               <InputLabel shrink id="demo-simple-select-placeholder-label-label">
@@ -144,7 +149,7 @@ class StratejiOlustur extends React.Component {
                 name="Yil"
                 type="text"
                 required
-                value={this.state.Yil }
+                value={this.state.Yil}
                 defaultValue={this.state.Yil}
                 onChange={this.handleChangeYil}
               >
@@ -167,39 +172,52 @@ class StratejiOlustur extends React.Component {
             <Card>
               {/* Stratejik amaç tablosu */}
 
-              {stratejikAmac.map((strateji,stratejiIndex) => <Accordion key={stratejiIndex} expanded={this.state.expanded === strateji.id} onChange={this.handleChange(strateji.id)}>
+              {stratejikAmac.map((strateji, stratejiIndex) => <Accordion key={stratejiIndex} expanded={this.state.expanded === strateji.id} onChange={this.handleChange(strateji.id)}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
                 >
-                  <Grid item xs={10} >A{strateji.id}:{strateji.adi}</Grid>
+                  <Grid item xs={10} >A{stratejiIndex + 1}:{strateji.adi}</Grid>
                   <Grid item xs={2} style={{ textAlign: 'right' }}>
                     <IconButton onClick={e => {
-                                e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
-                                Swal.fire({
-                                  title: 'Emin Misin?',
-                                  text: "Bu işlemi geri döndüremeyebilirsin!",
-                                  icon: 'warning',
-                                  showCancelButton: true,
-                                  confirmButtonColor: '#3085d6',
-                                  cancelButtonColor: '#d33',
-                                  confirmButtonText: 'Evet, Sil!'
-                                }).then((result) => {
-                                  if (result.isConfirmed) {
-                                    this.removeAmac(strateji)
-                                    Swal.fire(
-                                      'Silindi!',
-                                      'İlgili veri silindi.',
-                                      'success'
-                                    )
-                                  }
-                                })
-                              }}>
+                      e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
+                      Swal.fire({
+                        title: 'Emin Misin?',
+                        text: "Bu işlemi geri döndüremeyebilirsin!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Evet, Sil!'
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          this.removeAmac(strateji)
+                          Swal.fire(
+                            'Silindi!',
+                            'İlgili veri silindi.',
+                            'success'
+                          )
+                        }
+                      })
+                    }}>
                       <DeleteIcon />
                     </IconButton>
 
-                    <AmacGuncelle data={strateji} modalName={strateji.id} showModal={this.state.update} updateModalOpen={this.handleChangeUpdate} onClick={(e)=>{e.stopPropagation();this.setState({update:{amac:{[strateji.id]:true}}})}} hideButton={false} />
+
+                    <IconButton key={stratejiIndex} onClick={(e) => {
+                      e.stopPropagation();
+                      this.setState({ update: {...this.state.update, amac: { [strateji.id]: true } } })
+                    }}>
+                      <EditIcon />
+                    </IconButton>
+                    <AmacGuncelle
+                      data={strateji}
+                      showModal={this.state.update.amac}
+                      updateModalOpen={this.handleChangeUpdate}
+                      hideButton={false} />
+
+
                   </Grid>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -211,14 +229,14 @@ class StratejiOlustur extends React.Component {
                     </GridContainer>
 
                     {
-                      hedefler.filter(obj=>obj.amaclarId==strateji.id).map((item,hedeflerindex) =>
-                        <Accordion key={hedeflerindex} expanded={this.state.hedefexpanded === strateji.id +'/'+item.id} onChange={this.handleChangeHedef(strateji.id +'/'+item.id)}>
+                      hedefler.filter(obj => obj.amaclarId == strateji.id).map((hedef, hedeflerindex) =>
+                        <Accordion key={hedeflerindex} expanded={this.state.hedefexpanded === strateji.id + '/' + hedef.id} onChange={this.handleChangeHedef(strateji.id + '/' + hedef.id)}>
                           <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                           >
-                            <Grid item xs={5}>H{strateji.id }.{hedeflerindex+1} : <div >{item.tanim}</div ></Grid>
+                            <Grid item xs={5}>H{stratejiIndex + 1}.{hedeflerindex + 1} : <div >{hedef.tanim}</div ></Grid>
                             <Grid item xs={7} style={{ textAlign: 'right' }}>
                               <IconButton onClick={e => {
                                 e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
@@ -243,32 +261,44 @@ class StratejiOlustur extends React.Component {
                                 <DeleteIcon />
                               </IconButton>
 
-                              <IconButton>
-                                <EditIcon onClick={e => { e.stopPropagation(); }} />
+                              <IconButton key={hedeflerindex} onClick={(e) => {
+                                e.stopPropagation();
+                                this.setState({ update: {...this.state.update, hedef: { [hedef.id]: true } } })
+                              }}>
+                                <EditIcon />
                               </IconButton>
+
+                              <HedefGuncelle
+                                amaclar={stratejikAmac}
+                                data={hedef}
+                                showModal={this.state.update.hedef}
+                                updateModalOpen={this.handleChangeUpdate}
+                                hideButton={false} />
+
+
                             </Grid>
                           </AccordionSummary>
                           <AccordionDetails>
                             <div style={{ width: '%100' }}>
                               <GridContainer alignItems='center' justify='center'>
                                 <GridItem item xs={12} sm={12} md={12}>
-                                  <PerformansEkle birimler={BIRIMLER} classes={this.props.classes} hedef={item} />
+                                  <PerformansEkle birimler={BIRIMLER} classes={this.props.classes} hedef={hedef} />
                                 </GridItem>
                               </GridContainer>
-                              {performanslar ? performanslar.filter(obj=>obj.hedeflerId==item.id).map((performans,performansindex) => <Accordion key={performansindex} expanded={this.state.performansexpanded === strateji.id +'/'+item.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id +'/'+item.id+'/'+performans.id)}>
+                              {performanslar ? performanslar.filter(obj => obj.hedeflerId == hedef.id).map((performans, performansindex) => <Accordion key={performansindex} expanded={this.state.performansexpanded === strateji.id + '/' + hedef.id + '/' + performans.id} onChange={this.handleChangePerformans(strateji.id + '/' + hedef.id + '/' + performans.id)}>
                                 <AccordionSummary
                                   expandIcon={<ExpandMoreIcon />}
                                   aria-controls="panel1bh-content"
                                   id="panel1bh-header"
                                 >
-                                  <Grid item xs={5}>P{strateji.id }.{hedeflerindex+1}.{performansindex+1} : {performans.adi}</Grid>
+                                  <Grid item xs={5}>P{stratejiIndex + 1}.{hedeflerindex + 1}.{performansindex + 1} : {performans.adi}</Grid>
                                   <Grid item xs={7} style={{ textAlign: 'right' }}>
                                     <IconButton>
                                       <DeleteIcon />
                                     </IconButton>
 
-                                    <IconButton>
-                                      <EditIcon onClick={e => { e.stopPropagation(); }} />
+                                    <IconButton onClick={e => { e.stopPropagation(); }}>
+                                      <EditIcon  />
                                     </IconButton>
                                   </Grid>
                                 </AccordionSummary>
@@ -281,9 +311,9 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={8}><b>Adi</b></Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}><b>Ölçü Birimi</b></Grid>
                                     </Grid>
-                                    {isturleri && isturleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid key={index} container>
+                                    {isturleri && isturleri.filter(obj => obj.performansId == performans.id).map((is, index) => <Grid key={index} container>
                                       <Grid item xs={12}><b>Birim Adi</b></Grid>
-                                      <Grid item xs={8}>PG {strateji.id }.{hedeflerindex+1}.{performansindex+1}.{index+1}-{is.adi}</Grid>
+                                      <Grid item xs={8}>PG {strateji.id}.{hedeflerindex + 1}.{performansindex + 1}.{index + 1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
                                       <Divider />
 
@@ -293,9 +323,9 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={8}><b>Adi</b></Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }} ><b>Ölçü Birimi</b></Grid>
                                     </Grid>
-                                    {vmFaaliyetTurleri && vmFaaliyetTurleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid key={index} container>
+                                    {vmFaaliyetTurleri && vmFaaliyetTurleri.filter(obj => obj.performansId == performans.id).map((is, index) => <Grid key={index} container>
                                       <Grid item xs={12}><b>Birim Adı</b></Grid>
-                                      <Grid item xs={8}>PF {strateji.id }.{hedeflerindex+1}.{performansindex+1}.{index+1}-{is.adi}</Grid>
+                                      <Grid item xs={8}>PF {strateji.id}.{hedeflerindex + 1}.{performansindex + 1}.{index + 1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
                                       <Divider />
                                     </Grid>)}
@@ -321,5 +351,5 @@ class StratejiOlustur extends React.Component {
 StratejiOlustur.propTypes = {
   classes: PropTypes.object.isRequired
 };
-const mapStateToProps = (state) => ({ strategydata: state.amaclar.stratejidata,loading:state.amaclar.loading , Yillar: state.stratejikyillar.yillar })
-export default connect(mapStateToProps, { getAmacData,getStratejiYiliData})(withStyles(styles)(StratejiOlustur));
+const mapStateToProps = (state) => ({ strategydata: state.amaclar.stratejidata, loading: state.amaclar.loading, Yillar: state.stratejikyillar.yillar })
+export default connect(mapStateToProps, { getAmacData, getStratejiYiliData })(withStyles(styles)(StratejiOlustur));

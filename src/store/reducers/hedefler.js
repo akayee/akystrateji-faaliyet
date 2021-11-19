@@ -1,4 +1,4 @@
-import {ADD_TO_HEDEFLER,REMOVE_FROM_HEDEFLER,GET_HEDEFDATA} from '../actions/hedefler';
+import {ADD_TO_HEDEFLER,REMOVE_FROM_HEDEFLER,GET_HEDEFDATA, UPDATE_FROM_HEDEFLER} from '../actions/hedefler';
 
 
 const initialState={
@@ -33,6 +33,23 @@ export default (state=initialState,action)=>{
             return{
                 ...state,hedefler:deletedItem
             }
+            case UPDATE_FROM_HEDEFLER:
+                if (action.error == true) {
+                    return { ...state, loading: false,error:true,errormessage:action.payload }
+                } else {
+    
+                    let updatedHedefItem = state.hedefler;
+                    let updatedItem = action.hedef;
+                    //Ekranda düzgün gözüksün diye düzenleme yapılabilir.
+                    let uindex = updatedHedefItem.findIndex(obj => obj.id == updatedItem.id);
+                    updatedHedefItem[uindex] = updatedItem;
+                    return {
+                        ...state,
+                        loading: false,
+                        hedefler: updatedHedefItem,
+                        error:false
+                    }
+                }
         default:
             return state;
     }

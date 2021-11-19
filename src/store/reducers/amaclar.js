@@ -1,6 +1,6 @@
 import { ADD_TO_AMACLAR, REMOVE_FROM_AMACLAR, GET_AMACDATA, UPDATE_FROM_AMACLAR } from '../actions/amaclar';
-import { ADD_TO_HEDEFLER } from '../actions/hedefler';
-import { ADD_TO_PERFORMANSLAR } from '../actions/performanslar';
+import { ADD_TO_HEDEFLER, UPDATE_FROM_HEDEFLER } from '../actions/hedefler';
+import { ADD_TO_PERFORMANSLAR, UPDATE_FROM_PERFORMANSLAR } from '../actions/performanslar';
 import { ADD_TO_PERFORMANSGOSTERGESI } from '../actions/performansgostergesi';
 import { ADD_TO_FAALIYETTURU } from '../actions/faaliyetturleri';
 
@@ -35,14 +35,14 @@ export default (state = initialState, action) => {
                 return {
                     ...state, amaclar: yeniamaclar, stratejidata: { ...state.stratejidata, stratejikAmac: liste }
                 }
-            }else{
+            } else {
 
-                return {...state,error:true,errormessage:action.payload}
+                return { ...state, error: true, errormessage: action.payload }
             }
 
 
 
-           
+
         case REMOVE_FROM_AMACLAR:
             let updatedAmacItem = { ...state.amaclar };
             delete updatedAmacItem[action.amac.id]
@@ -53,7 +53,7 @@ export default (state = initialState, action) => {
             }
         case UPDATE_FROM_AMACLAR:
             if (action.error == true) {
-                return { ...state, loading: false,error:true,errormessage:action.payload }
+                return { ...state, loading: false, error: true, errormessage: action.payload }
             } else {
 
                 let updatedDonanimItem = state.amaclar;
@@ -65,12 +65,12 @@ export default (state = initialState, action) => {
                     ...state,
                     loading: false,
                     amaclar: updatedDonanimItem,
-                    error:false
+                    error: false
                 }
             }
         case ADD_TO_HEDEFLER:
             if (action.error == true) {
-                return { ...state, loading: false,error:true,errormessage:action.payload }
+                return { ...state, loading: false, error: true, errormessage: action.payload }
             } else {
                 let liste = state.stratejidata.hedefler;
                 let nextid = liste.filter(obj => obj.amaclarId == action.hedef.amaclarId).length
@@ -79,7 +79,7 @@ export default (state = initialState, action) => {
             }
         case ADD_TO_PERFORMANSLAR:
             if (action.error == true) {
-                return { ...state, loading: false,error:true,errormessage:action.payload }
+                return { ...state, loading: false, error: true, errormessage: action.payload }
             } else {
                 let liste = state.stratejidata.performanslar;
                 let nextid = liste.filter(obj => obj.hedeflerId == action.hedef.hedeflerId).length
@@ -88,7 +88,7 @@ export default (state = initialState, action) => {
             }
         case ADD_TO_PERFORMANSGOSTERGESI:
             if (action.error == true) {
-                return { ...state, loading: false,error:true,errormessage:action.payload }
+                return { ...state, loading: false, error: true, errormessage: action.payload }
             } else {
                 let liste = state.stratejidata.isturleri;
                 let nextid = liste.filter(obj => obj.performansId == action.isturu.performansId).length
@@ -97,14 +97,31 @@ export default (state = initialState, action) => {
             }
         case ADD_TO_FAALIYETTURU:
             if (action.error == true) {
-                return { ...state, loading: false,error:true,errormessage:action.payload }
+                return { ...state, loading: false, error: true, errormessage: action.payload }
             } else {
                 let liste = state.stratejidata.vmFaaliyetTurleri;
                 let nextid = liste.filter(obj => obj.performansId == action.faaliyetturu.performansId).length
                 liste.push({ id: action.payload, adi: action.faaliyetturu.adi, performansId: action.faaliyetturu.performansId, faaliyetlerId: nextid });
                 return { ...state, stratejidata: { ...state.stratejidata, vmFaaliyetTurleri: liste } }
             }
-
+        case UPDATE_FROM_HEDEFLER:
+            if (action.error == true) {
+                return { ...state, loading: false, error: true, errormessage: action.payload }
+            } else {
+                let liste = state.stratejidata.hedefler;
+                let uindex = liste.findIndex(obj => obj.id == action.hedef.id);
+                liste[uindex] = action.hedef;
+                return { ...state, stratejidata: { ...state.stratejidata, hedefler: liste } }
+            }
+        case UPDATE_FROM_PERFORMANSLAR:
+            if (action.error == true) {
+                return { ...state, loading: false, error: true, errormessage: action.payload }
+            } else {
+                let liste = state.stratejidata.performanslar;
+                let uindex = liste.findIndex(obj => obj.id == action.performans.id);
+                liste[uindex] = action.performans;
+                return { ...state, stratejidata: { ...state.stratejidata, performanslar: liste } }
+            }
         default:
             return state;
     }
