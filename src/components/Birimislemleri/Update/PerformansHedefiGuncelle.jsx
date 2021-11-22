@@ -10,7 +10,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import { updateHedef } from '../../../store/actions/hedefler';
+import { updateFromPerformanslar } from '../../../store/actions/performanslar';
 import Swal from 'sweetalert2';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -25,7 +25,7 @@ class PerformansHedefiGuncelle extends React.Component {
         super(...args);
         this.state = {
             performansDetay: [],
-            performans:null
+            hedef:null
         }
     }
     handleChange = (e) => {
@@ -44,11 +44,11 @@ class PerformansHedefiGuncelle extends React.Component {
     handleSubmit = (e) => {
         let performans = this.props.data;
         performans.adi = this.state.performansDetay.Tanim;
-        if(this.state.performans){
-            performans.performanslerId=this.state.performans
+        if(this.state.hedef){
+            performans.hedeflerId=this.state.hedef
         }
         
-        this.props.updateperformans(performans);
+         this.props.updateFromPerformanslar(performans);
         if (!this.props.error) {
             this.setState({
                 performansDetay: []
@@ -83,10 +83,10 @@ class PerformansHedefiGuncelle extends React.Component {
         return <div key={this.props.showModal[data.id]}>
             
             <Dialog  open={showModal[data.id]||false} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Stratejik performans Güncelle</DialogTitle>
+                <DialogTitle id="form-dialog-title">Performans Hedefi Güncelle</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan birim veya birimlerinize stratejik performans tanımlarını güncelleyebilirsiniz.
+                        Bu ekrandan birim veya birimlerinize performans hedefi tanımlarını güncelleyebilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={3}>
                         <TextField
@@ -103,14 +103,14 @@ class PerformansHedefiGuncelle extends React.Component {
                          <Grid item xs={4}>
                         <FormControl >
                             <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                Stratejik Amaç.
+                                Performans Hedefi.
                             </InputLabel>
                             <Select
-                                name="Birim"
+                                name="hedeflerId"
                                 type="text"
                                 required
-                                value={this.state.amac||data.amaclarId}
-                                defaultValue={this.state.amac||data.amaclarId}
+                                value={this.state.hedef||data.hedeflerId}
+                                defaultValue={this.state.hedef||data.hedeflerId}
                                 onChange={this.handleChangeBirim}
                             >
                                 {hedefler && hedefler.map((item, index) => {
@@ -118,7 +118,7 @@ class PerformansHedefiGuncelle extends React.Component {
                                 }
                                 )}
                             </Select>
-                            <FormHelperText>Stratejik Amaç Seçiniz</FormHelperText>
+                            <FormHelperText>Performans Hedefi Seçiniz</FormHelperText>
                         </FormControl>
                     </Grid>
                     </Grid>
@@ -139,4 +139,4 @@ class PerformansHedefiGuncelle extends React.Component {
 
 }
 const mapStateToProps = (state) => ({ error: state.performanslar.error, errormessage: state.performanslar.errormessage })
-export default connect(mapStateToProps, { updateHedef })(PerformansHedefiGuncelle)
+export default connect(mapStateToProps, { updateFromPerformanslar })(PerformansHedefiGuncelle)

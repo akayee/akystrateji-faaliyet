@@ -35,6 +35,8 @@ import Skeleton from 'react-loading-skeleton';
 import StratejikYilEkle from "../../components/Birimislemleri/Add/StratejikYilEkle";
 import AmacGuncelle from "../../components/Birimislemleri/Update/AmacGuncelle";
 import HedefGuncelle from "../../components/Birimislemleri/Update/HedefGuncelle";
+import PerformansHedefiGuncelle from "../../components/Birimislemleri/Update/PerformansHedefiGuncelle";
+import PerformansGostergesiGuncelle from "../../components/Birimislemleri/Update/PerformansGostergesiGuncelle";
 const acoounttye = [
   { Adi: 'Fen İşleri', id: '0', hedef: '80' },
   { Adi: 'Emlak İstimlak', id: '1', hedef: '70' },
@@ -207,7 +209,7 @@ class StratejiOlustur extends React.Component {
 
                     <IconButton key={stratejiIndex} onClick={(e) => {
                       e.stopPropagation();
-                      this.setState({ update: {...this.state.update, amac: { [strateji.id]: true } } })
+                      this.setState({ update: { ...this.state.update, amac: { [strateji.id]: true } } })
                     }}>
                       <EditIcon />
                     </IconButton>
@@ -263,7 +265,7 @@ class StratejiOlustur extends React.Component {
 
                               <IconButton key={hedeflerindex} onClick={(e) => {
                                 e.stopPropagation();
-                                this.setState({ update: {...this.state.update, hedef: { [hedef.id]: true } } })
+                                this.setState({ update: { ...this.state.update, hedef: { [hedef.id]: true } } })
                               }}>
                                 <EditIcon />
                               </IconButton>
@@ -297,15 +299,26 @@ class StratejiOlustur extends React.Component {
                                       <DeleteIcon />
                                     </IconButton>
 
-                                    <IconButton onClick={e => { e.stopPropagation(); }}>
-                                      <EditIcon  />
+                                    <IconButton key={performansindex} onClick={(e) => {
+                                      e.stopPropagation();
+                                      this.setState({ update: { ...this.state.update, performans: { [performans.id]: true } } })
+                                    }}>
+                                      <EditIcon />
                                     </IconButton>
+
+                                    <PerformansHedefiGuncelle
+                                      hedefler={hedefler}
+                                      data={performans}
+                                      showModal={this.state.update.performans}
+                                      updateModalOpen={this.handleChangeUpdate}
+                                      hideButton={false}
+                                    />
                                   </Grid>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                   <Grid container>
-                                    <Grid item xs={4}><PerformansGostergesiEkle performans={performans} performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /></Grid>
-                                    <Grid item xs={6}><YeniFaaliyetTuruEkle performans={performans} performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} birimler={BIRIMLER} /> </Grid>
+                                    <Grid item xs={4}><PerformansGostergesiEkle performans={performans} performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} /></Grid>
+                                    <Grid item xs={6}><YeniFaaliyetTuruEkle performans={performans} performansAdi={performans.adi} birim={performans.birimId} classes={this.props.classes} /> </Grid>
                                     <Grid container><h4><b>Performans Göstergeleri</b></h4></Grid>
                                     <Grid container>
                                       <Grid item xs={8}><b>Adi</b></Grid>
@@ -315,6 +328,27 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={12}><b>Birim Adi</b></Grid>
                                       <Grid item xs={8}>PG {strateji.id}.{hedeflerindex + 1}.{performansindex + 1}.{index + 1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
+                                      <Grid item xs={2} style={{ textAlign: 'center' }}>
+
+                                        <IconButton>
+                                          <DeleteIcon />
+                                        </IconButton>
+
+                                        <IconButton key={index} onClick={(e) => {
+                                          e.stopPropagation();
+                                          this.setState({ update: { ...this.state.update, performansgostergesi: { [is.id]: true } } })
+                                        }}>
+                                          <EditIcon />
+                                        </IconButton>
+                                        <PerformansGostergesiGuncelle
+                                        performanslar={performanslar}
+                                        data={is}
+                                        showModal={this.state.update.performansgostergesi}
+                                        updateModalOpen={this.handleChangeUpdate}
+                                        hideButton={false}
+                                      />
+                                      </Grid>
+                                     
                                       <Divider />
 
                                     </Grid>)}
@@ -327,6 +361,19 @@ class StratejiOlustur extends React.Component {
                                       <Grid item xs={12}><b>Birim Adı</b></Grid>
                                       <Grid item xs={8}>PF {strateji.id}.{hedeflerindex + 1}.{performansindex + 1}.{index + 1}-{is.adi}</Grid>
                                       <Grid item xs={2} style={{ textAlign: 'center' }}>{is.olcuBirimiTanimi} </Grid>
+                                      <Grid item xs={2} style={{ textAlign: 'center' }}>
+
+                                        <IconButton>
+                                          <DeleteIcon />
+                                        </IconButton>
+
+                                        <IconButton key={index} onClick={(e) => {
+                                          e.stopPropagation();
+                                          this.setState({ update: { ...this.state.update, faaliyet: { [is.id]: true } } })
+                                        }}>
+                                          <EditIcon />
+                                        </IconButton>
+                                      </Grid>
                                       <Divider />
                                     </Grid>)}
                                   </Grid>

@@ -33,9 +33,9 @@ export const removeFromPerformanslar= performans =>{
 };
 export const updateFromPerformanslar = (performans)=> async dispatch=>{
     try{
-        const res =await axios.get(`https://localhost:44312/Performanslar/UpdateaPerformance`,performans)
+        const res =await axios.post(`https://localhost:44312/Performanslar/UpdateaPerformance`,performans)
         dispatch({
-            type:GET_PERFORMANSDATA,
+            type:UPDATE_FROM_PERFORMANSLAR,
             payload:res.data,
             performans,
             error:false
@@ -43,7 +43,7 @@ export const updateFromPerformanslar = (performans)=> async dispatch=>{
     }
     catch(e){
         dispatch({
-            type:GET_PERFORMANSDATA,
+            type:UPDATE_FROM_PERFORMANSLAR,
             payload:console.log(e),
             error:true
         })

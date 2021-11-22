@@ -1,3 +1,4 @@
+import { updateData } from '../../firebase/auth';
 import { ADD_TO_PERFORMANSLAR, REMOVE_FROM_PERFORMANSLAR, GET_PERFORMANSDATA, UPDATE_FROM_PERFORMANSLAR } from '../actions/performanslar';
 
 
@@ -33,12 +34,11 @@ export default (state = initialState, action) => {
             return {
                 ...state, performanslar: allItems
             }
-
         case UPDATE_FROM_PERFORMANSLAR:
             if (action.error == true) {
+                
                 return { ...state, loading: false, error: true, errormessage: action.payload }
             } else {
-
                 let updatedPerformansItem = state.performanslar;
                 let updatedItem = action.performans;
                 //Ekranda düzgün gözüksün diye düzenleme yapılabilir.

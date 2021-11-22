@@ -10,9 +10,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import { IconButton } from "@material-ui/core";
-import EditIcon from '@material-ui/icons/Edit';
-import { updateHedef } from '../../../store/actions/hedefler';
+import { updateToPerformansGostergesi } from '../../../store/actions/performansgostergesi';
 import Swal from 'sweetalert2';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -22,38 +20,38 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 
 
-class HedefGuncelle extends React.Component {
+class PerformansGostergesiGuncelle extends React.Component {
     constructor(...args) {
         super(...args);
         this.state = {
-            hedefDetay: [],
-            amac:null
+            performansDetay: [],
+            performans:null
         }
     }
     handleChange = (e) => {
         let val = e.target.value;
-        this.setState({ hedefDetay: { ...this.state.hedefDetay, [e.target.name]: val } })
+        this.setState({ performansDetay: { ...this.state.performansDetay, [e.target.name]: val } })
 
     }
     handleChangeBirim = (e) => {
         let val = e.target.value;
-        this.setState({ amac: val })
+        this.setState({ performans: val })
 
     }
     handleClose=()=>{
-        this.props.updateModalOpen('hedef');
+        this.props.updateModalOpen('performansgostergesi');
     }
     handleSubmit = (e) => {
-        let hedef = this.props.data;
-        hedef.tanim = this.state.hedefDetay.Tanim;
-        if(this.state.amac){
-            hedef.amaclarId=this.state.amac
+        let performans = this.props.data;
+        performans.adi = this.state.performansDetay.Tanim;
+        if(this.state.performans){
+            performans.performansId=this.state.performans
         }
         
-        this.props.updateHedef(hedef);
+         this.props.updateToPerformansGostergesi(performans);
         if (!this.props.error) {
             this.setState({
-                hedefDetay: []
+                performansDetay: []
             })
 
             Swal.fire({
@@ -63,7 +61,7 @@ class HedefGuncelle extends React.Component {
                 showConfirmButton: false,
                 timer: 1500
             })
-            this.handleClose('hedef')
+            this.handleClose('performans')
 
         } else {
             Swal.fire({
@@ -78,17 +76,17 @@ class HedefGuncelle extends React.Component {
 
     }
     render() {
-        const { classes, data, showModal, hideButton,amaclar } = this.props;
+        const { classes, data, showModal, hideButton,performanslar } = this.props;
         if (hideButton == true ) {
             return <div></div>
         }
-        return <div key={this.props.showModal[data.id]}>
+        return <div key={showModal[data.id]}>
             
             <Dialog  open={showModal[data.id]||false} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Stratejik Hedef Güncelle</DialogTitle>
+                <DialogTitle id="form-dialog-title">Performans Göstergesi Güncelle</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Bu ekrandan birim veya birimlerinize stratejik hedef tanımlarını güncelleyebilirsiniz.
+                        Bu ekrandan birim veya birimlerinize performans göstergesi tanımlarını güncelleyebilirsiniz.
                     </DialogContentText>
                     <Grid container spacing={3}>
                         <TextField
@@ -97,7 +95,7 @@ class HedefGuncelle extends React.Component {
                             id="name"
                             multiline
                             rows={4}
-                            label={this.state.hedefDetay.Tanim||data.tanim}
+                            label={this.state.performansDetay.Tanim||data.adi}
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
@@ -105,22 +103,22 @@ class HedefGuncelle extends React.Component {
                          <Grid item xs={4}>
                         <FormControl >
                             <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                Stratejik Amaç.
+                                Performans Gsötergesi.
                             </InputLabel>
                             <Select
-                                name="amaclarId"
+                                name="performansId"
                                 type="text"
                                 required
-                                value={this.state.amac||data.amaclarId}
-                                defaultValue={this.state.amac||data.amaclarId}
+                                value={this.state.performans||data.performansId}
+                                defaultValue={this.state.performans||data.performansId}
                                 onChange={this.handleChangeBirim}
                             >
-                                {amaclar && amaclar.map((item, index) => {
+                                {performanslar && performanslar.map((item, index) => {
                                     return <MenuItem style={{overflow: 'hidden'}} key={item.id} value={item.id}>{item.adi} </MenuItem>
                                 }
                                 )}
                             </Select>
-                            <FormHelperText>Stratejik Amaç Seçiniz</FormHelperText>
+                            <FormHelperText>Performans Hedefi Seçiniz</FormHelperText>
                         </FormControl>
                     </Grid>
                     </Grid>
@@ -140,5 +138,5 @@ class HedefGuncelle extends React.Component {
     }
 
 }
-const mapStateToProps = (state) => ({ error: state.hedefler.error, errormessage: state.hedefler.errormessage })
-export default connect(mapStateToProps, { updateHedef })(HedefGuncelle)
+const mapStateToProps = (state) => ({ error: state.performanslar.error, errormessage: state.performanslar.errormessage })
+export default connect(mapStateToProps, { updateToPerformansGostergesi })(PerformansGostergesiGuncelle)

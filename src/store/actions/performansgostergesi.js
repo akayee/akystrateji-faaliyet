@@ -2,10 +2,31 @@
 
 import axios from 'axios';
 export const ADD_TO_PERFORMANSGOSTERGESI='ADD_TO_PERFORMANSGOSTERGESI';
-
 export const REMOVE_FROM_PERFORMANSGOSTERGESI='REMOVE_FROM_PERFORMANSGOSTERGESI';
-
 export const GET_PERFORMANSGOSTERGESIDATA='GET_PERFORMANSGOSTERGESIDATA';
+export const UPDATE_FROM_PERFORMANSGOSTERGESI='UPDATE_FROM_PERFORMANSGOSTERGESI'
+
+
+export const updateToPerformansGostergesi = (performansgostergesi)=>async dispatch=>{
+    try{
+        const res =await axios.post(`https://localhost:44312/Isturu/UpdateAnIsTuru`,performansgostergesi)
+        dispatch({
+            type:UPDATE_FROM_PERFORMANSGOSTERGESI,
+            payload:res.data,
+            performansgostergesi,
+            error:false
+
+        })
+    }
+    catch(e){
+        dispatch({
+            type:UPDATE_FROM_PERFORMANSGOSTERGESI,
+            payload:console.log(e),
+            performansgostergesi,
+            error:true
+        })
+    }
+};
 
 export const addToPerformansGostergesi = (isturu)=>async dispatch=>{
     try{
