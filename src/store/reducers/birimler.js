@@ -13,19 +13,20 @@ export default (state=initialState,action)=>{
 
     switch(action.type){
         case GET_BIRIMDATA:
-
             if(action.error==true)
             {
                 return { 
                     ...state,
                     errormessage:action.payload,
-                    loadiing:false
+                    loadiing:false,
+                    error:true
                 }
             }else{
                 return {
                     ...state,
                     birimler:action.payload,
-                    loading:false
+                    loading:false,
+                    error:false
                 }
             }
         case ADD_TO_BIRIM:
@@ -73,13 +74,15 @@ export default (state=initialState,action)=>{
                 return { 
                     ...state,
                     errormessage:action.payload,
-                    loading:false
+                    loading:false,
+                    error:true
                 }
             }else{
                 return {
                     ...state,
                     birimbilgileri:action.payload,
-                    loading:false
+                    loading:false,
+                    error:false
                 }
             }
         default:

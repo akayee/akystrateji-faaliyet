@@ -11,13 +11,15 @@ export const getStrategyData = (birimId) => async dispatch=>{
             type:GET_STRATEGY_DATA,
             payload:res.data,
             birimler:res.data.birim,
-            birimtipi:res.data.birimTipi
+            birimtipi:res.data.birimTipi,
+            error:false
         })
     }
     catch(e){
         dispatch({
             type:GET_STRATEGY_DATA,
-            payload:console.log(e)
+            payload:console.log(e),
+            error:true
         })
     }
 ;}

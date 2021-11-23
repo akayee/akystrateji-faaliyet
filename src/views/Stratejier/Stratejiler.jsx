@@ -8,6 +8,7 @@ import LinearProg from '../../components/LinearProg/LinearProgStrateji';
 import { connect } from 'react-redux';
 import { getStrategyData } from '../../store/actions/birimsstratejibilgiler';
 import Divider from '../../components/Ui/Divider.js';
+import Skeleton from 'react-loading-skeleton';
 
 
 class Stratejiler extends React.Component {
@@ -35,16 +36,19 @@ class Stratejiler extends React.Component {
     }
 
     render() {
-        function amount(item) {
-            return item.Amount;
-        }
-
-        function sum(prev, next) {
-            return prev + next;
-        }
-        const { stratejikAmac, hedefler, performanslar, isturleri, vmFaaliyetTurleri, birim } = this.props.strategydata.strategydata;
-        const { birimler } = this.props.strategydata;
+        
+        const { stratejikAmac, hedefler, performanslar, isturleri, vmFaaliyetTurleri } = this.props.strategydata.strategydata;
+      
         console.log(this.props)
+        if (this.props.loading == true ) {
+            return <div>
+              <Skeleton height={100} />
+              <Skeleton count={6} /></div>
+          }else if(this.props.error==true){
+            return <div>
+              <h1>Sistem Hatası</h1>
+            </div>
+          }
 
         return <div>
             {stratejikAmac && stratejikAmac.map((strateji, index) => <Accordion key={index} expanded={this.state.expanded === strateji.id} onChange={this.handleChange(strateji.id)}>
@@ -57,7 +61,7 @@ class Stratejiler extends React.Component {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div style={{ width: '%100' }}>
-                        {hedefler.map((hedef, index) => <Accordion key={index} expanded={this.state.hedefexpanded === strateji.id+hedef.id} onChange={this.handleChangeHedef(strateji.id+hedef.id)}>
+                        {hedefler.filter(obj=>obj.amaclarId==strateji.id).map((hedef, index) => <Accordion key={index} expanded={this.state.hedefexpanded === strateji.id+'/'+hedef.id} onChange={this.handleChangeHedef(strateji.id+'/'+hedef.id)}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1bh-content"
@@ -67,7 +71,7 @@ class Stratejiler extends React.Component {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div style={{ width: '%100' }}>
-                                    {performanslar ? performanslar.map((performans, index) => <Accordion key={index} expanded={this.state.performansexpanded === strateji.id+hedef.id+performans.id} onChange={this.handleChangePerformans(strateji.id+hedef.id+performans.id)}>
+                                    {performanslar ? performanslar.filter(obj=>obj.hedeflerId==hedef.id).map((performans, index) => <Accordion key={index} expanded={this.state.performansexpanded === strateji.id+'/'+hedef.id+'/'+performans.id} onChange={this.handleChangePerformans(strateji.id+'/'+hedef.id+'/'+performans.id)}>
                                         <AccordionSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1bh-content"
@@ -94,7 +98,7 @@ class Stratejiler extends React.Component {
                                                     <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
                                                     <Grid item xs={4}><b>Açıklama</b></Grid>
                                                 </Grid>
-                                                {isturleri && isturleri.map((is, index) => <Grid key={index} container>
+                                                {isturleri && isturleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid key={index} container>
                                                     <Grid item xs={2}>{is.adi}</Grid>
                                                     <Grid item xs={2} style={{ textAlign: 'center' }}>{is.OlcuBrimi} </Grid>
                                                     <Grid item xs={2}>{is.yillikHedef} </Grid>
@@ -116,7 +120,7 @@ class Stratejiler extends React.Component {
                                                     <Grid item xs={2}><b>Gerçekleşme</b> </Grid>
                                                     <Grid item xs={4}><b>Açıklama</b></Grid>
                                                 </Grid>
-                                                {vmFaaliyetTurleri && vmFaaliyetTurleri.map((is, index) => <Grid key={index} container>
+                                                {vmFaaliyetTurleri && vmFaaliyetTurleri.filter(obj=>obj.performansId==performans.id).map((is, index) => <Grid key={index} container>
                                                     <Grid item xs={2}>{is.adi}</Grid>
                                                     <Grid item xs={2} style={{ textAlign: 'center' }}>{is.OlcuBrimi} </Grid>
                                                     <Grid item xs={2}>{is.yillikHedef} </Grid>
@@ -148,5 +152,5 @@ class Stratejiler extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({ strategydata: state.strategydata })
+const mapStateToProps = (state) => ({ strategydata: state.strategydata ,loading:state.strategydata.loading,error:state.strategydata.error})
 export default connect(mapStateToProps, { getStrategyData })(Stratejiler);

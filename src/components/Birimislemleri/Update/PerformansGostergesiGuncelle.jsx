@@ -17,6 +17,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import {getBirimData} from '../../../store/actions/birimler';
+import {getOlcuBirimiData} from '../../../store/actions/olcubirimi';
 
 
 
@@ -25,8 +27,12 @@ class PerformansGostergesiGuncelle extends React.Component {
         super(...args);
         this.state = {
             performansDetay: [],
-            performans:null
+            performans: null
         }
+    }
+    componentDidMount(){
+        this.props.getOlcuBirimiData();
+        this.props.getBirimData();
     }
     handleChange = (e) => {
         let val = e.target.value;
@@ -38,17 +44,19 @@ class PerformansGostergesiGuncelle extends React.Component {
         this.setState({ performans: val })
 
     }
-    handleClose=()=>{
+    handleClose = () => {
         this.props.updateModalOpen('performansgostergesi');
     }
     handleSubmit = (e) => {
         let performans = this.props.data;
-        performans.adi = this.state.performansDetay.Tanim;
-        if(this.state.performans){
-            performans.performansId=this.state.performans
+        performans.adi = this.state.performansDetay.Tanim||performans.adi;
+        if (this.state.performans) {
+            performans.performansId = this.state.performans
         }
-        
-         this.props.updateToPerformansGostergesi(performans);
+        performans.olcuBirimi=this.state.performansDetay.olcuBirimi|| performans.olcuBirimi;
+        performans.birimId=this.state.performansDetay.birimId|| performans.birimId;
+        console.log(performans)
+        this.props.updateToPerformansGostergesi(performans);
         if (!this.props.error) {
             this.setState({
                 performansDetay: []
@@ -76,13 +84,13 @@ class PerformansGostergesiGuncelle extends React.Component {
 
     }
     render() {
-        const { classes, data, showModal, hideButton,performanslar } = this.props;
-        if (hideButton == true ) {
+        const { classes, data, showModal, hideButton, performanslar,olcuBirimi,birimler } = this.props;
+        if (hideButton == true) {
             return <div></div>
         }
         return <div key={showModal[data.id]}>
-            
-            <Dialog  open={showModal[data.id]||false} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+
+            <Dialog open={showModal[data.id] || false} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Performans Göstergesi Güncelle</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
@@ -95,34 +103,74 @@ class PerformansGostergesiGuncelle extends React.Component {
                             id="name"
                             multiline
                             rows={4}
-                            label={this.state.performansDetay.Tanim||data.adi}
+                            label={this.state.performansDetay.Tanim || data.adi}
                             type="text"
                             fullWidth
                             onChange={this.handleChange}
                         />
-                         <Grid item xs={4}>
-                        <FormControl >
-                            <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                Performans Gsötergesi.
-                            </InputLabel>
-                            <Select
-                                name="performansId"
-                                type="text"
-                                required
-                                value={this.state.performans||data.performansId}
-                                defaultValue={this.state.performans||data.performansId}
-                                onChange={this.handleChangeBirim}
-                            >
-                                {performanslar && performanslar.map((item, index) => {
-                                    return <MenuItem style={{overflow: 'hidden'}} key={item.id} value={item.id}>{item.adi} </MenuItem>
-                                }
-                                )}
-                            </Select>
-                            <FormHelperText>Performans Hedefi Seçiniz</FormHelperText>
-                        </FormControl>
+                        <Grid item xs={6}>
+                            <FormControl >
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Ölçü Birimi?
+                                </InputLabel>
+                                <Select
+                                    name="olcuBirimi"
+                                    type="text"
+                                    value={ this.state.performansDetay.olcuBirimi|| data.olcuBirimi}
+                                    onChange={this.handleChange}
+                                >
+                                    {olcuBirimi.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.tanim} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
+
+                                <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <FormControl >
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Birimi?
+                                </InputLabel>
+                                <Select
+                                    name="birimId"
+                                    type="text"
+                                    value={this.state.performansDetay.birimId||data.birimId}
+                                    onChange={this.handleChange}
+                                >
+                                    {birimler.map((item, index) => {
+                                        return <MenuItem key={item.id} value={item.id}>{item.adi} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
+
+                                <FormHelperText>Lütfen Birimi Seçiniz</FormHelperText>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <FormControl >
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Performans Gsötergesi.
+                                </InputLabel>
+                                <Select
+                                    name="performansId"
+                                    type="text"
+                                    required
+                                    value={this.state.performans || data.performansId}
+                                    defaultValue={this.state.performans || data.performansId}
+                                    onChange={this.handleChangeBirim}
+                                >
+                                    {performanslar && performanslar.map((item, index) => {
+                                        return <MenuItem style={{ overflow: 'hidden' }} key={item.id} value={item.id}>{item.adi} </MenuItem>
+                                    }
+                                    )}
+                                </Select>
+                                <FormHelperText>Performans Hedefi Seçiniz</FormHelperText>
+                            </FormControl>
+                        </Grid>
                     </Grid>
-                    </Grid>
-                   
+
 
                 </DialogContent>
                 <DialogActions>
@@ -138,5 +186,5 @@ class PerformansGostergesiGuncelle extends React.Component {
     }
 
 }
-const mapStateToProps = (state) => ({ error: state.performanslar.error, errormessage: state.performanslar.errormessage })
-export default connect(mapStateToProps, { updateToPerformansGostergesi })(PerformansGostergesiGuncelle)
+const mapStateToProps = (state) => ({ error: state.performanslar.error, errormessage: state.performanslar.errormessage, olcuBirimi:state.olcubirimi.olcubirimi,birimler:state.birimler.birimler })
+export default connect(mapStateToProps, { updateToPerformansGostergesi,getOlcuBirimiData,getBirimData })(PerformansGostergesiGuncelle)

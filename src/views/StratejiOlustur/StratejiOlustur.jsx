@@ -131,10 +131,14 @@ class StratejiOlustur extends React.Component {
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
 
-    if (this.props.loading == true) {
+    if (this.props.loading == true ) {
       return <div>
         <Skeleton height={100} />
         <Skeleton count={6} /></div>
+    }else if(this.props.error==true){
+      return <div>
+        <h1>Sistem Hatası</h1>
+      </div>
     }
     const { stratejikAmac, hedefler, performanslar, isturleri, vmFaaliyetTurleri } = this.props.strategydata
     console.log(this.props.strategydata)
@@ -174,7 +178,7 @@ class StratejiOlustur extends React.Component {
             <Card>
               {/* Stratejik amaç tablosu */}
 
-              {stratejikAmac.map((strateji, stratejiIndex) => <Accordion key={stratejiIndex} expanded={this.state.expanded === strateji.id} onChange={this.handleChange(strateji.id)}>
+              {stratejikAmac&& stratejikAmac.map((strateji, stratejiIndex) => <Accordion key={stratejiIndex} expanded={this.state.expanded === strateji.id} onChange={this.handleChange(strateji.id)}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1bh-content"
@@ -398,5 +402,5 @@ class StratejiOlustur extends React.Component {
 StratejiOlustur.propTypes = {
   classes: PropTypes.object.isRequired
 };
-const mapStateToProps = (state) => ({ strategydata: state.amaclar.stratejidata, loading: state.amaclar.loading, Yillar: state.stratejikyillar.yillar })
+const mapStateToProps = (state) => ({ strategydata: state.amaclar.stratejidata,error:state.amaclar.error, loading: state.amaclar.loading, Yillar: state.stratejikyillar.yillar })
 export default connect(mapStateToProps, { getAmacData, getStratejiYiliData })(withStyles(styles)(StratejiOlustur));

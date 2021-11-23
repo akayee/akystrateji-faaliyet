@@ -38,24 +38,6 @@ const dashboardRoutes = [
 
   },
   {
-    path:"/accountdetail",
-    name:"AccountDetail",
-    icon:Person,
-    component: AccountDetail,
-    layout: "/admin",
-    invisible:true
-
-  },
-  {
-    path:"/editaccount",
-    name:"EditAccount",
-    icon:Person,
-    component: EditAccount,
-    layout: "/admin",
-    invisible:true
-
-  },
-  {
     path:"/numarataj",
     name:"Numarataj",
     icon:Person,

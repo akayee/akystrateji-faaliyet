@@ -17,12 +17,17 @@ export default (state = initialState, action) => {
 
     switch (action.type) {
         case GET_AMACDATA:
-            return {
-                ...state,
-                amaclar: action.payload,
-                loading: false,
-                stratejidata: action.stratejidata
+            if (action.error) {
+                return { ...state, error: true,loading:false }
+            } else {
+                return {
+                    ...state,
+                    amaclar: action.payload,
+                    loading: false,
+                    stratejidata: action.stratejidata
+                }
             }
+
         case ADD_TO_AMACLAR:
             if (!action.error) {
                 let yeniamaclar = state.amaclar;

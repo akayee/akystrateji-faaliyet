@@ -88,10 +88,14 @@ class BirimBilgileri extends React.Component {
       return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     };
 
-    if (this.props.birimbilgileri.loading == true) {
+    if (this.props.loading == true) {
       return <div>
         <Skeleton height={100} />
         <Skeleton count={6} /></div>
+    }else if(this.props.error==true){
+      return <div>
+        <h1>Sistem Hatası</h1>
+      </div>
     }
 
     const {fizikselYapilar,donanimlar,mevzuatlar,yazilimlar,aracListesi,personeller,yetkiGorevTanimlari,yetkiliOlduguBirimler}= this.props.birimbilgileri;
@@ -138,5 +142,5 @@ class BirimBilgileri extends React.Component {
 BirimBilgileri.propTypes = {
   classes: PropTypes.object.isRequired
 };
-const mapStateToProps = (state) => ({ birimbilgileri: state.birimler.birimbilgileri, error: state.birimler.error })
+const mapStateToProps = (state) => ({ birimbilgileri: state.birimler.birimbilgileri, error: state.birimler.error,loading:state.birimler.loading })
 export default connect(mapStateToProps,{getBirimBilgileri})(withStyles(styles)(BirimBilgileri));

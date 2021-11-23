@@ -70,7 +70,8 @@ export const getBirimBilgileri = birimId =>async dispatch=> {
         const res =await axios.get(`https://localhost:44312/Birimler/GetListofBirimBilgileri?${birimId.map((n, index) => `Birimler[${index}]=${n}`).join('&')}`)
         dispatch({
             type:GET_BIRIMBILGILERI,
-            payload:res.data
+            payload:res.data,
+            error:false
         })
     }
     catch(e){
