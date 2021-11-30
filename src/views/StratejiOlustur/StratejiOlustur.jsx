@@ -186,7 +186,7 @@ class StratejiOlustur extends React.Component {
                 >
                   <Grid item xs={10} >A{stratejiIndex + 1}:{strateji.adi}</Grid>
                   <Grid item xs={2} style={{ textAlign: 'right' }}>
-                    <IconButton onClick={e => {
+                  {hedefler.some(obj=>obj.amaclarId==strateji.id)?null:<IconButton onClick={e => {
                       e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
                       Swal.fire({
                         title: 'Emin Misin?',
@@ -208,7 +208,8 @@ class StratejiOlustur extends React.Component {
                       })
                     }}>
                       <DeleteIcon />
-                    </IconButton>
+                    </IconButton>}
+                    
 
 
                     <IconButton key={stratejiIndex} onClick={(e) => {
@@ -244,7 +245,7 @@ class StratejiOlustur extends React.Component {
                           >
                             <Grid item xs={5}>H{stratejiIndex + 1}.{hedeflerindex + 1} : <div >{hedef.tanim}</div ></Grid>
                             <Grid item xs={7} style={{ textAlign: 'right' }}>
-                              <IconButton onClick={e => {
+                            {performanslar.some(obj=>obj.hedeflerId==hedef.id)?null:<IconButton onClick={e => {
                                 e.stopPropagation();// **ÖNEMLİ** // Butona tıklanınca akordiyonun açılmasını engelliyor.
                                 Swal.fire({
                                   title: 'Emin Misin?',
@@ -265,7 +266,8 @@ class StratejiOlustur extends React.Component {
                                 })
                               }}>
                                 <DeleteIcon />
-                              </IconButton>
+                              </IconButton>}
+                              
 
                               <IconButton key={hedeflerindex} onClick={(e) => {
                                 e.stopPropagation();
@@ -299,9 +301,10 @@ class StratejiOlustur extends React.Component {
                                 >
                                   <Grid item xs={5}>P{stratejiIndex + 1}.{hedeflerindex + 1}.{performansindex + 1} : {performans.adi}</Grid>
                                   <Grid item xs={7} style={{ textAlign: 'right' }}>
-                                    <IconButton>
+                                    {isturleri.some(obj=>obj.performansId==performans.id)||vmFaaliyetTurleri.some(obj=>obj.performansId==performans.id)?null: <IconButton>
                                       <DeleteIcon />
-                                    </IconButton>
+                                    </IconButton>}
+                                   
 
                                     <IconButton key={performansindex} onClick={(e) => {
                                       e.stopPropagation();

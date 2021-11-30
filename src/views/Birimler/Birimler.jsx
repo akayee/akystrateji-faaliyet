@@ -89,6 +89,7 @@ class Birimler extends React.Component {
   render() {
     //DİZAYN CLASSLARININ PROPDAN ALINMA İŞLEMİ
     const strategydata = this.props.strategydata.strategydata;
+    console.log(strategydata)
     return (
       <div>
         <GridContainer>
@@ -191,8 +192,8 @@ class Birimler extends React.Component {
                       <Grid item xs={6}>P{performans.amaclarId}.{performans.hedeflerId + 1}.{performans.id + 1} : {performans.adi}</Grid>
                       <Grid item xs={6}>
                         <LinearProg
-                          gerceklesmeOrani={strategydata.isturleri.filter(obj => obj.performansId == performans.id).map(item => item.toplamDeger).reduce((prev, next) => prev + next)}
-                          yillikHedef={strategydata.vmFaaliyetTurleri.filter(obj => obj.performansId == performans.id).map(item => item.toplamDeger).reduce((prev, next) => prev + next)}
+                          gerceklesmeOrani={strategydata.isturleri.filter(obj => obj.performansId == performans.id).map(item => item.toplamDeger).reduce((prev, next) => prev + next,0)}
+                          yillikHedef={strategydata.vmFaaliyetTurleri.filter(obj => obj.performansId == performans.id).map(item => item.toplamDeger).reduce((prev, next) => prev + next,0)}
                           gosterilecekalan={["Faaliyet", "Maaliyet"]} />
                       </Grid>
                     </AccordionSummary>
